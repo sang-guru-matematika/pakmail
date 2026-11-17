@@ -1,60 +1,20 @@
-CARA UNGGAH — Portal Pak Mail v2 (struktur baru: Jenjang → Kelas → Mapel)
-=====================================================================
-Diperbarui: 17 November 2026, 22.26 WIB
+CARA UNGGAH — Paket ASAS v3 (gerbang nama AKTIF)
+================================================
+ZIP ini hanya berisi SATU berkas yang berubah: index.html paket
+Bahasa Indonesia Kelas IV (URL Apps Script sudah terpasang di
+dalamnya). Berkas lain di situs TIDAK berubah, tidak perlu diunggah
+ulang.
 
-ISI PAKET INI
--------------
-index.html                                Beranda hub (label kartu Paket Soal kini "Paket ASAS · SD, SMP, SMA")
-paket-soal/index.html                     Toko: pemilih jenjang SD / SMP / SMA
-paket-soal/sd/index.html                  SD: pemilih Kelas 1-6
-paket-soal/smp/index.html                 SMP: pemilih Kelas 7-9
-paket-soal/sma/index.html                 SMA: pemilih Kelas 10-12
-paket-soal/sd/kelas-1/index.html          Katalog mapel SD Kelas 1 (menyusul)
-paket-soal/sd/kelas-2/index.html          Katalog mapel SD Kelas 2 (menyusul)
-paket-soal/sd/kelas-3/index.html          Katalog mapel SD Kelas 3 (menyusul)
-paket-soal/sd/kelas-4/index.html          Katalog mapel SD Kelas 4 (Bahasa Indonesia TERSEDIA, mapel lain menyusul)
-paket-soal/sd/kelas-5/index.html          Katalog mapel SD Kelas 5 (menyusul)
-paket-soal/sd/kelas-6/index.html          Katalog mapel SD Kelas 6 (menyusul)
-paket-soal/smp/kelas-7/index.html         Katalog mapel SMP Kelas 7 (menyusul)
-paket-soal/smp/kelas-8/index.html         Katalog mapel SMP Kelas 8 (menyusul)
-paket-soal/smp/kelas-9/index.html         Katalog mapel SMP Kelas 9 (menyusul)
-paket-soal/sma/kelas-10/index.html        Katalog mapel SMA Kelas 10 (menyusul)
-paket-soal/sma/kelas-11/index.html        Katalog mapel SMA Kelas 11 (menyusul)
-paket-soal/sma/kelas-12/index.html        Katalog mapel SMA Kelas 12 (menyusul)
-paket-soal/sd/kelas-4/bahasa-indonesia/index.html
-                                          Paket B. Indonesia Kelas IV (gerbang nama PER-MAPEL — baru)
-berita/index.html                         Placeholder Berita Pendidikan (tidak berubah)
-perangkat-pembelajaran/index.html         Placeholder Perangkat Pembelajaran (tidak berubah)
+Langkah:
+1. Ekstrak ZIP ini di komputer Bapak.
+2. Buka repo pakmail di GitHub (sang-guru-matematika/pakmail).
+3. Masuk ke folder: paket-soal / sd / kelas-4 / bahasa-indonesia /
+4. HAPUS berkas index.html yang lama di folder itu.
+5. Unggah berkas index.html yang baru dari folder hasil ekstrak
+   (paket-soal/sd/kelas-4/bahasa-indonesia/index.html).
+6. Commit.
 
-Alur baru: Beranda → Paket Soal → pilih SD/SMP/SMA → pilih Kelas → pilih Mapel → paket terbuka.
-Pembelian per mapel: admin mendaftarkan nama pembeli untuk mapel yang dibeli
-(dropdown Mapel di panel Admin; pilihan "Semua Mapel" membuka semua paket).
-
-LANGKAH UNGGAH (GitHub web)
----------------------------
-1. Ekstrak ZIP ini di komputer.
-2. Buka repo sang-guru-matematika/pakmail di GitHub.
-3. PENTING — hapus dulu folder lama paketnya: buka folder
-   paket-soal/bahasa-indonesia-kelas-4/ → tombol "..." → Delete directory.
-   (Paket sudah pindah ke paket-soal/sd/kelas-4/bahasa-indonesia/.)
-4. Klik "Add file" → "Upload files" (atau tautan "uploading an existing file").
-5. Buka folder hasil ekstrak, MASUK ke dalamnya, pilih SEMUA isi (Ctrl+A),
-   seret ke halaman upload. Jangan seret foldernya — seret isinya.
-6. Klik "Commit changes".
-7. Cek: root repo menampilkan index.html, paket-soal, berita,
-   perangkat-pembelajaran, CARA-UNGGAH.txt, dan CNAME.
-
-CEK SETELAH UNGGAH (tunggu 1-2 menit)
---------------------------------------
-- https://pakmail.web.id/ → beranda hub
-- https://pakmail.web.id/paket-soal/ → pilih SD
-- https://pakmail.web.id/paket-soal/sd/ → pilih Kelas 4
-- https://pakmail.web.id/paket-soal/sd/kelas-4/ → kartu Bahasa Indonesia → Buka Paket
-- https://pakmail.web.id/paket-soal/sd/kelas-4/bahasa-indonesia/ → gerbang nama paket
-
-CATATAN
--------
-- Gerbang nama paket masih butuh URL /exec Apps Script (daftar pembeli per-mapel).
-  Sampai URL itu dipasang, paket terkunci dengan pesan "belum dipasang".
-  Panduan + kode script ada di berkas terpisah (daftar-pembeli-asas).
-- Enforce HTTPS di Settings → Pages dicentang begitu kotaknya bisa dicentang.
+Cek setelah unggah (tunggu 1-2 menit):
+- Buka https://pakmail.web.id/paket-soal/sd/kelas-4/bahasa-indonesia/
+- Pesan "Sistem pemeriksaan nama belum dipasang" SUDAH TIDAK ADA.
+- Ketik nama yang belum terdaftar -> muncul "Nama belum terdaftar."
