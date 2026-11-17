@@ -277,6 +277,30 @@
       footer .kredit { font-weight: 700; color: var(--ink); }
       footer p { margin: 3px 0; }
 
+      /* Pemilih sekolah (dropdown) — sebelum pilih kelas */
+      [hidden] { display: none !important; }
+      .sekolah-picker { margin-bottom: 18px; }
+      .sekolah-picker label {
+        display: block;
+        font-weight: 700;
+        color: var(--blue-dark);
+        margin-bottom: 8px;
+        font-size: 1.08rem;
+      }
+      .sekolah-picker select {
+        width: 100%;
+        min-height: 52px;
+        padding: 12px 14px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--ink);
+        background: var(--card);
+        border: 2px solid var(--blue);
+        border-radius: 12px;
+      }
+      .sekolah-picker .hint { margin: 8px 0 0; color: var(--ink-soft); font-size: 0.95rem; }
+      .bank-info { margin: 0 0 16px; font-weight: 700; color: var(--blue-dark); }
+
     </style>
   </head>
   <body>
@@ -324,6 +348,16 @@
           <span class="badge menyusul">Menyusul</span>
         </div>
         <div class="pilih-card">
+          <h3>BTQ</h3>
+          <p>Paket ASAS — Semester 1</p>
+          <span class="badge menyusul">Menyusul</span>
+        </div>
+        <div class="pilih-card">
+          <h3>Basa Jawa</h3>
+          <p>Paket ASAS — Semester 1</p>
+          <span class="badge menyusul">Menyusul</span>
+        </div>
+        <div class="pilih-card">
           <h3>Bahasa Inggris</h3>
           <p>Paket ASAS — Semester 1</p>
           <span class="badge menyusul">Menyusul</span>
@@ -334,7 +368,7 @@
           <span class="badge menyusul">Menyusul</span>
         </div>
         <div class="pilih-card">
-          <h3>Seni Budaya</h3>
+          <h3>Seni Rupa</h3>
           <p>Paket ASAS — Semester 1</p>
           <span class="badge menyusul">Menyusul</span>
         </div>

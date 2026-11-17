@@ -1,0 +1,1619 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Paket ASAS Matematika Kelas IV</title>
+    <style>
+      :root{
+        --bg:#dcf0fd; --bg2:#eef8ff; --card:#ffffff; --ink:#17384f; --muted:#51708499;
+        --muted2:#47687e; --primary:#0f7bd4; --primary-d:#0a5ea3; --accent:#ffb020;
+        --good:#1d9e62; --good-bg:#e2f7ec; --bad:#df463a; --bad-bg:#fdecea;
+        --warn:#e9a400; --warn-bg:#fff6da; --line:#b9dcf3; --chip:#eaf5fe;
+        --bab1:#f08c00; --bab2:#1d9e62; --bab3:#d6337f; --bab4:#0f7bd4;
+        --shadow:0 4px 14px rgba(23,90,140,.14);
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#0c2233; --bg2:#0f2a3f; --card:#17384f; --ink:#ecf7ff; --muted2:#a9c6d8;
+          --primary:#3aa0ec; --primary-d:#7cc0f5; --accent:#ffb020;
+          --good:#43d68a; --good-bg:#123d2a; --bad:#ff7a6e; --bad-bg:#4a2320;
+          --warn:#ffcf4d; --warn-bg:#4a3a10; --line:#2c5878; --chip:#1d425f;
+          --shadow:0 4px 14px rgba(0,0,0,.4);
+        }
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2) 320px,var(--bg2));color:var(--ink);
+        font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+        font-size:17px;line-height:1.55;-webkit-text-size-adjust:100%}
+      .wrap{max-width:880px;margin:0 auto;padding:0 16px 40px}
+      button{font-family:inherit;cursor:pointer}
+      button,[role="button"],select,input,textarea{font-family:inherit}
+
+      /* ---------- Navigasi ---------- */
+      nav.topnav{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:3px solid var(--accent);
+        box-shadow:0 2px 10px rgba(23,90,140,.15)}
+      .topnav .in{max-width:880px;margin:0 auto;padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap}
+      .navbtn{flex:1 1 auto;min-height:48px;border:2px solid var(--line);background:var(--chip);color:var(--ink);
+        border-radius:14px;font-size:16px;font-weight:700;padding:8px 10px}
+      .navbtn.active{background:var(--primary);border-color:var(--primary);color:#fff}
+
+      .view{display:none}
+      .view.active{display:block}
+
+      /* ---------- Beranda ---------- */
+      .hero{text-align:center;padding:30px 10px 8px}
+      .hero .badge{display:inline-block;background:var(--accent);color:#4a2f00;font-weight:800;
+        padding:6px 16px;border-radius:999px;font-size:15px;letter-spacing:.3px}
+      .hero h1{font-size:clamp(28px,6vw,42px);margin:14px 0 6px;line-height:1.2;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.hero h1{color:#a8d8ff}}
+      .hero p.sub{font-size:clamp(16px,3.6vw,20px);color:var(--muted2);margin:4px 0 10px;font-weight:600}
+      .disclaimer{max-width:620px;margin:14px auto 0;background:var(--warn-bg);border:2px dashed var(--warn);
+        border-radius:14px;padding:12px 16px;font-weight:700;font-size:16px}
+      .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:26px 0 8px}
+      .stat{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 14px;text-align:center;box-shadow:var(--shadow)}
+      .stat .big{font-size:34px;font-weight:900;color:var(--primary-d);line-height:1.1}
+      @media (prefers-color-scheme: dark){.stat .big{color:#a8d8ff}}
+      .stat .lbl{font-weight:700;color:var(--muted2);margin-top:4px}
+      .babgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0}
+      .babcard{background:var(--card);border-radius:18px;padding:16px;box-shadow:var(--shadow);border-top:8px solid var(--line)}
+      .babcard h3{margin:0 0 6px;font-size:19px}
+      .babcard p{margin:0;color:var(--muted2);font-size:15.5px}
+      .babcard.b1{border-top-color:var(--bab1)} .babcard.b2{border-top-color:var(--bab2)}
+      .babcard.b3{border-top-color:var(--bab3)} .babcard.b4{border-top-color:var(--bab4)}
+      .cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:26px 0 6px}
+      .btn{min-height:52px;border:none;border-radius:16px;font-size:18px;font-weight:800;padding:12px 26px;
+        background:var(--primary);color:#fff;box-shadow:var(--shadow)}
+      .btn:hover{background:var(--primary-d)}
+      .btn.orange{background:#f08c00}.btn.orange:hover{background:#c77400}
+      .btn.ghost{background:var(--card);color:var(--primary-d);border:2px solid var(--primary)}
+      .btn.small{min-height:48px;font-size:16px;padding:10px 18px;border-radius:13px}
+      .btn:disabled{opacity:.45;cursor:not-allowed}
+      .howto{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 20px;margin-top:22px;box-shadow:var(--shadow)}
+      .howto h2{margin:0 0 8px;font-size:21px}
+      .howto li{margin:5px 0}
+
+      /* ---------- Ringkasan ---------- */
+      .sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:24px 0 6px}
+      .sec-head h2{margin:0;font-size:clamp(23px,5vw,30px);color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.sec-head h2{color:#a8d8ff}}
+      .babsec{background:var(--card);border-radius:20px;box-shadow:var(--shadow);margin:18px 0;padding:20px 22px;border-left:10px solid var(--line)}
+      .babsec.b1{border-left-color:var(--bab1)} .babsec.b2{border-left-color:var(--bab2)}
+      .babsec.b3{border-left-color:var(--bab3)} .babsec.b4{border-left-color:var(--bab4)}
+      .babsec h3{margin:0 0 4px;font-size:23px}
+      .babsec .tema{color:var(--muted2);font-weight:600;margin:0 0 10px}
+      .konsep{margin:0;padding:0;list-style:none}
+      .konsep li{padding:9px 0;border-bottom:1px dashed var(--line)}
+      .konsep li:last-child{border-bottom:none}
+      .konsep b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.konsep b{color:#a8d8ff}}
+      .contoh{display:block;margin-top:3px;background:var(--chip);border-radius:10px;padding:7px 12px;font-size:16px}
+      .contoh::before{content:"Contoh: ";font-weight:800}
+
+      /* ---------- Soal ---------- */
+      .qcard{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 20px;margin:14px 0;box-shadow:var(--shadow)}
+      .qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+      .qno{background:var(--primary);color:#fff;font-weight:900;border-radius:10px;padding:3px 12px;font-size:16px}
+      .qtype{font-weight:800;font-size:13.5px;padding:4px 11px;border-radius:999px;background:var(--chip);color:var(--muted2);border:1.5px solid var(--line)}
+      .qtype.pg{background:#e3f0ff;color:#0a5ea3}.qtype.isian{background:#fff0d6;color:#8a5a00}.qtype.uraian{background:#ffe3f0;color:#9c1c58}
+      @media (prefers-color-scheme: dark){.qtype.pg{background:#173a55;color:#a8d8ff}.qtype.isian{background:#4a3a10;color:#ffcf4d}.qtype.uraian{background:#47203a;color:#ff9ec7}}
+      .qskor{margin-left:auto;font-weight:700;color:var(--muted2);font-size:14.5px}
+      .stimulus{background:var(--chip);border-left:6px solid var(--accent);border-radius:10px;padding:12px 16px;margin:10px 0;font-size:17px}
+      .qtext{font-size:18px;font-weight:600;margin:8px 0}
+      .opts{display:grid;gap:9px;margin-top:10px}
+      .opt{min-height:52px;text-align:left;border:2px solid var(--line);background:var(--card);color:var(--ink);
+        border-radius:13px;padding:11px 15px;font-size:17px;font-weight:600;width:100%}
+      .opt .huruf{display:inline-block;background:var(--chip);border:1.5px solid var(--line);border-radius:8px;
+        font-weight:900;padding:1px 9px;margin-right:9px}
+      .opt.sel{border-color:var(--primary);background:var(--chip)}
+      .opt.benar{border-color:var(--good);background:var(--good-bg)}
+      .opt.salah{border-color:var(--bad);background:var(--bad-bg)}
+      .opt:disabled{cursor:default;opacity:1}
+      .explain{display:none;margin-top:12px;border-radius:12px;padding:12px 15px;font-size:16px}
+      .explain.show{display:block}
+      .explain.ok{background:var(--good-bg);border:1.5px solid var(--good)}
+      .explain.no{background:var(--bad-bg);border:1.5px solid var(--bad)}
+      .explain.info{background:var(--chip);border:1.5px solid var(--line)}
+      .explain .verdict{font-weight:900}
+      .fillin{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+      .fillin input{flex:1 1 220px;min-height:52px;font-size:18px;padding:10px 14px;border:2px solid var(--line);
+        border-radius:13px;background:var(--card);color:var(--ink)}
+      textarea.essay{width:100%;min-height:110px;font-size:17px;padding:12px 14px;border:2px solid var(--line);
+        border-radius:13px;background:var(--card);color:var(--ink);resize:vertical;line-height:1.5}
+      .modelans{display:none;margin-top:12px;background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:12px;padding:12px 15px;font-size:16px}
+      .modelans.show{display:block}
+      .modelans h4{margin:0 0 6px}
+      .svgbox{text-align:center;margin:10px 0}
+      .svgbox svg{max-width:100%;height:auto}
+      .qcard{scroll-margin-top:150px}
+
+      /* ---------- Menu Soal ---------- */
+      .menu-list{display:grid;gap:9px;margin:10px 0 4px}
+      .menu-item{display:flex;gap:11px;align-items:center;width:100%;text-align:left;background:var(--card);
+        border:2px solid var(--line);border-radius:14px;padding:11px 14px;box-shadow:var(--shadow);color:var(--ink)}
+      .menu-item:hover{border-color:var(--primary)}
+      .menu-item .mno{background:var(--primary);color:#fff;font-weight:900;border-radius:10px;padding:3px 11px;font-size:16px;flex:0 0 auto}
+      .menu-item .mtxt{flex:1 1 auto;font-weight:600;font-size:16px;min-width:0}
+      .menu-item .mskor{font-weight:700;color:var(--muted2);font-size:14px;flex:0 0 auto;white-space:nowrap}
+
+      /* ---------- Kisi-kisi ---------- */
+      .kisi-title{text-align:center;font-weight:900;font-size:clamp(18px,4.4vw,23px);line-height:1.35;margin:6px 0 14px}
+      .kisi-meta{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);margin:0 0 16px}
+      .kisi-meta table{border-collapse:collapse}
+      .kisi-meta td{padding:3.5px 14px 3.5px 0;font-size:16px;vertical-align:top}
+      .kisi-meta td:first-child{font-weight:800;white-space:nowrap}
+      table.kisi{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+      table.kisi th,table.kisi td{border:1.5px solid var(--line);padding:8px 11px;text-align:left;font-size:15.5px;vertical-align:top}
+      table.kisi thead th{background:var(--primary);color:#fff;font-size:15px}
+      table.kisi td.c{text-align:center;white-space:nowrap;font-weight:700}
+      table.kisi tr.kisi-bab td{background:var(--chip);font-weight:900;font-size:16.5px;color:var(--primary-d)}
+      table.kisi tr.kisi-cp td{background:var(--card);font-weight:600;font-size:14.5px;color:var(--muted2)}
+      @media (prefers-color-scheme: dark){table.kisi tr.kisi-bab td{color:#a8d8ff}}
+      table.kisi tr.kisi-total td{background:var(--warn-bg);font-weight:800}
+      @media (max-width:640px){
+        table.kisi thead{display:none}
+        table.kisi,table.kisi tbody,table.kisi tr,table.kisi td{display:block;width:100%}
+        table.kisi tr{border-bottom:2.5px solid var(--line)}
+        table.kisi td{border:none;padding:4px 13px}
+        table.kisi td.c{text-align:left}
+        table.kisi td[data-l]::before{content:attr(data-l)": ";font-weight:800;color:var(--muted2)}
+        table.kisi tr.kisi-bab td,table.kisi tr.kisi-total td{padding:9px 13px}
+        .kisi-meta td:first-child{white-space:normal}
+      }
+
+      /* ---------- Simulasi ---------- */
+      .simbar{position:sticky;top:70px;z-index:40;background:var(--card);border:2px solid var(--line);border-radius:16px;
+        box-shadow:var(--shadow);padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}
+      .timer{font-size:22px;font-weight:900;background:var(--chip);border:2px solid var(--line);border-radius:12px;padding:4px 14px;font-variant-numeric:tabular-nums}
+      .timer.kritis{color:#fff;background:var(--bad);border-color:var(--bad)}
+      .prog{flex:1 1 140px}
+      .progbar{height:12px;background:var(--chip);border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+      .progbar i{display:block;height:100%;background:var(--primary);width:0%}
+      .palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:7px;margin:14px 0}
+      .pal{min-height:46px;border-radius:11px;border:2px solid var(--line);background:var(--card);color:var(--ink);font-weight:800;font-size:16px;padding:4px}
+      .pal.terjawab{background:var(--good);border-color:var(--good);color:#fff}
+      .pal.ragu{background:var(--warn);border-color:var(--warn);color:#4a2f00}
+      .pal.terjawab.ragu{background:linear-gradient(135deg,var(--good) 55%,var(--warn) 55%)}
+      .pal.kini{outline:3.5px solid var(--primary);outline-offset:1px}
+      .simnav{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+      .simnav .btn{flex:1 1 auto}
+      .btn.ragu-on{background:var(--warn);color:#4a2f00}
+      .legenda{display:flex;gap:14px;flex-wrap:wrap;font-size:14.5px;color:var(--muted2);font-weight:600;margin:6px 0}
+      .legenda .kotak{display:inline-block;width:15px;height:15px;border-radius:4px;vertical-align:-2px;margin-right:5px;border:1.5px solid var(--line)}
+
+      /* ---------- Hasil ---------- */
+      .scoregrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin:16px 0}
+      .scorecard{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:15px;text-align:center;box-shadow:var(--shadow)}
+      .scorecard .angka{font-size:30px;font-weight:900;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.scorecard .angka{color:#a8d8ff}}
+      .scorecard .ket{font-weight:700;color:var(--muted2);font-size:15px}
+      .nilai-besar{background:var(--primary);color:#fff;border-radius:20px;text-align:center;padding:22px;margin:16px 0;box-shadow:var(--shadow)}
+      .nilai-besar .n{font-size:56px;font-weight:900;line-height:1}
+      .nilai-besar .p{font-size:21px;font-weight:800;margin-top:6px}
+      .selfscore{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+      .selfscore .ss{min-height:48px;min-width:52px;border-radius:12px;border:2px solid var(--line);background:var(--card);
+        color:var(--ink);font-size:18px;font-weight:900}
+      .selfscore .ss.pick{background:var(--primary);border-color:var(--primary);color:#fff}
+      .jawaban-siswa{background:var(--chip);border-radius:10px;padding:10px 14px;margin:8px 0;white-space:pre-wrap;font-size:16px}
+      table.rekap{width:100%;border-collapse:collapse;margin:10px 0;background:var(--card);border-radius:14px;overflow:hidden}
+      table.rekap th,table.rekap td{border:1.5px solid var(--line);padding:9px 12px;text-align:left;font-size:16px}
+      table.rekap th{background:var(--chip)}
+
+      /* ---------- Modal ---------- */
+      .modal{display:none;position:fixed;inset:0;background:rgba(10,35,55,.55);z-index:100;align-items:center;justify-content:center;padding:18px}
+      .modal.show{display:flex}
+      .modal .box{background:var(--card);color:var(--ink);border-radius:20px;max-width:440px;width:100%;padding:24px;box-shadow:var(--shadow)}
+      .modal h3{margin:0 0 8px;font-size:22px}
+      .modal .row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+      .modal .row .btn{flex:1}
+
+      @media (max-width:760px){ .simbar{top:128px} }
+      footer{text-align:center;color:var(--muted2);font-weight:700;padding:26px 16px 34px;font-size:15.5px}
+      .hidden{display:none!important}
+
+      /* ---------- Layar Kunci Nama ---------- */
+      .gate{position:fixed;inset:0;z-index:300;background:linear-gradient(180deg,var(--bg),var(--bg2));display:flex;align-items:center;justify-content:center;padding:20px 16px;overflow-y:auto}
+      .gate.hidden{display:none!important}
+      .gate-card{background:var(--card);border:2px solid var(--line);border-radius:22px;box-shadow:var(--shadow);max-width:480px;width:100%;padding:28px 24px;text-align:center}
+      .gate-card .badge{display:inline-block;background:var(--accent);color:#4a2f00;font-weight:800;padding:6px 16px;border-radius:999px;font-size:14px;letter-spacing:.3px}
+      .gate-card h1{font-size:clamp(24px,5.5vw,32px);margin:14px 0 8px;line-height:1.25;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.gate-card h1{color:#a8d8ff}}
+      .gate-card .gate-sub{font-size:17px;font-weight:600;margin:6px 0 4px}
+      .gate-card .gate-note{font-size:15px;color:var(--muted2);font-weight:600;margin:0 0 20px}
+      .gate-field{text-align:left;margin:0 0 6px}
+      .gate-field label{display:block;font-weight:800;font-size:16px;margin-bottom:7px}
+      .gate-field input{width:100%;min-height:54px;font-size:18px;padding:12px 15px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
+      .gate-field input:focus{outline:3px solid var(--primary);outline-offset:1px;border-color:var(--primary)}
+      .gate-error{display:none;text-align:left;color:var(--bad);background:var(--bad-bg);border:1.5px solid var(--bad);border-radius:12px;padding:10px 13px;font-weight:700;font-size:15.5px;margin:10px 0 0}
+      .gate-error.show{display:block}
+      .gate-card .btn{width:100%;margin-top:16px}
+      body.locked{overflow:hidden}
+
+      /* ---------- Bar Pemilik Paket ---------- */
+      .owner-bar{max-width:880px;margin:0 auto;padding:10px 16px 0}
+      .owner-bar .in{background:var(--card);border:2px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+      .owner-bar .milik{font-weight:700;font-size:16px;flex:1 1 180px;min-width:0;overflow-wrap:break-word}
+      .owner-bar .milik b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.owner-bar .milik b{color:#a8d8ff}}
+      .btn-ganti{min-height:44px;border:2px solid var(--primary);background:var(--card);color:var(--primary-d);border-radius:11px;font-size:15px;font-weight:800;padding:8px 16px}
+      .hasil-nama{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 16px;font-weight:700;font-size:17px;margin:14px 0 0;box-shadow:var(--shadow)}
+      .hasil-nama b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.hasil-nama b{color:#a8d8ff}}
+      .gate-system-msg{display:none;background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15.5px;margin:0 0 14px;text-align:left}
+      .gate-system-msg.show{display:block}
+      .btn-admin-footer{min-height:52px;border:2.5px solid var(--primary-d);background:var(--primary-d);color:#fff;border-radius:999px;font-size:16.5px;font-weight:800;padding:12px 30px;margin-top:12px;box-shadow:var(--shadow)}
+      @media (prefers-color-scheme: dark){.btn-admin-footer{color:#0c2233}}
+      .btn-admin-footer:hover{opacity:.88}
+      .btn-admin-gate{width:100%;min-height:54px;border:2.5px solid var(--primary-d);background:var(--primary-d);color:#fff;border-radius:16px;font-size:18px;font-weight:800;padding:12px 20px;margin-top:12px;box-shadow:var(--shadow)}
+      @media (prefers-color-scheme: dark){.btn-admin-gate{color:#0c2233}}
+      .btn-admin-gate:hover{opacity:.88}
+      .gate-admin-note{font-size:14px;color:var(--muted2);font-weight:600;margin:8px 0 0}
+      #modal-admin{z-index:400}
+      .admin-modal .box{max-width:560px;max-height:88vh;overflow-y:auto}
+      .admin-field{margin:12px 0;text-align:left}
+      .admin-field label{display:block;font-weight:800;font-size:15px;margin-bottom:6px}
+      .admin-field input,.admin-field select{width:100%;min-height:50px;font-size:16px;padding:10px 13px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+      .admin-msg{display:none;border-radius:11px;padding:10px 13px;font-weight:700;font-size:15px;margin:12px 0 0;text-align:left}
+      .admin-msg.show{display:block}
+      .admin-msg.err{color:var(--bad);background:var(--bad-bg);border:1.5px solid var(--bad)}
+      .admin-msg.ok{color:var(--good);background:var(--good-bg);border:1.5px solid var(--good)}
+      .admin-msg.info{background:var(--chip);border:1.5px solid var(--line)}
+      .admin-list{margin:14px 0 0;display:grid;gap:9px}
+      .admin-row{display:flex;gap:10px;align-items:flex-start;background:var(--chip);border:1.5px solid var(--line);border-radius:13px;padding:11px 13px;text-align:left}
+      .admin-row .info{flex:1;min-width:0;overflow-wrap:break-word}
+      .admin-row .info b{display:block;font-size:16px}
+      .admin-row .info span{display:block;font-size:13.5px;color:var(--muted2);font-weight:600}
+      .btn-hapus{min-height:40px;border:1.5px solid var(--bad);background:var(--card);color:var(--bad);border-radius:10px;font-size:14px;font-weight:800;padding:6px 12px;white-space:nowrap}
+      .admin-empty{font-weight:600;color:var(--muted2);background:var(--chip);border:1.5px dashed var(--line);border-radius:12px;padding:14px;text-align:center}
+      .ringkasan-print-nama{display:none}
+
+      /* ---------- Area Cetak Soal & Kunci (hanya tampil saat print) ---------- */
+      .print-area{display:none}
+      .print-area .p-head{text-align:center;border-bottom:3px double #000;padding-bottom:12px;margin-bottom:14px}
+      .print-area .p-head h1{font-size:20px;margin:0 0 4px;line-height:1.25}
+      .print-area .p-head p{margin:2px 0;font-size:13.5px}
+      .print-area .p-ident{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 18px;font-size:14px;font-weight:700}
+      .print-area .p-ident span{flex:1 1 180px;border-bottom:1.5px dotted #000;padding-bottom:6px;white-space:nowrap}
+      .print-area .p-petunjuk{border:1.5px solid #000;border-radius:8px;padding:10px 14px;font-size:13.5px;margin-bottom:16px}
+      .print-area .p-bab{font-size:16px;font-weight:900;margin:20px 0 8px;border-bottom:2px solid #000;padding-bottom:4px}
+      .print-area .pq{break-inside:avoid;margin:0 0 16px}
+      .print-area .pq-no{font-weight:900}
+      .print-area .pq-stim{border:1.5px solid #888;border-left:6px solid #888;padding:8px 12px;margin:6px 0;font-size:13.5px;background:#f7f7f7}
+      .print-area .pq-opts{margin:6px 0 0 18px;padding:0;list-style:none}
+      .print-area .pq-opts li{margin:4px 0;font-size:14px}
+      .print-area .pq-blank{border-bottom:1.5px solid #000;height:28px;margin:8px 0 2px}
+      .print-area .pq-lines{margin-top:8px}
+      .print-area .pq-lines i{display:block;height:26px;border-bottom:1.5px solid #999}
+      .print-area .pk-item{break-inside:avoid;border:1.5px solid #888;border-radius:8px;padding:10px 14px;margin:0 0 12px}
+      .print-area .pk-item h4{margin:0 0 6px;font-size:14.5px}
+      .print-area .pk-ans{background:#f2f2f2;border:1px solid #bbb;padding:8px 10px;border-radius:6px;font-weight:700;margin:6px 0}
+      .print-area .pk-exp{font-size:13.5px;margin:4px 0}
+      .print-area .pk-model{white-space:pre-wrap;font-size:13.5px;background:#fafafa;border:1px solid #ddd;padding:8px 10px;border-radius:6px;margin:6px 0}
+
+      @media print{
+        nav.topnav,footer,.no-print,.modal,.gate,.owner-bar{display:none!important}
+        .ringkasan-print-nama{display:block!important;font-size:14px;font-weight:700;border:1.5px solid #000;border-radius:8px;padding:10px 14px;margin:0 0 14px}
+        body{background:#fff!important;color:#000!important;font-size:13.5px}
+        .wrap{max-width:none;padding:0}
+        .babsec{box-shadow:none;border:1.5px solid #888;border-left:8px solid #888;break-inside:avoid;margin:10px 0;padding:12px 16px}
+        .contoh{background:#f2f2f2!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+        .print-area .pq-stim,.print-area .pk-ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+        /* Mode Ringkasan (default) */
+        body:not([data-print]) #view-home,body:not([data-print]) #view-latihan,body:not([data-print]) #view-menu,body:not([data-print]) #view-kisi,body:not([data-print]) #view-simulasi,body:not([data-print]) #view-hasil,
+        body[data-print="ringkasan"] #view-home,body[data-print="ringkasan"] #view-latihan,body[data-print="ringkasan"] #view-menu,body[data-print="ringkasan"] #view-kisi,body[data-print="ringkasan"] #view-simulasi,body[data-print="ringkasan"] #view-hasil{display:none!important}
+        body:not([data-print]) #view-ringkasan,body[data-print="ringkasan"] #view-ringkasan{display:block!important}
+        body:not([data-print]) .print-area,body[data-print="ringkasan"] .print-area{display:none!important}
+        /* Mode Soal */
+        body[data-print="soal"] .wrap{display:none!important}
+        body[data-print="soal"] #print-soal{display:block!important}
+        body[data-print="soal"] #print-kunci{display:none!important}
+        /* Mode Kunci */
+        body[data-print="kunci"] .wrap{display:none!important}
+        body[data-print="kunci"] #print-kunci{display:block!important}
+        body[data-print="kunci"] #print-soal{display:none!important}
+        @page{margin:16mm 14mm}
+      }
+    </style>
+  </head>
+  <body class="locked">
+    <!-- ================= LAYAR KUNCI NAMA ================= -->
+    <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+      <div class="gate-card">
+        <span class="badge">PAKET BELAJAR ASAS</span>
+        <h1 id="gate-title">Paket ASAS Matematika Kelas IV</h1>
+        <p class="gate-sub">Masukkan nama lengkap Anda untuk membuka paket ini.</p>
+        <p class="gate-note">Hanya nama pembeli yang terdaftar yang dapat membuka paket. Nama ini tercantum di paket dan hasil latihan Anda.</p>
+        <p class="gate-system-msg" id="gate-system-msg" role="alert"></p>
+        <form id="gate-form" novalidate>
+          <div class="gate-field">
+            <label for="gate-nama">Nama Lengkap</label>
+            <input type="text" id="gate-nama" placeholder="Tulis nama lengkap di sini…" autocomplete="name" maxlength="80">
+          </div>
+          <p class="gate-error" id="gate-error" role="alert"></p>
+          <button type="submit" class="btn" id="btn-buka-paket">🔓 Buka Paket</button>
+        </form>
+        <button type="button" class="btn-admin-gate" id="btn-admin-open-gate">🔐 Admin</button>
+      </div>
+    </div>
+
+    <nav class="topnav no-print">
+      <div class="in">
+        <button class="navbtn active" data-nav="home">🏠 Beranda</button>
+        <button class="navbtn" data-nav="ringkasan">📖 Ringkasan</button>
+        <button class="navbtn" data-nav="menu">📋 Menu Soal</button>
+        <button class="navbtn" data-nav="kisi">🗂️ Kisi-kisi</button>
+        <button class="navbtn" data-nav="latihan">✏️ Latihan Soal</button>
+        <button class="navbtn" data-nav="simulasi">📝 Simulasi ASAS</button>
+      </div>
+    </nav>
+
+    <div class="owner-bar hidden no-print" id="owner-bar">
+      <div class="in">
+        <span class="milik">👤 Paket milik: <b id="owner-name">—</b></span>
+        <button type="button" class="btn-ganti" id="btn-ganti-nama">Ganti Nama</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <!-- ================= BERANDA ================= -->
+      <section id="view-home" class="view active">
+        <div class="hero">
+          <span class="badge">PAKET BELAJAR ASAS</span>
+          <h1>Paket ASAS Matematika Kelas IV</h1>
+          <p class="sub">Semester 1 (Ganjil) • Kurikulum Merdeka • 35 Soal</p>
+          <p class="sub" style="font-weight:500">Tahun Ajaran 2026/2027 • Bank Soal SD Negeri Ungaran 01</p>
+          <div class="disclaimer">⚠️ Soal latihan berdasarkan kisi-kisi — bukan soal ujian asli.</div>
+        </div>
+
+        <div class="cards">
+          <div class="stat"><div class="big">3</div><div class="lbl">Materi Ringkasan</div></div>
+          <div class="stat"><div class="big">35</div><div class="lbl">Soal Latihan &amp; Simulasi</div></div>
+          <div class="stat"><div class="big">55</div><div class="lbl">Total Skor Maksimal</div></div>
+          <div class="stat"><div class="big">90</div><div class="lbl">Menit Waktu Simulasi</div></div>
+        </div>
+
+        <div class="babgrid">
+          <div class="babcard b1"><h3>Materi A • Bilangan Cacah sampai 10.000</h3><p>Membaca bilangan, nilai tempat, membandingkan, mengurutkan, menguraikan, penjumlahan, pengurangan, perkalian, pembagian, faktor, dan kelipatan.</p></div>
+          <div class="babcard b2"><h3>Materi B • Pecahan</h3><p>Pecahan dengan pembilang satu, pecahan senilai, pecahan persepuluhan dan perseratusan, desimal, dan persen.</p></div>
+          <div class="babcard b3"><h3>Materi C • Pola Bilangan dan Gambar</h3><p>Pola gambar dan pola bilangan yang membesar, mengecil, dan berulang, serta cara melanjutkannya.</p></div>
+        </div>
+
+        <table class="rekap">
+          <tr><th>Bentuk Soal</th><th>Jumlah</th><th>Skor per Soal</th><th>Total Skor</th></tr>
+          <tr><td>Pilihan Ganda (PG)</td><td>20 soal (No. 1–20)</td><td>1</td><td>20</td></tr>
+          <tr><td>Isian</td><td>10 soal (No. 21–30)</td><td>2</td><td>20</td></tr>
+          <tr><td>Uraian</td><td>5 soal (No. 31–35)</td><td>3</td><td>15</td></tr>
+          <tr><th colspan="3">Nilai Akhir = Total Skor ÷ 55 × 100</th><th>55 → 100</th></tr>
+        </table>
+
+        <div class="cta">
+          <button class="btn" data-go="ringkasan">📖 Mulai Belajar</button>
+          <button class="btn ghost" data-go="menu">📋 Menu Soal</button>
+          <button class="btn ghost" data-go="kisi">🗂️ Kisi-kisi</button>
+          <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
+        </div>
+
+        <div class="howto">
+          <h2>Cara Menggunakan Paket Ini</h2>
+          <ol>
+            <li><b>Ringkasan</b> — Baca ringkasan materi 3 materi terlebih dahulu. Ada tombol <b>Cetak Ringkasan</b> bila ingin mencetaknya.</li>
+            <li><b>Menu Soal</b> — Lihat daftar semua 35 soal per materi. Ketuk salah satu soal untuk langsung melompat ke soal itu di Latihan Soal.</li>
+            <li><b>Kisi-kisi</b> — Lihat kisi-kisi ASAS selengkapnya, supaya bisa dibandingkan dengan kisi-kisi dari gurumu di sekolah.</li>
+            <li><b>Latihan Soal</b> — Kerjakan 35 soal per materi. Kunci dan pembahasan langsung muncul setelah kamu menjawab. Di bagian ini juga ada tombol <b>Cetak Soal</b> (lembar kerja siswa tanpa kunci) dan <b>Cetak Kunci &amp; Pembahasan</b> (untuk guru/orang tua).</li>
+            <li><b>Simulasi ASAS</b> — Uji kemampuanmu seperti ujian sungguhan: 35 soal, waktu 90 menit, ada palet nomor dan tombol ragu-ragu. Setelah selesai, kamu bisa kembali ke <b>Menu Soal</b> dari layar hasil.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= RINGKASAN ================= -->
+      <section id="view-ringkasan" class="view">
+        <div class="ringkasan-print-nama" id="ringkasan-print-nama">Nama: —</div>
+        <div class="sec-head">
+          <h2>📖 Ringkasan Materi</h2>
+          <button class="btn small no-print" id="btn-print">🖨️ Cetak Ringkasan</button>
+        </div>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 6px">Baca baik-baik ya! Satu baris = satu konsep penting, lengkap dengan contohnya.</p>
+
+        <div class="babsec b1">
+          <h3>Materi A • Bilangan Cacah sampai 10.000</h3>
+          <p class="tema">Membaca, nilai tempat, membandingkan, mengurutkan, menguraikan, operasi hitung, faktor, dan kelipatan</p>
+          <ul class="konsep">
+            <li><b>Membaca bilangan:</b> titik pada bilangan memisahkan ribuan. Bacalah dari nilai tempat terbesar.<span class="contoh">7.352 dibaca “tujuh ribu tiga ratus lima puluh dua”.</span></li>
+            <li><b>Nilai tempat</b> sampai 10.000 ada empat: ribuan, ratusan, puluhan, dan satuan.<span class="contoh">Pada bilangan 8.462: angka 8 = ribuan (nilainya 8.000), 4 = ratusan (400), 6 = puluhan (60), 2 = satuan (2).</span></li>
+            <li><b>Membandingkan bilangan:</b> bandingkan mulai dari nilai tempat terbesar (ribuan dulu, lalu ratusan, puluhan, satuan). Tanda: <b>&gt;</b> artinya lebih besar, <b>&lt;</b> artinya lebih kecil, <b>=</b> artinya sama dengan.<span class="contoh">6.540 &gt; 6.450 karena pada tempat ratusan, 5 lebih besar dari 4.</span></li>
+            <li><b>Mengurutkan bilangan:</b> bandingkan bilangan satu per satu mulai dari nilai tempat terbesar, lalu susun dari yang terkecil atau terbesar sesuai permintaan soal.<span class="contoh">Urutan dari terkecil: 3.245, 3.254, 3.425, 3.452.</span></li>
+            <li><b>Menguraikan bilangan (dekomposisi)</b> artinya menulis bilangan sebagai jumlah nilai tempatnya.<span class="contoh">6.385 = 6.000 + 300 + 80 + 5.</span></li>
+            <li><b>Penjumlahan bersusun:</b> jumlahkan satuan dengan satuan, puluhan dengan puluhan, ratusan dengan ratusan. Jika hasilnya lebih dari 9, simpan ke nilai tempat di sebelah kirinya.<span class="contoh">345 + 278 = 623.</span></li>
+            <li><b>Pengurangan bersusun:</b> kurangkan dari satuan. Jika angka yang dikurangi lebih kecil, pinjam 1 dari nilai tempat di sebelah kirinya (nilainya 10).<span class="contoh">825 − 347 = 478.</span></li>
+            <li><b>Perkalian</b> adalah penjumlahan berulang.<span class="contoh">24 × 4 = 24 + 24 + 24 + 24 = 96.</span></li>
+            <li><b>Pembagian</b> adalah kebalikan dari perkalian.<span class="contoh">96 ÷ 8 = 12, karena 8 × 12 = 96.</span></li>
+            <li><b>Faktor</b> suatu bilangan adalah bilangan yang dapat membagi habis bilangan itu (tanpa sisa).<span class="contoh">Faktor dari 24 adalah 1, 2, 3, 4, 6, 8, 12, dan 24.</span></li>
+            <li><b>Kelipatan</b> suatu bilangan adalah hasil mengalikan bilangan itu dengan 1, 2, 3, 4, dan seterusnya.<span class="contoh">Kelipatan 7 adalah 7, 14, 21, 28, 35, 42, …</span></li>
+          </ul>
+        </div>
+
+        <div class="babsec b2">
+          <h3>Materi B • Pecahan</h3>
+          <p class="tema">Pecahan pembilang satu, pecahan senilai, desimal persepuluhan dan perseratusan, serta persen</p>
+          <ul class="konsep">
+            <li><b>Pecahan</b> ditulis pembilang per penyebut. Pembilang adalah angka di atas, penyebut adalah angka di bawah.<span class="contoh">Pada pecahan 3/4, angka 3 adalah pembilang dan 4 adalah penyebut.</span></li>
+            <li><b>Pecahan dengan pembilang satu:</b> jika pembilangnya sama-sama satu, penyebut yang <b>lebih besar</b> membuat nilainya <b>lebih kecil</b>, karena satu benda dibagi ke lebih banyak orang.<span class="contoh">Urutan dari terbesar: 1/2 &gt; 1/3 &gt; 1/4 &gt; 1/5 &gt; 1/6.</span></li>
+            <li><b>Pecahan senilai</b> adalah pecahan yang nilainya sama walaupun angka-angkanya berbeda. Cara mencarinya: kalikan atau bagi pembilang dan penyebut dengan bilangan yang sama.<span class="contoh">1/2 = 2/4 = 3/6 = 4/8.</span></li>
+            <li><b>Pecahan persepuluhan menjadi desimal:</b> penyebut 10 berarti ada <b>satu angka</b> di belakang koma.<span class="contoh">3/10 = 0,3 dan 7/10 = 0,7.</span></li>
+            <li><b>Pecahan perseratusan menjadi desimal:</b> penyebut 100 berarti ada <b>dua angka</b> di belakang koma.<span class="contoh">45/100 = 0,45 dan 28/100 = 0,28.</span></li>
+            <li><b>Persen (%)</b> artinya perseratus. Mengubah desimal menjadi persen: geser tanda koma <b>dua tempat ke kanan</b>, lalu tambahkan tanda %.<span class="contoh">0,75 = 75/100 = 75% dan 0,62 = 62%.</span></li>
+            <li><b>Membaca nilai pecahan dari gambar:</b> hitung semua bagian yang sama besar (itu penyebut), lalu hitung bagian yang diarsir atau diwarnai (itu pembilang).<span class="contoh">Batang dibagi 10 bagian sama besar, 7 bagian diarsir → 7/10 = 0,7.</span></li>
+          </ul>
+        </div>
+
+        <div class="babsec b3">
+          <h3>Materi C • Pola Bilangan dan Gambar</h3>
+          <p class="tema">Pola membesar, pola mengecil, pola berulang, dan cara melanjutkan pola</p>
+          <ul class="konsep">
+            <li><b>Pola bilangan membesar:</b> bilangan bertambah dengan selisih yang tetap.<span class="contoh">3, 5, 7, 9, 11, … — selisihnya selalu +2.</span></li>
+            <li><b>Pola bilangan mengecil:</b> bilangan berkurang dengan selisih yang tetap.<span class="contoh">20, 17, 14, 11, 8, … — selisihnya selalu −3.</span></li>
+            <li><b>Pola gambar membesar atau mengecil:</b> hitunglah banyak gambar pada setiap pola, tuliskan sebagai pola bilangan, lalu carilah selisihnya.<span class="contoh">Gambar berisi 2, 4, 6, 8 lingkaran → pola membesar dengan selisih +2, pola berikutnya berisi 10 lingkaran.</span></li>
+            <li><b>Pola gambar berulang:</b> gambar tersusun berulang dengan urutan yang sama. Untuk melanjutkannya, perhatikan urutan pengulangannya.<span class="contoh">▲ ● ▲ ● ▲ … gambar berikutnya adalah ●.</span></li>
+            <li><b>Melanjutkan pola bilangan (deret rumpang):</b> temukan dulu aturannya (selisih antar bilangan), lalu terapkan aturan itu pada tempat yang kosong.<span class="contoh">12, 17, 22, …, 32, 37 — selisihnya +5, jadi bilangan yang hilang adalah 27.</span></li>
+            <li><b>Membuat pola dari cerita:</b> ambil bilangan awal dan aturan tambah/kurang dari cerita, lalu tuliskan pola bilangannya dan gambar banyak benda pada setiap pola.<span class="contoh">Baris pertama 3 pot, setiap baris bertambah 2 pot → polanya 3, 5, 7, 9, 11.</span></li>
+          </ul>
+        </div>
+        <div class="cta no-print">
+          <button class="btn" data-go="latihan">✏️ Lanjut ke Latihan Soal</button>
+        </div>
+      </section>
+
+      <!-- ================= LATIHAN SOAL ================= -->
+      <section id="view-latihan" class="view">
+        <div class="sec-head">
+          <h2>✏️ Latihan Soal</h2>
+          <div style="display:flex;gap:8px;flex-wrap:wrap" class="no-print">
+            <button class="btn small" id="btn-print-soal">🖨️ Cetak Soal</button>
+            <button class="btn small ghost" id="btn-print-kunci">🖨️ Cetak Kunci &amp; Pembahasan</button>
+          </div>
+        </div>
+        <p style="color:var(--muted2);font-weight:600;margin:0">35 soal dikelompokkan per materi. Jawab dulu, kunci dan pembahasan akan langsung muncul. Semangat! Tombol <b>Cetak Soal</b> untuk lembar kerja siswa (tanpa kunci), tombol <b>Cetak Kunci &amp; Pembahasan</b> untuk pegangan guru/orang tua.</p>
+        <div id="latihan-list"></div>
+        <div class="cta">
+          <button class="btn ghost" data-go="menu">📋 Kembali ke Menu Soal</button>
+          <button class="btn orange" data-go="simulasi">📝 Siap? Coba Simulasi ASAS</button>
+        </div>
+      </section>
+
+      <!-- ================= MENU SOAL ================= -->
+      <section id="view-menu" class="view">
+        <div class="sec-head">
+          <h2>📋 Menu Soal</h2>
+          <button class="btn small no-print" data-go="kisi">🗂️ Lihat Kisi-kisi</button>
+        </div>
+        <p style="color:var(--muted2);font-weight:600;margin:0">Daftar lengkap 35 soal paket ini, dikelompokkan per materi. Ketuk salah satu soal untuk langsung melompat ke soal itu di Latihan Soal.</p>
+        <div id="menu-list"></div>
+        <div class="cta">
+          <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
+          <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
+        </div>
+      </section>
+
+      <!-- ================= KISI-KISI ================= -->
+      <section id="view-kisi" class="view">
+        <div class="sec-head"><h2>🗂️ Kisi-kisi ASAS</h2></div>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 10px">Kisi-kisi di bawah ini ditampilkan apa adanya, agar dapat dibandingkan dengan kisi-kisi yang diberikan guru di sekolah — sama atau tidak.</p>
+        <div class="kisi-title">KISI-KISI ASESMEN AKHIR SEMESTER I<br>TAHUN PELAJARAN 2026/2027</div>
+        <div class="kisi-meta">
+          <table>
+            <tr><td>Mata Pelajaran</td><td>: Matematika</td></tr>
+            <tr><td>Kurikulum</td><td>: Kurikulum Merdeka</td></tr>
+            <tr><td>Jumlah Soal</td><td>: 35</td></tr>
+            <tr><td>Bentuk Soal</td><td>: PG, Isian, Uraian</td></tr>
+            <tr><td>Kelas</td><td>: IV (Empat)</td></tr>
+            <tr><td>Semester</td><td>: 1 (Ganjil)</td></tr>
+            <tr><td>Tahun Ajaran</td><td>: 2026/2027</td></tr>
+            <tr><td>Bank Soal</td><td>: SD Negeri Ungaran 01</td></tr>
+          </table>
+        </div>
+        <div id="kisi-table"></div>
+        <div class="cta">
+          <button class="btn ghost" data-go="menu">📋 Ke Menu Soal</button>
+          <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
+        </div>
+      </section>
+
+      <!-- ================= SIMULASI ASAS ================= -->
+      <section id="view-simulasi" class="view">
+        <div id="sim-start">
+          <div class="sec-head"><h2>📝 Simulasi ASAS</h2></div>
+          <div class="qcard">
+            <h3 style="margin-top:0">Petunjuk Pengerjaan</h3>
+            <ul style="margin:0;padding-left:22px">
+              <li>Jumlah soal <b>35</b>: PG No. 1–20, Isian No. 21–30, Uraian No. 31–35.</li>
+              <li>Waktu pengerjaan <b>90 menit</b>. Jika waktu habis, simulasi otomatis selesai.</li>
+              <li>Gunakan <b>palet nomor</b> untuk berpindah soal. Hijau = sudah dijawab, kuning = ragu-ragu.</li>
+              <li>Tombol <b>Ragu-ragu</b> menandai soal yang belum yakin jawabannya.</li>
+              <li>PG dan Isian dinilai otomatis. Uraian dinilai olehmu sendiri (0–3) di layar hasil dengan membandingkan jawabanmu dengan jawaban model.</li>
+              <li>Total skor maksimal 55. Nilai = total skor ÷ 55 × 100.</li>
+            </ul>
+            <div class="cta" style="justify-content:flex-start">
+              <button class="btn" id="btn-start-sim">▶️ Mulai Simulasi</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="sim-quiz" class="hidden">
+          <div class="simbar">
+            <div class="timer" id="sim-timer">⏱️ 90:00</div>
+            <div class="prog">
+              <div style="font-weight:800;font-size:15px;margin-bottom:3px"><span id="sim-prog-text">Soal 1 dari 35</span> • Terjawab: <span id="sim-answered">0</span>/35</div>
+              <div class="progbar"><i id="sim-prog-bar"></i></div>
+            </div>
+            <button class="btn small" id="btn-finish-top" style="background:var(--bad)">✔ Selesai</button>
+          </div>
+          <div class="palette" id="sim-palette"></div>
+          <div class="legenda">
+            <span><span class="kotak" style="background:var(--good)"></span>Sudah dijawab</span>
+            <span><span class="kotak" style="background:var(--warn)"></span>Ragu-ragu</span>
+            <span><span class="kotak" style="background:var(--card)"></span>Belum dijawab</span>
+          </div>
+          <div id="sim-question"></div>
+          <div class="simnav">
+            <button class="btn ghost" id="btn-prev">⬅️ Sebelumnya</button>
+            <button class="btn ghost" id="btn-flag">🚩 Ragu-ragu</button>
+            <button class="btn" id="btn-next">Berikutnya ➡️</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= HASIL ================= -->
+      <section id="view-hasil" class="view">
+        <div class="sec-head"><h2>🏆 Hasil Simulasi ASAS</h2></div>
+        <div class="hasil-nama" id="hasil-nama">👤 Nama: <b id="hasil-nama-val">—</b></div>
+        <div class="nilai-besar">
+          <div style="font-weight:800;font-size:18px">Nilai Akhir</div>
+          <div class="n" id="hasil-nilai">0</div>
+          <div class="p" id="hasil-predikat">—</div>
+          <div style="font-weight:700;opacity:.92">Total Skor: <span id="hasil-total">0</span> / 55</div>
+        </div>
+        <div class="scoregrid">
+          <div class="scorecard"><div class="angka"><span id="skor-pg">0</span>/20</div><div class="ket">Pilihan Ganda (20 soal × 1)</div></div>
+          <div class="scorecard"><div class="angka"><span id="skor-isian">0</span>/20</div><div class="ket">Isian (10 soal × 2)</div></div>
+          <div class="scorecard"><div class="angka"><span id="skor-uraian">0</span>/15</div><div class="ket">Uraian (5 soal × 3, nilai sendiri)</div></div>
+        </div>
+        <div id="uraian-self"></div>
+        <h3 style="margin:24px 0 4px;font-size:22px">📚 Pembahasan Semua Soal</h3>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 6px">Pelajari pembahasan tiap soal ya, supaya makin paham!</p>
+        <div id="hasil-review"></div>
+        <div class="cta">
+          <button class="btn" id="btn-retry">🔁 Ulangi Simulasi</button>
+          <button class="btn ghost" data-go="menu">📋 Kembali ke Menu Soal</button>
+          <button class="btn ghost" data-go="ringkasan">📖 Baca Ringkasan Lagi</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== AREA CETAK: LEMBAR SOAL (tanpa kunci) ===== -->
+    <div id="print-soal" class="print-area" aria-hidden="true"></div>
+    <!-- ===== AREA CETAK: KUNCI & PEMBAHASAN ===== -->
+    <div id="print-kunci" class="print-area" aria-hidden="true"></div>
+
+    <footer>Dikembangkan oleh Abid Khoirul Ismail, S.Pd<br><button type="button" class="btn-admin-footer" id="btn-admin-open">🔐 Admin</button></footer>
+
+    <!-- Modal Admin -->
+    <div class="modal admin-modal" id="modal-admin" role="dialog" aria-modal="true" aria-labelledby="admin-title">
+      <div class="box">
+        <h3 id="admin-title">Panel Admin</h3>
+        <p style="margin:0;font-size:15.5px;color:var(--muted2);font-weight:600">Kelola daftar nama pembeli yang dapat membuka paket ini.</p>
+        <p class="admin-msg" id="admin-system-msg" role="alert"></p>
+        <div id="admin-login">
+          <div class="admin-field">
+            <label for="admin-pin">PIN Admin</label>
+            <input type="password" id="admin-pin" placeholder="Masukkan PIN" autocomplete="current-password">
+          </div>
+          <p class="admin-msg" id="admin-login-msg" role="alert"></p>
+          <div class="row">
+            <button type="button" class="btn ghost" id="btn-admin-close">Tutup</button>
+            <button type="button" class="btn" id="btn-admin-login">Masuk</button>
+          </div>
+        </div>
+        <div id="admin-content" class="hidden">
+          <p class="admin-msg" id="admin-msg" role="alert"></p>
+          <div class="admin-field">
+            <label for="admin-new-nama">Nama pembeli baru</label>
+            <input type="text" id="admin-new-nama" placeholder="Tulis nama lengkap pembeli…" autocomplete="off" maxlength="80">
+          </div>
+          <div class="admin-field">
+            <label for="admin-new-mapel">Mapel</label>
+            <select id="admin-new-mapel">
+              <option value="sd-kelas-4-matematika" selected>Matematika Kelas IV (SD)</option>
+              <option value="semua">Semua Mapel</option>
+            </select>
+          </div>
+          <div class="admin-field">
+            <label for="admin-new-ket">Keterangan (opsional)</label>
+            <input type="text" id="admin-new-ket" placeholder="Contoh: WA, Kelas IV A, dsb." autocomplete="off" maxlength="120">
+          </div>
+          <button type="button" class="btn" id="btn-admin-add" style="width:100%">＋ Tambah</button>
+          <h4 style="margin:20px 0 4px;font-size:17px">Daftar Nama Pembeli</h4>
+          <div class="admin-list" id="admin-list"></div>
+          <div class="row">
+            <button type="button" class="btn ghost" id="btn-admin-refresh">↻ Muat Ulang Daftar</button>
+            <button type="button" class="btn ghost" id="btn-admin-done">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal konfirmasi selesai -->
+    <div class="modal" id="modal-finish">
+      <div class="box">
+        <h3>Selesaikan Simulasi?</h3>
+        <p id="modal-finish-text" style="margin:0;font-size:16.5px"></p>
+        <div class="row">
+          <button class="btn ghost" id="btn-modal-back">Kembali Mengerjakan</button>
+          <button class="btn" id="btn-modal-yes" style="background:var(--bad)">Ya, Selesai ✔</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    "use strict";
+    /* ============================================================
+       URL /exec APPS SCRIPT (gerbang nama pembeli + panel Admin).
+       ============================================================ */
+    var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRi3IkD-9nmjKvU_luHZ1QqGcWijJ5NgDYAiBUJTK8Tss_EnQ4oqRYFQGLtDix2XLDGg/exec";
+    /* Identitas mapel paket ini — setiap mapel dibeli terpisah,
+       jadi pemeriksaan nama dan daftar pembeli selalu per mapel. */
+    var MAPEL_ID = "sd-kelas-4-matematika";
+    var MAPEL_LABEL = "Matematika Kelas IV (SD)";
+    var TOTAL_SKOR_MAKS = 55;
+
+    /* =============== GAMBAR (SVG digambar sendiri) =============== */
+    function kartuSvg(digits, caption){
+      var s = '<div class="svgbox"><svg width="320" height="104" viewBox="0 0 320 104" role="img" aria-label="Kartu bilangan">';
+      digits.forEach(function(d,i){
+        var x = 8 + i*78;
+        s += '<rect x="'+x+'" y="10" width="66" height="84" rx="10" fill="#fff3d6" stroke="#f08c00" stroke-width="3"/>'
+          + '<text x="'+(x+33)+'" y="70" text-anchor="middle" font-size="46" font-weight="900" fill="#17384f" font-family="Arial,sans-serif">'+d+'</text>';
+      });
+      s += '</svg><div style="font-weight:700;color:var(--muted2)">'+caption+'</div></div>';
+      return s;
+    }
+    var SVG_KARTU_7352 = kartuSvg([7,3,5,2], "Kartu bilangan");
+    var SVG_KARTU_6084 = kartuSvg([6,0,8,4], "Kartu bilangan");
+
+    var SVG_BATANG_07 = (function(){
+      var s = '<div class="svgbox"><svg width="340" height="64" viewBox="0 0 340 64" role="img" aria-label="Batang pecahan dibagi 10 bagian sama besar, 7 bagian diarsir">';
+      for(var i=0;i<10;i++){
+        s += '<rect x="'+(5+i*33)+'" y="10" width="33" height="44" fill="'+(i<7 ? "#0f7bd4" : "#ffffff")+'" stroke="#17384f" stroke-width="2"/>';
+      }
+      s += '</svg><div style="font-weight:700;color:var(--muted2)">Gambar batang pecahan (bagian biru adalah bagian yang diarsir)</div></div>';
+      return s;
+    })();
+
+    var SVG_SENILAI = '<div class="svgbox"><svg width="220" height="64" viewBox="0 0 220 64" role="img" aria-label="Batang pecahan dibagi 2 bagian sama besar, 1 bagian diarsir">'
+      + '<rect x="10" y="10" width="100" height="44" fill="#1d9e62" stroke="#17384f" stroke-width="2"/>'
+      + '<rect x="110" y="10" width="100" height="44" fill="#ffffff" stroke="#17384f" stroke-width="2"/>'
+      + '</svg><div style="font-weight:700;color:var(--muted2)">Gambar pecahan (bagian hijau adalah bagian yang diarsir)</div></div>';
+
+    var SVG_POLA_LINGKARAN = (function(){
+      var counts = [2,4,6,8], starts = [10,60,145,262];
+      var s = '<div class="svgbox"><svg width="400" height="84" viewBox="0 0 400 84" role="img" aria-label="Pola gambar lingkaran: pola 1 ada 2, pola 2 ada 4, pola 3 ada 6, pola 4 ada 8">';
+      counts.forEach(function(n,g){
+        for(var i=0;i<n;i++){
+          s += '<circle cx="'+(starts[g]+8+i*17)+'" cy="26" r="7.5" fill="#ffb020" stroke="#b97f10" stroke-width="2"/>';
+        }
+        s += '<text x="'+(starts[g]+n*8.5)+'" y="66" text-anchor="middle" font-size="14" font-weight="800" fill="#47687e">Pola '+(g+1)+'</text>';
+      });
+      s += '</svg><div style="font-weight:700;color:var(--muted2)">Pola gambar lingkaran</div></div>';
+      return s;
+    })();
+
+    var SVG_POLA_TITIK = (function(){
+      var rows = [1,2,3,4], starts = [5,100,195,290];
+      var s = '<div class="svgbox"><svg width="380" height="104" viewBox="0 0 380 104" role="img" aria-label="Pola gambar titik: pola 1 ada 5 titik, pola 2 ada 10 titik, pola 3 ada 15 titik, pola 4 ada 20 titik">';
+      rows.forEach(function(r,g){
+        for(var y=0;y<r;y++){
+          for(var x=0;x<5;x++){
+            s += '<circle cx="'+(starts[g]+8+x*15)+'" cy="'+(14+y*15)+'" r="5.5" fill="#0f7bd4" stroke="#0a5ea3" stroke-width="1.5"/>';
+          }
+        }
+        s += '<text x="'+(starts[g]+37)+'" y="94" text-anchor="middle" font-size="14" font-weight="800" fill="#47687e">Pola '+(g+1)+'</text>';
+      });
+      s += '</svg><div style="font-weight:700;color:var(--muted2)">Pola gambar titik</div></div>';
+      return s;
+    })();
+
+    function triSvg(cx){
+      return '<polygon points="'+(cx-20)+',58 '+cx+',16 '+(cx+20)+',58" fill="#d6337f" stroke="#9c1c58" stroke-width="2"/>';
+    }
+    function circSvg(cx){
+      return '<circle cx="'+cx+'" cy="37" r="19" fill="#0f7bd4" stroke="#0a5ea3" stroke-width="2"/>';
+    }
+    var SVG_POLA_BENTUK = '<div class="svgbox"><svg width="370" height="80" viewBox="0 0 370 80" role="img" aria-label="Pola gambar: segitiga, lingkaran, segitiga, lingkaran, segitiga, lalu tanda tanya">'
+      + triSvg(35) + circSvg(95) + triSvg(155) + circSvg(215) + triSvg(275)
+      + '<rect x="312" y="14" width="46" height="46" rx="8" fill="none" stroke="#47687e" stroke-width="2.5" stroke-dasharray="6 5"/>'
+      + '<text x="335" y="48" text-anchor="middle" font-size="26" font-weight="900" fill="#47687e">?</text>'
+      + '</svg><div style="font-weight:700;color:var(--muted2)">Pola gambar segitiga dan lingkaran</div></div>';
+
+    var SVG_PECAHAN_ABC = (function(){
+      function bar(y, parts, shaded, label){
+        var s = '<text x="6" y="'+(y+23)+'" font-size="15" font-weight="800" fill="#47687e">'+label+'</text>';
+        var w = 240/parts;
+        for(var i=0;i<parts;i++){
+          s += '<rect x="'+(84+i*w)+'" y="'+y+'" width="'+w+'" height="34" fill="'+(i<shaded ? "#1d9e62" : "#ffffff")+'" stroke="#17384f" stroke-width="2"/>';
+        }
+        return s;
+      }
+      return '<div class="svgbox"><svg width="336" height="150" viewBox="0 0 336 150" role="img" aria-label="Tiga gambar pecahan: gambar A tiga per empat, gambar B satu per dua, gambar C satu per empat">'
+        + bar(8, 4, 3, "Gambar A") + bar(58, 2, 1, "Gambar B") + bar(108, 4, 1, "Gambar C")
+        + '</svg><div style="font-weight:700;color:var(--muted2)">Gambar pecahan (bagian hijau adalah bagian yang diarsir)</div></div>';
+    })();
+
+    /* =============== BANK SOAL (sesuai nomor kisi-kisi) =============== */
+    var QUESTIONS = [
+    /* ---------- MATERI A : PG 1-12 ---------- */
+    {no:1,bab:1,type:"pg",stimulus:SVG_KARTU_7352,q:"Bilangan pada kartu di atas dibaca …",
+      options:["tujuh ribu tiga ratus lima puluh dua","tujuh ribu tiga ratus dua puluh lima","tujuh ratus tiga puluh lima ribu dua","tujuh ribu lima ratus tiga puluh dua"],answer:0,
+      explain:"Kartu menunjukkan angka 7, 3, 5, 2 yang membentuk bilangan 7.352. Bilangan itu dibaca: tujuh ribu tiga ratus lima puluh dua."},
+    {no:2,bab:1,type:"pg",q:"Pada bilangan 8.462, angka 4 menempati nilai tempat …",
+      options:["satuan","puluhan","ratusan","ribuan"],answer:2,
+      explain:"Bilangan 8.462 diuraikan menjadi 8 ribuan + 4 ratusan + 6 puluhan + 2 satuan. Jadi angka 4 menempati nilai tempat ratusan dan nilainya 400."},
+    {no:3,bab:1,type:"pg",q:"Perbandingan dua bilangan cacah yang benar adalah …",
+      options:["5.678 > 5.768","4.321 < 4.231","6.540 > 6.450","3.909 < 3.099"],answer:2,
+      explain:"Bandingkan dari nilai tempat terbesar. Pada 6.540 dan 6.450, angka ribuan sama-sama 6, lalu angka ratusannya 5 lebih besar dari 4, jadi 6.540 > 6.450. Pilihan lain salah: 5.678 < 5.768, 4.321 > 4.231, dan 3.909 > 3.099."},
+    {no:4,bab:1,type:"pg",q:"“Sembilan ribu empat ratus tujuh” jika ditulis dalam bentuk angka adalah …",
+      options:["9.047","9.407","9.470","94.007"],answer:1,
+      explain:"Sembilan ribu = 9.000, empat ratus = 400, tujuh = 7, dan tidak ada puluhan sehingga tempat puluhan diisi 0. Hasilnya 9.000 + 400 + 0 + 7 = 9.407."},
+    {no:5,bab:1,type:"pg",q:"Perhatikan bilangan berikut: 3.245, 3.425, 3.254, 3.452. Urutan bilangan tersebut dari yang terkecil adalah …",
+      options:["3.245, 3.425, 3.254, 3.452","3.245, 3.254, 3.425, 3.452","3.452, 3.425, 3.254, 3.245","3.254, 3.245, 3.452, 3.425"],answer:1,
+      explain:"Semua bilangan berangka ribuan 3. Bandingkan ratusannya: 3.245 dan 3.254 berangka ratusan 2 (lebih kecil), lalu 3.425 dan 3.452 berangka ratusan 4. Di antara 3.245 dan 3.254, puluhannya 4 lebih kecil dari 5. Jadi urutan dari terkecil: 3.245, 3.254, 3.425, 3.452."},
+    {no:6,bab:1,type:"pg",q:"Bilangan 6.385 dapat diuraikan berdasarkan nilai tempatnya menjadi …",
+      options:["6.000 + 300 + 80 + 5","6.000 + 300 + 85","600 + 3.000 + 80 + 5","6.000 + 30 + 800 + 5"],answer:0,
+      explain:"Bilangan 6.385 terdiri dari 6 ribuan (6.000), 3 ratusan (300), 8 puluhan (80), dan 5 satuan (5). Jadi uraiannya adalah 6.000 + 300 + 80 + 5."},
+    {no:7,bab:1,type:"pg",q:"Ibu membeli 345 butir telur pada hari Senin dan 278 butir telur pada hari Selasa. Jumlah seluruh telur yang dibeli Ibu adalah … butir.",
+      options:["613","623","633","723"],answer:1,
+      explain:"Jumlah telur = 345 + 278. Satuan: 5 + 8 = 13, tulis 3 simpan 1. Puluhan: 4 + 7 + 1 = 12, tulis 2 simpan 1. Ratusan: 3 + 2 + 1 = 6. Hasilnya 623 butir."},
+    {no:8,bab:1,type:"pg",q:"Sebuah toko mempunyai persediaan 825 buku. Pada minggu ini terjual 347 buku. Sisa buku di toko tersebut adalah …",
+      options:["478","488","472","578"],answer:0,
+      explain:"Sisa buku = 825 − 347. Satuan: 5 − 7 tidak bisa, pinjam 1 puluhan menjadi 15 − 7 = 8. Puluhan: 1 − 4 tidak bisa, pinjam 1 ratusan menjadi 11 − 4 = 7. Ratusan: 7 − 3 = 4. Hasilnya 478 buku."},
+    {no:9,bab:1,type:"pg",q:"Setiap kotak berisi 24 pensil. Jika ada 4 kotak, jumlah seluruh pensil adalah …",
+      options:["28","86","96","104"],answer:2,
+      explain:"Jumlah pensil = 24 × 4, yaitu penjumlahan berulang 24 + 24 + 24 + 24 = 96 pensil."},
+    {no:10,bab:1,type:"pg",q:"Sebanyak 96 permen dibagikan sama banyak kepada 8 anak. Setiap anak mendapat … permen.",
+      options:["11","12","13","14"],answer:1,
+      explain:"Setiap anak mendapat 96 ÷ 8. Karena 8 × 12 = 96, maka 96 ÷ 8 = 12 permen."},
+    {no:11,bab:1,type:"pg",q:"Bilangan berikut yang merupakan faktor dari 24 adalah …",
+      options:["5","7","8","9"],answer:2,
+      explain:"Faktor adalah bilangan yang membagi habis. 24 ÷ 8 = 3 tanpa sisa, jadi 8 adalah faktor dari 24. Faktor 24 seluruhnya: 1, 2, 3, 4, 6, 8, 12, 24. Sedangkan 5, 7, dan 9 tidak membagi habis 24."},
+    {no:12,bab:1,type:"pg",q:"Bilangan berikut yang merupakan kelipatan 7 adalah …",
+      options:["27","32","35","43"],answer:2,
+      explain:"Kelipatan 7 adalah hasil kali 7 dengan bilangan lain: 7, 14, 21, 28, 35, 42, … Di antara pilihan, yang termasuk kelipatan 7 adalah 35 (7 × 5)."},
+    /* ---------- MATERI B : PG 13-18 ---------- */
+    {no:13,bab:2,type:"pg",q:"Perhatikan pecahan berikut: 1/2, 1/3, 1/5, 1/4. Urutan pecahan tersebut dari yang terkecil adalah …",
+      options:["1/2, 1/3, 1/4, 1/5","1/5, 1/4, 1/3, 1/2","1/3, 1/5, 1/2, 1/4","1/4, 1/5, 1/3, 1/2"],answer:1,
+      explain:"Pecahan dengan pembilang sama-sama satu: semakin besar penyebutnya, semakin kecil nilainya. Jadi dari yang terkecil: 1/5 (penyebut 5), 1/4, 1/3, lalu 1/2 (penyebut 2)."},
+    {no:14,bab:2,type:"pg",stimulus:SVG_BATANG_07,q:"Bagian yang diarsir pada gambar di atas menunjukkan pecahan desimal …",
+      options:["0,3","0,7","7,0","0,07"],answer:1,
+      explain:"Batang dibagi menjadi 10 bagian sama besar dan 7 bagian diarsir, jadi pecahannya 7/10. Pecahan persepuluhan 7/10 ditulis sebagai desimal 0,7 (satu angka di belakang koma)."},
+    {no:15,bab:2,type:"pg",stimulus:SVG_SENILAI,q:"Pecahan yang senilai dengan pecahan pada gambar di atas adalah …",
+      options:["2/4","1/3","3/5","2/3"],answer:0,
+      explain:"Gambar menunjukkan 1 dari 2 bagian yang diarsir, yaitu pecahan 1/2. Pecahan 2/4 senilai dengan 1/2 karena pembilang dan penyebut 1/2 sama-sama dikali 2: 1×2 = 2 dan 2×2 = 4."},
+    {no:16,bab:2,type:"pg",q:"Pecahan 3/10 jika diubah menjadi pecahan desimal adalah …",
+      options:["0,03","0,3","3,0","0,13"],answer:1,
+      explain:"Penyebut 10 berarti ada satu angka di belakang koma. Jadi 3/10 = 0,3."},
+    {no:17,bab:2,type:"pg",q:"Pecahan 45/100 jika diubah menjadi pecahan desimal adalah …",
+      options:["0,045","4,5","0,45","0,405"],answer:2,
+      explain:"Penyebut 100 berarti ada dua angka di belakang koma. Jadi 45/100 = 0,45."},
+    {no:18,bab:2,type:"pg",q:"Pecahan desimal 0,75 jika diubah menjadi persen adalah …",
+      options:["7,5%","75%","0,75%","750%"],answer:1,
+      explain:"Persen artinya perseratus. 0,75 = 75/100 = 75%. Cara cepatnya: geser tanda koma dua tempat ke kanan, menjadi 75, lalu tambahkan tanda %."},
+    /* ---------- MATERI C : PG 19-20 ---------- */
+    {no:19,bab:3,type:"pg",stimulus:SVG_POLA_LINGKARAN,q:"Perhatikan pola gambar di atas! Pola gambar tersebut adalah pola …",
+      options:["mengecil, berkurang 2 setiap pola","membesar, bertambah 2 setiap pola","membesar, bertambah 3 setiap pola","tetap, tidak berubah setiap pola"],answer:1,
+      explain:"Banyak lingkaran pada pola 1 sampai 4 adalah 2, 4, 6, 8. Banyaknya bertambah 2 setiap pola, jadi pola gambar tersebut membesar dengan pertambahan 2."},
+    {no:20,bab:3,type:"pg",stimulus:SVG_POLA_TITIK,q:"Pola gambar di atas membentuk pola bilangan 5, 10, 15, 20. Urutan bilangan yang memiliki pola yang sama dengan pola tersebut adalah …",
+      options:["3, 6, 9, 12","4, 8, 12, 16","6, 11, 16, 21","20, 15, 10, 5"],answer:2,
+      explain:"Pola 5, 10, 15, 20 adalah pola membesar dengan pertambahan 5. Urutan 6, 11, 16, 21 juga bertambah 5 setiap langkah, jadi polanya sama. Pilihan lain bertambah 3, bertambah 4, dan berkurang 5."},
+    /* ---------- MATERI A : ISIAN 21-24 ---------- */
+    {no:21,bab:1,type:"isian",q:"Urutkan bilangan berikut dari yang terkecil: 4.560, 4.506, 4.650, 4.056. Tuliskan urutan lengkapnya!",
+      accept:["4.056, 4.506, 4.560, 4.650","4.056,4.506,4.560,4.650","4056, 4506, 4560, 4650","4056,4506,4560,4650","4.056 4.506 4.560 4.650"],model:"4.056, 4.506, 4.560, 4.650",
+      explain:"Bandingkan mulai dari ribuan (semuanya 4), lalu ratusan: 4.056 ratusannya 0 (paling kecil), 4.506 dan 4.560 ratusannya 5, 4.650 ratusannya 6 (paling besar). Di antara 4.506 dan 4.560, puluhannya 0 lebih kecil dari 6. Urutannya: 4.056, 4.506, 4.560, 4.650."},
+    {no:22,bab:1,type:"isian",q:"Di perpustakaan sekolah ada 456 buku cerita dan 389 buku pelajaran. Jumlah seluruh buku di perpustakaan adalah … buku.",
+      accept:["845"],model:"845",
+      explain:"Jumlah buku = 456 + 389 = 845. Satuan: 6 + 9 = 15, tulis 5 simpan 1. Puluhan: 5 + 8 + 1 = 14, tulis 4 simpan 1. Ratusan: 4 + 3 + 1 = 8."},
+    {no:23,bab:1,type:"isian",q:"Sebuah gudang menyimpan 902 karung beras. Sebanyak 478 karung telah dikirim ke toko. Sisa karung beras di gudang adalah … karung.",
+      accept:["424"],model:"424",
+      explain:"Sisa karung = 902 − 478 = 424. Satuan: 2 − 8 tidak bisa, pinjam hingga menjadi 12 − 8 = 4. Puluhan: 9 − 7 = 2 (setelah dipinjam). Ratusan: 8 − 4 = 4."},
+    {no:24,bab:1,type:"isian",stimulus:SVG_KARTU_6084,q:"Bilangan pada kartu di atas dibaca …",
+      accept:["enam ribu delapan puluh empat"],model:"enam ribu delapan puluh empat",
+      explain:"Kartu menunjukkan angka 6, 0, 8, 4 yang membentuk bilangan 6.084. Tempat ratusan diisi angka 0 sehingga tidak dibaca. Bilangan itu dibaca: enam ribu delapan puluh empat."},
+    /* ---------- MATERI B : ISIAN 25-28 ---------- */
+    {no:25,bab:2,type:"isian",q:"Urutkan pecahan berikut dari yang terbesar: 1/3, 1/6, 1/2, 1/4. Tuliskan urutan lengkapnya!",
+      accept:["1/2, 1/3, 1/4, 1/6","1/2,1/3,1/4,1/6","1/2 1/3 1/4 1/6"],model:"1/2, 1/3, 1/4, 1/6",
+      explain:"Pecahan dengan pembilang satu: semakin kecil penyebutnya, semakin besar nilainya. Dari yang terbesar: 1/2 (penyebut 2), 1/3, 1/4, lalu 1/6 (penyebut 6)."},
+    {no:26,bab:2,type:"isian",q:"Ubahlah pecahan 7/10 menjadi pecahan desimal! 7/10 = …",
+      accept:["0,7","0.7"],model:"0,7",
+      explain:"Penyebut 10 berarti ada satu angka di belakang koma. Jadi 7/10 = 0,7."},
+    {no:27,bab:2,type:"isian",q:"Ubahlah pecahan 28/100 menjadi pecahan desimal! 28/100 = …",
+      accept:["0,28","0.28"],model:"0,28",
+      explain:"Penyebut 100 berarti ada dua angka di belakang koma. Jadi 28/100 = 0,28."},
+    {no:28,bab:2,type:"isian",q:"Ubahlah pecahan desimal 0,62 menjadi persen! 0,62 = …",
+      accept:["62%","62"],model:"62%",
+      explain:"0,62 = 62/100 = 62%. Cara cepatnya: geser tanda koma dua tempat ke kanan menjadi 62, lalu tambahkan tanda %."},
+    /* ---------- MATERI C : ISIAN 29-30 ---------- */
+    {no:29,bab:3,type:"isian",stimulus:SVG_POLA_BENTUK,q:"Gambar yang tepat untuk melanjutkan pola gambar di atas adalah …",
+      accept:["lingkaran","bulat","bola","lingkaran (●)"],model:"lingkaran",
+      explain:"Pola gambar tersebut berulang: segitiga, lingkaran, segitiga, lingkaran, segitiga, … Setelah segitiga selalu lingkaran, jadi gambar berikutnya adalah lingkaran."},
+    {no:30,bab:3,type:"isian",q:"Perhatikan pola bilangan berikut: 12, 17, 22, …, 32, 37. Bilangan yang tepat untuk mengisi titik-titik adalah …",
+      accept:["27"],model:"27",
+      explain:"Selisih antar bilangan selalu +5 (12 ke 17, 17 ke 22). Jadi bilangan setelah 22 adalah 22 + 5 = 27. Terbukti benar karena 27 + 5 = 32."},
+    /* ---------- URAIAN 31-35 ---------- */
+    {no:31,bab:1,type:"uraian",q:"Pak Budi mempunyai 3.750 kg beras di gudang. Angka 7 pada bilangan tersebut menempati nilai tempat apa? Jika 1.285 kg beras terjual, berapa kg sisa beras Pak Budi? Tuliskan cara menghitungnya!",
+      model:"Angka 7 pada bilangan 3.750 menempati nilai tempat ratusan (nilainya 700).\nSisa beras = 3.750 − 1.285 = 2.465 kg.\nCara: satuan 0 − 5 tidak bisa, pinjam menjadi 10 − 5 = 5; puluhan 4 − 8 tidak bisa, pinjam menjadi 14 − 8 = 6; ratusan 6 − 2 = 4 (setelah dipinjam); ribuan 3 − 1 = 2. Jadi sisa beras Pak Budi adalah 2.465 kg.",
+      rubrik:"Skor 3: nilai tempat dijawab benar (ratusan) dan hasil pengurangan benar (2.465 kg) disertai cara menghitung. Skor 2: salah satu jawaban benar, atau hasil benar tetapi tanpa cara. Skor 1: hanya nilai tempat atau hanya cara pengurangan yang sebagian benar. Skor 0: kedua jawaban salah atau kosong.",
+      explain:"Pada bilangan 3.750, angka-angkanya adalah 3 (ribuan), 7 (ratusan), 5 (puluhan), 0 (satuan). Pengurangan bersusun 3.750 − 1.285 = 2.465."},
+    {no:32,bab:2,type:"uraian",stimulus:SVG_PECAHAN_ABC,q:"Perhatikan tiga gambar pecahan di atas! Tuliskan nilai pecahan pada setiap gambar, lalu urutkan pecahan tersebut dari yang terkecil sampai yang terbesar!",
+      model:"Gambar A: 3 dari 4 bagian diarsir → 3/4.\nGambar B: 1 dari 2 bagian diarsir → 1/2.\nGambar C: 1 dari 4 bagian diarsir → 1/4.\nUrutan dari yang terkecil: 1/4 (Gambar C), 1/2 (Gambar B), 3/4 (Gambar A).",
+      rubrik:"Skor 3: ketiga nilai pecahan benar dan urutannya benar. Skor 2: nilai pecahan benar tetapi urutan kurang tepat, atau dua nilai benar dan urutan sesuai nilai yang ditulis. Skor 1: hanya satu nilai pecahan yang benar. Skor 0: semua salah atau kosong.",
+      explain:"Untuk membandingkan, samakan penyebutnya menjadi 4: 1/2 = 2/4. Maka 1/4 < 2/4 < 3/4, sehingga urutannya 1/4, 1/2, 3/4."},
+    {no:33,bab:2,type:"uraian",q:"Ibu memotong sebuah kue menjadi 10 bagian sama besar. Rani memakan 4 bagian kue. Tuliskan bagian kue yang dimakan Rani dalam bentuk pecahan, lalu ubahlah pecahan tersebut menjadi bentuk desimal!",
+      model:"Bagian kue yang dimakan Rani adalah 4 dari 10 bagian, ditulis sebagai pecahan 4/10.\nPecahan 4/10 diubah menjadi desimal: penyebut 10 berarti satu angka di belakang koma, jadi 4/10 = 0,4.",
+      rubrik:"Skor 3: pecahan ditulis benar (4/10) dan bentuk desimalnya benar (0,4). Skor 2: salah satu benar. Skor 1: menulis pecahan atau desimal yang mendekati benar tetapi ada kesalahan. Skor 0: kedua jawaban salah atau kosong.",
+      explain:"Banyak bagian yang dimakan menjadi pembilang (4) dan seluruh bagian menjadi penyebut (10). Persepuluhan selalu memiliki satu angka di belakang koma."},
+    {no:34,bab:2,type:"uraian",q:"Di kelas IV, 0,45 bagian dari seluruh siswa adalah siswa perempuan. Berapa persen siswa perempuan di kelas IV? Jelaskan cara mengubahnya!",
+      model:"0,45 = 45/100 = 45%.\nCara mengubah desimal menjadi persen: geser tanda koma dua tempat ke kanan (0,45 menjadi 45), lalu tambahkan tanda %. Jadi siswa perempuan di kelas IV adalah 45%.",
+      rubrik:"Skor 3: hasil benar (45%) disertai penjelasan cara yang benar. Skor 2: hasil benar tetapi penjelasan kurang lengkap. Skor 1: hasil salah tetapi cara yang ditulis sebagian benar. Skor 0: hasil dan cara salah atau kosong.",
+      explain:"Persen artinya perseratus. Desimal perseratusan seperti 0,45 langsung menunjukkan banyaknya perseratus, yaitu 45 dari 100, sama dengan 45%."},
+    {no:35,bab:3,type:"uraian",q:"Di taman sekolah, baris pertama ditanami 3 pot bunga. Setiap baris berikutnya ditanami 2 pot lebih banyak dari baris sebelumnya. Buatlah pola bilangan banyak pot untuk 5 baris pertama, dan jelaskan pola gambarnya!",
+      model:"Pola bilangan banyak pot untuk 5 baris pertama: 3, 5, 7, 9, 11.\nPola gambarnya: baris 1 digambar 3 pot (●●●), baris 2 digambar 5 pot (●●●●●), baris 3 digambar 7 pot, baris 4 digambar 9 pot, dan baris 5 digambar 11 pot. Setiap baris gambar pot bertambah 2 dari baris sebelumnya, sehingga polanya membesar dengan pertambahan 2.",
+      rubrik:"Skor 3: pola bilangan 3, 5, 7, 9, 11 ditulis lengkap dan benar, serta pola gambarnya dijelaskan dengan benar. Skor 2: pola bilangan benar tetapi penjelasan pola gambar kurang lengkap. Skor 1: pola bilangan hanya benar sebagian. Skor 0: pola salah atau kosong.",
+      explain:"Bilangan awalnya 3 dan aturannya bertambah 2. Maka: 3, 3+2 = 5, 5+2 = 7, 7+2 = 9, 9+2 = 11. Pola gambar mengikuti pola bilangan yang sama."}
+    ];
+    var BAB_NAMES = {1:"Materi A • Bilangan Cacah sampai 10.000",2:"Materi B • Pecahan",3:"Materi C • Pola Bilangan dan Gambar"};
+    var TYPE_NAMES = {pg:"Pilihan Ganda",isian:"Isian",uraian:"Uraian"};
+    var TYPE_SCORE = {pg:1,isian:2,uraian:3};
+    function byNo(n){ for(var i=0;i<QUESTIONS.length;i++){ if(QUESTIONS[i].no===n) return QUESTIONS[i]; } return null; }
+    function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+    function nl2br(s){ return esc(s).replace(/\n/g,"<br>"); }
+    function norm(s){ return String(s==null?"":s).toLowerCase().trim().replace(/\s+/g," ").replace(/[.?!]+$/,""); }
+
+    /* =============== NAMA PEMILIK PAKET (gerbang akses) =============== */
+    var OWNER_KEY = "paket-asas-mat4-nama";
+    var ownerName = "";
+    try{ ownerName = String(sessionStorage.getItem(OWNER_KEY) || "").trim().toUpperCase(); }catch(e){ ownerName = ""; }
+    function saveOwnerName(n){ ownerName = String(n || "").toUpperCase(); try{ sessionStorage.setItem(OWNER_KEY, ownerName); }catch(e){} }
+    function refreshOwnerUI(){
+      var on = document.getElementById("owner-name"); if(on) on.textContent = ownerName || "—";
+      var hv = document.getElementById("hasil-nama-val"); if(hv) hv.textContent = ownerName || "—";
+      var rp = document.getElementById("ringkasan-print-nama"); if(rp) rp.textContent = "Nama: " + (ownerName || "—") + "  •  Paket ASAS Matematika Kelas IV — Ringkasan Materi";
+    }
+    function isianBenar(q,val){ var v=norm(val); if(!v) return false; for(var i=0;i<q.accept.length;i++){ if(norm(q.accept[i])===v) return true; } return false; }
+
+    /* =============== HURUF KAPITAL OTOMATIS PADA KOLOM NAMA =============== */
+    /* Nilai isian diubah menjadi huruf kapital semua saat diketik
+       (nilai sebenarnya, bukan hanya tampilan), agar tidak ada
+       kesalahan penulisan nama saat membuka paket. */
+    function forceUpperInput(el){
+      if(!el) return;
+      el.addEventListener("input", function(){
+        var pos = null;
+        try{ pos = el.selectionStart; }catch(e){}
+        var up = el.value.toUpperCase();
+        if(el.value !== up){
+          el.value = up;
+          if(pos !== null){ try{ el.setSelectionRange(pos, pos); }catch(e){} }
+        }
+      });
+    }
+    forceUpperInput(document.getElementById("gate-nama"));
+    forceUpperInput(document.getElementById("admin-new-nama"));
+
+    /* =============== NAVIGASI =============== */
+    var VIEWS = ["home","ringkasan","menu","kisi","latihan","simulasi","hasil"];
+    function showView(name){
+      for(var i=0;i<VIEWS.length;i++){
+        document.getElementById("view-"+VIEWS[i]).classList.toggle("active", VIEWS[i]===name);
+      }
+      var btns = document.querySelectorAll(".navbtn");
+      for(var j=0;j<btns.length;j++){ btns[j].classList.toggle("active", btns[j].getAttribute("data-nav")===name); }
+      window.scrollTo(0,0);
+    }
+    var navBtns = document.querySelectorAll("[data-nav]");
+    for(var nb=0; nb<navBtns.length; nb++){ navBtns[nb].addEventListener("click", function(){ showView(this.getAttribute("data-nav")); }); }
+    var goBtns = document.querySelectorAll("[data-go]");
+    for(var gb=0; gb<goBtns.length; gb++){ goBtns[gb].addEventListener("click", function(){ showView(this.getAttribute("data-go")); }); }
+    function printWithMode(mode){
+      if(typeof renderPrintAreas === "function"){ renderPrintAreas(); }
+      refreshOwnerUI();
+      document.body.setAttribute("data-print", mode);
+      setTimeout(function(){ window.print(); }, 60);
+    }
+    window.addEventListener("afterprint", function(){ document.body.removeAttribute("data-print"); });
+    document.getElementById("btn-print").addEventListener("click", function(){ printWithMode("ringkasan"); });
+
+    function renderPrintAreas(){
+      /* --- Lembar Soal (tanpa kunci & tanpa pembahasan) --- */
+      var sh = '<div class="p-head"><h1>Paket ASAS Matematika Kelas IV — Latihan Soal</h1>'
+        + '<p>Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>'
+        + '<p>Jumlah soal: 35 (PG No. 1–20 • Isian No. 21–30 • Uraian No. 31–35) • Skor maksimal: 55</p></div>'
+        + '<div class="p-ident"><span>Nama: '+esc(ownerName)+'</span><span>Kelas: </span><span>Tanggal: </span></div>'
+        + '<div class="p-petunjuk"><b>Petunjuk:</b> Bacalah setiap soal dengan teliti. Untuk Pilihan Ganda, beri tanda silang (×) pada huruf jawaban yang paling tepat. Untuk Isian, tulislah jawaban pada garis yang tersedia. Untuk Uraian, tulislah jawaban dengan lengkap pada ruang yang disediakan.</div>';
+      var lastBabS = 0;
+      var sortedS = QUESTIONS.slice().sort(function(a,b){ if(a.bab!==b.bab) return a.bab-b.bab; return a.no-b.no; });
+      sortedS.forEach(function(q){
+        if(q.bab!==lastBabS){ lastBabS=q.bab; sh += '<div class="p-bab">'+esc(BAB_NAMES[q.bab])+'</div>'; }
+        sh += '<div class="pq">';
+        if(q.stimulus){ sh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="pq-stim">'+nl2br(q.stimulus)+'</div>'; }
+        sh += '<span class="pq-no">'+q.no+'. </span><span style="font-weight:600">'+esc(q.q)+'</span>';
+        if(q.type==="pg"){
+          sh += '<ul class="pq-opts">';
+          q.options.forEach(function(op,i){ sh += '<li><b>'+"ABCD"[i]+'.</b> '+esc(op)+'</li>'; });
+          sh += '</ul>';
+        } else if(q.type==="isian"){
+          sh += '<div class="pq-blank"></div>';
+        } else {
+          sh += '<div class="pq-lines"><i></i><i></i><i></i><i></i><i></i></div>';
+        }
+        sh += '</div>';
+      });
+      sh += '<p style="text-align:center;font-weight:700;margin-top:20px">— Selamat mengerjakan, semoga berhasil! —</p>';
+      document.getElementById("print-soal").innerHTML = sh;
+
+      /* --- Kunci & Pembahasan (untuk guru / orang tua) --- */
+      var kh = '<div class="p-head"><h1>Paket ASAS Matematika Kelas IV — Kunci &amp; Pembahasan</h1>'
+        + '<p>Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>'
+        + '<p>Pegangan guru / orang tua — kunci jawaban dan pembahasan 35 soal latihan</p></div>'
+        + '<div class="p-ident"><span>Nama: '+esc(ownerName)+'</span><span>Kelas: </span><span>Tanggal: </span></div>';
+      var lastBabK = 0;
+      sortedS.forEach(function(q){
+        if(q.bab!==lastBabK){ lastBabK=q.bab; kh += '<div class="p-bab">'+esc(BAB_NAMES[q.bab])+'</div>'; }
+        kh += '<div class="pk-item"><h4>No. '+q.no+' • '+TYPE_NAMES[q.type]+' • Skor '+TYPE_SCORE[q.type]+'</h4>';
+        if(q.stimulus){ kh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="pq-stim">'+nl2br(q.stimulus)+'</div>'; }
+        kh += '<div style="font-weight:600">'+esc(q.q)+'</div>';
+        if(q.type==="pg"){
+          kh += '<div class="pk-ans">Kunci Jawaban: '+"ABCD"[q.answer]+'. '+esc(q.options[q.answer])+'</div>';
+        } else if(q.type==="isian"){
+          kh += '<div class="pk-ans">Kunci Jawaban: '+esc(q.model)+'</div>';
+        } else {
+          kh += '<div class="pk-ans">Jawaban Model:</div><div class="pk-model">'+esc(q.model)+'</div>'
+            + '<p class="pk-exp"><b>Aturan Skor:</b> '+esc(q.rubrik||"")+'</p>';
+        }
+        kh += '<p class="pk-exp"><b>Pembahasan:</b> '+esc(q.explain)+'</p></div>';
+      });
+      document.getElementById("print-kunci").innerHTML = kh;
+    }
+    renderPrintAreas();
+
+    /* =============== GERBANG NAMA TERVERIFIKASI =============== */
+    function isBackendReady(){ return !!(APPS_SCRIPT_URL && String(APPS_SCRIPT_URL).trim() !== ""); }
+    function normalizeName(s){ return String(s == null ? "" : s).toLowerCase().trim().replace(/\s+/g, " "); }
+    function showGateError(msg){
+      var err = document.getElementById("gate-error");
+      err.textContent = msg; err.classList.add("show");
+    }
+    function hideGateError(){ document.getElementById("gate-error").classList.remove("show"); }
+    function refreshGateSystemMsg(){
+      var el = document.getElementById("gate-system-msg");
+      var btn = document.getElementById("btn-buka-paket");
+      if(!isBackendReady()){
+        el.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.";
+        el.classList.add("show");
+        if(btn){ btn.disabled = true; }
+      } else {
+        el.textContent = ""; el.classList.remove("show");
+        if(btn){ btn.disabled = false; }
+      }
+    }
+    function unlockPackage(){
+      document.getElementById("gate").classList.add("hidden");
+      document.body.classList.remove("locked");
+      document.getElementById("owner-bar").classList.remove("hidden");
+      refreshOwnerUI();
+      renderPrintAreas();
+    }
+    function lockPackage(){
+      var inp = document.getElementById("gate-nama");
+      inp.value = ownerName || "";
+      hideGateError();
+      refreshGateSystemMsg();
+      document.getElementById("gate").classList.remove("hidden");
+      document.body.classList.add("locked");
+      setTimeout(function(){ inp.focus(); inp.select(); }, 60);
+      window.scrollTo(0,0);
+    }
+    document.getElementById("gate-form").addEventListener("submit", function(ev){
+      ev.preventDefault();
+      var raw = document.getElementById("gate-nama").value;
+      var displayName = String(raw || "").trim().replace(/\s+/g, " ").toUpperCase();
+      if(!isBackendReady()){
+        showGateError("Sistem pemeriksaan nama belum dipasang. Hubungi penjual.");
+        var sm = document.getElementById("gate-system-msg");
+        sm.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual."; sm.classList.add("show");
+        return;
+      }
+      if(!displayName){
+        showGateError("Nama lengkap wajib diisi.");
+        document.getElementById("gate-nama").focus();
+        return;
+      }
+      if(displayName.length < 3){
+        showGateError("Nama lengkap minimal 3 huruf.");
+        document.getElementById("gate-nama").focus();
+        return;
+      }
+      hideGateError();
+      var btn = document.getElementById("btn-buka-paket");
+      var labelAsli = btn.textContent;
+      btn.disabled = true; btn.textContent = "⏳ Memeriksa nama…";
+      var namaNorm = normalizeName(displayName);
+      var url = APPS_SCRIPT_URL + "?action=check&nama=" + encodeURIComponent(namaNorm) + "&mapel=" + encodeURIComponent(MAPEL_ID);
+      fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = labelAsli;
+          if(data && data.allowed){
+            saveOwnerName(displayName);
+            unlockPackage();
+          } else {
+            showGateError("Nama belum terdaftar. Silakan hubungi penjual.");
+            document.getElementById("gate-nama").focus();
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = labelAsli;
+          showGateError("Tidak bisa memeriksa nama. Periksa internet Anda lalu coba lagi.");
+        });
+    });
+    document.getElementById("gate-nama").addEventListener("input", function(){
+      hideGateError();
+    });
+    document.getElementById("btn-ganti-nama").addEventListener("click", lockPackage);
+    refreshGateSystemMsg();
+    if(isBackendReady() && ownerName && ownerName.length >= 3){ unlockPackage(); } else { refreshOwnerUI(); if(!isBackendReady()){ refreshGateSystemMsg(); } }
+
+    /* =============== PANEL ADMIN =============== */
+    var adminPin = "";
+    function setAdminMsg(id, msg, kind){
+      var el = document.getElementById(id);
+      if(!el) return;
+      if(!msg){ el.textContent = ""; el.className = "admin-msg"; return; }
+      el.textContent = msg; el.className = "admin-msg show " + (kind || "info");
+    }
+    function renderAdminList(rows){
+      var host = document.getElementById("admin-list");
+      if(!rows || rows.length === 0){
+        host.innerHTML = '<div class="admin-empty">Belum ada nama pembeli terdaftar.</div>';
+        return;
+      }
+      var html = "";
+      rows.forEach(function(r){
+        var meta = [];
+        if(r.mapel) meta.push("Mapel: " + (r.mapel === "semua" ? "Semua Mapel" : (r.mapel === MAPEL_ID ? MAPEL_LABEL : esc(r.mapel))));
+        if(r.tanggal) meta.push(esc(r.tanggal));
+        if(r.ket) meta.push(esc(r.ket));
+        html += '<div class="admin-row"><div class="info"><b>' + esc(String(r.nama || "").toUpperCase()) + '</b>'
+          + (meta.length ? '<span>' + meta.join(" • ") + '</span>' : '')
+          + '</div><button type="button" class="btn-hapus" data-admin-remove="' + esc(String(r.row)) + '">Hapus</button></div>';
+      });
+      host.innerHTML = html;
+      host.querySelectorAll("[data-admin-remove]").forEach(function(b){
+        b.addEventListener("click", function(){
+          var row = b.getAttribute("data-admin-remove");
+          removeBuyer(row, b);
+        });
+      });
+    }
+    function loadAdminList(){
+      if(!isBackendReady()){ setAdminMsg("admin-msg", "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.", "err"); return Promise.resolve(); }
+      var url = APPS_SCRIPT_URL + "?action=list&pin=" + encodeURIComponent(adminPin);
+      return fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          if(!data || !data.ok){ throw new Error("pin"); }
+          renderAdminList(data.rows || []);
+        });
+    }
+    function postAdmin(payload){
+      return fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(payload)
+      }).then(function(r){ return r.json(); });
+    }
+    function addBuyer(){
+      var namaEl = document.getElementById("admin-new-nama");
+      var ketEl = document.getElementById("admin-new-ket");
+      var mapelEl = document.getElementById("admin-new-mapel");
+      var nama = namaEl.value.trim().replace(/\s+/g, " ").toUpperCase();
+      var ket = ketEl.value.trim();
+      var mapel = mapelEl ? mapelEl.value : MAPEL_ID;
+      if(!nama){ setAdminMsg("admin-msg", "Nama pembeli baru wajib diisi.", "err"); namaEl.focus(); return; }
+      var btn = document.getElementById("btn-admin-add");
+      btn.disabled = true; btn.textContent = "⏳ Menyimpan…";
+      postAdmin({ action: "add", pin: adminPin, nama: nama, ket: ket, mapel: mapel })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = "＋ Tambah";
+          if(data && data.ok){
+            setAdminMsg("admin-msg", "Nama berhasil ditambahkan.", "ok");
+            namaEl.value = ""; ketEl.value = "";
+            if(mapelEl) mapelEl.value = MAPEL_ID;
+            return loadAdminList();
+          } else {
+            setAdminMsg("admin-msg", (data && data.error) ? data.error : "Gagal menambahkan nama. Coba lagi.", "err");
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "＋ Tambah";
+          setAdminMsg("admin-msg", "Tidak bisa menghubungi server. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    }
+    function removeBuyer(row, btnEl){
+      if(btnEl){ btnEl.disabled = true; btnEl.textContent = "…"; }
+      postAdmin({ action: "remove", pin: adminPin, row: isNaN(+row) ? row : +row })
+        .then(function(data){
+          if(data && data.ok){
+            setAdminMsg("admin-msg", "Nama berhasil dihapus.", "ok");
+            return loadAdminList();
+          } else {
+            if(btnEl){ btnEl.disabled = false; btnEl.textContent = "Hapus"; }
+            setAdminMsg("admin-msg", (data && data.error) ? data.error : "Gagal menghapus nama. Coba lagi.", "err");
+          }
+        })
+        .catch(function(){
+          if(btnEl){ btnEl.disabled = false; btnEl.textContent = "Hapus"; }
+          setAdminMsg("admin-msg", "Tidak bisa menghubungi server. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    }
+    function openAdmin(){
+      var modal = document.getElementById("modal-admin");
+      modal.classList.add("show");
+      setAdminMsg("admin-login-msg", "", "");
+      setAdminMsg("admin-msg", "", "");
+      var sys = document.getElementById("admin-system-msg");
+      if(!isBackendReady()){
+        sys.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.";
+        sys.className = "admin-msg show err";
+        document.getElementById("admin-login").classList.add("hidden");
+        document.getElementById("admin-content").classList.add("hidden");
+        return;
+      }
+      sys.textContent = ""; sys.className = "admin-msg";
+      if(adminPin){
+        document.getElementById("admin-login").classList.add("hidden");
+        document.getElementById("admin-content").classList.remove("hidden");
+        loadAdminList().catch(function(){ setAdminMsg("admin-msg", "Tidak bisa memuat daftar. Periksa internet Anda lalu coba lagi.", "err"); });
+      } else {
+        document.getElementById("admin-login").classList.remove("hidden");
+        document.getElementById("admin-content").classList.add("hidden");
+        setTimeout(function(){ document.getElementById("admin-pin").focus(); }, 60);
+      }
+    }
+    function closeAdmin(){ document.getElementById("modal-admin").classList.remove("show"); }
+    document.getElementById("btn-admin-open").addEventListener("click", openAdmin);
+    document.getElementById("btn-admin-open-gate").addEventListener("click", openAdmin);
+    document.getElementById("btn-admin-close").addEventListener("click", closeAdmin);
+    document.getElementById("btn-admin-done").addEventListener("click", closeAdmin);
+    document.getElementById("btn-admin-login").addEventListener("click", function(){
+      var pin = document.getElementById("admin-pin").value;
+      if(!isBackendReady()){ setAdminMsg("admin-login-msg", "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.", "err"); return; }
+      if(!pin){ setAdminMsg("admin-login-msg", "PIN wajib diisi.", "err"); return; }
+      var btn = document.getElementById("btn-admin-login");
+      btn.disabled = true; btn.textContent = "⏳ Memeriksa…";
+      setAdminMsg("admin-login-msg", "", "");
+      var url = APPS_SCRIPT_URL + "?action=list&pin=" + encodeURIComponent(pin);
+      fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = "Masuk";
+          if(data && data.ok){
+            adminPin = pin;
+            document.getElementById("admin-pin").value = "";
+            document.getElementById("admin-login").classList.add("hidden");
+            document.getElementById("admin-content").classList.remove("hidden");
+            setAdminMsg("admin-msg", "", "");
+            renderAdminList(data.rows || []);
+          } else {
+            setAdminMsg("admin-login-msg", "PIN salah.", "err");
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "Masuk";
+          setAdminMsg("admin-login-msg", "Tidak bisa memeriksa PIN. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    });
+    document.getElementById("admin-pin").addEventListener("keydown", function(ev){
+      if(ev.key === "Enter"){ ev.preventDefault(); document.getElementById("btn-admin-login").click(); }
+    });
+    document.getElementById("btn-admin-add").addEventListener("click", addBuyer);
+    document.getElementById("btn-admin-refresh").addEventListener("click", function(){
+      setAdminMsg("admin-msg", "", "");
+      loadAdminList().catch(function(){ setAdminMsg("admin-msg", "Tidak bisa memuat daftar. Periksa internet Anda lalu coba lagi.", "err"); });
+    });
+
+    var btnPS = document.getElementById("btn-print-soal");
+    if(btnPS){ btnPS.addEventListener("click", function(){ printWithMode("soal"); }); }
+    var btnPK = document.getElementById("btn-print-kunci");
+    if(btnPK){ btnPK.addEventListener("click", function(){ printWithMode("kunci"); }); }
+
+    function qHeadHtml(q){
+      return '<div class="qhead"><span class="qno">No. '+q.no+'</span>'
+        +'<span class="qtype '+q.type+'">'+TYPE_NAMES[q.type]+'</span>'
+        +'<span class="qtype">'+BAB_NAMES[q.bab]+'</span>'
+        +'<span class="qskor">Skor: '+TYPE_SCORE[q.type]+'</span></div>';
+    }
+
+    /* =============== LATIHAN SOAL =============== */
+    function renderLatihan(){
+      var host = document.getElementById("latihan-list");
+      var html = "", lastBab = 0;
+      var order = QUESTIONS.slice().sort(function(a,b){ if(a.bab!==b.bab) return a.bab-b.bab; return a.no-b.no; });
+      order.forEach(function(q){
+        if(q.bab!==lastBab){ lastBab=q.bab; html += '<h3 style="margin:26px 0 4px;font-size:22px">'+BAB_NAMES[q.bab]+'</h3>'; }
+        html += '<div class="qcard" id="lat-'+q.no+'">'+qHeadHtml(q);
+        if(q.stimulus){ html += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+nl2br(q.stimulus)+'</div>'; }
+        html += '<div class="qtext">'+esc(q.q)+'</div>';
+        if(q.type==="pg"){
+          html += '<div class="opts">';
+          q.options.forEach(function(op,i){
+            html += '<button class="opt" data-lat-pg="'+q.no+'" data-idx="'+i+'"><span class="huruf">'+"ABCD"[i]+'</span>'+esc(op)+'</button>';
+          });
+          html += '</div><div class="explain" id="lat-ex-'+q.no+'"></div>';
+        } else if(q.type==="isian"){
+          html += '<div class="fillin"><input type="text" id="lat-in-'+q.no+'" placeholder="Tulis jawabanmu di sini…" autocomplete="off">'
+            +'<button class="btn small" data-lat-check="'+q.no+'">✔ Periksa</button></div>'
+            +'<div class="explain" id="lat-ex-'+q.no+'"></div>';
+        } else {
+          html += '<textarea class="essay" placeholder="Tulis jawabanmu di sini…"></textarea>'
+            +'<div style="margin-top:10px"><button class="btn small ghost" data-lat-model="'+q.no+'">👀 Lihat Contoh Jawaban</button></div>'
+            +'<div class="modelans" id="lat-model-'+q.no+'"><h4>Contoh Jawaban:</h4>'+nl2br(q.model)
+            +'<h4 style="margin-top:10px">Aturan Skor:</h4>'+esc(q.rubrik)
+            +'<h4 style="margin-top:10px">Pembahasan:</h4>'+esc(q.explain)+'</div>';
+        }
+        html += '</div>';
+      });
+      host.innerHTML = html;
+
+      host.querySelectorAll("[data-lat-pg]").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-pg"), idx = +btn.getAttribute("data-idx"), q = byNo(no);
+          var card = document.getElementById("lat-"+no);
+          var opts = card.querySelectorAll(".opt");
+          opts.forEach(function(o,i){ o.disabled = true; o.classList.toggle("benar", i===q.answer); o.classList.remove("sel"); });
+          if(idx!==q.answer){ btn.classList.add("salah"); }
+          var ex = document.getElementById("lat-ex-"+no);
+          ex.className = "explain show " + (idx===q.answer ? "ok" : "no");
+          ex.innerHTML = '<span class="verdict">'+(idx===q.answer ? "🎉 Benar! Kerja bagus." : "Belum tepat. Jawaban yang benar: "+"ABCD"[q.answer]+".")+'</span><br>'+esc(q.explain);
+        });
+      });
+      host.querySelectorAll("[data-lat-check]").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-check"), q = byNo(no);
+          var val = document.getElementById("lat-in-"+no).value;
+          var ex = document.getElementById("lat-ex-"+no);
+          if(!norm(val)){ ex.className="explain show info"; ex.innerHTML='<span class="verdict">Isi dulu jawabanmu ya!</span>'; return; }
+          var ok = isianBenar(q,val);
+          ex.className = "explain show " + (ok ? "ok" : "no");
+          ex.innerHTML = '<span class="verdict">'+(ok ? "🎉 Benar! Hebat." : "Belum tepat. Jawaban yang benar: <b>"+esc(q.model)+"</b>.")+'</span><br>'+esc(q.explain);
+        });
+      });
+      host.querySelectorAll("[data-lat-model]").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-model");
+          var box = document.getElementById("lat-model-"+no);
+          var show = box.classList.toggle("show");
+          btn.textContent = show ? "🙈 Sembunyikan Contoh Jawaban" : "👀 Lihat Contoh Jawaban";
+        });
+      });
+    }
+    renderLatihan();
+
+    /* =============== MENU SOAL =============== */
+    function menuPreview(q){
+      var t = String(q.q || "").replace(/\s+/g, " ").trim();
+      if(t.length > 95) t = t.slice(0, 95).trim() + "…";
+      return t;
+    }
+    function renderMenuSoal(){
+      var host = document.getElementById("menu-list");
+      var html = "", lastBab = 0;
+      var order = QUESTIONS.slice().sort(function(a,b){ if(a.bab!==b.bab) return a.bab-b.bab; return a.no-b.no; });
+      order.forEach(function(q){
+        if(q.bab!==lastBab){
+          if(lastBab!==0) html += '</div>';
+          lastBab = q.bab;
+          html += '<h3 style="margin:26px 0 4px;font-size:22px">'+BAB_NAMES[q.bab]+'</h3><div class="menu-list">';
+        }
+        html += '<button class="menu-item" data-menu-no="'+q.no+'">'
+          + '<span class="mno">'+q.no+'</span>'
+          + '<span class="qtype '+q.type+'">'+TYPE_NAMES[q.type]+'</span>'
+          + '<span class="mtxt">'+esc(menuPreview(q))+'</span>'
+          + '<span class="mskor">Skor '+TYPE_SCORE[q.type]+'</span>'
+          + '</button>';
+      });
+      if(lastBab!==0) html += '</div>';
+      host.innerHTML = html;
+      host.querySelectorAll("[data-menu-no]").forEach(function(b){
+        b.addEventListener("click", function(){
+          var no = b.getAttribute("data-menu-no");
+          showView("latihan");
+          setTimeout(function(){
+            var el = document.getElementById("lat-"+no);
+            if(el) el.scrollIntoView({ behavior:"smooth", block:"start" });
+          }, 80);
+        });
+      });
+    }
+    renderMenuSoal();
+
+    /* =============== KISI-KISI (sesuai berkas kisi-kisi ASAS) =============== */
+    var MATERI_SHORT = {1:"Bilangan",2:"Pecahan",3:"Pola Bilangan dan Gambar"};
+    var KISI = [
+      {bab:1, cp:"Membaca, menulis, menentukan nilai tempat, membandingkan, mengurutkan, melakukan komposisi dan dekomposisi bilangan cacah sampai 10.000", rows:[
+        ["Disajikan kartu bilangan, murid mampu membaca bilangan cacah sampai 10.000","PG",1,1],
+        ["Disajikan kartu bilangan, murid mampu menentukan nilai tempat bilangan cacah sampai 10.000","PG",2,1],
+        ["Disajikan kartu bilangan, murid mampu membandingkan dua bilangan cacah sampai 10.000","PG",3,1],
+        ["Disajikan kalimat bilangan, murid mampu merubah ke dalam bentuk angka","PG",4,1],
+        ["Disajikan beberapa bilangan cacah, murid mampu mengurutkan bilangan cacah tersebut.","PG",5,1],
+        ["Disajikan bilangan cacah, murid mampu menguraikan bilangan tersebut berdasarkan nilai tempatnya.","PG",6,1],
+        ["Disajikan teks pendek tentang bilangan, murid mampu menentukan hasil penjumlahan bilangan cacah sampai 1.000","PG",7,1],
+        ["Disajikan teks pendek tentang bilangan, murid mampu menentukan hasil pengurangan bilangan cacah sampai 1.000","PG",8,1],
+        ["Disajikan soal cerita, siswa mampu menentukan hasil perkalian bilangan cacah sampai 100.","PG",9,1],
+        ["Disajikan soal cerita, siswa mampu menentukan hasil pembagian bilangan cacah sampai 100.","PG",10,1],
+        ["Disajikan bilangan cacah, murid mampu menentukan faktor bilangan tersebut.","PG",11,1],
+        ["Disajikan bilangan cacah, murid mampu menentukan kelipatan bilangan tersebut.","PG",12,1],
+        ["Disajikan beberapa bilangan cacah, murid mampu mengurutkan bilangan cacah tersebut.","ISIAN",21,2],
+        ["Disajikan teks pendek tentang bilangan, murid mampu menentukan hasil penjumlahan bilangan cacah sampai 1.000","ISIAN",22,2],
+        ["Disajikan teks pendek tentang bilangan, murid mampu menentukan hasil pengurangan bilangan cacah sampai 1.000","ISIAN",23,2],
+        ["Disajikan kartu bilangan, murid mampu membaca bilangan cacah sampai 10.000","ISIAN",24,2],
+        ["Disajikan soal cerita pendek, murid mampu menentukan nilai tempat dan mengurangkan bilangan cacah.","URAIAN",31,3]
+      ]},
+      {bab:2, cp:"Peserta didik dapat membandingkan dan mengurutkan antar-pecahan dengan pembilang satu dan antar-pecahan dengan penyebut yang sama. Mereka dapat mengenali pecahan senilai menggunakan gambar dan simbol matematika. Peserta didik menunjukkan pemahaman dan intuisi bilangan (number sense) pada bilangan desimal. Mereka dapat menyatakan pecahan desimal persepuluhan dan perseratusan, serta menghubungkan pecahan desimal perseratusan dengan konsep persen.", rows:[
+        ["Disajikan bilangan pecahan, peserta didik mampu mengurutkan beberapa pecahan dengan pembilang satu.","PG",13,1],
+        ["Disajikan gambar yang mewakili nilai pecahan, peserta didik mampu menyatakan pecahan desimal persepuluhan.","PG",14,1],
+        ["Disajikan gambar yang mewakili nilai pecahan, peserta didik mampu menyatakan pecahan senilai.","PG",15,1],
+        ["Disajikan bilangan pecahan, peserta didik mampu mengubah pecahan persepuluhan menjadi desimal.","PG",16,1],
+        ["Disajikan bilangan pecahan, peserta didik mampu mengubah pecahan perseratusan menjadi desimal.","PG",17,1],
+        ["Disajikan bilangan pecahan, peserta didik mampu mengubah pecahan desimal perseratusan menjadi persen.","PG",18,1],
+        ["Disajikan bilangan pecahan, peserta didik mampu mengurutkan beberapa pecahan dengan pembilang satu.","ISIAN",25,2],
+        ["Disajikan bilangan pecahan, peserta didik mampu mengubah pecahan persepuluhan menjadi desimal.","ISIAN",26,2],
+        ["Disajikan bilangan pecahan, peserta didik mampu mengubah pecahan perseratusan menjadi desimal.","ISIAN",27,2],
+        ["Disajikan bilangan pecahan, peserta didik mampu mengubah pecahan desimal perseratusan menjadi persen.","ISIAN",28,2],
+        ["Disajikan beberapa gambar yang mewakili beberapa pecahan, murid mampu mengurutkan nilai pecahan tersebut.","URAIAN",32,3],
+        ["Disajikan soal cerita, murid mampu mengubah pecahan ke bentuk desimal.","URAIAN",33,3],
+        ["Disajikan soal cerita, murid mampu mengubah desimal ke dalam bentuk persen.","URAIAN",34,3]
+      ]},
+      {bab:3, cp:"Peserta didik dapat mengidentifikasi, meniru, dan mengembangkan pola gambar atau obyek sederhana dan pola bilangan membesar dan mengecil yang melibatkan penjumlahan dan pengurangan pada bilangan cacah sampai 100.", rows:[
+        ["Disajikan gambar, murid mampu menemukan pola gambar membesar atau mengecil.","PG",19,1],
+        ["Disajikan gambar yang mewakili pola bilangan, murid mampu menemukan gambar yang memiliki pola bilangan yang sama.","PG",20,1],
+        ["Disajikan gambar, murid mampu melanjutkan gambar pola tersebut.","ISIAN",29,2],
+        ["Disajikan deret bilangan rumpang, murid mampu melanjutkan pola bilangan selanjutnya.","ISIAN",30,2],
+        ["Disajikan soal cerita, peserta didik mampu membuat pola bilangan dan gambar berdasarkan bilangan pada cerita tersebut.","URAIAN",35,3]
+      ]}
+    ];
+    function renderKisi(){
+      var html = '<table class="kisi"><thead><tr><th>Materi</th><th>Indikator Soal</th><th>Bentuk Soal</th><th>No. Soal</th><th>Skor</th></tr></thead><tbody>';
+      KISI.forEach(function(g){
+        html += '<tr class="kisi-bab"><td colspan="5">'+esc(BAB_NAMES[g.bab])+'</td></tr>';
+        html += '<tr class="kisi-cp"><td colspan="5">CP: '+esc(g.cp)+'</td></tr>';
+        g.rows.forEach(function(r){
+          html += '<tr><td data-l="Materi">'+esc(MATERI_SHORT[g.bab])+'</td>'
+            + '<td data-l="Indikator Soal">'+esc(r[0])+'</td>'
+            + '<td class="c" data-l="Bentuk Soal">'+esc(r[1])+'</td>'
+            + '<td class="c" data-l="No. Soal">'+r[2]+'</td>'
+            + '<td class="c" data-l="Skor">'+r[3]+'</td></tr>';
+        });
+      });
+      html += '<tr class="kisi-total"><td colspan="2">Total Skor: PG 20 × 1 + Isian 10 × 2 + Uraian 5 × 3</td><td class="c" colspan="2">35 soal</td><td class="c">55</td></tr>';
+      html += '</tbody></table>';
+      document.getElementById("kisi-table").innerHTML = html;
+    }
+    renderKisi();
+
+    /* =============== SIMULASI ASAS =============== */
+    var sim = { aktif:false, idx:0, answers:{}, flags:{}, sisa:90*60, timerId:null, selesai:false, selfScore:{} };
+
+    function renderPalette(){
+      var host = document.getElementById("sim-palette");
+      var html = "";
+      QUESTIONS.forEach(function(q,i){
+        var cls = "pal";
+        if(sim.answers[q.no] !== undefined && sim.answers[q.no] !== null && String(sim.answers[q.no]).trim()!=="") cls += " terjawab";
+        if(sim.flags[q.no]) cls += " ragu";
+        if(i===sim.idx) cls += " kini";
+        html += '<button class="'+cls+'" data-pal="'+i+'">'+q.no+'</button>';
+      });
+      host.innerHTML = html;
+      host.querySelectorAll("[data-pal]").forEach(function(b){
+        b.addEventListener("click", function(){ sim.idx = +b.getAttribute("data-pal"); renderSimQuestion(); });
+      });
+      var terjawab = 0;
+      QUESTIONS.forEach(function(q){ if(sim.answers[q.no] !== undefined && String(sim.answers[q.no]).trim()!=="") terjawab++; });
+      document.getElementById("sim-answered").textContent = terjawab;
+      document.getElementById("sim-prog-bar").style.width = (terjawab/QUESTIONS.length*100)+"%";
+    }
+
+    function renderSimQuestion(){
+      var q = QUESTIONS[sim.idx];
+      document.getElementById("sim-prog-text").textContent = "Soal "+(sim.idx+1)+" dari "+QUESTIONS.length;
+      var host = document.getElementById("sim-question");
+      var html = '<div class="qcard">'+qHeadHtml(q);
+      if(q.stimulus){ html += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+nl2br(q.stimulus)+'</div>'; }
+      html += '<div class="qtext">'+esc(q.q)+'</div>';
+      if(q.type==="pg"){
+        html += '<div class="opts">';
+        q.options.forEach(function(op,i){
+          var sel = sim.answers[q.no]===i ? " sel" : "";
+          html += '<button class="opt'+sel+'" data-sim-pg="'+i+'"><span class="huruf">'+"ABCD"[i]+'</span>'+esc(op)+'</button>';
+        });
+        html += '</div>';
+      } else if(q.type==="isian"){
+        html += '<div class="fillin"><input type="text" id="sim-in" placeholder="Tulis jawabanmu di sini…" autocomplete="off" value="'+esc(sim.answers[q.no]||"")+'"></div>';
+      } else {
+        html += '<textarea class="essay" id="sim-in" placeholder="Tulis jawabanmu dengan lengkap di sini…">'+esc(sim.answers[q.no]||"")+'</textarea>';
+      }
+      html += '</div>';
+      host.innerHTML = html;
+
+      host.querySelectorAll("[data-sim-pg]").forEach(function(b){
+        b.addEventListener("click", function(){
+          sim.answers[q.no] = +b.getAttribute("data-sim-pg");
+          renderSimQuestion();
+        });
+      });
+      var inp = document.getElementById("sim-in");
+      if(inp){
+        inp.addEventListener("input", function(){ sim.answers[q.no] = inp.value; renderPalette(); });
+      }
+      var flagBtn = document.getElementById("btn-flag");
+      flagBtn.classList.toggle("ragu-on", !!sim.flags[q.no]);
+      flagBtn.textContent = sim.flags[q.no] ? "🚩 Ragu-ragu (Aktif)" : "🚩 Ragu-ragu";
+      document.getElementById("btn-prev").disabled = sim.idx===0;
+      document.getElementById("btn-next").disabled = sim.idx===QUESTIONS.length-1;
+      renderPalette();
+    }
+
+    function fmtTime(s){ var m=Math.floor(s/60), d=s%60; return (m<10?"0":"")+m+":"+(d<10?"0":"")+d; }
+    function tickTimer(){
+      sim.sisa--;
+      var el = document.getElementById("sim-timer");
+      el.textContent = "⏱️ " + fmtTime(Math.max(sim.sisa,0));
+      el.classList.toggle("kritis", sim.sisa<=300);
+      if(sim.sisa<=0){ finishSim(true); }
+    }
+    function startSim(){
+      sim.aktif = true; sim.selesai = false; sim.idx = 0; sim.answers = {}; sim.flags = {}; sim.selfScore = {}; sim.sisa = 90*60;
+      document.getElementById("sim-start").classList.add("hidden");
+      document.getElementById("sim-quiz").classList.remove("hidden");
+      document.getElementById("sim-timer").textContent = "⏱️ 90:00";
+      document.getElementById("sim-timer").classList.remove("kritis");
+      if(sim.timerId) clearInterval(sim.timerId);
+      sim.timerId = setInterval(tickTimer, 1000);
+      renderSimQuestion();
+      window.scrollTo(0,0);
+    }
+    document.getElementById("btn-start-sim").addEventListener("click", startSim);
+    document.getElementById("btn-prev").addEventListener("click", function(){ if(sim.idx>0){ sim.idx--; renderSimQuestion(); } });
+    document.getElementById("btn-next").addEventListener("click", function(){ if(sim.idx<QUESTIONS.length-1){ sim.idx++; renderSimQuestion(); } });
+    document.getElementById("btn-flag").addEventListener("click", function(){
+      var q = QUESTIONS[sim.idx]; sim.flags[q.no] = !sim.flags[q.no]; renderSimQuestion();
+    });
+    function askFinish(){
+      var terjawab=0, ragu=0, total=QUESTIONS.length;
+      QUESTIONS.forEach(function(q){
+        if(sim.answers[q.no]!==undefined && String(sim.answers[q.no]).trim()!=="") terjawab++;
+        if(sim.flags[q.no]) ragu++;
+      });
+      document.getElementById("modal-finish-text").innerHTML =
+        "Kamu sudah menjawab <b>"+terjawab+"</b> dari "+total+" soal. Belum dijawab: <b>"+(total-terjawab)+"</b> soal. Ditandai ragu-ragu: <b>"+ragu+"</b> soal.<br><br>Setelah selesai, kamu tidak dapat mengubah jawaban PG dan Isian. Soal uraian akan kamu nilai sendiri di layar hasil.";
+      document.getElementById("modal-finish").classList.add("show");
+    }
+    document.getElementById("btn-finish-top").addEventListener("click", askFinish);
+    document.getElementById("btn-modal-back").addEventListener("click", function(){ document.getElementById("modal-finish").classList.remove("show"); });
+    document.getElementById("btn-modal-yes").addEventListener("click", function(){
+      document.getElementById("modal-finish").classList.remove("show"); finishSim(false);
+    });
+
+    function hitungSkor(){
+      var pg=0, isian=0, uraian=0;
+      QUESTIONS.forEach(function(q){
+        if(q.type==="pg"){ if(sim.answers[q.no]===q.answer) pg += 1; }
+        else if(q.type==="isian"){ if(isianBenar(q, sim.answers[q.no])) isian += 2; }
+        else { uraian += (sim.selfScore[q.no]||0); }
+      });
+      return {pg:pg, isian:isian, uraian:uraian, total:pg+isian+uraian};
+    }
+    function updateHasil(){
+      var s = hitungSkor();
+      var nilai = Math.round(s.total/TOTAL_SKOR_MAKS*100);
+      document.getElementById("skor-pg").textContent = s.pg;
+      document.getElementById("skor-isian").textContent = s.isian;
+      document.getElementById("skor-uraian").textContent = s.uraian;
+      document.getElementById("hasil-total").textContent = s.total;
+      document.getElementById("hasil-nilai").textContent = nilai;
+      var predikat;
+      if(nilai>=90){ predikat="🌟 Sangat Baik — Luar Biasa!"; }
+      else if(nilai>=75){ predikat="👍 Baik — Hebat!"; }
+      else if(nilai>=60){ predikat="🙂 Cukup — Terus Berlatih!"; }
+      else { predikat="💪 Perlu Berlatih Lagi — Kamu Pasti Bisa!"; }
+      document.getElementById("hasil-predikat").textContent = predikat;
+    }
+    function finishSim(karenaWaktu){
+      if(sim.selesai) return;
+      sim.selesai = true; sim.aktif = false;
+      if(sim.timerId) clearInterval(sim.timerId);
+      document.getElementById("sim-quiz").classList.add("hidden");
+      document.getElementById("sim-start").classList.remove("hidden");
+      renderHasil(karenaWaktu);
+      showView("hasil");
+    }
+    function renderHasil(karenaWaktu){
+      /* --- Penilaian uraian oleh siswa --- */
+      var uh = "";
+      if(karenaWaktu){ uh += '<div class="disclaimer" style="margin:0 0 14px">⏰ Waktu habis! Simulasi otomatis diselesaikan.</div>'; }
+      uh += '<div class="qcard"><h3 style="margin-top:0">✍️ Nilai Sendiri Soal Uraianmu</h3>'
+        +'<p style="margin:0 0 6px">Bandingkan jawabanmu dengan <b>jawaban model</b>, lalu pilih skor untuk tiap soal uraian sesuai aturan skor:</p>'
+        +'<ul style="margin:0;padding-left:22px"><li><b>Skor 3</b> = jawaban lengkap dan tepat.</li><li><b>Skor 2</b> = jawaban benar tetapi kurang lengkap.</li><li><b>Skor 1</b> = jawaban hanya benar sebagian.</li><li><b>Skor 0</b> = jawaban salah atau kosong.</li></ul>'
+        +'<p style="margin:6px 0 0">Jujur ya saat menilai, supaya hasil belajarmu benar-benar terlihat!</p></div>';
+      QUESTIONS.forEach(function(q){
+        if(q.type!=="uraian") return;
+        var jawab = sim.answers[q.no];
+        uh += '<div class="qcard">'+qHeadHtml(q);
+        if(q.stimulus){ uh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+nl2br(q.stimulus)+'</div>'; }
+        uh += '<div class="qtext">'+esc(q.q)+'</div>'
+          +'<div style="font-weight:800;margin-top:8px">Jawabanmu:</div>'
+          +'<div class="jawaban-siswa">'+(jawab && String(jawab).trim() ? esc(jawab) : "(tidak dijawab)")+'</div>'
+          +'<div class="modelans show"><h4>Jawaban Model:</h4>'+nl2br(q.model)
+          +'<h4 style="margin-top:10px">Aturan Skor:</h4>'+esc(q.rubrik)+'</div>'
+          +'<div class="selfscore"><span style="font-weight:800">Skor saya:</span>';
+        for(var s=0;s<=3;s++){ uh += '<button class="ss'+((sim.selfScore[q.no]||0)===s?" pick":"")+'" data-ss="'+q.no+'" data-val="'+s+'">'+s+'</button>'; }
+        uh += '</div></div>';
+      });
+      document.getElementById("uraian-self").innerHTML = uh;
+      document.querySelectorAll("[data-ss]").forEach(function(b){
+        b.addEventListener("click", function(){
+          sim.selfScore[+b.getAttribute("data-ss")] = +b.getAttribute("data-val");
+          var grup = b.parentElement.querySelectorAll(".ss");
+          grup.forEach(function(x){ x.classList.toggle("pick", x===b); });
+          updateHasil();
+        });
+      });
+
+      /* --- Pembahasan semua soal --- */
+      var rh = "";
+      QUESTIONS.forEach(function(q){
+        rh += '<div class="qcard">'+qHeadHtml(q);
+        if(q.stimulus){ rh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+nl2br(q.stimulus)+'</div>'; }
+        rh += '<div class="qtext">'+esc(q.q)+'</div>';
+        if(q.type==="pg"){
+          var pilih = sim.answers[q.no];
+          rh += '<div class="opts">';
+          q.options.forEach(function(op,i){
+            var cls = "opt";
+            if(i===q.answer) cls += " benar";
+            else if(pilih===i) cls += " salah";
+            rh += '<button class="'+cls+'" disabled><span class="huruf">'+"ABCD"[i]+'</span>'+esc(op)+(pilih===i ? ' <b>(jawabanmu)</b>' : '')+'</button>';
+          });
+          rh += '</div>';
+          var ok = pilih===q.answer;
+          rh += '<div class="explain show '+(ok?"ok":"no")+'"><span class="verdict">'+(ok?"🎉 Benar!":"Jawabanmu belum tepat. Kunci jawaban: "+"ABCD"[q.answer]+".")+'</span><br>'+esc(q.explain)+'</div>';
+        } else if(q.type==="isian"){
+          var val = sim.answers[q.no];
+          var ok2 = isianBenar(q, val);
+          rh += '<div class="jawaban-siswa">Jawabanmu: <b>'+(val && String(val).trim() ? esc(val) : "(tidak dijawab)")+'</b></div>';
+          rh += '<div class="explain show '+(ok2?"ok":"no")+'"><span class="verdict">'+(ok2?"🎉 Benar!":"Jawaban yang benar: "+esc(q.model)+".")+'</span><br>'+esc(q.explain)+'</div>';
+        } else {
+          rh += '<div class="modelans show"><h4>Jawaban Model:</h4>'+nl2br(q.model)+'<h4 style="margin-top:10px">Pembahasan:</h4>'+esc(q.explain)+'</div>';
+          rh += '<div class="explain show info">Skor uraian yang kamu berikan untuk soal ini: <b>'+(sim.selfScore[q.no]||0)+'</b> dari 3.</div>';
+        }
+        rh += '</div>';
+      });
+      document.getElementById("hasil-review").innerHTML = rh;
+      updateHasil();
+    }
+    document.getElementById("btn-retry").addEventListener("click", function(){
+      showView("simulasi"); startSim();
+    });
+    </script>
+  </body>
+</html>

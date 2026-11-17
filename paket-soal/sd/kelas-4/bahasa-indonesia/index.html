@@ -128,6 +128,40 @@
       .modelans h4{margin:0 0 6px}
       .svgbox{text-align:center;margin:10px 0}
       .svgbox svg{max-width:100%;height:auto}
+      .qcard{scroll-margin-top:150px}
+
+      /* ---------- Menu Soal ---------- */
+      .menu-list{display:grid;gap:9px;margin:10px 0 4px}
+      .menu-item{display:flex;gap:11px;align-items:center;width:100%;text-align:left;background:var(--card);
+        border:2px solid var(--line);border-radius:14px;padding:11px 14px;box-shadow:var(--shadow);color:var(--ink)}
+      .menu-item:hover{border-color:var(--primary)}
+      .menu-item .mno{background:var(--primary);color:#fff;font-weight:900;border-radius:10px;padding:3px 11px;font-size:16px;flex:0 0 auto}
+      .menu-item .mtxt{flex:1 1 auto;font-weight:600;font-size:16px;min-width:0}
+      .menu-item .mskor{font-weight:700;color:var(--muted2);font-size:14px;flex:0 0 auto;white-space:nowrap}
+
+      /* ---------- Kisi-kisi ---------- */
+      .kisi-title{text-align:center;font-weight:900;font-size:clamp(18px,4.4vw,23px);line-height:1.35;margin:6px 0 14px}
+      .kisi-meta{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);margin:0 0 16px}
+      .kisi-meta table{border-collapse:collapse}
+      .kisi-meta td{padding:3.5px 14px 3.5px 0;font-size:16px;vertical-align:top}
+      .kisi-meta td:first-child{font-weight:800;white-space:nowrap}
+      table.kisi{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+      table.kisi th,table.kisi td{border:1.5px solid var(--line);padding:8px 11px;text-align:left;font-size:15.5px;vertical-align:top}
+      table.kisi thead th{background:var(--primary);color:#fff;font-size:15px}
+      table.kisi td.c{text-align:center;white-space:nowrap;font-weight:700}
+      table.kisi tr.kisi-bab td{background:var(--chip);font-weight:900;font-size:16.5px;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){table.kisi tr.kisi-bab td{color:#a8d8ff}}
+      table.kisi tr.kisi-total td{background:var(--warn-bg);font-weight:800}
+      @media (max-width:640px){
+        table.kisi thead{display:none}
+        table.kisi,table.kisi tbody,table.kisi tr,table.kisi td{display:block;width:100%}
+        table.kisi tr{border-bottom:2.5px solid var(--line)}
+        table.kisi td{border:none;padding:4px 13px}
+        table.kisi td.c{text-align:left}
+        table.kisi td[data-l]::before{content:attr(data-l)": ";font-weight:800;color:var(--muted2)}
+        table.kisi tr.kisi-bab td,table.kisi tr.kisi-total td{padding:9px 13px}
+        .kisi-meta td:first-child{white-space:normal}
+      }
 
       /* ---------- Simulasi ---------- */
       .simbar{position:sticky;top:70px;z-index:40;background:var(--card);border:2px solid var(--line);border-radius:16px;
@@ -192,6 +226,9 @@
       .gate-field label{display:block;font-weight:800;font-size:16px;margin-bottom:7px}
       .gate-field input{width:100%;min-height:54px;font-size:18px;padding:12px 15px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
       .gate-field input:focus{outline:3px solid var(--primary);outline-offset:1px;border-color:var(--primary)}
+      #gate-nama,#admin-new-nama,#admin-new-ket{text-transform:uppercase}
+      #gate-nama::placeholder,#admin-new-nama::placeholder,#admin-new-ket::placeholder{text-transform:none}
+      .owner-bar .milik b,.hasil-nama b,.admin-row .info b{text-transform:uppercase}
       .gate-error{display:none;text-align:left;color:var(--bad);background:var(--bad-bg);border:1.5px solid var(--bad);border-radius:12px;padding:10px 13px;font-weight:700;font-size:15.5px;margin:10px 0 0}
       .gate-error.show{display:block}
       .gate-card .btn{width:100%;margin-top:16px}
@@ -267,8 +304,8 @@
         .contoh{background:#f2f2f2!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
         .print-area .pq-stim,.print-area .pk-ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
         /* Mode Ringkasan (default) */
-        body:not([data-print]) #view-home,body:not([data-print]) #view-latihan,body:not([data-print]) #view-simulasi,body:not([data-print]) #view-hasil,
-        body[data-print="ringkasan"] #view-home,body[data-print="ringkasan"] #view-latihan,body[data-print="ringkasan"] #view-simulasi,body[data-print="ringkasan"] #view-hasil{display:none!important}
+        body:not([data-print]) #view-home,body:not([data-print]) #view-latihan,body:not([data-print]) #view-menu,body:not([data-print]) #view-kisi,body:not([data-print]) #view-simulasi,body:not([data-print]) #view-hasil,
+        body[data-print="ringkasan"] #view-home,body[data-print="ringkasan"] #view-latihan,body[data-print="ringkasan"] #view-menu,body[data-print="ringkasan"] #view-kisi,body[data-print="ringkasan"] #view-simulasi,body[data-print="ringkasan"] #view-hasil{display:none!important}
         body:not([data-print]) #view-ringkasan,body[data-print="ringkasan"] #view-ringkasan{display:block!important}
         body:not([data-print]) .print-area,body[data-print="ringkasan"] .print-area{display:none!important}
         /* Mode Soal */
@@ -295,7 +332,7 @@
         <form id="gate-form" novalidate>
           <div class="gate-field">
             <label for="gate-nama">Nama Lengkap</label>
-            <input type="text" id="gate-nama" placeholder="Tulis nama lengkap di sini…" autocomplete="name" maxlength="80">
+            <input type="text" id="gate-nama" placeholder="Tulis nama lengkap di sini…" autocomplete="name" autocapitalize="characters" maxlength="80">
           </div>
           <p class="gate-error" id="gate-error" role="alert"></p>
           <button type="submit" class="btn" id="btn-buka-paket">🔓 Buka Paket</button>
@@ -308,6 +345,8 @@
       <div class="in">
         <button class="navbtn active" data-nav="home">🏠 Beranda</button>
         <button class="navbtn" data-nav="ringkasan">📖 Ringkasan</button>
+        <button class="navbtn" data-nav="menu">📋 Menu Soal</button>
+        <button class="navbtn" data-nav="kisi">🗂️ Kisi-kisi</button>
         <button class="navbtn" data-nav="latihan">✏️ Latihan Soal</button>
         <button class="navbtn" data-nav="simulasi">📝 Simulasi ASAS</button>
       </div>
@@ -355,6 +394,8 @@
 
         <div class="cta">
           <button class="btn" data-go="ringkasan">📖 Mulai Belajar</button>
+          <button class="btn ghost" data-go="menu">📋 Menu Soal</button>
+          <button class="btn ghost" data-go="kisi">🗂️ Kisi-kisi</button>
           <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
         </div>
 
@@ -362,8 +403,10 @@
           <h2>Cara Menggunakan Paket Ini</h2>
           <ol>
             <li><b>Ringkasan</b> — Baca ringkasan materi 4 bab terlebih dahulu. Ada tombol <b>Cetak Ringkasan</b> bila ingin mencetaknya.</li>
+            <li><b>Menu Soal</b> — Lihat daftar semua 40 soal per bab. Ketuk salah satu soal untuk langsung melompat ke soal itu di Latihan Soal.</li>
+            <li><b>Kisi-kisi</b> — Lihat kisi-kisi penulisan naskah ASAS selengkapnya, supaya bisa dibandingkan dengan kisi-kisi dari gurumu di sekolah.</li>
             <li><b>Latihan Soal</b> — Kerjakan 40 soal per bab. Kunci dan pembahasan langsung muncul setelah kamu menjawab. Di bagian ini juga ada tombol <b>Cetak Soal</b> (lembar kerja siswa tanpa kunci) dan <b>Cetak Kunci &amp; Pembahasan</b> (untuk guru/orang tua).</li>
-            <li><b>Simulasi ASAS</b> — Uji kemampuanmu seperti ujian sungguhan: 40 soal, waktu 90 menit, ada palet nomor dan tombol ragu-ragu.</li>
+            <li><b>Simulasi ASAS</b> — Uji kemampuanmu seperti ujian sungguhan: 40 soal, waktu 90 menit, ada palet nomor dan tombol ragu-ragu. Setelah selesai, kamu bisa kembali ke <b>Menu Soal</b> dari layar hasil.</li>
           </ol>
         </div>
       </section>
@@ -453,7 +496,47 @@
         <p style="color:var(--muted2);font-weight:600;margin:0">40 soal dikelompokkan per bab. Jawab dulu, kunci dan pembahasan akan langsung muncul. Semangat! Tombol <b>Cetak Soal</b> untuk lembar kerja siswa (tanpa kunci), tombol <b>Cetak Kunci &amp; Pembahasan</b> untuk pegangan guru/orang tua.</p>
         <div id="latihan-list"></div>
         <div class="cta">
+          <button class="btn ghost" data-go="menu">📋 Kembali ke Menu Soal</button>
           <button class="btn orange" data-go="simulasi">📝 Siap? Coba Simulasi ASAS</button>
+        </div>
+      </section>
+
+      <!-- ================= MENU SOAL ================= -->
+      <section id="view-menu" class="view">
+        <div class="sec-head">
+          <h2>📋 Menu Soal</h2>
+          <button class="btn small no-print" data-go="kisi">🗂️ Lihat Kisi-kisi</button>
+        </div>
+        <p style="color:var(--muted2);font-weight:600;margin:0">Daftar lengkap 40 soal paket ini, dikelompokkan per bab. Ketuk salah satu soal untuk langsung melompat ke soal itu di Latihan Soal.</p>
+        <div id="menu-list"></div>
+        <div class="cta">
+          <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
+          <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
+        </div>
+      </section>
+
+      <!-- ================= KISI-KISI ================= -->
+      <section id="view-kisi" class="view">
+        <div class="sec-head"><h2>🗂️ Kisi-kisi ASAS</h2></div>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 10px">Kisi-kisi di bawah ini ditampilkan apa adanya, agar dapat dibandingkan dengan kisi-kisi yang diberikan guru di sekolah — sama atau tidak.</p>
+        <div class="kisi-title">KISI-KISI PENULISAN NASKAH<br>ASESMEN SUMATIF AKHIR SEMESTER GANJIL</div>
+        <div class="kisi-meta">
+          <table>
+            <tr><td>Mata Pelajaran</td><td>: Bahasa Indonesia</td></tr>
+            <tr><td>Kurikulum</td><td>: Kurikulum Merdeka</td></tr>
+            <tr><td>Jumlah Soal</td><td>: 40</td></tr>
+            <tr><td>Bentuk Soal</td><td>: PG, Isian, Uraian</td></tr>
+            <tr><td>Kelas</td><td>: IV (Empat)</td></tr>
+            <tr><td>Semester</td><td>: 1 (Ganjil)</td></tr>
+            <tr><td>Tahun Ajaran</td><td>: 2026/2027</td></tr>
+            <tr><td>Elemen</td><td>: Menyimak, Membaca dan memirsa, Menulis</td></tr>
+            <tr><td>Bank Soal</td><td>: SD Negeri Ungaran 01</td></tr>
+          </table>
+        </div>
+        <div id="kisi-table"></div>
+        <div class="cta">
+          <button class="btn ghost" data-go="menu">📋 Ke Menu Soal</button>
+          <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
         </div>
       </section>
 
@@ -522,6 +605,7 @@
         <div id="hasil-review"></div>
         <div class="cta">
           <button class="btn" id="btn-retry">🔁 Ulangi Simulasi</button>
+          <button class="btn ghost" data-go="menu">📋 Kembali ke Menu Soal</button>
           <button class="btn ghost" data-go="ringkasan">📖 Baca Ringkasan Lagi</button>
         </div>
       </section>
@@ -555,7 +639,7 @@
           <p class="admin-msg" id="admin-msg" role="alert"></p>
           <div class="admin-field">
             <label for="admin-new-nama">Nama pembeli baru</label>
-            <input type="text" id="admin-new-nama" placeholder="Tulis nama lengkap pembeli…" autocomplete="off" maxlength="80">
+            <input type="text" id="admin-new-nama" placeholder="Tulis nama lengkap pembeli…" autocomplete="off" autocapitalize="characters" maxlength="80">
           </div>
           <div class="admin-field">
             <label for="admin-new-mapel">Mapel</label>
@@ -566,7 +650,7 @@
           </div>
           <div class="admin-field">
             <label for="admin-new-ket">Keterangan (opsional)</label>
-            <input type="text" id="admin-new-ket" placeholder="Contoh: WA, Kelas IV A, dsb." autocomplete="off" maxlength="120">
+            <input type="text" id="admin-new-ket" placeholder="Contoh: WA, Kelas IV A, dsb." autocomplete="off" autocapitalize="characters" maxlength="120">
           </div>
           <button type="button" class="btn" id="btn-admin-add" style="width:100%">＋ Tambah</button>
           <h4 style="margin:20px 0 4px;font-size:17px">Daftar Nama Pembeli</h4>
@@ -788,8 +872,22 @@
     /* =============== NAMA PEMILIK PAKET (gerbang akses) =============== */
     var OWNER_KEY = "paket-asas-bi4-nama";
     var ownerName = "";
-    try{ ownerName = String(sessionStorage.getItem(OWNER_KEY) || "").trim(); }catch(e){ ownerName = ""; }
-    function saveOwnerName(n){ ownerName = n; try{ sessionStorage.setItem(OWNER_KEY, n); }catch(e){} }
+    try{ ownerName = String(sessionStorage.getItem(OWNER_KEY) || "").trim().replace(/\s+/g, " ").toUpperCase(); }catch(e){ ownerName = ""; }
+    function saveOwnerName(n){ ownerName = String(n == null ? "" : n).trim().replace(/\s+/g, " ").toUpperCase(); try{ sessionStorage.setItem(OWNER_KEY, ownerName); }catch(e){} }
+    function forceUpperInput(el){
+      if(!el) return;
+      var applyUpper = function(){
+        var v = el.value, u = String(v == null ? "" : v).toUpperCase();
+        if(v !== u){
+          var s = el.selectionStart, en = el.selectionEnd;
+          el.value = u;
+          try{ if(s != null && en != null) el.setSelectionRange(s, en); }catch(e){}
+        }
+      };
+      el.addEventListener("input", applyUpper);
+      el.addEventListener("change", applyUpper);
+      el.addEventListener("blur", applyUpper);
+    }
     function refreshOwnerUI(){
       var on = document.getElementById("owner-name"); if(on) on.textContent = ownerName || "—";
       var hv = document.getElementById("hasil-nama-val"); if(hv) hv.textContent = ownerName || "—";
@@ -798,7 +896,7 @@
     function isianBenar(q,val){ var v=norm(val); if(!v) return false; for(var i=0;i<q.accept.length;i++){ if(norm(q.accept[i])===v) return true; } return false; }
 
     /* =============== NAVIGASI =============== */
-    var VIEWS = ["home","ringkasan","latihan","simulasi","hasil"];
+    var VIEWS = ["home","ringkasan","menu","kisi","latihan","simulasi","hasil"];
     function showView(name){
       for(var i=0;i<VIEWS.length;i++){
         document.getElementById("view-"+VIEWS[i]).classList.toggle("active", VIEWS[i]===name);
@@ -913,7 +1011,8 @@
     document.getElementById("gate-form").addEventListener("submit", function(ev){
       ev.preventDefault();
       var raw = document.getElementById("gate-nama").value;
-      var displayName = String(raw || "").trim().replace(/\s+/g, " ");
+      var displayName = String(raw || "").trim().replace(/\s+/g, " ").toUpperCase();
+      document.getElementById("gate-nama").value = displayName;
       if(!isBackendReady()){
         showGateError("Sistem pemeriksaan nama belum dipasang. Hubungi penjual.");
         var sm = document.getElementById("gate-system-msg");
@@ -953,6 +1052,9 @@
           showGateError("Tidak bisa memeriksa nama. Periksa internet Anda lalu coba lagi.");
         });
     });
+    forceUpperInput(document.getElementById("gate-nama"));
+    forceUpperInput(document.getElementById("admin-new-nama"));
+    forceUpperInput(document.getElementById("admin-new-ket"));
     document.getElementById("gate-nama").addEventListener("input", function(){
       hideGateError();
     });
@@ -980,7 +1082,7 @@
         if(r.mapel) meta.push("Mapel: " + (r.mapel === "semua" ? "Semua Mapel" : (r.mapel === MAPEL_ID ? MAPEL_LABEL : esc(r.mapel))));
         if(r.tanggal) meta.push(esc(r.tanggal));
         if(r.ket) meta.push(esc(r.ket));
-        html += '<div class="admin-row"><div class="info"><b>' + esc(r.nama || "") + '</b>'
+        html += '<div class="admin-row"><div class="info"><b>' + esc(String(r.nama || "").toUpperCase()) + '</b>'
           + (meta.length ? '<span>' + meta.join(" • ") + '</span>' : '')
           + '</div><button type="button" class="btn-hapus" data-admin-remove="' + esc(String(r.row)) + '">Hapus</button></div>';
       });
@@ -1013,8 +1115,9 @@
       var namaEl = document.getElementById("admin-new-nama");
       var ketEl = document.getElementById("admin-new-ket");
       var mapelEl = document.getElementById("admin-new-mapel");
-      var nama = namaEl.value.trim().replace(/\s+/g, " ");
-      var ket = ketEl.value.trim();
+      var nama = namaEl.value.trim().replace(/\s+/g, " ").toUpperCase();
+      var ket = ketEl.value.trim().replace(/\s+/g, " ").toUpperCase();
+      namaEl.value = nama; ketEl.value = ket;
       var mapel = mapelEl ? mapelEl.value : MAPEL_ID;
       if(!nama){ setAdminMsg("admin-msg", "Nama pembeli baru wajib diisi.", "err"); namaEl.focus(); return; }
       var btn = document.getElementById("btn-admin-add");
@@ -1200,6 +1303,113 @@
       });
     }
     renderLatihan();
+
+    /* =============== MENU SOAL =============== */
+    function menuPreview(q){
+      var t = String(q.q || "").replace(/\s+/g, " ").trim();
+      if(t.length > 95) t = t.slice(0, 95).trim() + "…";
+      return t;
+    }
+    function renderMenuSoal(){
+      var host = document.getElementById("menu-list");
+      var html = "", lastBab = 0;
+      var order = QUESTIONS.slice().sort(function(a,b){ if(a.bab!==b.bab) return a.bab-b.bab; return a.no-b.no; });
+      order.forEach(function(q){
+        if(q.bab!==lastBab){
+          if(lastBab!==0) html += '</div>';
+          lastBab = q.bab;
+          html += '<h3 style="margin:26px 0 4px;font-size:22px">'+BAB_NAMES[q.bab]+'</h3><div class="menu-list">';
+        }
+        html += '<button class="menu-item" data-menu-no="'+q.no+'">'
+          + '<span class="mno">'+q.no+'</span>'
+          + '<span class="qtype '+q.type+'">'+TYPE_NAMES[q.type]+'</span>'
+          + '<span class="mtxt">'+esc(menuPreview(q))+'</span>'
+          + '<span class="mskor">Skor '+TYPE_SCORE[q.type]+'</span>'
+          + '</button>';
+      });
+      if(lastBab!==0) html += '</div>';
+      host.innerHTML = html;
+      host.querySelectorAll("[data-menu-no]").forEach(function(b){
+        b.addEventListener("click", function(){
+          var no = b.getAttribute("data-menu-no");
+          showView("latihan");
+          setTimeout(function(){
+            var el = document.getElementById("lat-"+no);
+            if(el) el.scrollIntoView({ behavior:"smooth", block:"start" });
+          }, 80);
+        });
+      });
+    }
+    renderMenuSoal();
+
+    /* =============== KISI-KISI (sesuai berkas kisi-kisi ASAS) =============== */
+    var KISI = [
+      {bab:1, rows:[
+        ["Disajikan soal langkah memahami teks narasi","PG",1,1],
+        ["Disajikan soal mengenai unsur-unsur kalimat transitif","PG",2,1],
+        ["Disajikan soal menentukan unsur-unsur pada sebuah kalimat","PG",3,1],
+        ["Disajikan soal di mana ketika mencari makna kosakata baru","PG",4,1],
+        ["Disajikan soal penulisan yang tepat dalam tulisan tegak bersambung","PG",5,1],
+        ["Disajikan soal memahami arti dari kosakata baru","PG",6,1],
+        ["Disajikan soal langkah-langkah memahami teks yang dibacakan orang lain","PG",7,1],
+        ["Disajikan soal istilah karakter tokoh dalam bacaan","ISIAN",26,2],
+        ["Disajikan soal siswa menuliskan unsur-unsur sebuah kalimat","ISIAN",27,2],
+        ["Disajikan soal siswa menuliskan kalimat transitif dan intransitif serta unsur kalimatnya","URAIAN",36,3]
+      ]},
+      {bab:2, rows:[
+        ["Disajikan soal menyebutkan ciri-ciri membaca fasih","PG",8,1],
+        ["Disajikan soal menentukan kata berhomonim pada kalimat","PG",9,1],
+        ["Disajikan soal melengkapi kata berawalan me- pada sebuah kalimat","PG",10,1],
+        ["Disajikan soal paragraf deskripsi kemudian siswa menentukan pernyataan yang sesuai","PG",11,1],
+        ["Disajikan soal istilah kata penghubung pada kalimat majemuk","PG",12,1],
+        ["Disajikan soal menentukan kalimat majemuk setara yang tepat","PG",13,1],
+        ["Disajikan soal menyebutkan istilah pada kosakata baru","ISIAN",28,2],
+        ["Disajikan soal memberikan contoh berawalan me- yang mengalami perubahan bentuk","ISIAN",29,2],
+        ["Disajikan soal untuk melengkapi kalimat rumpang dengan konjungsi yang tepat","ISIAN",30,2],
+        ["Disajikan soal menuliskan kalimat majemuk setara yang terdapat pada penggalan bacaan","URAIAN",37,3]
+      ]},
+      {bab:3, rows:[
+        ["Disajikan soal menentukan kalimat argumentasi","PG",14,1],
+        ["Disajikan soal untuk memberikan contoh kata awalan ber- yang benar","PG",15,1],
+        ["Disajikan soal menentukan penerapan awalan ber- pada kalimat secara tepat","PG",16,1],
+        ["Disajikan soal bergambar arti dan makna dari rambu lalu lintas","PG",17,1],
+        ["Disajikan sebuah penggalan bacaan untuk menentukan paragraf deskripsi","PG",18,1],
+        ["Disajikan soal pengertian paragraf deskripsi","PG",19,1],
+        ["Disajikan soal mengenai pengertian paragraf argumentasi","ISIAN",31,2],
+        ["Disajikan soal untuk pemakaian awalan ber- yang tepat pada kata sebuah kalimat","ISIAN",32,2],
+        ["Disajikan soal menentukan paragraf deskripsi","ISIAN",33,2],
+        ["Disajikan soal bergambar untuk mendeskripsikan jalur perjalanan pada denah","URAIAN",38,3]
+      ]},
+      {bab:4, rows:[
+        ["Disajikan penggalan bacaan untuk menentukan ide pokok paragraf","PG",20,1],
+        ["Disajikan soal siswa menentukan tugas dari peran dalam berdiskusi","PG",21,1],
+        ["Disajikan soal menentukan peran dalam melaksanakan wawancara","PG",22,1],
+        ["Disajikan soal pengertian kalimat persuasif","PG",23,1],
+        ["Disajikan soal untuk menentukan kalimat majas personifikasi dengan tepat","PG",24,1],
+        ["Disajikan soal mengenai unsur-unsur AdiKSiMBa dan peruntukannya","PG",25,1],
+        ["Disajikan soal salah satu langkah awal dalam persiapan wawancara","ISIAN",34,2],
+        ["Disajikan soal mengenai unsur-unsur AdiKSiMBa dan peruntukannya","ISIAN",35,2],
+        ["Disajikan gambar untuk membuat daftar pertanyaan wawancara menggunakan huruf kapital yang tepat dan tanda baca yang sesuai","URAIAN",39,3],
+        ["Disajikan dua kalimat majas personifikasi dan siswa diminta untuk menuliskan arti dan makna","URAIAN",40,3]
+      ]}
+    ];
+    function renderKisi(){
+      var html = '<table class="kisi"><thead><tr><th>Bab</th><th>Uraian Materi</th><th>Bentuk Soal</th><th>No. Soal</th><th>Skor</th></tr></thead><tbody>';
+      KISI.forEach(function(g){
+        html += '<tr class="kisi-bab"><td colspan="5">'+esc(BAB_NAMES[g.bab])+'</td></tr>';
+        g.rows.forEach(function(r){
+          html += '<tr><td data-l="Bab">'+esc(BAB_NAMES[g.bab].split("•")[1].trim())+'</td>'
+            + '<td data-l="Uraian Materi">'+esc(r[0])+'</td>'
+            + '<td class="c" data-l="Bentuk Soal">'+esc(r[1])+'</td>'
+            + '<td class="c" data-l="No. Soal">'+r[2]+'</td>'
+            + '<td class="c" data-l="Skor">'+r[3]+'</td></tr>';
+        });
+      });
+      html += '<tr class="kisi-total"><td colspan="2">Total Skor: PG 25 × 1 + Isian 10 × 2 + Uraian 5 × 3</td><td class="c" colspan="2">40 soal</td><td class="c">60</td></tr>';
+      html += '</tbody></table>';
+      document.getElementById("kisi-table").innerHTML = html;
+    }
+    renderKisi();
 
     /* =============== SIMULASI ASAS =============== */
     var sim = { aktif:false, idx:0, answers:{}, flags:{}, sisa:90*60, timerId:null, selesai:false, selfScore:{} };

@@ -1,30 +1,39 @@
-CARA UNGGAH — Portal v4 (tombol Admin jelas + dropdown sekolah)
-================================================================
-ZIP ini berisi TIGA berkas yang berubah. Berkas lain di situs TIDAK
-berubah, tidak perlu diunggah ulang.
+CARA UNGGAH — Portal Pak Mail (ZIP v6)
+=======================================
+ZIP ini menambah 7 paket baru Kelas IV + memperbarui katalog dan
+paket B. Indonesia (Menu Soal, Kisi-kisi, huruf kapital otomatis).
 
-1. paket-soal/sd/index.html
-   - Ada dropdown "Pilih Sekolah" sebelum daftar kelas.
-   - Isi dropdown: SD Negeri Ungaran 01 (hanya sekolah yang sudah
-     punya bank soal yang muncul). Kelas baru tampil setelah sekolah
-     dipilih.
-2. paket-soal/sd/kelas-4/index.html
-   - Katalog Kelas 4 kini tertulis "Bank soal: SD Negeri Ungaran 01".
-3. paket-soal/sd/kelas-4/bahasa-indonesia/index.html
-   - Paket B. Indonesia: tombol "Admin" kini JELAS di bawah tombol
-     "Buka Paket" pada layar gerbang nama (tombol Admin di footer
-     juga diperbesar). Gerbang nama + URL Apps Script tidak berubah.
+A. HALAMAN YANG BERUBAH (7 berkas):
+   - paket-soal/sd/index.html (badge jadi "8 paket tersedia")
+   - paket-soal/sd/kelas-1/index.html sampai kelas-6/index.html
+     (daftar mapel bertambah BTQ + Basa Jawa; "Seni Budaya" jadi
+     "Seni Rupa"; kelas-4 kini berisi 8 kartu paket)
+   Cara: di repo, buka tiap berkas, hapus yang lama, unggah yang baru.
 
-Langkah:
-1. Ekstrak ZIP ini di komputer Bapak.
-2. Buka repo pakmail di GitHub (sang-guru-matematika/pakmail).
-3. Untuk tiap berkas di atas: buka foldernya di repo, HAPUS berkas
-   lama, lalu unggah berkas baru dari folder hasil ekstrak.
-4. Commit.
+B. PAKET BARU + PAKET DIPERBARUI (8 folder):
+   - paket-soal/sd/kelas-4/bahasa-indonesia/ (diperbarui)
+   - paket-soal/sd/kelas-4/matematika/ (baru)
+   - paket-soal/sd/kelas-4/ipas/ (baru)
+   - paket-soal/sd/kelas-4/pendidikan-pancasila/ (baru)
+   - paket-soal/sd/kelas-4/pai/ (baru)
+   - paket-soal/sd/kelas-4/btq/ (baru)
+   - paket-soal/sd/kelas-4/basa-jawa/ (baru)
+   - paket-soal/sd/kelas-4/seni-rupa/ (baru)
+   Cara: di repo, buka folder kelas-4, unggah tiap folder paket
+   (tiap folder berisi 1 berkas index.html). Untuk bahasa-indonesia,
+   hapus dulu index.html lamanya lalu unggah yang baru.
+   Commit sekali untuk semuanya.
 
-Cek setelah unggah (tunggu 1-3 menit, GitHub butuh waktu menayangkan):
-- https://pakmail.web.id/paket-soal/sd/ — ada dropdown Pilih Sekolah.
-- Pilih "SD Negeri Ungaran 01" -> kartu Kelas 1-6 muncul, Kelas 4
-  "1 paket tersedia".
-- https://pakmail.web.id/paket-soal/sd/kelas-4/bahasa-indonesia/ —
-  di bawah tombol Buka Paket ada tombol Admin yang jelas.
+C. APPS SCRIPT (PENTING, sebelum pembeli memakai paket baru):
+   Tempel ulang bagian MAPEL_LIST di Apps Script Bapak dengan berkas
+   Kode-Apps-Script-Daftar-Pembeli.gs yang baru (8 mapel), JANGAN
+   ubah baris PIN, lalu Deploy > New version. URL tetap sama.
+
+PERIKSA SETELAH UNGGAH (tunggu 1-3 menit agar GitHub menayangkan):
+- https://pakmail.web.id/paket-soal/sd/ — pilih SD Negeri Ungaran 01,
+  Kelas 4 berlabel "8 paket tersedia".
+- https://pakmail.web.id/paket-soal/sd/kelas-4/ — 8 kartu paket
+  (B. Indonesia, Matematika, IPAS, Pendidikan Pancasila, PAI, BTQ,
+  Basa Jawa, Seni Rupa) + 2 mapel Menyusul (Bahasa Inggris, PJOK).
+- Buka satu paket baru: gerbang nama + tombol Admin tampil; nama tes
+  yang belum terdaftar ditolak "Nama belum terdaftar."

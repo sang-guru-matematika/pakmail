@@ -1,0 +1,1580 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Paket ASAS Pendidikan Pancasila Kelas IV</title>
+    <style>
+      :root{
+        --bg:#dcf0fd; --bg2:#eef8ff; --card:#ffffff; --ink:#17384f; --muted:#51708499;
+        --muted2:#47687e; --primary:#0f7bd4; --primary-d:#0a5ea3; --accent:#ffb020;
+        --good:#1d9e62; --good-bg:#e2f7ec; --bad:#df463a; --bad-bg:#fdecea;
+        --warn:#e9a400; --warn-bg:#fff6da; --line:#b9dcf3; --chip:#eaf5fe;
+        --bab1:#f08c00; --bab2:#1d9e62; --bab3:#d6337f; --bab4:#0f7bd4;
+        --shadow:0 4px 14px rgba(23,90,140,.14);
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#0c2233; --bg2:#0f2a3f; --card:#17384f; --ink:#ecf7ff; --muted2:#a9c6d8;
+          --primary:#3aa0ec; --primary-d:#7cc0f5; --accent:#ffb020;
+          --good:#43d68a; --good-bg:#123d2a; --bad:#ff7a6e; --bad-bg:#4a2320;
+          --warn:#ffcf4d; --warn-bg:#4a3a10; --line:#2c5878; --chip:#1d425f;
+          --shadow:0 4px 14px rgba(0,0,0,.4);
+        }
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2) 320px,var(--bg2));color:var(--ink);
+        font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+        font-size:17px;line-height:1.55;-webkit-text-size-adjust:100%}
+      .wrap{max-width:880px;margin:0 auto;padding:0 16px 40px}
+      button{font-family:inherit;cursor:pointer}
+      button,[role="button"],select,input,textarea{font-family:inherit}
+
+      /* ---------- Navigasi ---------- */
+      nav.topnav{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:3px solid var(--accent);
+        box-shadow:0 2px 10px rgba(23,90,140,.15)}
+      .topnav .in{max-width:880px;margin:0 auto;padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap}
+      .navbtn{flex:1 1 auto;min-height:48px;border:2px solid var(--line);background:var(--chip);color:var(--ink);
+        border-radius:14px;font-size:16px;font-weight:700;padding:8px 10px}
+      .navbtn.active{background:var(--primary);border-color:var(--primary);color:#fff}
+
+      .view{display:none}
+      .view.active{display:block}
+
+      /* ---------- Beranda ---------- */
+      .hero{text-align:center;padding:30px 10px 8px}
+      .hero .badge{display:inline-block;background:var(--accent);color:#4a2f00;font-weight:800;
+        padding:6px 16px;border-radius:999px;font-size:15px;letter-spacing:.3px}
+      .hero h1{font-size:clamp(28px,6vw,42px);margin:14px 0 6px;line-height:1.2;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.hero h1{color:#a8d8ff}}
+      .hero p.sub{font-size:clamp(16px,3.6vw,20px);color:var(--muted2);margin:4px 0 10px;font-weight:600}
+      .disclaimer{max-width:620px;margin:14px auto 0;background:var(--warn-bg);border:2px dashed var(--warn);
+        border-radius:14px;padding:12px 16px;font-weight:700;font-size:16px}
+      .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:26px 0 8px}
+      .stat{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 14px;text-align:center;box-shadow:var(--shadow)}
+      .stat .big{font-size:34px;font-weight:900;color:var(--primary-d);line-height:1.1}
+      @media (prefers-color-scheme: dark){.stat .big{color:#a8d8ff}}
+      .stat .lbl{font-weight:700;color:var(--muted2);margin-top:4px}
+      .babgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0}
+      .babcard{background:var(--card);border-radius:18px;padding:16px;box-shadow:var(--shadow);border-top:8px solid var(--line)}
+      .babcard h3{margin:0 0 6px;font-size:19px}
+      .babcard p{margin:0;color:var(--muted2);font-size:15.5px}
+      .babcard.b1{border-top-color:var(--bab1)} .babcard.b2{border-top-color:var(--bab2)}
+      .babcard.b3{border-top-color:var(--bab3)} .babcard.b4{border-top-color:var(--bab4)}
+      .cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:26px 0 6px}
+      .btn{min-height:52px;border:none;border-radius:16px;font-size:18px;font-weight:800;padding:12px 26px;
+        background:var(--primary);color:#fff;box-shadow:var(--shadow)}
+      .btn:hover{background:var(--primary-d)}
+      .btn.orange{background:#f08c00}.btn.orange:hover{background:#c77400}
+      .btn.ghost{background:var(--card);color:var(--primary-d);border:2px solid var(--primary)}
+      .btn.small{min-height:48px;font-size:16px;padding:10px 18px;border-radius:13px}
+      .btn:disabled{opacity:.45;cursor:not-allowed}
+      .howto{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 20px;margin-top:22px;box-shadow:var(--shadow)}
+      .howto h2{margin:0 0 8px;font-size:21px}
+      .howto li{margin:5px 0}
+
+      /* ---------- Ringkasan ---------- */
+      .sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:24px 0 6px}
+      .sec-head h2{margin:0;font-size:clamp(23px,5vw,30px);color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.sec-head h2{color:#a8d8ff}}
+      .babsec{background:var(--card);border-radius:20px;box-shadow:var(--shadow);margin:18px 0;padding:20px 22px;border-left:10px solid var(--line)}
+      .babsec.b1{border-left-color:var(--bab1)} .babsec.b2{border-left-color:var(--bab2)}
+      .babsec.b3{border-left-color:var(--bab3)} .babsec.b4{border-left-color:var(--bab4)}
+      .babsec h3{margin:0 0 4px;font-size:23px}
+      .babsec .tema{color:var(--muted2);font-weight:600;margin:0 0 10px}
+      .konsep{margin:0;padding:0;list-style:none}
+      .konsep li{padding:9px 0;border-bottom:1px dashed var(--line)}
+      .konsep li:last-child{border-bottom:none}
+      .konsep b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.konsep b{color:#a8d8ff}}
+      .contoh{display:block;margin-top:3px;background:var(--chip);border-radius:10px;padding:7px 12px;font-size:16px}
+      .contoh::before{content:"Contoh: ";font-weight:800}
+
+      /* ---------- Soal ---------- */
+      .qcard{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 20px;margin:14px 0;box-shadow:var(--shadow)}
+      .qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+      .qno{background:var(--primary);color:#fff;font-weight:900;border-radius:10px;padding:3px 12px;font-size:16px}
+      .qtype{font-weight:800;font-size:13.5px;padding:4px 11px;border-radius:999px;background:var(--chip);color:var(--muted2);border:1.5px solid var(--line)}
+      .qtype.pg{background:#e3f0ff;color:#0a5ea3}.qtype.isian{background:#fff0d6;color:#8a5a00}.qtype.uraian{background:#ffe3f0;color:#9c1c58}
+      @media (prefers-color-scheme: dark){.qtype.pg{background:#173a55;color:#a8d8ff}.qtype.isian{background:#4a3a10;color:#ffcf4d}.qtype.uraian{background:#47203a;color:#ff9ec7}}
+      .qskor{margin-left:auto;font-weight:700;color:var(--muted2);font-size:14.5px}
+      .stimulus{background:var(--chip);border-left:6px solid var(--accent);border-radius:10px;padding:12px 16px;margin:10px 0;font-size:17px}
+      .qtext{font-size:18px;font-weight:600;margin:8px 0}
+      .opts{display:grid;gap:9px;margin-top:10px}
+      .opt{min-height:52px;text-align:left;border:2px solid var(--line);background:var(--card);color:var(--ink);
+        border-radius:13px;padding:11px 15px;font-size:17px;font-weight:600;width:100%}
+      .opt .huruf{display:inline-block;background:var(--chip);border:1.5px solid var(--line);border-radius:8px;
+        font-weight:900;padding:1px 9px;margin-right:9px}
+      .opt.sel{border-color:var(--primary);background:var(--chip)}
+      .opt.benar{border-color:var(--good);background:var(--good-bg)}
+      .opt.salah{border-color:var(--bad);background:var(--bad-bg)}
+      .opt:disabled{cursor:default;opacity:1}
+      .explain{display:none;margin-top:12px;border-radius:12px;padding:12px 15px;font-size:16px}
+      .explain.show{display:block}
+      .explain.ok{background:var(--good-bg);border:1.5px solid var(--good)}
+      .explain.no{background:var(--bad-bg);border:1.5px solid var(--bad)}
+      .explain.info{background:var(--chip);border:1.5px solid var(--line)}
+      .explain .verdict{font-weight:900}
+      .fillin{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+      .fillin input{flex:1 1 220px;min-height:52px;font-size:18px;padding:10px 14px;border:2px solid var(--line);
+        border-radius:13px;background:var(--card);color:var(--ink)}
+      textarea.essay{width:100%;min-height:110px;font-size:17px;padding:12px 14px;border:2px solid var(--line);
+        border-radius:13px;background:var(--card);color:var(--ink);resize:vertical;line-height:1.5}
+      .modelans{display:none;margin-top:12px;background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:12px;padding:12px 15px;font-size:16px}
+      .modelans.show{display:block}
+      .modelans h4{margin:0 0 6px}
+      .svgbox{text-align:center;margin:10px 0}
+      .svgbox svg{max-width:100%;height:auto}
+      .qcard{scroll-margin-top:150px}
+
+      /* ---------- Menu Soal ---------- */
+      .menu-list{display:grid;gap:9px;margin:10px 0 4px}
+      .menu-item{display:flex;gap:11px;align-items:center;width:100%;text-align:left;background:var(--card);
+        border:2px solid var(--line);border-radius:14px;padding:11px 14px;box-shadow:var(--shadow);color:var(--ink)}
+      .menu-item:hover{border-color:var(--primary)}
+      .menu-item .mno{background:var(--primary);color:#fff;font-weight:900;border-radius:10px;padding:3px 11px;font-size:16px;flex:0 0 auto}
+      .menu-item .mtxt{flex:1 1 auto;font-weight:600;font-size:16px;min-width:0}
+      .menu-item .mskor{font-weight:700;color:var(--muted2);font-size:14px;flex:0 0 auto;white-space:nowrap}
+
+      /* ---------- Kisi-kisi ---------- */
+      .kisi-title{text-align:center;font-weight:900;font-size:clamp(18px,4.4vw,23px);line-height:1.35;margin:6px 0 14px}
+      .kisi-meta{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);margin:0 0 16px}
+      .kisi-meta table{border-collapse:collapse}
+      .kisi-meta td{padding:3.5px 14px 3.5px 0;font-size:16px;vertical-align:top}
+      .kisi-meta td:first-child{font-weight:800;white-space:nowrap}
+      table.kisi{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+      table.kisi th,table.kisi td{border:1.5px solid var(--line);padding:8px 11px;text-align:left;font-size:15.5px;vertical-align:top}
+      table.kisi thead th{background:var(--primary);color:#fff;font-size:15px}
+      table.kisi td.c{text-align:center;white-space:nowrap;font-weight:700}
+      table.kisi tr.kisi-bab td{background:var(--chip);font-weight:900;font-size:16.5px;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){table.kisi tr.kisi-bab td{color:#a8d8ff}}
+      table.kisi tr.kisi-total td{background:var(--warn-bg);font-weight:800}
+      @media (max-width:640px){
+        table.kisi thead{display:none}
+        table.kisi,table.kisi tbody,table.kisi tr,table.kisi td{display:block;width:100%}
+        table.kisi tr{border-bottom:2.5px solid var(--line)}
+        table.kisi td{border:none;padding:4px 13px}
+        table.kisi td.c{text-align:left}
+        table.kisi td[data-l]::before{content:attr(data-l)": ";font-weight:800;color:var(--muted2)}
+        table.kisi tr.kisi-bab td,table.kisi tr.kisi-total td{padding:9px 13px}
+        .kisi-meta td:first-child{white-space:normal}
+      }
+
+      /* ---------- Simulasi ---------- */
+      .simbar{position:sticky;top:70px;z-index:40;background:var(--card);border:2px solid var(--line);border-radius:16px;
+        box-shadow:var(--shadow);padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}
+      .timer{font-size:22px;font-weight:900;background:var(--chip);border:2px solid var(--line);border-radius:12px;padding:4px 14px;font-variant-numeric:tabular-nums}
+      .timer.kritis{color:#fff;background:var(--bad);border-color:var(--bad)}
+      .prog{flex:1 1 140px}
+      .progbar{height:12px;background:var(--chip);border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+      .progbar i{display:block;height:100%;background:var(--primary);width:0%}
+      .palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:7px;margin:14px 0}
+      .pal{min-height:46px;border-radius:11px;border:2px solid var(--line);background:var(--card);color:var(--ink);font-weight:800;font-size:16px;padding:4px}
+      .pal.terjawab{background:var(--good);border-color:var(--good);color:#fff}
+      .pal.ragu{background:var(--warn);border-color:var(--warn);color:#4a2f00}
+      .pal.terjawab.ragu{background:linear-gradient(135deg,var(--good) 55%,var(--warn) 55%)}
+      .pal.kini{outline:3.5px solid var(--primary);outline-offset:1px}
+      .simnav{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+      .simnav .btn{flex:1 1 auto}
+      .btn.ragu-on{background:var(--warn);color:#4a2f00}
+      .legenda{display:flex;gap:14px;flex-wrap:wrap;font-size:14.5px;color:var(--muted2);font-weight:600;margin:6px 0}
+      .legenda .kotak{display:inline-block;width:15px;height:15px;border-radius:4px;vertical-align:-2px;margin-right:5px;border:1.5px solid var(--line)}
+
+      /* ---------- Hasil ---------- */
+      .scoregrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin:16px 0}
+      .scorecard{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:15px;text-align:center;box-shadow:var(--shadow)}
+      .scorecard .angka{font-size:30px;font-weight:900;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.scorecard .angka{color:#a8d8ff}}
+      .scorecard .ket{font-weight:700;color:var(--muted2);font-size:15px}
+      .nilai-besar{background:var(--primary);color:#fff;border-radius:20px;text-align:center;padding:22px;margin:16px 0;box-shadow:var(--shadow)}
+      .nilai-besar .n{font-size:56px;font-weight:900;line-height:1}
+      .nilai-besar .p{font-size:21px;font-weight:800;margin-top:6px}
+      .selfscore{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+      .selfscore .ss{min-height:48px;min-width:52px;border-radius:12px;border:2px solid var(--line);background:var(--card);
+        color:var(--ink);font-size:18px;font-weight:900}
+      .selfscore .ss.pick{background:var(--primary);border-color:var(--primary);color:#fff}
+      .jawaban-siswa{background:var(--chip);border-radius:10px;padding:10px 14px;margin:8px 0;white-space:pre-wrap;font-size:16px}
+      table.rekap{width:100%;border-collapse:collapse;margin:10px 0;background:var(--card);border-radius:14px;overflow:hidden}
+      table.rekap th,table.rekap td{border:1.5px solid var(--line);padding:9px 12px;text-align:left;font-size:16px}
+      table.rekap th{background:var(--chip)}
+
+      /* ---------- Modal ---------- */
+      .modal{display:none;position:fixed;inset:0;background:rgba(10,35,55,.55);z-index:100;align-items:center;justify-content:center;padding:18px}
+      .modal.show{display:flex}
+      .modal .box{background:var(--card);color:var(--ink);border-radius:20px;max-width:440px;width:100%;padding:24px;box-shadow:var(--shadow)}
+      .modal h3{margin:0 0 8px;font-size:22px}
+      .modal .row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+      .modal .row .btn{flex:1}
+
+      @media (max-width:760px){ .simbar{top:128px} }
+      footer{text-align:center;color:var(--muted2);font-weight:700;padding:26px 16px 34px;font-size:15.5px}
+      .hidden{display:none!important}
+
+      /* ---------- Layar Kunci Nama ---------- */
+      .gate{position:fixed;inset:0;z-index:300;background:linear-gradient(180deg,var(--bg),var(--bg2));display:flex;align-items:center;justify-content:center;padding:20px 16px;overflow-y:auto}
+      .gate.hidden{display:none!important}
+      .gate-card{background:var(--card);border:2px solid var(--line);border-radius:22px;box-shadow:var(--shadow);max-width:480px;width:100%;padding:28px 24px;text-align:center}
+      .gate-card .badge{display:inline-block;background:var(--accent);color:#4a2f00;font-weight:800;padding:6px 16px;border-radius:999px;font-size:14px;letter-spacing:.3px}
+      .gate-card h1{font-size:clamp(24px,5.5vw,32px);margin:14px 0 8px;line-height:1.25;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.gate-card h1{color:#a8d8ff}}
+      .gate-card .gate-sub{font-size:17px;font-weight:600;margin:6px 0 4px}
+      .gate-card .gate-note{font-size:15px;color:var(--muted2);font-weight:600;margin:0 0 20px}
+      .gate-field{text-align:left;margin:0 0 6px}
+      .gate-field label{display:block;font-weight:800;font-size:16px;margin-bottom:7px}
+      .gate-field input{width:100%;min-height:54px;font-size:18px;padding:12px 15px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
+      .gate-field input:focus{outline:3px solid var(--primary);outline-offset:1px;border-color:var(--primary)}
+      #gate-nama,#admin-new-nama{text-transform:uppercase}
+      .gate-error{display:none;text-align:left;color:var(--bad);background:var(--bad-bg);border:1.5px solid var(--bad);border-radius:12px;padding:10px 13px;font-weight:700;font-size:15.5px;margin:10px 0 0}
+      .gate-error.show{display:block}
+      .gate-card .btn{width:100%;margin-top:16px}
+      body.locked{overflow:hidden}
+
+      /* ---------- Bar Pemilik Paket ---------- */
+      .owner-bar{max-width:880px;margin:0 auto;padding:10px 16px 0}
+      .owner-bar .in{background:var(--card);border:2px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+      .owner-bar .milik{font-weight:700;font-size:16px;flex:1 1 180px;min-width:0;overflow-wrap:break-word}
+      .owner-bar .milik b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.owner-bar .milik b{color:#a8d8ff}}
+      .btn-ganti{min-height:44px;border:2px solid var(--primary);background:var(--card);color:var(--primary-d);border-radius:11px;font-size:15px;font-weight:800;padding:8px 16px}
+      .hasil-nama{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 16px;font-weight:700;font-size:17px;margin:14px 0 0;box-shadow:var(--shadow)}
+      .hasil-nama b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.hasil-nama b{color:#a8d8ff}}
+      .gate-system-msg{display:none;background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15.5px;margin:0 0 14px;text-align:left}
+      .gate-system-msg.show{display:block}
+      .btn-admin-footer{min-height:52px;border:2.5px solid var(--primary-d);background:var(--primary-d);color:#fff;border-radius:999px;font-size:16.5px;font-weight:800;padding:12px 30px;margin-top:12px;box-shadow:var(--shadow)}
+      @media (prefers-color-scheme: dark){.btn-admin-footer{color:#0c2233}}
+      .btn-admin-footer:hover{opacity:.88}
+      .btn-admin-gate{width:100%;min-height:54px;border:2.5px solid var(--primary-d);background:var(--primary-d);color:#fff;border-radius:16px;font-size:18px;font-weight:800;padding:12px 20px;margin-top:12px;box-shadow:var(--shadow)}
+      @media (prefers-color-scheme: dark){.btn-admin-gate{color:#0c2233}}
+      .btn-admin-gate:hover{opacity:.88}
+      .gate-admin-note{font-size:14px;color:var(--muted2);font-weight:600;margin:8px 0 0}
+      #modal-admin{z-index:400}
+      .admin-modal .box{max-width:560px;max-height:88vh;overflow-y:auto}
+      .admin-field{margin:12px 0;text-align:left}
+      .admin-field label{display:block;font-weight:800;font-size:15px;margin-bottom:6px}
+      .admin-field input,.admin-field select{width:100%;min-height:50px;font-size:16px;padding:10px 13px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+      .admin-msg{display:none;border-radius:11px;padding:10px 13px;font-weight:700;font-size:15px;margin:12px 0 0;text-align:left}
+      .admin-msg.show{display:block}
+      .admin-msg.err{color:var(--bad);background:var(--bad-bg);border:1.5px solid var(--bad)}
+      .admin-msg.ok{color:var(--good);background:var(--good-bg);border:1.5px solid var(--good)}
+      .admin-msg.info{background:var(--chip);border:1.5px solid var(--line)}
+      .admin-list{margin:14px 0 0;display:grid;gap:9px}
+      .admin-row{display:flex;gap:10px;align-items:flex-start;background:var(--chip);border:1.5px solid var(--line);border-radius:13px;padding:11px 13px;text-align:left}
+      .admin-row .info{flex:1;min-width:0;overflow-wrap:break-word}
+      .admin-row .info b{display:block;font-size:16px}
+      .admin-row .info span{display:block;font-size:13.5px;color:var(--muted2);font-weight:600}
+      .btn-hapus{min-height:40px;border:1.5px solid var(--bad);background:var(--card);color:var(--bad);border-radius:10px;font-size:14px;font-weight:800;padding:6px 12px;white-space:nowrap}
+      .admin-empty{font-weight:600;color:var(--muted2);background:var(--chip);border:1.5px dashed var(--line);border-radius:12px;padding:14px;text-align:center}
+      .ringkasan-print-nama{display:none}
+
+      /* ---------- Area Cetak Soal & Kunci (hanya tampil saat print) ---------- */
+      .print-area{display:none}
+      .print-area .p-head{text-align:center;border-bottom:3px double #000;padding-bottom:12px;margin-bottom:14px}
+      .print-area .p-head h1{font-size:20px;margin:0 0 4px;line-height:1.25}
+      .print-area .p-head p{margin:2px 0;font-size:13.5px}
+      .print-area .p-ident{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 18px;font-size:14px;font-weight:700}
+      .print-area .p-ident span{flex:1 1 180px;border-bottom:1.5px dotted #000;padding-bottom:6px;white-space:nowrap}
+      .print-area .p-petunjuk{border:1.5px solid #000;border-radius:8px;padding:10px 14px;font-size:13.5px;margin-bottom:16px}
+      .print-area .p-bab{font-size:16px;font-weight:900;margin:20px 0 8px;border-bottom:2px solid #000;padding-bottom:4px}
+      .print-area .pq{break-inside:avoid;margin:0 0 16px}
+      .print-area .pq-no{font-weight:900}
+      .print-area .pq-stim{border:1.5px solid #888;border-left:6px solid #888;padding:8px 12px;margin:6px 0;font-size:13.5px;background:#f7f7f7}
+      .print-area .pq-opts{margin:6px 0 0 18px;padding:0;list-style:none}
+      .print-area .pq-opts li{margin:4px 0;font-size:14px}
+      .print-area .pq-blank{border-bottom:1.5px solid #000;height:28px;margin:8px 0 2px}
+      .print-area .pq-lines{margin-top:8px}
+      .print-area .pq-lines i{display:block;height:26px;border-bottom:1.5px solid #999}
+      .print-area .pk-item{break-inside:avoid;border:1.5px solid #888;border-radius:8px;padding:10px 14px;margin:0 0 12px}
+      .print-area .pk-item h4{margin:0 0 6px;font-size:14.5px}
+      .print-area .pk-ans{background:#f2f2f2;border:1px solid #bbb;padding:8px 10px;border-radius:6px;font-weight:700;margin:6px 0}
+      .print-area .pk-exp{font-size:13.5px;margin:4px 0}
+      .print-area .pk-model{white-space:pre-wrap;font-size:13.5px;background:#fafafa;border:1px solid #ddd;padding:8px 10px;border-radius:6px;margin:6px 0}
+
+      @media print{
+        nav.topnav,footer,.no-print,.modal,.gate,.owner-bar{display:none!important}
+        .ringkasan-print-nama{display:block!important;font-size:14px;font-weight:700;border:1.5px solid #000;border-radius:8px;padding:10px 14px;margin:0 0 14px}
+        body{background:#fff!important;color:#000!important;font-size:13.5px}
+        .wrap{max-width:none;padding:0}
+        .babsec{box-shadow:none;border:1.5px solid #888;border-left:8px solid #888;break-inside:avoid;margin:10px 0;padding:12px 16px}
+        .contoh{background:#f2f2f2!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+        .print-area .pq-stim,.print-area .pk-ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+        /* Mode Ringkasan (default) */
+        body:not([data-print]) #view-home,body:not([data-print]) #view-latihan,body:not([data-print]) #view-menu,body:not([data-print]) #view-kisi,body:not([data-print]) #view-simulasi,body:not([data-print]) #view-hasil,
+        body[data-print="ringkasan"] #view-home,body[data-print="ringkasan"] #view-latihan,body[data-print="ringkasan"] #view-menu,body[data-print="ringkasan"] #view-kisi,body[data-print="ringkasan"] #view-simulasi,body[data-print="ringkasan"] #view-hasil{display:none!important}
+        body:not([data-print]) #view-ringkasan,body[data-print="ringkasan"] #view-ringkasan{display:block!important}
+        body:not([data-print]) .print-area,body[data-print="ringkasan"] .print-area{display:none!important}
+        /* Mode Soal */
+        body[data-print="soal"] .wrap{display:none!important}
+        body[data-print="soal"] #print-soal{display:block!important}
+        body[data-print="soal"] #print-kunci{display:none!important}
+        /* Mode Kunci */
+        body[data-print="kunci"] .wrap{display:none!important}
+        body[data-print="kunci"] #print-kunci{display:block!important}
+        body[data-print="kunci"] #print-soal{display:none!important}
+        @page{margin:16mm 14mm}
+      }
+    </style>
+  </head>
+  <body class="locked">
+    <!-- ================= LAYAR KUNCI NAMA ================= -->
+    <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+      <div class="gate-card">
+        <span class="badge">PAKET BELAJAR ASAS</span>
+        <h1 id="gate-title">Paket ASAS Pendidikan Pancasila Kelas IV</h1>
+        <p class="gate-sub">Masukkan nama lengkap Anda untuk membuka paket ini.</p>
+        <p class="gate-note">Hanya nama pembeli yang terdaftar yang dapat membuka paket. Nama ini tercantum di paket dan hasil latihan Anda.</p>
+        <p class="gate-system-msg" id="gate-system-msg" role="alert"></p>
+        <form id="gate-form" novalidate>
+          <div class="gate-field">
+            <label for="gate-nama">Nama Lengkap</label>
+            <input type="text" id="gate-nama" placeholder="Tulis nama lengkap di sini…" autocomplete="name" maxlength="80">
+          </div>
+          <p class="gate-error" id="gate-error" role="alert"></p>
+          <button type="submit" class="btn" id="btn-buka-paket">🔓 Buka Paket</button>
+        </form>
+        <button type="button" class="btn-admin-gate" id="btn-admin-open-gate">🔐 Admin</button>
+      </div>
+    </div>
+
+    <nav class="topnav no-print">
+      <div class="in">
+        <button class="navbtn active" data-nav="home">🏠 Beranda</button>
+        <button class="navbtn" data-nav="ringkasan">📖 Ringkasan</button>
+        <button class="navbtn" data-nav="menu">📋 Menu Soal</button>
+        <button class="navbtn" data-nav="kisi">🗂️ Kisi-kisi</button>
+        <button class="navbtn" data-nav="latihan">✏️ Latihan Soal</button>
+        <button class="navbtn" data-nav="simulasi">📝 Simulasi ASAS</button>
+      </div>
+    </nav>
+
+    <div class="owner-bar hidden no-print" id="owner-bar">
+      <div class="in">
+        <span class="milik">👤 Paket milik: <b id="owner-name">—</b></span>
+        <button type="button" class="btn-ganti" id="btn-ganti-nama">Ganti Nama</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <!-- ================= BERANDA ================= -->
+      <section id="view-home" class="view active">
+        <div class="hero">
+          <span class="badge">PAKET BELAJAR ASAS</span>
+          <h1>Paket ASAS Pendidikan Pancasila Kelas IV</h1>
+          <p class="sub">Semester 1 (Ganjil) • Kurikulum Merdeka • 40 Soal</p>
+          <p class="sub" style="font-weight:500">Tahun Ajaran 2026/2027</p>
+          <div class="disclaimer">⚠️ Soal latihan berdasarkan kisi-kisi — bukan soal ujian asli.</div>
+        </div>
+
+        <div class="cards">
+          <div class="stat"><div class="big">2</div><div class="lbl">Bab Ringkasan Materi</div></div>
+          <div class="stat"><div class="big">40</div><div class="lbl">Soal Latihan &amp; Simulasi</div></div>
+          <div class="stat"><div class="big">60</div><div class="lbl">Total Skor Maksimal</div></div>
+          <div class="stat"><div class="big">90</div><div class="lbl">Menit Waktu Simulasi</div></div>
+        </div>
+
+        <div class="babgrid">
+          <div class="babcard b1"><h3>Bab 1 • Mengenal Lingkungan Sekitar</h3><p>Identitas diri dan keluarga, keberagaman suku bangsa dan bahasa daerah, desa, kelurahan, kecamatan, dan wilayah Indonesia.</p></div>
+          <div class="babcard b2"><h3>Bab 2 • Aku Anak Disiplin</h3><p>Aturan di rumah, sekolah, dan lingkungan; aturan tertulis dan tidak tertulis; hak dan kewajiban warga sekolah; musyawarah.</p></div>
+        </div>
+
+        <table class="rekap">
+          <tr><th>Bentuk Soal</th><th>Jumlah</th><th>Skor per Soal</th><th>Total Skor</th></tr>
+          <tr><td>Pilihan Ganda (PG)</td><td>25 soal (No. 1–25)</td><td>1</td><td>25</td></tr>
+          <tr><td>Isian</td><td>10 soal (No. 26–35)</td><td>2</td><td>20</td></tr>
+          <tr><td>Uraian</td><td>5 soal (No. 36–40)</td><td>3</td><td>15</td></tr>
+          <tr><th colspan="3">Nilai Akhir = Total Skor ÷ 60 × 100</th><th>60 → 100</th></tr>
+        </table>
+
+        <div class="cta">
+          <button class="btn" data-go="ringkasan">📖 Mulai Belajar</button>
+          <button class="btn ghost" data-go="menu">📋 Menu Soal</button>
+          <button class="btn ghost" data-go="kisi">🗂️ Kisi-kisi</button>
+          <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
+        </div>
+
+        <div class="howto">
+          <h2>Cara Menggunakan Paket Ini</h2>
+          <ol>
+            <li><b>Ringkasan</b> — Baca ringkasan materi 2 bab terlebih dahulu. Ada tombol <b>Cetak Ringkasan</b> bila ingin mencetaknya.</li>
+            <li><b>Menu Soal</b> — Lihat daftar semua 40 soal per bab. Ketuk salah satu soal untuk langsung melompat ke soal itu di Latihan Soal.</li>
+            <li><b>Kisi-kisi</b> — Lihat kisi-kisi penulisan naskah ASAS selengkapnya, supaya bisa dibandingkan dengan kisi-kisi dari gurumu di sekolah.</li>
+            <li><b>Latihan Soal</b> — Kerjakan 40 soal per bab. Kunci dan pembahasan langsung muncul setelah kamu menjawab. Di bagian ini juga ada tombol <b>Cetak Soal</b> (lembar kerja siswa tanpa kunci) dan <b>Cetak Kunci &amp; Pembahasan</b> (untuk guru/orang tua).</li>
+            <li><b>Simulasi ASAS</b> — Uji kemampuanmu seperti ujian sungguhan: 40 soal, waktu 90 menit, ada palet nomor dan tombol ragu-ragu. Setelah selesai, kamu bisa kembali ke <b>Menu Soal</b> dari layar hasil.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= RINGKASAN ================= -->
+      <section id="view-ringkasan" class="view">
+        <div class="ringkasan-print-nama" id="ringkasan-print-nama">Nama: —</div>
+        <div class="sec-head">
+          <h2>📖 Ringkasan Materi</h2>
+          <button class="btn small no-print" id="btn-print">🖨️ Cetak Ringkasan</button>
+        </div>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 6px">Baca baik-baik ya! Satu baris = satu konsep penting, lengkap dengan contohnya.</p>
+
+        <div class="babsec b1">
+          <h3>Bab 1 • Mengenal Lingkungan Sekitar</h3>
+          <p class="tema">Identitas diri dan keluarga, keberagaman, serta wilayah tempat tinggal</p>
+          <ul class="konsep">
+            <li><b>Identitas diri</b> adalah ciri khas yang melekat pada diri seseorang.<span class="contoh">Nama lengkap, nama panggilan, tempat dan tanggal lahir, alamat, kegemaran (hobi), makanan kesukaan, dan cita-cita.</span></li>
+            <li><b>Identitas keluarga</b> adalah keterangan tentang keluarga kita.<span class="contoh">Nama ayah dan ibu, jumlah saudara, pekerjaan orang tua, dan alamat tempat tinggal keluarga.</span></li>
+            <li><b>Keberagaman suku bangsa:</b> Indonesia memiliki banyak suku bangsa, misalnya Jawa, Sunda, Batak, Minangkabau, Bugis, Dayak, Bali, dan Papua. Setiap suku memiliki bahasa daerah, pakaian adat, rumah adat, dan makanan khas yang berbeda-beda. Perbedaan itu adalah kekayaan bangsa yang harus dihargai.</li>
+            <li><b>Bahasa daerah</b> adalah bahasa yang digunakan masyarakat di suatu daerah.<span class="contoh">Bahasa Sunda di Jawa Barat, bahasa Jawa di Jawa Tengah dan Jawa Timur, bahasa Batak di Sumatera Utara, bahasa Bali di Bali.</span></li>
+            <li><b>Menghargai perbedaan:</b> tidak mengejek suku, bahasa, dan asal daerah teman; menghormati teman yang berbeda agama saat beribadah; berteman dengan siapa saja. Sikap menghargai dan menerima perbedaan disebut <b>toleransi</b>.</li>
+            <li><b>Wilayah tempat tinggal</b> tersusun berjenjang: RT → RW → desa/kelurahan → kecamatan → kabupaten/kota → provinsi → negara Indonesia.</li>
+            <li><b>Desa</b> dipimpin oleh <b>kepala desa</b> yang dipilih oleh warga desa. Kepala desa dibantu sekretaris desa, kepala urusan (kaur), kepala seksi (kasi), dan kepala dusun.</li>
+            <li><b>Kelurahan</b> dipimpin oleh <b>lurah</b> yang diangkat oleh pemerintah. Kelurahan umumnya berada di daerah perkotaan.</li>
+            <li><b>Kecamatan</b> adalah wilayah yang terdiri atas beberapa desa dan kelurahan, dipimpin oleh <b>camat</b>. Kabupaten dipimpin bupati dan kota dipimpin wali kota.</li>
+            <li><b>Wilayah Indonesia</b> adalah negara kepulauan yang sangat luas. Pulau-pulau besarnya antara lain Sumatra, Jawa, Kalimantan, Sulawesi, dan Papua.</li>
+          </ul>
+        </div>
+
+        <div class="babsec b2">
+          <h3>Bab 2 • Aku Anak Disiplin</h3>
+          <p class="tema">Aturan di rumah, sekolah, dan lingkungan, serta hak dan kewajiban</p>
+          <ul class="konsep">
+            <li><b>Aturan</b> adalah ketentuan atau kesepakatan yang dibuat untuk ditaati bersama, berlaku di rumah, di sekolah, dan di lingkungan tempat tinggal.</li>
+            <li><b>Tujuan dan manfaat aturan:</b> menciptakan ketertiban, keamanan, dan kenyamanan; melindungi hak setiap orang; serta mencegah terjadinya perselisihan.</li>
+            <li><b>Aturan tertulis</b> adalah aturan yang ditulis dan ditetapkan secara resmi.<span class="contoh">Tata tertib sekolah, rambu lalu lintas, dan peraturan RT.</span></li>
+            <li><b>Aturan tidak tertulis</b> adalah aturan yang tidak ditulis resmi, tetapi disepakati dan dilakukan bersama.<span class="contoh">Mengucapkan salam saat bertamu, mengantre, dan meminta izin kepada orang tua sebelum pergi bermain.</span></li>
+            <li><b>Aturan di rumah:</b> merapikan tempat tidur, membantu orang tua, belajar dengan teratur, meminta izin bila pergi, dan tidur tepat waktu.</li>
+            <li><b>Aturan bertamu:</b> datang pada waktu yang tepat, mengetuk pintu dan mengucapkan salam, menunggu dipersilakan masuk, dan berbicara dengan sopan.</li>
+            <li><b>Hak siswa (warga sekolah)</b> adalah sesuatu yang berhak kita terima.<span class="contoh">Mendapat pelajaran dari guru, menggunakan fasilitas sekolah (perpustakaan, lapangan), mendapat perlakuan yang adil, dan menyampaikan pendapat.</span></li>
+            <li><b>Kewajiban siswa (warga sekolah)</b> adalah sesuatu yang harus kita lakukan.<span class="contoh">Mematuhi tata tertib, menjaga kebersihan kelas dan melaksanakan piket, merawat fasilitas sekolah, serta menghormati guru dan teman.</span></li>
+            <li><b>Musyawarah</b> adalah berdiskusi bersama untuk mencapai kesepakatan (mufakat). Sikap yang baik dalam musyawarah: mendengarkan pendapat orang lain sampai selesai, tidak memotong pembicaraan, tidak memaksakan pendapat, dan menerima hasil keputusan bersama.</li>
+            <li><b>Menjaga lingkungan:</b> membuang sampah pada tempatnya, mengikuti kerja bakti, menyiram tanaman, dan menjaga ketenangan lingkungan.</li>
+            <li><b>Aturan ditaati semua orang:</b> aturan berlaku untuk semua orang tanpa kecuali — anak-anak, orang dewasa, guru, orang tua, dan para pemimpin.</li>
+          </ul>
+        </div>
+        <div class="cta no-print">
+          <button class="btn" data-go="latihan">✏️ Lanjut ke Latihan Soal</button>
+        </div>
+      </section>
+
+      <!-- ================= LATIHAN SOAL ================= -->
+      <section id="view-latihan" class="view">
+        <div class="sec-head">
+          <h2>✏️ Latihan Soal</h2>
+          <div style="display:flex;gap:8px;flex-wrap:wrap" class="no-print">
+            <button class="btn small" id="btn-print-soal">🖨️ Cetak Soal</button>
+            <button class="btn small ghost" id="btn-print-kunci">🖨️ Cetak Kunci &amp; Pembahasan</button>
+          </div>
+        </div>
+        <p style="color:var(--muted2);font-weight:600;margin:0">40 soal dikelompokkan per bab. Jawab dulu, kunci dan pembahasan akan langsung muncul. Semangat! Tombol <b>Cetak Soal</b> untuk lembar kerja siswa (tanpa kunci), tombol <b>Cetak Kunci &amp; Pembahasan</b> untuk pegangan guru/orang tua.</p>
+        <div id="latihan-list"></div>
+        <div class="cta">
+          <button class="btn ghost" data-go="menu">📋 Kembali ke Menu Soal</button>
+          <button class="btn orange" data-go="simulasi">📝 Siap? Coba Simulasi ASAS</button>
+        </div>
+      </section>
+
+      <!-- ================= MENU SOAL ================= -->
+      <section id="view-menu" class="view">
+        <div class="sec-head">
+          <h2>📋 Menu Soal</h2>
+          <button class="btn small no-print" data-go="kisi">🗂️ Lihat Kisi-kisi</button>
+        </div>
+        <p style="color:var(--muted2);font-weight:600;margin:0">Daftar lengkap 40 soal paket ini, dikelompokkan per bab. Ketuk salah satu soal untuk langsung melompat ke soal itu di Latihan Soal.</p>
+        <div id="menu-list"></div>
+        <div class="cta">
+          <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
+          <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
+        </div>
+      </section>
+
+      <!-- ================= KISI-KISI ================= -->
+      <section id="view-kisi" class="view">
+        <div class="sec-head"><h2>🗂️ Kisi-kisi ASAS</h2></div>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 10px">Kisi-kisi di bawah ini ditampilkan apa adanya, agar dapat dibandingkan dengan kisi-kisi yang diberikan guru di sekolah — sama atau tidak.</p>
+        <div class="kisi-title">KISI-KISI ASAS<br>PENDIDIKAN PANCASILA KELAS IV</div>
+        <div class="kisi-meta">
+          <table>
+            <tr><td>Mata Pelajaran</td><td>: Pendidikan Pancasila</td></tr>
+            <tr><td>Kurikulum</td><td>: Kurikulum Merdeka</td></tr>
+            <tr><td>Jumlah Soal</td><td>: 40</td></tr>
+            <tr><td>Bentuk Soal</td><td>: PG, Isian, Uraian</td></tr>
+            <tr><td>Kelas</td><td>: IV (Empat)</td></tr>
+            <tr><td>Semester</td><td>: 1 (Ganjil)</td></tr>
+            <tr><td>Tahun Ajaran</td><td>: 2026/2027</td></tr>
+            <tr><td>Penyusun</td><td>: KKG Kecamatan Ungaran Barat</td></tr>
+            <tr><td>Bank Soal</td><td>: SD Negeri Ungaran 01</td></tr>
+          </table>
+        </div>
+        <div id="kisi-table"></div>
+        <div class="cta">
+          <button class="btn ghost" data-go="menu">📋 Ke Menu Soal</button>
+          <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
+        </div>
+      </section>
+
+      <!-- ================= SIMULASI ASAS ================= -->
+      <section id="view-simulasi" class="view">
+        <div id="sim-start">
+          <div class="sec-head"><h2>📝 Simulasi ASAS</h2></div>
+          <div class="qcard">
+            <h3 style="margin-top:0">Petunjuk Pengerjaan</h3>
+            <ul style="margin:0;padding-left:22px">
+              <li>Jumlah soal <b>40</b>: PG No. 1–25, Isian No. 26–35, Uraian No. 36–40.</li>
+              <li>Waktu pengerjaan <b>90 menit</b>. Jika waktu habis, simulasi otomatis selesai.</li>
+              <li>Gunakan <b>palet nomor</b> untuk berpindah soal. Hijau = sudah dijawab, kuning = ragu-ragu.</li>
+              <li>Tombol <b>Ragu-ragu</b> menandai soal yang belum yakin jawabannya.</li>
+              <li>PG dan Isian dinilai otomatis. Uraian dinilai olehmu sendiri (0–3) di layar hasil dengan membandingkan jawabanmu dengan jawaban model.</li>
+              <li>Total skor maksimal 60. Nilai = total skor ÷ 60 × 100.</li>
+            </ul>
+            <div class="cta" style="justify-content:flex-start">
+              <button class="btn" id="btn-start-sim">▶️ Mulai Simulasi</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="sim-quiz" class="hidden">
+          <div class="simbar">
+            <div class="timer" id="sim-timer">⏱️ 90:00</div>
+            <div class="prog">
+              <div style="font-weight:800;font-size:15px;margin-bottom:3px"><span id="sim-prog-text">Soal 1 dari 40</span> • Terjawab: <span id="sim-answered">0</span>/40</div>
+              <div class="progbar"><i id="sim-prog-bar"></i></div>
+            </div>
+            <button class="btn small" id="btn-finish-top" style="background:var(--bad)">✔ Selesai</button>
+          </div>
+          <div class="palette" id="sim-palette"></div>
+          <div class="legenda">
+            <span><span class="kotak" style="background:var(--good)"></span>Sudah dijawab</span>
+            <span><span class="kotak" style="background:var(--warn)"></span>Ragu-ragu</span>
+            <span><span class="kotak" style="background:var(--card)"></span>Belum dijawab</span>
+          </div>
+          <div id="sim-question"></div>
+          <div class="simnav">
+            <button class="btn ghost" id="btn-prev">⬅️ Sebelumnya</button>
+            <button class="btn ghost" id="btn-flag">🚩 Ragu-ragu</button>
+            <button class="btn" id="btn-next">Berikutnya ➡️</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= HASIL ================= -->
+      <section id="view-hasil" class="view">
+        <div class="sec-head"><h2>🏆 Hasil Simulasi ASAS</h2></div>
+        <div class="hasil-nama" id="hasil-nama">👤 Nama: <b id="hasil-nama-val">—</b></div>
+        <div class="nilai-besar">
+          <div style="font-weight:800;font-size:18px">Nilai Akhir</div>
+          <div class="n" id="hasil-nilai">0</div>
+          <div class="p" id="hasil-predikat">—</div>
+          <div style="font-weight:700;opacity:.92">Total Skor: <span id="hasil-total">0</span> / 60</div>
+        </div>
+        <div class="scoregrid">
+          <div class="scorecard"><div class="angka"><span id="skor-pg">0</span>/25</div><div class="ket">Pilihan Ganda (25 soal × 1)</div></div>
+          <div class="scorecard"><div class="angka"><span id="skor-isian">0</span>/20</div><div class="ket">Isian (10 soal × 2)</div></div>
+          <div class="scorecard"><div class="angka"><span id="skor-uraian">0</span>/15</div><div class="ket">Uraian (5 soal × 3, nilai sendiri)</div></div>
+        </div>
+        <div id="uraian-self"></div>
+        <h3 style="margin:24px 0 4px;font-size:22px">📚 Pembahasan Semua Soal</h3>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 6px">Pelajari pembahasan tiap soal ya, supaya makin paham!</p>
+        <div id="hasil-review"></div>
+        <div class="cta">
+          <button class="btn" id="btn-retry">🔁 Ulangi Simulasi</button>
+          <button class="btn ghost" data-go="menu">📋 Kembali ke Menu Soal</button>
+          <button class="btn ghost" data-go="ringkasan">📖 Baca Ringkasan Lagi</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== AREA CETAK: LEMBAR SOAL (tanpa kunci) ===== -->
+    <div id="print-soal" class="print-area" aria-hidden="true"></div>
+    <!-- ===== AREA CETAK: KUNCI & PEMBAHASAN ===== -->
+    <div id="print-kunci" class="print-area" aria-hidden="true"></div>
+
+    <footer>Dikembangkan oleh Abid Khoirul Ismail, S.Pd<br><button type="button" class="btn-admin-footer" id="btn-admin-open">🔐 Admin</button></footer>
+
+    <!-- Modal Admin -->
+    <div class="modal admin-modal" id="modal-admin" role="dialog" aria-modal="true" aria-labelledby="admin-title">
+      <div class="box">
+        <h3 id="admin-title">Panel Admin</h3>
+        <p style="margin:0;font-size:15.5px;color:var(--muted2);font-weight:600">Kelola daftar nama pembeli yang dapat membuka paket ini.</p>
+        <p class="admin-msg" id="admin-system-msg" role="alert"></p>
+        <div id="admin-login">
+          <div class="admin-field">
+            <label for="admin-pin">PIN Admin</label>
+            <input type="password" id="admin-pin" placeholder="Masukkan PIN" autocomplete="current-password">
+          </div>
+          <p class="admin-msg" id="admin-login-msg" role="alert"></p>
+          <div class="row">
+            <button type="button" class="btn ghost" id="btn-admin-close">Tutup</button>
+            <button type="button" class="btn" id="btn-admin-login">Masuk</button>
+          </div>
+        </div>
+        <div id="admin-content" class="hidden">
+          <p class="admin-msg" id="admin-msg" role="alert"></p>
+          <div class="admin-field">
+            <label for="admin-new-nama">Nama pembeli baru</label>
+            <input type="text" id="admin-new-nama" placeholder="Tulis nama lengkap pembeli…" autocomplete="off" maxlength="80">
+          </div>
+          <div class="admin-field">
+            <label for="admin-new-mapel">Mapel</label>
+            <select id="admin-new-mapel">
+              <option value="sd-kelas-4-pendidikan-pancasila" selected>Pendidikan Pancasila Kelas IV (SD)</option>
+              <option value="semua">Semua Mapel</option>
+            </select>
+          </div>
+          <div class="admin-field">
+            <label for="admin-new-ket">Keterangan (opsional)</label>
+            <input type="text" id="admin-new-ket" placeholder="Contoh: WA, Kelas IV A, dsb." autocomplete="off" maxlength="120">
+          </div>
+          <button type="button" class="btn" id="btn-admin-add" style="width:100%">＋ Tambah</button>
+          <h4 style="margin:20px 0 4px;font-size:17px">Daftar Nama Pembeli</h4>
+          <div class="admin-list" id="admin-list"></div>
+          <div class="row">
+            <button type="button" class="btn ghost" id="btn-admin-refresh">↻ Muat Ulang Daftar</button>
+            <button type="button" class="btn ghost" id="btn-admin-done">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal konfirmasi selesai -->
+    <div class="modal" id="modal-finish">
+      <div class="box">
+        <h3>Selesaikan Simulasi?</h3>
+        <p id="modal-finish-text" style="margin:0;font-size:16.5px"></p>
+        <div class="row">
+          <button class="btn ghost" id="btn-modal-back">Kembali Mengerjakan</button>
+          <button class="btn" id="btn-modal-yes" style="background:var(--bad)">Ya, Selesai ✔</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    "use strict";
+    /* ============================================================
+       TEMPEL URL /exec APPS SCRIPT DI SINI
+       Contoh: var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfyc.../exec";
+       Biarkan kosong ("") bila Apps Script belum dipasang —
+       gerbang akan terkunci dan menampilkan pesan hubungi penjual.
+       ============================================================ */
+    var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRi3IkD-9nmjKvU_luHZ1QqGcWijJ5NgDYAiBUJTK8Tss_EnQ4oqRYFQGLtDix2XLDGg/exec";
+    /* Identitas mapel paket ini — setiap mapel dibeli terpisah,
+       jadi pemeriksaan nama dan daftar pembeli selalu per mapel. */
+    var MAPEL_ID = "sd-kelas-4-pendidikan-pancasila";
+    var MAPEL_LABEL = "Pendidikan Pancasila Kelas IV (SD)";
+    /* =============== GAMBAR (SVG digambar sendiri) =============== */
+    var SVG_SUKU = '<div class="svgbox"><svg width="340" height="190" viewBox="0 0 340 190" role="img" aria-label="Anak-anak memakai pakaian adat dari berbagai daerah di Indonesia">'
+      + '<rect x="0" y="0" width="340" height="190" fill="#eaf5fe"/>'
+      + '<g><circle cx="70" cy="52" r="19" fill="#ffcf99" stroke="#b97f10" stroke-width="2"/><path d="M51 40 q19 -22 38 0 l-4 -14 q-15 -10 -30 0 z" fill="#7a4a12"/><path d="M46 150 q0 -62 24 -62 q24 0 24 62 z" fill="#8a3324"/><rect x="46" y="112" width="48" height="10" fill="#d9a441"/><text x="70" y="172" text-anchor="middle" font-size="13" font-weight="800" fill="#333">Pakaian adat Jawa</text></g>'
+      + '<g><circle cx="170" cy="52" r="19" fill="#ffcf99" stroke="#b97f10" stroke-width="2"/><path d="M149 44 q21 -14 42 0 l0 10 q-21 -12 -42 0 z" fill="#22577a"/><path d="M146 150 q0 -62 24 -62 q24 0 24 62 z" fill="#22577a"/><rect x="146" y="112" width="48" height="10" fill="#ffb020"/><text x="170" y="172" text-anchor="middle" font-size="13" font-weight="800" fill="#333">Pakaian adat Sunda</text></g>'
+      + '<g><circle cx="270" cy="52" r="19" fill="#c68642" stroke="#7a4a12" stroke-width="2"/><path d="M252 40 q4 -18 10 -22 q2 12 6 14 q2 -12 8 -16 q2 12 4 16 q6 -2 8 -12 q8 6 6 20 q-21 -10 -42 0 z" fill="#d92b20"/><path d="M246 150 q0 -62 24 -62 q24 0 24 62 z" fill="#3f9e63"/><rect x="246" y="112" width="48" height="10" fill="#7a4a12"/><text x="270" y="172" text-anchor="middle" font-size="13" font-weight="800" fill="#333">Pakaian adat Papua</text></g>'
+      + '</svg><div style="font-weight:700;color:var(--muted2)">Anak-anak memakai pakaian adat dari berbagai daerah</div></div>';
+
+    var SVG_DESA = '<div class="svgbox"><svg width="360" height="180" viewBox="0 0 360 180" role="img" aria-label="Bagan struktur pemerintahan desa">'
+      + '<rect x="0" y="0" width="360" height="180" fill="#f4faff"/>'
+      + '<g><rect x="110" y="12" width="140" height="38" rx="8" fill="#0f7bd4"/><text x="180" y="37" text-anchor="middle" font-size="15" font-weight="900" fill="#fff">KEPALA DESA</text></g>'
+      + '<line x1="180" y1="50" x2="180" y2="74" stroke="#47687e" stroke-width="2.5"/>'
+      + '<line x1="46" y1="74" x2="316" y2="74" stroke="#47687e" stroke-width="2.5"/>'
+      + '<line x1="46" y1="74" x2="46" y2="94" stroke="#47687e" stroke-width="2.5"/><line x1="136" y1="74" x2="136" y2="94" stroke="#47687e" stroke-width="2.5"/><line x1="226" y1="74" x2="226" y2="94" stroke="#47687e" stroke-width="2.5"/><line x1="316" y1="74" x2="316" y2="94" stroke="#47687e" stroke-width="2.5"/>'
+      + '<g font-size="12.5" font-weight="800" fill="#17384f" text-anchor="middle">'
+      + '<rect x="6" y="94" width="80" height="48" rx="8" fill="#ffffff" stroke="#0f7bd4" stroke-width="2"/><text x="46" y="114">Sekretaris</text><text x="46" y="131">Desa</text>'
+      + '<rect x="96" y="94" width="80" height="48" rx="8" fill="#ffffff" stroke="#0f7bd4" stroke-width="2"/><text x="136" y="114">Kepala</text><text x="136" y="131">Urusan</text>'
+      + '<rect x="186" y="94" width="80" height="48" rx="8" fill="#ffffff" stroke="#0f7bd4" stroke-width="2"/><text x="226" y="114">Kepala</text><text x="226" y="131">Seksi</text>'
+      + '<rect x="276" y="94" width="80" height="48" rx="8" fill="#ffffff" stroke="#1d9e62" stroke-width="2"/><text x="316" y="114">Kepala</text><text x="316" y="131">Dusun</text></g>'
+      + '<text x="180" y="166" text-anchor="middle" font-size="13" font-weight="700" fill="#47687e">Kepala desa dibantu oleh perangkat desa</text>'
+      + '</svg><div style="font-weight:700;color:var(--muted2)">Bagan struktur pemerintahan desa</div></div>';
+
+    var SVG_RAMBU = '<div class="svgbox"><svg width="150" height="170" viewBox="0 0 150 170" role="img" aria-label="Rambu dilarang membuang sampah sembarangan">'
+      + '<rect x="70" y="118" width="10" height="46" fill="#888"/>'
+      + '<circle cx="75" cy="62" r="52" fill="#ffffff" stroke="#d92b20" stroke-width="9"/>'
+      + '<g><rect x="52" y="42" width="34" height="30" rx="4" fill="#47687e"/><path d="M48 42 h42 l-6 -12 h-30 z" fill="#47687e"/><rect x="60" y="50" width="5" height="15" fill="#fff"/><rect x="70" y="50" width="5" height="15" fill="#fff"/><path d="M92 84 q10 4 6 12 q-8 2 -12 -4 q8 -2 6 -8z" fill="#47687e"/></g>'
+      + '<line x1="36" y1="101" x2="114" y2="23" stroke="#d92b20" stroke-width="10" stroke-linecap="round"/>'
+      + '</svg><div style="font-weight:700;color:var(--muted2)">Rambu aturan di lingkungan tempat tinggal</div></div>';
+
+    var SVG_ATURAN = '<div class="svgbox"><svg width="330" height="200" viewBox="0 0 330 200" role="img" aria-label="Papan aturan lingkungan RT">'
+      + '<rect x="0" y="0" width="330" height="200" fill="#eaf7ea"/>'
+      + '<rect x="52" y="128" width="10" height="62" fill="#8a5a12"/><rect x="268" y="128" width="10" height="62" fill="#8a5a12"/>'
+      + '<rect x="30" y="18" width="270" height="116" rx="10" fill="#ffffff" stroke="#1d9e62" stroke-width="3"/>'
+      + '<text x="165" y="46" text-anchor="middle" font-size="16" font-weight="900" fill="#1d7a4c">ATURAN LINGKUNGAN RT 03</text>'
+      + '<text x="48" y="76" font-size="14.5" font-weight="700" fill="#17384f">1. Buang sampah pada tempatnya</text>'
+      + '<text x="48" y="99" font-size="14.5" font-weight="700" fill="#17384f">2. Jaga ketenangan pada malam hari</text>'
+      + '<text x="48" y="122" font-size="14.5" font-weight="700" fill="#17384f">3. Ikut kerja bakti setiap bulan</text>'
+      + '</svg><div style="font-weight:700;color:var(--muted2)">Papan aturan di lingkungan tempat tinggal</div></div>';
+
+    var SVG_LINGKUNGAN = '<div class="svgbox"><svg width="320" height="190" viewBox="0 0 320 190" role="img" aria-label="Anak membuang sampah ke tempat sampah di taman yang bersih">'
+      + '<rect x="0" y="0" width="320" height="190" fill="#eaf7ea"/>'
+      + '<circle cx="282" cy="34" r="20" fill="#ffb020"/>'
+      + '<rect x="0" y="158" width="320" height="32" fill="#bfe6bf"/>'
+      + '<g><rect x="30" y="86" width="10" height="74" fill="#8a5a12"/><circle cx="35" cy="66" r="30" fill="#3f9e63"/><circle cx="58" cy="80" r="20" fill="#57b877"/></g>'
+      + '<g><circle cx="140" cy="66" r="17" fill="#ffcf99" stroke="#b97f10" stroke-width="2"/><path d="M118 158 q0 -62 22 -62 q22 0 22 62 z" fill="#0f7bd4"/><path d="M158 104 q22 6 30 22" stroke="#ffcf99" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M182 118 l10 8 l-8 8 l-10 -8 z" fill="#ffffff" stroke="#888" stroke-width="1.5"/></g>'
+      + '<g><path d="M196 118 h44 l-6 44 h-32 z" fill="#47687e"/><rect x="192" y="108" width="52" height="10" rx="4" fill="#2e4a5e"/><text x="218" y="146" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">SAMPAH</text></g>'
+      + '</svg><div style="font-weight:700;color:var(--muted2)">Anak membuang sampah pada tempatnya</div></div>';
+
+    /* =============== BANK SOAL (sesuai nomor kisi-kisi) =============== */
+    var QUESTIONS = [
+    /* ---------- PG 1-25 ---------- */
+    {no:1,bab:1,type:"pg",q:"Berikut ini yang merupakan contoh identitas diri adalah …",
+      options:["nama lengkap, tempat lahir, dan kegemaran","nama kepala desa dan nama camat","nama provinsi dan nama kabupaten","nama sekolah dan nama kepala sekolah"],answer:0,
+      explain:"Identitas diri adalah ciri khas yang melekat pada diri seseorang, misalnya nama lengkap, tempat dan tanggal lahir, alamat, kegemaran (hobi), makanan kesukaan, dan cita-cita."},
+    {no:2,bab:1,type:"pg",q:"Identitas keluarga dapat diketahui dari …",
+      options:["warna rumah tetangga","jenis kendaraan milik orang lain","nama ayah, ibu, dan alamat tempat tinggal keluarga","nama teman-teman sekelas"],answer:2,
+      explain:"Identitas keluarga berisi keterangan tentang keluarga kita, misalnya nama ayah dan ibu, jumlah saudara, pekerjaan orang tua, dan alamat tempat tinggal keluarga."},
+    {no:3,bab:1,type:"pg",stimulus:SVG_SUKU,q:"Perhatikan gambar di atas! Gambar tersebut menunjukkan kekayaan bangsa Indonesia berupa …",
+      options:["keberagaman suku bangsa dengan pakaian adat yang berbeda-beda","keseragaman budaya di seluruh daerah","pakaian seragam sekolah anak Indonesia","perbedaan bahasa yang menimbulkan pertengkaran"],answer:0,
+      explain:"Indonesia memiliki banyak suku bangsa, misalnya Jawa, Sunda, dan Papua. Setiap suku memiliki pakaian adat, bahasa daerah, dan kebiasaan yang berbeda-beda. Keberagaman itu adalah kekayaan bangsa yang harus kita hargai."},
+    {no:4,bab:1,type:"pg",stimulus:SVG_DESA,q:"Perhatikan bagan struktur pemerintahan desa di atas! Pemerintahan desa dipimpin oleh …",
+      options:["camat","lurah","bupati","kepala desa"],answer:3,
+      explain:"Pemerintahan desa dipimpin oleh kepala desa. Kepala desa dibantu oleh sekretaris desa, kepala urusan, kepala seksi, dan kepala dusun dalam melayani warga desa."},
+    {no:5,bab:1,type:"pg",q:"Indonesia adalah negara kepulauan yang wilayahnya sangat luas. Berikut ini pulau besar yang termasuk wilayah Indonesia adalah …",
+      options:["Hokkaido","Kalimantan","Madagaskar","Tasmania"],answer:1,
+      explain:"Kalimantan adalah salah satu pulau besar di Indonesia, bersama Sumatra, Jawa, Sulawesi, dan Papua. Hokkaido berada di Jepang, Madagaskar di Afrika, dan Tasmania di Australia."},
+    {no:6,bab:2,type:"pg",q:"Contoh aturan yang berlaku di rumah adalah …",
+      options:["memakai seragam sekolah setiap hari","mengerjakan soal ujian dengan jujur","merapikan tempat tidur setelah bangun tidur","mengantre saat membeli tiket"],answer:2,
+      explain:"Merapikan tempat tidur setelah bangun adalah aturan yang berlaku di rumah. Memakai seragam dan mengerjakan ujian adalah aturan di sekolah, sedangkan mengantre adalah aturan di tempat umum."},
+    {no:7,bab:2,type:"pg",q:"Aturan dibuat dengan tujuan untuk …",
+      options:["membatasi kebebasan semua orang","menghukum orang yang melanggar saja","membuat semua orang merasa takut","menciptakan ketertiban, keamanan, dan kenyamanan bersama"],answer:3,
+      explain:"Aturan dibuat agar kehidupan bersama menjadi tertib, aman, dan nyaman. Dengan aturan, hak setiap orang terlindungi dan perselisihan dapat dicegah."},
+    {no:8,bab:2,type:"pg",q:"Berikut ini yang merupakan hak siswa di sekolah adalah …",
+      options:["mendapat pelajaran dari guru","menjaga kebersihan kelas","mematuhi tata tertib sekolah","merawat buku perpustakaan"],answer:0,
+      explain:"Hak adalah sesuatu yang kita terima. Mendapat pelajaran dari guru adalah hak siswa. Menjaga kebersihan, mematuhi tata tertib, dan merawat buku adalah kewajiban siswa."},
+    {no:9,bab:2,type:"pg",q:"Kewajiban siswa di sekolah adalah …",
+      options:["mendapat nilai yang bagus","menggunakan fasilitas sekolah","mematuhi tata tertib sekolah","bertanya kepada guru saat pelajaran"],answer:2,
+      explain:"Kewajiban adalah sesuatu yang harus kita lakukan. Mematuhi tata tertib sekolah adalah kewajiban setiap siswa. Mendapat nilai bagus dan menggunakan fasilitas adalah hak siswa."},
+    {no:10,bab:2,type:"pg",stimulus:SVG_RAMBU,q:"Perhatikan gambar rambu di atas! Rambu tersebut memberi tahu kita untuk …",
+      options:["membuang sampah sembarangan","tidak membuang sampah sembarangan","mengumpulkan sampah di dalam kelas","membakar sampah di halaman"],answer:1,
+      explain:"Rambu bergambar tempat sampah yang dicoret garis merah berarti larangan membuang sampah sembarangan. Kita harus membuang sampah pada tempat yang telah disediakan."},
+    {no:11,bab:1,type:"pg",q:"Temanmu yang berbeda agama sedang beribadah. Sikap yang tepat adalah …",
+      options:["mengganggunya agar cepat selesai beribadah","mengajaknya bermain pada saat itu juga","tidak mengganggunya dan ikut menjaga ketenangan","mengejek cara beribadahnya"],answer:2,
+      explain:"Menghormati perbedaan agama ditunjukkan dengan tidak mengganggu teman yang sedang beribadah dan ikut menjaga ketenangan. Sikap ini disebut toleransi."},
+    {no:12,bab:1,type:"pg",q:"Bahasa Sunda adalah bahasa daerah yang digunakan oleh masyarakat di provinsi …",
+      options:["Jawa Timur","Jawa Barat","Bali","Sumatera Utara"],answer:1,
+      explain:"Bahasa Sunda digunakan oleh masyarakat suku Sunda di Jawa Barat. Contoh bahasa daerah lain: bahasa Jawa di Jawa Tengah dan Jawa Timur, bahasa Batak di Sumatera Utara, dan bahasa Bali di Bali."},
+    {no:13,bab:1,type:"pg",q:"Urutan wilayah administratif dari yang paling kecil yang tepat adalah …",
+      options:["kecamatan, desa, kabupaten","kabupaten, kecamatan, desa","desa, kecamatan, kabupaten","provinsi, kabupaten, desa"],answer:2,
+      explain:"Wilayah administratif berjenjang dari yang kecil ke yang besar: desa/kelurahan berada di dalam kecamatan, beberapa kecamatan membentuk kabupaten/kota, dan beberapa kabupaten/kota membentuk provinsi."},
+    {no:14,bab:2,type:"pg",stimulus:SVG_ATURAN,q:"Berdasarkan gambar papan aturan di atas, aturan yang berlaku di lingkungan tempat tinggal tersebut adalah …",
+      options:["bermain sampai larut malam","membuang sampah pada tempatnya","membuat kegaduhan pada malam hari","tidak perlu mengikuti kerja bakti"],answer:1,
+      explain:"Papan aturan RT 03 berisi tiga aturan: membuang sampah pada tempatnya, menjaga ketenangan pada malam hari, dan ikut kerja bakti setiap bulan."},
+    {no:15,bab:2,type:"pg",q:"Manfaat adanya aturan di lingkungan tempat tinggal adalah …",
+      options:["warga bebas berbuat semaunya","warga menjadi saling bermusuhan","lingkungan menjadi kotor dan tidak aman","lingkungan menjadi tertib, aman, dan nyaman"],answer:3,
+      explain:"Aturan di lingkungan membuat warga hidup tertib, lingkungan aman dan nyaman, serta hubungan antarwarga rukun."},
+    {no:16,bab:1,type:"pg",q:"Sikap menghargai identitas teman ditunjukkan dengan …",
+      options:["mengejek nama panggilan teman","memanggil teman dengan nama yang baik dan tidak mengejek asal daerahnya","hanya berteman dengan teman yang sama sukunya","menertawakan logat bicara teman"],answer:1,
+      explain:"Menghargai identitas teman berarti menerima siapa diri teman kita: memanggilnya dengan nama yang baik, tidak mengejek asal daerah, suku, bahasa, maupun kegemarannya."},
+    {no:17,bab:1,type:"pg",q:"Teman barumu berasal dari daerah lain dan berbicara dengan logat yang berbeda. Sikap yang sebaiknya kamu lakukan adalah …",
+      options:["menirukan logatnya untuk bahan tertawaan","menjauhinya dan tidak mau berteman","melarangnya berbicara di kelas","tetap berteman dengannya dan berbicara dengan sopan"],answer:3,
+      explain:"Perbedaan bahasa dan logat adalah hal yang wajar di Indonesia. Kita mempraktikkan sikap menghargai dengan tetap berteman, berbicara sopan, dan dapat menggunakan bahasa Indonesia agar saling memahami."},
+    {no:18,bab:1,type:"pg",q:"Pemimpin pemerintahan di tingkat kecamatan adalah …",
+      options:["lurah","kepala desa","camat","bupati"],answer:2,
+      explain:"Kecamatan dipimpin oleh camat. Desa dipimpin kepala desa, kelurahan dipimpin lurah, dan kabupaten dipimpin bupati."},
+    {no:19,bab:2,type:"pg",q:"Berikut ini yang termasuk aturan tidak tertulis adalah …",
+      options:["tata tertib sekolah yang ditempel di dinding kelas","rambu lalu lintas di jalan raya","mengucapkan salam ketika bertamu ke rumah orang lain","peraturan yang tercantum dalam undang-undang"],answer:2,
+      explain:"Aturan tidak tertulis adalah aturan yang tidak ditulis secara resmi, tetapi disepakati dan dilakukan bersama, misalnya mengucapkan salam saat bertamu dan mengantre. Tata tertib, rambu, dan undang-undang adalah aturan tertulis."},
+    {no:20,bab:2,type:"pg",q:"Tindakan yang sesuai dengan aturan adalah …",
+      options:["membuang sampah ke sungai","menyeberang jalan di zebra cross","bermain di tengah jalan raya","mencoret-coret dinding sekolah"],answer:1,
+      explain:"Menyeberang di zebra cross adalah tindakan yang sesuai aturan lalu lintas dan menjaga keselamatan. Tindakan lain pada pilihan jawaban melanggar aturan."},
+    {no:21,bab:2,type:"pg",stimulus:SVG_LINGKUNGAN,q:"Perhatikan gambar di atas! Sikap yang ditunjukkan anak pada gambar adalah …",
+      options:["merusak lingkungan","membuang sampah sembarangan","menjaga kebersihan lingkungan","menebang pohon di taman"],answer:2,
+      explain:"Anak pada gambar membuang sampah ke tempat sampah. Sikap itu menunjukkan kepedulian dan tanggung jawab menjaga kebersihan lingkungan."},
+    {no:22,bab:2,type:"pg",q:"Berikut ini yang merupakan hak warga sekolah adalah …",
+      options:["menjaga kebersihan sekolah","menggunakan fasilitas sekolah untuk belajar","mematuhi peraturan sekolah","menghormati guru dan teman"],answer:1,
+      explain:"Menggunakan fasilitas sekolah untuk belajar, misalnya perpustakaan dan lapangan, adalah hak warga sekolah. Pilihan lainnya adalah kewajiban warga sekolah."},
+    {no:23,bab:2,type:"pg",q:"Kewajiban siswa terhadap fasilitas sekolah adalah …",
+      options:["menggunakannya seenaknya","membawa pulang peralatan sekolah","mencoret-coret meja dan kursi","merawat dan menjaganya agar tidak rusak"],answer:3,
+      explain:"Fasilitas sekolah adalah milik bersama. Kewajiban kita adalah merawat dan menjaganya agar tetap baik dan dapat dipakai bersama dalam waktu lama."},
+    {no:24,bab:2,type:"pg",q:"Dalam musyawarah, sikap menghargai pendapat orang lain ditunjukkan dengan …",
+      options:["mendengarkan pendapat teman sampai selesai disampaikan","memotong pembicaraan teman yang sedang berpendapat","memaksakan pendapat sendiri agar diterima","meninggalkan ruangan saat teman berbicara"],answer:0,
+      explain:"Musyawarah adalah berdiskusi bersama untuk mencapai kesepakatan (mufakat). Di dalam musyawarah kita mendengarkan pendapat orang lain sampai selesai, tidak memotong pembicaraan, dan menerima hasil keputusan bersama."},
+    {no:25,bab:2,type:"pg",q:"Aturan yang berlaku di rumah, sekolah, dan lingkungan harus ditaati oleh …",
+      options:["anak-anak saja","guru saja","orang dewasa saja","semua orang tanpa kecuali"],answer:3,
+      explain:"Aturan berlaku untuk semua orang tanpa kecuali: anak-anak, orang dewasa, guru, orang tua, bahkan para pemimpin. Semua wajib menaati aturan agar kehidupan tertib dan adil."},
+    /* ---------- ISIAN 26-35 ---------- */
+    {no:26,bab:1,type:"isian",q:"Wilayah yang dipimpin oleh seorang camat disebut …",
+      accept:["kecamatan"],model:"kecamatan",
+      explain:"Camat adalah pemimpin pemerintahan di wilayah kecamatan. Satu kecamatan terdiri atas beberapa desa dan kelurahan."},
+    {no:27,bab:1,type:"isian",q:"Bahasa daerah yang digunakan oleh masyarakat Jawa Barat adalah bahasa …",
+      accept:["sunda","bahasa sunda"],model:"Sunda",
+      explain:"Masyarakat suku Sunda di Jawa Barat menggunakan bahasa Sunda dalam kehidupan sehari-hari."},
+    {no:28,bab:1,type:"isian",q:"Nama lengkap, tempat dan tanggal lahir, serta kegemaran termasuk contoh … diri.",
+      accept:["identitas","identitas diri"],model:"identitas",
+      explain:"Nama lengkap, tempat dan tanggal lahir, alamat, dan kegemaran adalah contoh identitas diri, yaitu ciri khas yang melekat pada diri seseorang."},
+    {no:29,bab:1,type:"isian",q:"Sikap menghargai dan menerima perbedaan dengan orang lain disebut sikap …",
+      accept:["toleransi"],model:"toleransi",
+      explain:"Toleransi adalah sikap menghargai dan menerima perbedaan, misalnya perbedaan agama, suku, bahasa, dan pendapat."},
+    {no:30,bab:1,type:"isian",q:"Wilayah yang berada di bawah kecamatan adalah desa dan …",
+      accept:["kelurahan"],model:"kelurahan",
+      explain:"Wilayah di bawah kecamatan adalah desa dan kelurahan. Desa dipimpin kepala desa, sedangkan kelurahan dipimpin lurah."},
+    {no:31,bab:2,type:"isian",q:"Tata tertib sekolah yang ditempel di dinding kelas termasuk jenis aturan …",
+      accept:["tertulis"],model:"tertulis",
+      explain:"Aturan tertulis adalah aturan yang ditulis dan ditetapkan secara resmi, misalnya tata tertib sekolah, rambu lalu lintas, dan peraturan RT."},
+    {no:32,bab:2,type:"isian",q:"Mendapatkan pelajaran dari guru merupakan … siswa di sekolah.",
+      accept:["hak"],model:"hak",
+      explain:"Hak adalah sesuatu yang berhak kita terima. Mendapatkan pelajaran dari guru adalah salah satu hak siswa di sekolah."},
+    {no:33,bab:2,type:"isian",q:"Menjaga kebersihan dan kerapian ruang kelas merupakan … siswa.",
+      accept:["kewajiban"],model:"kewajiban",
+      explain:"Kewajiban adalah sesuatu yang harus kita lakukan. Menjaga kebersihan dan kerapian kelas, misalnya dengan melaksanakan piket, adalah kewajiban siswa."},
+    {no:34,bab:1,type:"isian",q:"Kepala pemerintahan di desa disebut …",
+      accept:["kepala desa","kades"],model:"kepala desa",
+      explain:"Pemerintahan desa dipimpin oleh kepala desa yang dipilih oleh warga desa. Kepala desa dibantu oleh perangkat desa."},
+    {no:35,bab:2,type:"isian",q:"Ketika bertamu ke rumah orang lain, kita harus mengetuk pintu dan mengucapkan …",
+      accept:["salam"],model:"salam",
+      explain:"Aturan bertamu yang baik: datang pada waktu yang tepat, mengetuk pintu dan mengucapkan salam, menunggu dipersilakan masuk, serta berbicara dengan sopan."},
+    /* ---------- URAIAN 36-40 ---------- */
+    {no:36,bab:1,type:"uraian",q:"Sebutkan tiga contoh identitas diri yang kamu miliki!",
+      model:"Contoh jawaban (sebutkan tiga):\n1. Nama lengkap dan nama panggilan.\n2. Tempat dan tanggal lahir.\n3. Alamat tempat tinggal.\nContoh lain yang benar: kegemaran/hobi, makanan kesukaan, warna kesukaan, dan cita-cita.",
+      rubrik:"Skor 3: menyebutkan tiga contoh identitas diri dengan tepat. Skor 2: menyebutkan dua contoh dengan tepat. Skor 1: hanya menyebutkan satu contoh yang tepat. Skor 0: jawaban salah atau kosong.",
+      explain:"Identitas diri adalah ciri khas seseorang, misalnya nama, tempat dan tanggal lahir, alamat, kegemaran, makanan kesukaan, dan cita-cita."},
+    {no:37,bab:1,type:"uraian",q:"Jelaskan dua cara menghargai perbedaan yang ada di lingkungan sekitarmu!",
+      model:"Contoh jawaban (jelaskan dua):\n1. Tidak mengejek perbedaan suku, bahasa, dan asal daerah teman; memanggil teman dengan nama yang baik.\n2. Menghormati teman yang berbeda agama ketika beribadah dengan tidak mengganggunya dan menjaga ketenangan.\nContoh lain yang benar: berteman dengan siapa saja tanpa membeda-bedakan, mempelajari budaya daerah lain, dan menggunakan bahasa Indonesia agar saling memahami.",
+      rubrik:"Skor 3: menjelaskan dua cara menghargai perbedaan dengan tepat dan jelas. Skor 2: menjelaskan dua cara tetapi kurang jelas, atau satu cara dengan sangat jelas. Skor 1: hanya menyebutkan satu cara secara singkat. Skor 0: jawaban salah atau kosong.",
+      explain:"Perbedaan suku, bahasa, agama, dan kebiasaan adalah kekayaan bangsa. Kita menghargainya dengan sikap toleransi dalam kehidupan sehari-hari."},
+    {no:38,bab:1,type:"uraian",q:"Jelaskan perbedaan antara desa, kelurahan, dan kecamatan!",
+      model:"Desa adalah wilayah di bawah kecamatan yang dipimpin oleh kepala desa yang dipilih oleh warga desa.\nKelurahan adalah wilayah di bawah kecamatan yang dipimpin oleh lurah yang diangkat oleh pemerintah; kelurahan umumnya berada di daerah perkotaan.\nKecamatan adalah wilayah yang lebih luas, terdiri atas beberapa desa dan kelurahan, dan dipimpin oleh camat.",
+      rubrik:"Skor 3: menjelaskan perbedaan ketiga wilayah dengan tepat, termasuk pemimpinnya. Skor 2: menjelaskan perbedaan ketiganya tetapi ada yang kurang tepat, atau dua wilayah dijelaskan dengan tepat. Skor 1: hanya satu wilayah yang dijelaskan dengan tepat. Skor 0: jawaban salah atau kosong.",
+      explain:"Desa dan kelurahan sama-sama berada di bawah kecamatan. Bedanya, desa dipimpin kepala desa yang dipilih warga, sedangkan kelurahan dipimpin lurah yang diangkat pemerintah."},
+    {no:39,bab:2,type:"uraian",q:"Berikan dua contoh aturan di lingkungan tempat tinggalmu, lalu jelaskan manfaat masing-masing aturan tersebut!",
+      model:"Contoh jawaban (berikan dua beserta manfaatnya):\n1. Membuang sampah pada tempatnya — manfaatnya lingkungan menjadi bersih, sehat, dan tidak menimbulkan bau serta penyakit.\n2. Mengikuti kerja bakti membersihkan lingkungan — manfaatnya lingkungan cepat bersih dan hubungan antarwarga menjadi rukun.\nContoh lain yang benar: menjaga ketenangan pada malam hari agar warga dapat beristirahat; mengunci pagar/rumah demi keamanan.",
+      rubrik:"Skor 3: menyebutkan dua contoh aturan beserta manfaatnya dengan tepat. Skor 2: menyebutkan dua aturan tetapi manfaatnya kurang lengkap/tepat. Skor 1: hanya menyebutkan satu aturan beserta manfaatnya. Skor 0: jawaban salah atau kosong.",
+      explain:"Setiap aturan dibuat untuk kebaikan bersama. Aturan yang ditaati membuat lingkungan tertib, aman, bersih, dan nyaman."},
+    {no:40,bab:2,type:"uraian",q:"Jelaskan dua hak dan dua kewajiban warga sekolah!",
+      model:"Contoh jawaban:\nHak warga sekolah: (1) mendapatkan pelajaran dari guru; (2) menggunakan fasilitas sekolah, misalnya perpustakaan dan lapangan.\nKewajiban warga sekolah: (1) mematuhi tata tertib sekolah; (2) menjaga kebersihan dan merawat fasilitas sekolah.\nContoh lain yang benar — hak: mendapat perlakuan yang adil, menyampaikan pendapat; kewajiban: menghormati guru dan teman, melaksanakan piket kelas.",
+      rubrik:"Skor 3: menjelaskan dua hak dan dua kewajiban dengan tepat. Skor 2: menjelaskan hak dan kewajiban tetapi jumlahnya kurang (misalnya dua hak dan satu kewajiban). Skor 1: hanya menjelaskan satu hak atau satu kewajiban dengan tepat. Skor 0: jawaban salah atau kosong.",
+      explain:"Hak dan kewajiban harus berjalan seimbang: kita menerima hak sebagai warga sekolah dan melaksanakan kewajiban kita dengan penuh tanggung jawab."}
+    ];
+    var BAB_NAMES = {1:"Bab 1 • Mengenal Lingkungan Sekitar",2:"Bab 2 • Aku Anak Disiplin"};
+    var TYPE_NAMES = {pg:"Pilihan Ganda",isian:"Isian",uraian:"Uraian"};
+    var TYPE_SCORE = {pg:1,isian:2,uraian:3};
+    function byNo(n){ for(var i=0;i<QUESTIONS.length;i++){ if(QUESTIONS[i].no===n) return QUESTIONS[i]; } return null; }
+    function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+    function nl2br(s){ return esc(s).replace(/\n/g,"<br>"); }
+    function norm(s){ return String(s==null?"":s).toLowerCase().trim().replace(/\s+/g," ").replace(/[.?!]+$/,""); }
+
+    /* =============== NAMA PEMILIK PAKET (gerbang akses) =============== */
+    var OWNER_KEY = "paket-asas-pp4-nama";
+    var ownerName = "";
+    try{ ownerName = String(sessionStorage.getItem(OWNER_KEY) || "").trim(); }catch(e){ ownerName = ""; }
+    function saveOwnerName(n){ ownerName = String(n || "").toUpperCase(); try{ sessionStorage.setItem(OWNER_KEY, ownerName); }catch(e){} }
+    function refreshOwnerUI(){
+      var on = document.getElementById("owner-name"); if(on) on.textContent = ownerName || "—";
+      var hv = document.getElementById("hasil-nama-val"); if(hv) hv.textContent = ownerName || "—";
+      var rp = document.getElementById("ringkasan-print-nama"); if(rp) rp.textContent = "Nama: " + (ownerName || "—") + "  •  Paket ASAS Pendidikan Pancasila Kelas IV — Ringkasan Materi";
+    }
+    function isianBenar(q,val){ var v=norm(val); if(!v) return false; for(var i=0;i<q.accept.length;i++){ if(norm(q.accept[i])===v) return true; } return false; }
+
+    /* =============== NAVIGASI =============== */
+    var VIEWS = ["home","ringkasan","menu","kisi","latihan","simulasi","hasil"];
+    function showView(name){
+      for(var i=0;i<VIEWS.length;i++){
+        document.getElementById("view-"+VIEWS[i]).classList.toggle("active", VIEWS[i]===name);
+      }
+      var btns = document.querySelectorAll(".navbtn");
+      for(var j=0;j<btns.length;j++){ btns[j].classList.toggle("active", btns[j].getAttribute("data-nav")===name); }
+      window.scrollTo(0,0);
+    }
+    var navBtns = document.querySelectorAll("[data-nav]");
+    for(var nb=0; nb<navBtns.length; nb++){ navBtns[nb].addEventListener("click", function(){ showView(this.getAttribute("data-nav")); }); }
+    var goBtns = document.querySelectorAll("[data-go]");
+    for(var gb=0; gb<goBtns.length; gb++){ goBtns[gb].addEventListener("click", function(){ showView(this.getAttribute("data-go")); }); }
+    function printWithMode(mode){
+      if(typeof renderPrintAreas === "function"){ renderPrintAreas(); }
+      refreshOwnerUI();
+      document.body.setAttribute("data-print", mode);
+      setTimeout(function(){ window.print(); }, 60);
+    }
+    window.addEventListener("afterprint", function(){ document.body.removeAttribute("data-print"); });
+    document.getElementById("btn-print").addEventListener("click", function(){ printWithMode("ringkasan"); });
+
+    function renderPrintAreas(){
+      /* --- Lembar Soal (tanpa kunci & tanpa pembahasan) --- */
+      var sh = '<div class="p-head"><h1>Paket ASAS Pendidikan Pancasila Kelas IV — Latihan Soal</h1>'
+        + '<p>Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>'
+        + '<p>Jumlah soal: 40 (PG No. 1–25 • Isian No. 26–35 • Uraian No. 36–40) • Skor maksimal: 60</p></div>'
+        + '<div class="p-ident"><span>Nama: '+esc(ownerName)+'</span><span>Kelas: </span><span>Tanggal: </span></div>'
+        + '<div class="p-petunjuk"><b>Petunjuk:</b> Bacalah setiap soal dengan teliti. Untuk Pilihan Ganda, beri tanda silang (×) pada huruf jawaban yang paling tepat. Untuk Isian, tulislah jawaban pada garis yang tersedia. Untuk Uraian, tulislah jawaban dengan lengkap pada ruang yang disediakan.</div>';
+      var lastBabS = 0;
+      var sortedS = QUESTIONS.slice().sort(function(a,b){ return a.no-b.no; });
+      sortedS.forEach(function(q){
+        sh += '<div class="pq">';
+        if(q.stimulus){ sh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="pq-stim">'+nl2br(q.stimulus)+'</div>'; }
+        sh += '<span class="pq-no">'+q.no+'. </span><span style="font-weight:600">'+esc(q.q)+'</span>';
+        if(q.type==="pg"){
+          sh += '<ul class="pq-opts">';
+          q.options.forEach(function(op,i){ sh += '<li><b>'+"ABCD"[i]+'.</b> '+esc(op)+'</li>'; });
+          sh += '</ul>';
+        } else if(q.type==="isian"){
+          sh += '<div class="pq-blank"></div>';
+        } else {
+          sh += '<div class="pq-lines"><i></i><i></i><i></i><i></i><i></i></div>';
+        }
+        sh += '</div>';
+      });
+      sh += '<p style="text-align:center;font-weight:700;margin-top:20px">— Selamat mengerjakan, semoga berhasil! —</p>';
+      document.getElementById("print-soal").innerHTML = sh;
+
+      /* --- Kunci & Pembahasan (untuk guru / orang tua) --- */
+      var kh = '<div class="p-head"><h1>Paket ASAS Pendidikan Pancasila Kelas IV — Kunci &amp; Pembahasan</h1>'
+        + '<p>Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>'
+        + '<p>Pegangan guru / orang tua — kunci jawaban dan pembahasan 40 soal latihan</p></div>'
+        + '<div class="p-ident"><span>Nama: '+esc(ownerName)+'</span><span>Kelas: </span><span>Tanggal: </span></div>';
+      var lastBabK = 0;
+      sortedS.forEach(function(q){
+        kh += '<div class="pk-item"><h4>No. '+q.no+' • '+TYPE_NAMES[q.type]+' • Skor '+TYPE_SCORE[q.type]+'</h4>';
+        if(q.stimulus){ kh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="pq-stim">'+nl2br(q.stimulus)+'</div>'; }
+        kh += '<div style="font-weight:600">'+esc(q.q)+'</div>';
+        if(q.type==="pg"){
+          kh += '<div class="pk-ans">Kunci Jawaban: '+"ABCD"[q.answer]+'. '+esc(q.options[q.answer])+'</div>';
+        } else if(q.type==="isian"){
+          kh += '<div class="pk-ans">Kunci Jawaban: '+esc(q.model)+'</div>';
+        } else {
+          kh += '<div class="pk-ans">Jawaban Model:</div><div class="pk-model">'+esc(q.model)+'</div>'
+            + '<p class="pk-exp"><b>Aturan Skor:</b> '+esc(q.rubrik||"")+'</p>';
+        }
+        kh += '<p class="pk-exp"><b>Pembahasan:</b> '+esc(q.explain)+'</p></div>';
+      });
+      document.getElementById("print-kunci").innerHTML = kh;
+    }
+    renderPrintAreas();
+
+    /* =============== GERBANG NAMA TERVERIFIKASI =============== */
+    function isBackendReady(){ return !!(APPS_SCRIPT_URL && String(APPS_SCRIPT_URL).trim() !== ""); }
+    function normalizeName(s){ return String(s == null ? "" : s).toLowerCase().trim().replace(/\s+/g, " "); }
+    function showGateError(msg){
+      var err = document.getElementById("gate-error");
+      err.textContent = msg; err.classList.add("show");
+    }
+    function hideGateError(){ document.getElementById("gate-error").classList.remove("show"); }
+    function refreshGateSystemMsg(){
+      var el = document.getElementById("gate-system-msg");
+      var btn = document.getElementById("btn-buka-paket");
+      if(!isBackendReady()){
+        el.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.";
+        el.classList.add("show");
+        if(btn){ btn.disabled = true; }
+      } else {
+        el.textContent = ""; el.classList.remove("show");
+        if(btn){ btn.disabled = false; }
+      }
+    }
+    function unlockPackage(){
+      document.getElementById("gate").classList.add("hidden");
+      document.body.classList.remove("locked");
+      document.getElementById("owner-bar").classList.remove("hidden");
+      refreshOwnerUI();
+      renderPrintAreas();
+    }
+    function lockPackage(){
+      var inp = document.getElementById("gate-nama");
+      inp.value = ownerName || "";
+      hideGateError();
+      refreshGateSystemMsg();
+      document.getElementById("gate").classList.remove("hidden");
+      document.body.classList.add("locked");
+      setTimeout(function(){ inp.focus(); inp.select(); }, 60);
+      window.scrollTo(0,0);
+    }
+    document.getElementById("gate-form").addEventListener("submit", function(ev){
+      ev.preventDefault();
+      var raw = document.getElementById("gate-nama").value;
+      var displayName = String(raw || "").trim().replace(/\s+/g, " ").toUpperCase();
+      if(!isBackendReady()){
+        showGateError("Sistem pemeriksaan nama belum dipasang. Hubungi penjual.");
+        var sm = document.getElementById("gate-system-msg");
+        sm.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual."; sm.classList.add("show");
+        return;
+      }
+      if(!displayName){
+        showGateError("Nama lengkap wajib diisi.");
+        document.getElementById("gate-nama").focus();
+        return;
+      }
+      if(displayName.length < 3){
+        showGateError("Nama lengkap minimal 3 huruf.");
+        document.getElementById("gate-nama").focus();
+        return;
+      }
+      hideGateError();
+      var btn = document.getElementById("btn-buka-paket");
+      var labelAsli = btn.textContent;
+      btn.disabled = true; btn.textContent = "⏳ Memeriksa nama…";
+      var namaNorm = normalizeName(displayName);
+      var url = APPS_SCRIPT_URL + "?action=check&nama=" + encodeURIComponent(namaNorm) + "&mapel=" + encodeURIComponent(MAPEL_ID);
+      fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = labelAsli;
+          if(data && data.allowed){
+            saveOwnerName(displayName);
+            unlockPackage();
+          } else {
+            showGateError("Nama belum terdaftar. Silakan hubungi penjual.");
+            document.getElementById("gate-nama").focus();
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = labelAsli;
+          showGateError("Tidak bisa memeriksa nama. Periksa internet Anda lalu coba lagi.");
+        });
+    });
+    document.getElementById("gate-nama").addEventListener("input", function(){
+      var v = this.value.toUpperCase();
+      if(this.value !== v) this.value = v;
+      hideGateError();
+    });
+    document.getElementById("btn-ganti-nama").addEventListener("click", lockPackage);
+    refreshGateSystemMsg();
+    if(isBackendReady() && ownerName && ownerName.length >= 3){ unlockPackage(); } else { refreshOwnerUI(); if(!isBackendReady()){ refreshGateSystemMsg(); } }
+
+    /* =============== PANEL ADMIN =============== */
+    var adminPin = "";
+    function setAdminMsg(id, msg, kind){
+      var el = document.getElementById(id);
+      if(!el) return;
+      if(!msg){ el.textContent = ""; el.className = "admin-msg"; return; }
+      el.textContent = msg; el.className = "admin-msg show " + (kind || "info");
+    }
+    function renderAdminList(rows){
+      var host = document.getElementById("admin-list");
+      if(!rows || rows.length === 0){
+        host.innerHTML = '<div class="admin-empty">Belum ada nama pembeli terdaftar.</div>';
+        return;
+      }
+      var html = "";
+      rows.forEach(function(r){
+        var meta = [];
+        if(r.mapel) meta.push("Mapel: " + (r.mapel === "semua" ? "Semua Mapel" : (r.mapel === MAPEL_ID ? MAPEL_LABEL : esc(r.mapel))));
+        if(r.tanggal) meta.push(esc(r.tanggal));
+        if(r.ket) meta.push(esc(r.ket));
+        html += '<div class="admin-row"><div class="info"><b>' + esc(String(r.nama || "").toUpperCase()) + '</b>'
+          + (meta.length ? '<span>' + meta.join(" • ") + '</span>' : '')
+          + '</div><button type="button" class="btn-hapus" data-admin-remove="' + esc(String(r.row)) + '">Hapus</button></div>';
+      });
+      host.innerHTML = html;
+      host.querySelectorAll("[data-admin-remove]").forEach(function(b){
+        b.addEventListener("click", function(){
+          var row = b.getAttribute("data-admin-remove");
+          removeBuyer(row, b);
+        });
+      });
+    }
+    function loadAdminList(){
+      if(!isBackendReady()){ setAdminMsg("admin-msg", "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.", "err"); return Promise.resolve(); }
+      var url = APPS_SCRIPT_URL + "?action=list&pin=" + encodeURIComponent(adminPin);
+      return fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          if(!data || !data.ok){ throw new Error("pin"); }
+          renderAdminList(data.rows || []);
+        });
+    }
+    function postAdmin(payload){
+      return fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(payload)
+      }).then(function(r){ return r.json(); });
+    }
+    function addBuyer(){
+      var namaEl = document.getElementById("admin-new-nama");
+      var ketEl = document.getElementById("admin-new-ket");
+      var mapelEl = document.getElementById("admin-new-mapel");
+      var nama = namaEl.value.trim().replace(/\s+/g, " ").toUpperCase();
+      var ket = ketEl.value.trim();
+      var mapel = mapelEl ? mapelEl.value : MAPEL_ID;
+      if(!nama){ setAdminMsg("admin-msg", "Nama pembeli baru wajib diisi.", "err"); namaEl.focus(); return; }
+      var btn = document.getElementById("btn-admin-add");
+      btn.disabled = true; btn.textContent = "⏳ Menyimpan…";
+      postAdmin({ action: "add", pin: adminPin, nama: nama, ket: ket, mapel: mapel })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = "＋ Tambah";
+          if(data && data.ok){
+            setAdminMsg("admin-msg", "Nama berhasil ditambahkan.", "ok");
+            namaEl.value = ""; ketEl.value = "";
+            if(mapelEl) mapelEl.value = MAPEL_ID;
+            return loadAdminList();
+          } else {
+            setAdminMsg("admin-msg", (data && data.error) ? data.error : "Gagal menambahkan nama. Coba lagi.", "err");
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "＋ Tambah";
+          setAdminMsg("admin-msg", "Tidak bisa menghubungi server. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    }
+    function removeBuyer(row, btnEl){
+      if(btnEl){ btnEl.disabled = true; btnEl.textContent = "…"; }
+      postAdmin({ action: "remove", pin: adminPin, row: isNaN(+row) ? row : +row })
+        .then(function(data){
+          if(data && data.ok){
+            setAdminMsg("admin-msg", "Nama berhasil dihapus.", "ok");
+            return loadAdminList();
+          } else {
+            if(btnEl){ btnEl.disabled = false; btnEl.textContent = "Hapus"; }
+            setAdminMsg("admin-msg", (data && data.error) ? data.error : "Gagal menghapus nama. Coba lagi.", "err");
+          }
+        })
+        .catch(function(){
+          if(btnEl){ btnEl.disabled = false; btnEl.textContent = "Hapus"; }
+          setAdminMsg("admin-msg", "Tidak bisa menghubungi server. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    }
+    function openAdmin(){
+      var modal = document.getElementById("modal-admin");
+      modal.classList.add("show");
+      setAdminMsg("admin-login-msg", "", "");
+      setAdminMsg("admin-msg", "", "");
+      var sys = document.getElementById("admin-system-msg");
+      if(!isBackendReady()){
+        sys.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.";
+        sys.className = "admin-msg show err";
+        document.getElementById("admin-login").classList.add("hidden");
+        document.getElementById("admin-content").classList.add("hidden");
+        return;
+      }
+      sys.textContent = ""; sys.className = "admin-msg";
+      if(adminPin){
+        document.getElementById("admin-login").classList.add("hidden");
+        document.getElementById("admin-content").classList.remove("hidden");
+        loadAdminList().catch(function(){ setAdminMsg("admin-msg", "Tidak bisa memuat daftar. Periksa internet Anda lalu coba lagi.", "err"); });
+      } else {
+        document.getElementById("admin-login").classList.remove("hidden");
+        document.getElementById("admin-content").classList.add("hidden");
+        setTimeout(function(){ document.getElementById("admin-pin").focus(); }, 60);
+      }
+    }
+    function closeAdmin(){ document.getElementById("modal-admin").classList.remove("show"); }
+    document.getElementById("btn-admin-open").addEventListener("click", openAdmin);
+    document.getElementById("btn-admin-open-gate").addEventListener("click", openAdmin);
+    document.getElementById("btn-admin-close").addEventListener("click", closeAdmin);
+    document.getElementById("btn-admin-done").addEventListener("click", closeAdmin);
+    document.getElementById("btn-admin-login").addEventListener("click", function(){
+      var pin = document.getElementById("admin-pin").value;
+      if(!isBackendReady()){ setAdminMsg("admin-login-msg", "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.", "err"); return; }
+      if(!pin){ setAdminMsg("admin-login-msg", "PIN wajib diisi.", "err"); return; }
+      var btn = document.getElementById("btn-admin-login");
+      btn.disabled = true; btn.textContent = "⏳ Memeriksa…";
+      setAdminMsg("admin-login-msg", "", "");
+      var url = APPS_SCRIPT_URL + "?action=list&pin=" + encodeURIComponent(pin);
+      fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = "Masuk";
+          if(data && data.ok){
+            adminPin = pin;
+            document.getElementById("admin-pin").value = "";
+            document.getElementById("admin-login").classList.add("hidden");
+            document.getElementById("admin-content").classList.remove("hidden");
+            setAdminMsg("admin-msg", "", "");
+            renderAdminList(data.rows || []);
+          } else {
+            setAdminMsg("admin-login-msg", "PIN salah.", "err");
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "Masuk";
+          setAdminMsg("admin-login-msg", "Tidak bisa memeriksa PIN. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    });
+    document.getElementById("admin-pin").addEventListener("keydown", function(ev){
+      if(ev.key === "Enter"){ ev.preventDefault(); document.getElementById("btn-admin-login").click(); }
+    });
+    document.getElementById("admin-new-nama").addEventListener("input", function(){
+      var v = this.value.toUpperCase();
+      if(this.value !== v) this.value = v;
+    });
+    document.getElementById("btn-admin-add").addEventListener("click", addBuyer);
+    document.getElementById("btn-admin-refresh").addEventListener("click", function(){
+      setAdminMsg("admin-msg", "", "");
+      loadAdminList().catch(function(){ setAdminMsg("admin-msg", "Tidak bisa memuat daftar. Periksa internet Anda lalu coba lagi.", "err"); });
+    });
+
+    var btnPS = document.getElementById("btn-print-soal");
+    if(btnPS){ btnPS.addEventListener("click", function(){ printWithMode("soal"); }); }
+    var btnPK = document.getElementById("btn-print-kunci");
+    if(btnPK){ btnPK.addEventListener("click", function(){ printWithMode("kunci"); }); }
+
+    function qHeadHtml(q){
+      return '<div class="qhead"><span class="qno">No. '+q.no+'</span>'
+        +'<span class="qtype '+q.type+'">'+TYPE_NAMES[q.type]+'</span>'
+        +'<span class="qtype">'+BAB_NAMES[q.bab]+'</span>'
+        +'<span class="qskor">Skor: '+TYPE_SCORE[q.type]+'</span></div>';
+    }
+
+    /* =============== LATIHAN SOAL =============== */
+    function renderLatihan(){
+      var host = document.getElementById("latihan-list");
+      var html = "", lastBab = 0;
+      var order = [];
+      QUESTIONS.forEach(function(q){ order.push(q); });
+      order.sort(function(a,b){ if(a.bab!==b.bab) return a.bab-b.bab; return a.no-b.no; });
+      order.forEach(function(q){
+        if(q.bab!==lastBab){ lastBab=q.bab; html += '<h3 style="margin:26px 0 4px;font-size:22px">'+BAB_NAMES[q.bab]+'</h3>'; }
+        html += '<div class="qcard" id="lat-'+q.no+'">'+qHeadHtml(q);
+        if(q.stimulus){ html += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+nl2br(q.stimulus)+'</div>'; }
+        html += '<div class="qtext">'+esc(q.q)+'</div>';
+        if(q.type==="pg"){
+          html += '<div class="opts">';
+          q.options.forEach(function(op,i){
+            html += '<button class="opt" data-lat-pg="'+q.no+'" data-idx="'+i+'"><span class="huruf">'+"ABCD"[i]+'</span>'+esc(op)+'</button>';
+          });
+          html += '</div><div class="explain" id="lat-ex-'+q.no+'"></div>';
+        } else if(q.type==="isian"){
+          html += '<div class="fillin"><input type="text" id="lat-in-'+q.no+'" placeholder="Tulis jawabanmu di sini…" autocomplete="off">'
+            +'<button class="btn small" data-lat-check="'+q.no+'">✔ Periksa</button></div>'
+            +'<div class="explain" id="lat-ex-'+q.no+'"></div>';
+        } else {
+          html += '<textarea class="essay" placeholder="Tulis jawabanmu di sini…"></textarea>'
+            +'<div style="margin-top:10px"><button class="btn small ghost" data-lat-model="'+q.no+'">👀 Lihat Contoh Jawaban</button></div>'
+            +'<div class="modelans" id="lat-model-'+q.no+'"><h4>Contoh Jawaban:</h4>'+nl2br(q.model)
+            +'<h4 style="margin-top:10px">Aturan Skor:</h4>'+esc(q.rubrik)
+            +'<h4 style="margin-top:10px">Pembahasan:</h4>'+esc(q.explain)+'</div>';
+        }
+        html += '</div>';
+      });
+      host.innerHTML = html;
+
+      var pgBtns = host.querySelectorAll("[data-lat-pg]");
+      pgBtns.forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-pg"), idx = +btn.getAttribute("data-idx"), q = byNo(no);
+          var card = document.getElementById("lat-"+no);
+          var opts = card.querySelectorAll(".opt");
+          opts.forEach(function(o,i){ o.disabled = true; o.classList.toggle("benar", i===q.answer); o.classList.remove("sel"); });
+          if(idx!==q.answer){ btn.classList.add("salah"); }
+          var ex = document.getElementById("lat-ex-"+no);
+          ex.className = "explain show " + (idx===q.answer ? "ok" : "no");
+          ex.innerHTML = '<span class="verdict">'+(idx===q.answer ? "🎉 Benar! Kerja bagus." : "Belum tepat. Jawaban yang benar: "+"ABCD"[q.answer]+".")+'</span><br>'+esc(q.explain);
+        });
+      });
+      var chkBtns = host.querySelectorAll("[data-lat-check]");
+      chkBtns.forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-check"), q = byNo(no);
+          var val = document.getElementById("lat-in-"+no).value;
+          var ex = document.getElementById("lat-ex-"+no);
+          if(!norm(val)){ ex.className="explain show info"; ex.innerHTML='<span class="verdict">Isi dulu jawabanmu ya!</span>'; return; }
+          var ok = isianBenar(q,val);
+          ex.className = "explain show " + (ok ? "ok" : "no");
+          ex.innerHTML = '<span class="verdict">'+(ok ? "🎉 Benar! Hebat." : "Belum tepat. Jawaban yang benar: <b>"+esc(q.model)+"</b>.")+'</span><br>'+esc(q.explain);
+        });
+      });
+      var mdlBtns = host.querySelectorAll("[data-lat-model]");
+      mdlBtns.forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-model");
+          var box = document.getElementById("lat-model-"+no);
+          var show = box.classList.toggle("show");
+          btn.textContent = show ? "🙈 Sembunyikan Contoh Jawaban" : "👀 Lihat Contoh Jawaban";
+        });
+      });
+    }
+    renderLatihan();
+
+    /* =============== MENU SOAL =============== */
+    function menuPreview(q){
+      var t = String(q.q || "").replace(/\s+/g, " ").trim();
+      if(t.length > 95) t = t.slice(0, 95).trim() + "…";
+      return t;
+    }
+    function renderMenuSoal(){
+      var host = document.getElementById("menu-list");
+      var html = "", lastBab = 0;
+      var order = QUESTIONS.slice().sort(function(a,b){ if(a.bab!==b.bab) return a.bab-b.bab; return a.no-b.no; });
+      order.forEach(function(q){
+        if(q.bab!==lastBab){
+          if(lastBab!==0) html += '</div>';
+          lastBab = q.bab;
+          html += '<h3 style="margin:26px 0 4px;font-size:22px">'+BAB_NAMES[q.bab]+'</h3><div class="menu-list">';
+        }
+        html += '<button class="menu-item" data-menu-no="'+q.no+'">'
+          + '<span class="mno">'+q.no+'</span>'
+          + '<span class="qtype '+q.type+'">'+TYPE_NAMES[q.type]+'</span>'
+          + '<span class="mtxt">'+esc(menuPreview(q))+'</span>'
+          + '<span class="mskor">Skor '+TYPE_SCORE[q.type]+'</span>'
+          + '</button>';
+      });
+      if(lastBab!==0) html += '</div>';
+      host.innerHTML = html;
+      host.querySelectorAll("[data-menu-no]").forEach(function(b){
+        b.addEventListener("click", function(){
+          var no = b.getAttribute("data-menu-no");
+          showView("latihan");
+          setTimeout(function(){
+            var el = document.getElementById("lat-"+no);
+            if(el) el.scrollIntoView({ behavior:"smooth", block:"start" });
+          }, 80);
+        });
+      });
+    }
+    renderMenuSoal();
+
+    /* =============== KISI-KISI (sesuai berkas kisi-kisi ASAS) =============== */
+    var KISI = [
+      {bab:1, rows:[
+        ["Identitas diri","Mengidentifikasi contoh identitas diri","PG",1,1],
+        ["Identitas keluarga","Mengidentifikasi identitas keluarga","PG",2,1],
+        ["Identitas teman/keberagaman","Mengenali keberagaman suku bangsa","PG bergambar",3,1],
+        ["Desa dan kelurahan","Mengenali struktur pemerintahan desa","PG bergambar",4,1],
+        ["Wilayah tempat tinggal","Mengenal wilayah Indonesia","PG",5,1],
+        ["Menghargai agama","Menentukan sikap menghormati perbedaan","PG",11,1],
+        ["Bahasa daerah","Mengidentifikasi bahasa daerah","PG",12,1],
+        ["Desa/kecamatan/kabupaten","Mengenali hubungan wilayah administratif","PG",13,1],
+        ["Identitas teman","Menghargai identitas teman","PG",16,1],
+        ["Perbedaan bahasa","Mempraktikkan sikap menghargai","PG",17,1],
+        ["Kecamatan","Mengenal pemimpin kecamatan","PG",18,1],
+        ["Kecamatan","Menyebut wilayah yang dipimpin camat","Isian",26,2],
+        ["Bahasa daerah","Mengenali bahasa daerah","Isian",27,2],
+        ["Identitas diri","Melengkapi contoh identitas diri","Isian",28,2],
+        ["Menghargai perbedaan","Menyebut sikap toleransi","Isian",29,2],
+        ["Desa/kelurahan","Mengenali wilayah di bawah kecamatan","Isian",30,2],
+        ["Pemimpin desa","Menyebut kepala pemerintahan desa","Isian",34,2],
+        ["Identitas diri","Menyebut contoh identitas diri","Uraian",36,3],
+        ["Keberagaman","Menjelaskan cara menghargai perbedaan","Uraian",37,3],
+        ["Desa/kelurahan/kecamatan","Menjelaskan perbedaan wilayah","Uraian",38,3]
+      ]},
+      {bab:2, rows:[
+        ["Aturan keluarga","Mengidentifikasi aturan di rumah","PG",6,1],
+        ["Manfaat aturan","Menjelaskan tujuan aturan","PG",7,1],
+        ["Hak warga sekolah","Mengidentifikasi hak siswa","PG",8,1],
+        ["Kewajiban warga sekolah","Mengidentifikasi kewajiban siswa","PG",9,1],
+        ["Rambu/aturan","Menafsirkan rambu aturan","PG bergambar",10,1],
+        ["Aturan lingkungan","Mengidentifikasi aturan tempat tinggal","PG bergambar",14,1],
+        ["Tujuan aturan","Menjelaskan manfaat aturan lingkungan","PG",15,1],
+        ["Aturan tidak tertulis","Membedakan aturan tertulis/tidak tertulis","PG",19,1],
+        ["Pelaksanaan aturan","Memilih tindakan sesuai aturan","PG",20,1],
+        ["Peduli lingkungan","Mengidentifikasi sikap menjaga lingkungan","PG bergambar",21,1],
+        ["Hak sekolah","Mengidentifikasi hak warga sekolah","PG",22,1],
+        ["Kewajiban sekolah","Mengidentifikasi kewajiban terhadap fasilitas","PG",23,1],
+        ["Musyawarah","Menghargai pendapat orang lain","PG",24,1],
+        ["Ketaatan aturan","Menentukan siapa yang menaati aturan","PG",25,1],
+        ["Aturan tertulis","Mengenali jenis aturan","Isian",31,2],
+        ["Hak siswa","Menyebut hak mendapat pembelajaran","Isian",32,2],
+        ["Kewajiban siswa","Mengenali kewajiban menjaga kelas","Isian",33,2],
+        ["Etika bertamu","Menerapkan aturan bertamu","Isian",35,2],
+        ["Aturan lingkungan","Memberi contoh aturan dan manfaatnya","Uraian",39,3],
+        ["Hak dan kewajiban","Menjelaskan hak dan kewajiban warga sekolah","Uraian",40,3]
+      ]}
+    ];
+    function renderKisi(){
+      var html = '<table class="kisi"><thead><tr><th>Bab</th><th>Materi</th><th>Indikator Soal</th><th>Bentuk Soal</th><th>No. Soal</th><th>Skor</th></tr></thead><tbody>';
+      KISI.forEach(function(g){
+        html += '<tr class="kisi-bab"><td colspan="6">'+esc(BAB_NAMES[g.bab])+'</td></tr>';
+        g.rows.forEach(function(r){
+          html += '<tr><td data-l="Bab">'+esc(BAB_NAMES[g.bab].split("•")[1].trim())+'</td>'
+            + '<td data-l="Materi">'+esc(r[0])+'</td>'
+            + '<td data-l="Indikator Soal">'+esc(r[1])+'</td>'
+            + '<td class="c" data-l="Bentuk Soal">'+esc(r[2])+'</td>'
+            + '<td class="c" data-l="No. Soal">'+r[3]+'</td>'
+            + '<td class="c" data-l="Skor">'+r[4]+'</td></tr>';
+        });
+      });
+      html += '<tr class="kisi-total"><td colspan="3">Total Skor: PG 25 × 1 + Isian 10 × 2 + Uraian 5 × 3</td><td class="c" colspan="2">40 soal</td><td class="c">60</td></tr>';
+      html += '</tbody></table>';
+      html += '<p style="color:var(--muted2);font-weight:600;margin:12px 0 0">Distribusi: 25 pilihan ganda (1–25), 10 isian (26–35), 5 uraian (36–40).<br>NOTE: Kisi-kisi ini disusun berdasarkan tujuan pembelajaran dan pokok materi yang disampaikan.</p>';
+      document.getElementById("kisi-table").innerHTML = html;
+    }
+    renderKisi();
+
+    /* =============== SIMULASI ASAS =============== */
+    var sim = { aktif:false, idx:0, answers:{}, flags:{}, sisa:90*60, timerId:null, selesai:false, selfScore:{} };
+
+    function renderPalette(){
+      var host = document.getElementById("sim-palette");
+      var html = "";
+      QUESTIONS.forEach(function(q,i){
+        var cls = "pal";
+        if(sim.answers[q.no] !== undefined && sim.answers[q.no] !== null && String(sim.answers[q.no]).trim()!=="") cls += " terjawab";
+        if(sim.flags[q.no]) cls += " ragu";
+        if(i===sim.idx) cls += " kini";
+        html += '<button class="'+cls+'" data-pal="'+i+'">'+q.no+'</button>';
+      });
+      host.innerHTML = html;
+      host.querySelectorAll("[data-pal]").forEach(function(b){
+        b.addEventListener("click", function(){ sim.idx = +b.getAttribute("data-pal"); renderSimQuestion(); });
+      });
+      var terjawab = 0;
+      QUESTIONS.forEach(function(q){ if(sim.answers[q.no] !== undefined && String(sim.answers[q.no]).trim()!=="") terjawab++; });
+      document.getElementById("sim-answered").textContent = terjawab;
+      document.getElementById("sim-prog-bar").style.width = (terjawab/QUESTIONS.length*100)+"%";
+    }
+
+    function renderSimQuestion(){
+      var q = QUESTIONS[sim.idx];
+      document.getElementById("sim-prog-text").textContent = "Soal "+(sim.idx+1)+" dari 40";
+      var host = document.getElementById("sim-question");
+      var html = '<div class="qcard">'+qHeadHtml(q);
+      if(q.stimulus){ html += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+nl2br(q.stimulus)+'</div>'; }
+      html += '<div class="qtext">'+esc(q.q)+'</div>';
+      if(q.type==="pg"){
+        html += '<div class="opts">';
+        q.options.forEach(function(op,i){
+          var sel = sim.answers[q.no]===i ? " sel" : "";
+          html += '<button class="opt'+sel+'" data-sim-pg="'+i+'"><span class="huruf">'+"ABCD"[i]+'</span>'+esc(op)+'</button>';
+        });
+        html += '</div>';
+      } else if(q.type==="isian"){
+        html += '<div class="fillin"><input type="text" id="sim-in" placeholder="Tulis jawabanmu di sini…" autocomplete="off" value="'+esc(sim.answers[q.no]||"")+'"></div>';
+      } else {
+        html += '<textarea class="essay" id="sim-in" placeholder="Tulis jawabanmu dengan lengkap di sini…">'+esc(sim.answers[q.no]||"")+'</textarea>';
+      }
+      html += '</div>';
+      host.innerHTML = html;
+
+      host.querySelectorAll("[data-sim-pg]").forEach(function(b){
+        b.addEventListener("click", function(){
+          sim.answers[q.no] = +b.getAttribute("data-sim-pg");
+          renderSimQuestion();
+        });
+      });
+      var inp = document.getElementById("sim-in");
+      if(inp){
+        inp.addEventListener("input", function(){ sim.answers[q.no] = inp.value; renderPaletteSoft(); });
+      }
+      var flagBtn = document.getElementById("btn-flag");
+      flagBtn.classList.toggle("ragu-on", !!sim.flags[q.no]);
+      flagBtn.textContent = sim.flags[q.no] ? "🚩 Ragu-ragu (Aktif)" : "🚩 Ragu-ragu";
+      document.getElementById("btn-prev").disabled = sim.idx===0;
+      document.getElementById("btn-next").disabled = sim.idx===QUESTIONS.length-1;
+      renderPalette();
+    }
+    function renderPaletteSoft(){ renderPalette(); }
+
+    function fmtTime(s){ var m=Math.floor(s/60), d=s%60; return (m<10?"0":"")+m+":"+(d<10?"0":"")+d; }
+    function tickTimer(){
+      sim.sisa--;
+      var el = document.getElementById("sim-timer");
+      el.textContent = "⏱️ " + fmtTime(Math.max(sim.sisa,0));
+      el.classList.toggle("kritis", sim.sisa<=300);
+      if(sim.sisa<=0){ finishSim(true); }
+    }
+    function startSim(){
+      sim.aktif = true; sim.selesai = false; sim.idx = 0; sim.answers = {}; sim.flags = {}; sim.selfScore = {}; sim.sisa = 90*60;
+      document.getElementById("sim-start").classList.add("hidden");
+      document.getElementById("sim-quiz").classList.remove("hidden");
+      document.getElementById("sim-timer").textContent = "⏱️ 90:00";
+      document.getElementById("sim-timer").classList.remove("kritis");
+      if(sim.timerId) clearInterval(sim.timerId);
+      sim.timerId = setInterval(tickTimer, 1000);
+      renderSimQuestion();
+      window.scrollTo(0,0);
+    }
+    document.getElementById("btn-start-sim").addEventListener("click", startSim);
+    document.getElementById("btn-prev").addEventListener("click", function(){ if(sim.idx>0){ sim.idx--; renderSimQuestion(); } });
+    document.getElementById("btn-next").addEventListener("click", function(){ if(sim.idx<QUESTIONS.length-1){ sim.idx++; renderSimQuestion(); } });
+    document.getElementById("btn-flag").addEventListener("click", function(){
+      var q = QUESTIONS[sim.idx]; sim.flags[q.no] = !sim.flags[q.no]; renderSimQuestion();
+    });
+    function askFinish(){
+      var terjawab=0, ragu=0;
+      QUESTIONS.forEach(function(q){
+        if(sim.answers[q.no]!==undefined && String(sim.answers[q.no]).trim()!=="") terjawab++;
+        if(sim.flags[q.no]) ragu++;
+      });
+      document.getElementById("modal-finish-text").innerHTML =
+        "Kamu sudah menjawab <b>"+terjawab+"</b> dari 40 soal. Belum dijawab: <b>"+(40-terjawab)+"</b> soal. Ditandai ragu-ragu: <b>"+ragu+"</b> soal.<br><br>Setelah selesai, kamu tidak dapat mengubah jawaban PG dan Isian. Soal uraian akan kamu nilai sendiri di layar hasil.";
+      document.getElementById("modal-finish").classList.add("show");
+    }
+    document.getElementById("btn-finish-top").addEventListener("click", askFinish);
+    document.getElementById("btn-modal-back").addEventListener("click", function(){ document.getElementById("modal-finish").classList.remove("show"); });
+    document.getElementById("btn-modal-yes").addEventListener("click", function(){
+      document.getElementById("modal-finish").classList.remove("show"); finishSim(false);
+    });
+
+    function hitungSkor(){
+      var pg=0, isian=0, uraian=0;
+      QUESTIONS.forEach(function(q){
+        if(q.type==="pg"){ if(sim.answers[q.no]===q.answer) pg += 1; }
+        else if(q.type==="isian"){ if(isianBenar(q, sim.answers[q.no])) isian += 2; }
+        else { uraian += (sim.selfScore[q.no]||0); }
+      });
+      return {pg:pg, isian:isian, uraian:uraian, total:pg+isian+uraian};
+    }
+    function updateHasil(){
+      var s = hitungSkor();
+      var nilai = Math.round(s.total/60*100);
+      document.getElementById("skor-pg").textContent = s.pg;
+      document.getElementById("skor-isian").textContent = s.isian;
+      document.getElementById("skor-uraian").textContent = s.uraian;
+      document.getElementById("hasil-total").textContent = s.total;
+      document.getElementById("hasil-nilai").textContent = nilai;
+      var predikat, pesan;
+      if(nilai>=90){ predikat="🌟 Sangat Baik — Luar Biasa!"; }
+      else if(nilai>=75){ predikat="👍 Baik — Hebat!"; }
+      else if(nilai>=60){ predikat="🙂 Cukup — Terus Berlatih!"; }
+      else { predikat="💪 Perlu Berlatih Lagi — Kamu Pasti Bisa!"; }
+      document.getElementById("hasil-predikat").textContent = predikat;
+    }
+    function finishSim(karenaWaktu){
+      if(sim.selesai) return;
+      sim.selesai = true; sim.aktif = false;
+      if(sim.timerId) clearInterval(sim.timerId);
+      document.getElementById("sim-quiz").classList.add("hidden");
+      document.getElementById("sim-start").classList.remove("hidden");
+      renderHasil(karenaWaktu);
+      showView("hasil");
+    }
+    function renderHasil(karenaWaktu){
+      /* --- Penilaian uraian oleh siswa --- */
+      var uh = "";
+      if(karenaWaktu){ uh += '<div class="disclaimer" style="margin:0 0 14px">⏰ Waktu habis! Simulasi otomatis diselesaikan.</div>'; }
+      uh += '<div class="qcard"><h3 style="margin-top:0">✍️ Nilai Sendiri Soal Uraianmu</h3>'
+        +'<p style="margin:0 0 6px">Bandingkan jawabanmu dengan <b>jawaban model</b>, lalu pilih skor untuk tiap soal uraian sesuai aturan skor:</p>'
+        +'<ul style="margin:0;padding-left:22px"><li><b>Skor 3</b> = jawaban lengkap dan tepat.</li><li><b>Skor 2</b> = jawaban benar tetapi kurang lengkap.</li><li><b>Skor 1</b> = jawaban hanya benar sebagian.</li><li><b>Skor 0</b> = jawaban salah atau kosong.</li></ul>'
+        +'<p style="margin:6px 0 0">Jujur ya saat menilai, supaya hasil belajarmu benar-benar terlihat!</p></div>';
+      QUESTIONS.forEach(function(q){
+        if(q.type!=="uraian") return;
+        var jawab = sim.answers[q.no];
+        uh += '<div class="qcard">'+qHeadHtml(q)
+          +'<div class="qtext">'+esc(q.q)+'</div>'
+          +'<div style="font-weight:800;margin-top:8px">Jawabanmu:</div>'
+          +'<div class="jawaban-siswa">'+(jawab && String(jawab).trim() ? esc(jawab) : "(tidak dijawab)")+'</div>'
+          +'<div class="modelans show"><h4>Jawaban Model:</h4>'+nl2br(q.model)
+          +'<h4 style="margin-top:10px">Aturan Skor:</h4>'+esc(q.rubrik)+'</div>'
+          +'<div class="selfscore"><span style="font-weight:800">Skor saya:</span>';
+        for(var s=0;s<=3;s++){ uh += '<button class="ss'+((sim.selfScore[q.no]||0)===s?" pick":"")+'" data-ss="'+q.no+'" data-val="'+s+'">'+s+'</button>'; }
+        uh += '</div></div>';
+      });
+      document.getElementById("uraian-self").innerHTML = uh;
+      document.querySelectorAll("[data-ss]").forEach(function(b){
+        b.addEventListener("click", function(){
+          sim.selfScore[+b.getAttribute("data-ss")] = +b.getAttribute("data-val");
+          var grup = b.parentElement.querySelectorAll(".ss");
+          grup.forEach(function(x){ x.classList.toggle("pick", x===b); });
+          updateHasil();
+        });
+      });
+
+      /* --- Pembahasan semua soal --- */
+      var rh = "";
+      QUESTIONS.forEach(function(q){
+        rh += '<div class="qcard">'+qHeadHtml(q);
+        if(q.stimulus){ rh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+nl2br(q.stimulus)+'</div>'; }
+        rh += '<div class="qtext">'+esc(q.q)+'</div>';
+        if(q.type==="pg"){
+          var pilih = sim.answers[q.no];
+          rh += '<div class="opts">';
+          q.options.forEach(function(op,i){
+            var cls = "opt";
+            if(i===q.answer) cls += " benar";
+            else if(pilih===i) cls += " salah";
+            rh += '<button class="'+cls+'" disabled><span class="huruf">'+"ABCD"[i]+'</span>'+esc(op)+(pilih===i ? ' <b>(jawabanmu)</b>' : '')+'</button>';
+          });
+          rh += '</div>';
+          var ok = pilih===q.answer;
+          rh += '<div class="explain show '+(ok?"ok":"no")+'"><span class="verdict">'+(ok?"🎉 Benar!":"Jawabanmu belum tepat. Kunci jawaban: "+"ABCD"[q.answer]+".")+'</span><br>'+esc(q.explain)+'</div>';
+        } else if(q.type==="isian"){
+          var val = sim.answers[q.no];
+          var ok2 = isianBenar(q, val);
+          rh += '<div class="jawaban-siswa">Jawabanmu: <b>'+(val && String(val).trim() ? esc(val) : "(tidak dijawab)")+'</b></div>';
+          rh += '<div class="explain show '+(ok2?"ok":"no")+'"><span class="verdict">'+(ok2?"🎉 Benar!":"Jawaban yang benar: "+esc(q.model)+".")+'</span><br>'+esc(q.explain)+'</div>';
+        } else {
+          rh += '<div class="modelans show"><h4>Jawaban Model:</h4>'+nl2br(q.model)+'<h4 style="margin-top:10px">Pembahasan:</h4>'+esc(q.explain)+'</div>';
+          rh += '<div class="explain show info">Skor uraian yang kamu berikan untuk soal ini: <b>'+(sim.selfScore[q.no]||0)+'</b> dari 3.</div>';
+        }
+        rh += '</div>';
+      });
+      document.getElementById("hasil-review").innerHTML = rh;
+      updateHasil();
+    }
+    document.getElementById("btn-retry").addEventListener("click", function(){
+      showView("simulasi"); startSim();
+    });
+    </script>
+  </body>
+</html>
