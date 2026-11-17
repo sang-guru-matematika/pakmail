@@ -209,7 +209,14 @@
       @media (prefers-color-scheme: dark){.hasil-nama b{color:#a8d8ff}}
       .gate-system-msg{display:none;background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15.5px;margin:0 0 14px;text-align:left}
       .gate-system-msg.show{display:block}
-      .btn-admin-footer{min-height:40px;border:1.5px solid var(--line);background:transparent;color:var(--muted2);border-radius:999px;font-size:13.5px;font-weight:700;padding:6px 16px;margin-top:10px}
+      .btn-admin-footer{min-height:52px;border:2.5px solid var(--primary-d);background:var(--primary-d);color:#fff;border-radius:999px;font-size:16.5px;font-weight:800;padding:12px 30px;margin-top:12px;box-shadow:var(--shadow)}
+      @media (prefers-color-scheme: dark){.btn-admin-footer{color:#0c2233}}
+      .btn-admin-footer:hover{opacity:.88}
+      .btn-admin-gate{width:100%;min-height:54px;border:2.5px solid var(--primary-d);background:var(--primary-d);color:#fff;border-radius:16px;font-size:18px;font-weight:800;padding:12px 20px;margin-top:12px;box-shadow:var(--shadow)}
+      @media (prefers-color-scheme: dark){.btn-admin-gate{color:#0c2233}}
+      .btn-admin-gate:hover{opacity:.88}
+      .gate-admin-note{font-size:14px;color:var(--muted2);font-weight:600;margin:8px 0 0}
+      #modal-admin{z-index:400}
       .admin-modal .box{max-width:560px;max-height:88vh;overflow-y:auto}
       .admin-field{margin:12px 0;text-align:left}
       .admin-field label{display:block;font-weight:800;font-size:15px;margin-bottom:6px}
@@ -293,6 +300,7 @@
           <p class="gate-error" id="gate-error" role="alert"></p>
           <button type="submit" class="btn" id="btn-buka-paket">🔓 Buka Paket</button>
         </form>
+        <button type="button" class="btn-admin-gate" id="btn-admin-open-gate">🔐 Admin</button>
       </div>
     </div>
 
@@ -524,7 +532,7 @@
     <!-- ===== AREA CETAK: KUNCI & PEMBAHASAN ===== -->
     <div id="print-kunci" class="print-area" aria-hidden="true"></div>
 
-    <footer>Dikembangkan oleh Abid Khoirul Ismail, S.Pd<br><button type="button" class="btn-admin-footer" id="btn-admin-open">Admin</button></footer>
+    <footer>Dikembangkan oleh Abid Khoirul Ismail, S.Pd<br><button type="button" class="btn-admin-footer" id="btn-admin-open">🔐 Admin</button></footer>
 
     <!-- Modal Admin -->
     <div class="modal admin-modal" id="modal-admin" role="dialog" aria-modal="true" aria-labelledby="admin-title">
@@ -1071,6 +1079,7 @@
     }
     function closeAdmin(){ document.getElementById("modal-admin").classList.remove("show"); }
     document.getElementById("btn-admin-open").addEventListener("click", openAdmin);
+    document.getElementById("btn-admin-open-gate").addEventListener("click", openAdmin);
     document.getElementById("btn-admin-close").addEventListener("click", closeAdmin);
     document.getElementById("btn-admin-done").addEventListener("click", closeAdmin);
     document.getElementById("btn-admin-login").addEventListener("click", function(){

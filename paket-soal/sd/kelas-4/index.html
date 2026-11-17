@@ -277,6 +277,30 @@
       footer .kredit { font-weight: 700; color: var(--ink); }
       footer p { margin: 3px 0; }
 
+      /* Pemilih sekolah (dropdown) — sebelum pilih kelas */
+      [hidden] { display: none !important; }
+      .sekolah-picker { margin-bottom: 18px; }
+      .sekolah-picker label {
+        display: block;
+        font-weight: 700;
+        color: var(--blue-dark);
+        margin-bottom: 8px;
+        font-size: 1.08rem;
+      }
+      .sekolah-picker select {
+        width: 100%;
+        min-height: 52px;
+        padding: 12px 14px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--ink);
+        background: var(--card);
+        border: 2px solid var(--blue);
+        border-radius: 12px;
+      }
+      .sekolah-picker .hint { margin: 8px 0 0; color: var(--ink-soft); font-size: 0.95rem; }
+      .bank-info { margin: 0 0 16px; font-weight: 700; color: var(--blue-dark); }
+
     </style>
   </head>
   <body>
@@ -289,7 +313,7 @@
       <header class="hero">
         <span class="domain">pakmail.web.id</span>
         <h1>Paket Soal — SD Kelas 4</h1>
-        <p>Paket latihan persiapan ASAS SD Kelas 4 — Semester 1, Kurikulum Merdeka. Disusun berdasarkan kisi-kisi.</p>
+        <p>Paket latihan persiapan ASAS SD Kelas 4 — Semester 1, Kurikulum Merdeka. Disusun berdasarkan kisi-kisi. Bank soal: SD Negeri Ungaran 01.</p>
       </header>
 
       <section aria-labelledby="judul-katalog">
@@ -302,7 +326,7 @@
           <div class="paket-top">
             <p class="mapel">Paket ASAS · Kelas 4 SD</p>
             <h3>Bahasa Indonesia Kelas 4</h3>
-            <p class="meta">Semester 1 · Kurikulum Merdeka</p>
+            <p class="meta">Semester 1 · Kurikulum Merdeka · SD Negeri Ungaran 01</p>
           </div>
           <div class="paket-body">
             <ul class="fitur">

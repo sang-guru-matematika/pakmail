@@ -277,6 +277,30 @@
       footer .kredit { font-weight: 700; color: var(--ink); }
       footer p { margin: 3px 0; }
 
+      /* Pemilih sekolah (dropdown) — sebelum pilih kelas */
+      [hidden] { display: none !important; }
+      .sekolah-picker { margin-bottom: 18px; }
+      .sekolah-picker label {
+        display: block;
+        font-weight: 700;
+        color: var(--blue-dark);
+        margin-bottom: 8px;
+        font-size: 1.08rem;
+      }
+      .sekolah-picker select {
+        width: 100%;
+        min-height: 52px;
+        padding: 12px 14px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--ink);
+        background: var(--card);
+        border: 2px solid var(--blue);
+        border-radius: 12px;
+      }
+      .sekolah-picker .hint { margin: 8px 0 0; color: var(--ink-soft); font-size: 0.95rem; }
+      .bank-info { margin: 0 0 16px; font-weight: 700; color: var(--blue-dark); }
+
     </style>
   </head>
   <body>
@@ -289,15 +313,25 @@
       <header class="hero">
         <span class="domain">pakmail.web.id</span>
         <h1>Paket Soal — SD</h1>
-        <p>Pilih kelas SD, lalu pilih mata pelajaran.</p>
+        <p>Pilih sekolah dulu, lalu kelas dan mata pelajaran.</p>
       </header>
 
       <section aria-labelledby="judul-pilih">
         <div class="section-head">
           <h2 id="judul-pilih">Pilih Kelas</h2>
-          <p>SD (Sekolah Dasar) — pilih kelas, lalu pilih mata pelajaran.</p>
+          <p>SD (Sekolah Dasar) — pilih sekolah, lalu kelas dan mata pelajaran.</p>
         </div>
-        <div class="grid grid-3">
+        <div class="sekolah-picker">
+          <label for="pilih-sekolah">Pilih Sekolah</label>
+          <select id="pilih-sekolah">
+            <option value="">— Pilih Sekolah —</option>
+            <option value="SD Negeri Ungaran 01">SD Negeri Ungaran 01</option>
+          </select>
+          <p class="hint">Hanya sekolah yang sudah punya bank soal yang muncul di daftar ini.</p>
+        </div>
+        <p class="bank-info" id="bank-info" hidden>Menampilkan bank soal: <span id="nama-sekolah"></span></p>
+        <p id="kelas-hint" class="menyusul">Pilih sekolah dulu untuk melihat kelas.</p>
+        <div class="grid grid-3" id="grid-kelas" hidden>
         <a class="pilih-card" href="kelas-1/">
           <h3>Kelas 1</h3>
           <p>Paket untuk kelas ini menyusul.</p>
@@ -330,6 +364,29 @@
         </a>
         </div>
       </section>
+
+    <script>
+      (function () {
+        var sel = document.getElementById('pilih-sekolah');
+        var grid = document.getElementById('grid-kelas');
+        var hint = document.getElementById('kelas-hint');
+        var info = document.getElementById('bank-info');
+        var nama = document.getElementById('nama-sekolah');
+        sel.addEventListener('change', function () {
+          var v = sel.value;
+          if (v) {
+            grid.hidden = false;
+            hint.hidden = true;
+            info.hidden = false;
+            nama.textContent = v;
+          } else {
+            grid.hidden = true;
+            hint.hidden = false;
+            info.hidden = true;
+          }
+        });
+      })();
+    </script>
 
       <footer>
         <p class="kredit">Dikembangkan oleh Abid Khoirul Ismail, S.Pd</p>

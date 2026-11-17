@@ -1,20 +1,30 @@
-CARA UNGGAH — Paket ASAS v3 (gerbang nama AKTIF)
-================================================
-ZIP ini hanya berisi SATU berkas yang berubah: index.html paket
-Bahasa Indonesia Kelas IV (URL Apps Script sudah terpasang di
-dalamnya). Berkas lain di situs TIDAK berubah, tidak perlu diunggah
-ulang.
+CARA UNGGAH — Portal v4 (tombol Admin jelas + dropdown sekolah)
+================================================================
+ZIP ini berisi TIGA berkas yang berubah. Berkas lain di situs TIDAK
+berubah, tidak perlu diunggah ulang.
+
+1. paket-soal/sd/index.html
+   - Ada dropdown "Pilih Sekolah" sebelum daftar kelas.
+   - Isi dropdown: SD Negeri Ungaran 01 (hanya sekolah yang sudah
+     punya bank soal yang muncul). Kelas baru tampil setelah sekolah
+     dipilih.
+2. paket-soal/sd/kelas-4/index.html
+   - Katalog Kelas 4 kini tertulis "Bank soal: SD Negeri Ungaran 01".
+3. paket-soal/sd/kelas-4/bahasa-indonesia/index.html
+   - Paket B. Indonesia: tombol "Admin" kini JELAS di bawah tombol
+     "Buka Paket" pada layar gerbang nama (tombol Admin di footer
+     juga diperbesar). Gerbang nama + URL Apps Script tidak berubah.
 
 Langkah:
 1. Ekstrak ZIP ini di komputer Bapak.
 2. Buka repo pakmail di GitHub (sang-guru-matematika/pakmail).
-3. Masuk ke folder: paket-soal / sd / kelas-4 / bahasa-indonesia /
-4. HAPUS berkas index.html yang lama di folder itu.
-5. Unggah berkas index.html yang baru dari folder hasil ekstrak
-   (paket-soal/sd/kelas-4/bahasa-indonesia/index.html).
-6. Commit.
+3. Untuk tiap berkas di atas: buka foldernya di repo, HAPUS berkas
+   lama, lalu unggah berkas baru dari folder hasil ekstrak.
+4. Commit.
 
-Cek setelah unggah (tunggu 1-2 menit):
-- Buka https://pakmail.web.id/paket-soal/sd/kelas-4/bahasa-indonesia/
-- Pesan "Sistem pemeriksaan nama belum dipasang" SUDAH TIDAK ADA.
-- Ketik nama yang belum terdaftar -> muncul "Nama belum terdaftar."
+Cek setelah unggah (tunggu 1-3 menit, GitHub butuh waktu menayangkan):
+- https://pakmail.web.id/paket-soal/sd/ — ada dropdown Pilih Sekolah.
+- Pilih "SD Negeri Ungaran 01" -> kartu Kelas 1-6 muncul, Kelas 4
+  "1 paket tersedia".
+- https://pakmail.web.id/paket-soal/sd/kelas-4/bahasa-indonesia/ —
+  di bawah tombol Buka Paket ada tombol Admin yang jelas.
