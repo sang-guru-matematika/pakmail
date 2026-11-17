@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>SD Kelas 1 — Pak Mail</title>
+    <style>
+      button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2.75rem; }
+
+      :root {
+        --bg: #dff1fd;
+        --card: #ffffff;
+        --ink: #12324a;
+        --ink-soft: #3d5a70;
+        --line: #b9dcf2;
+        --blue: #0b6cb4;
+        --blue-dark: #085a96;
+        --blue-tint: #e8f4fd;
+        --wa: #1fae55;
+        --wa-dark: #178a43;
+        --amber-bg: #fff7e0;
+        --amber-line: #f0d48a;
+        --amber-ink: #6b5410;
+        --shadow: 0 6px 18px rgba(11, 84, 134, 0.10);
+        --radius: 14px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0d2436;
+          --card: #16344c;
+          --ink: #eaf6ff;
+          --ink-soft: #b7d3e6;
+          --line: #2c587a;
+          --blue: #4db2f0;
+          --blue-dark: #7cc4f5;
+          --blue-tint: #1b405c;
+          --amber-bg: #3a2f10;
+          --amber-line: #7a6420;
+          --amber-ink: #ffe9a8;
+          --shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
+      }
+      .wrap { max-width: 880px; margin: 0 auto; padding: 0 18px 56px; }
+
+      .topnav { padding: 18px 0 0; }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 8px 4px;
+        color: var(--blue-dark);
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .back-link:hover { text-decoration: underline; }
+
+      .hero { text-align: center; padding: 26px 10px 36px; }
+      .hero .domain {
+        display: inline-block;
+        background: var(--card);
+        border: 1.5px solid var(--line);
+        color: var(--blue-dark);
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        padding: 5px 14px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+      }
+      .hero h1 {
+        margin: 0 0 10px;
+        font-size: clamp(2.1rem, 7.5vw, 3.2rem);
+        line-height: 1.12;
+        letter-spacing: -0.01em;
+        color: var(--blue-dark);
+      }
+      .hero p {
+        margin: 0 auto 26px;
+        max-width: 560px;
+        font-size: clamp(1.05rem, 3.4vw, 1.25rem);
+        color: var(--ink-soft);
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 48px;
+        padding: 12px 24px;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: background 0.15s ease, transform 0.15s ease;
+      }
+      .btn:active { transform: scale(0.98); }
+      .btn-blue { background: var(--blue); color: #fff; }
+      .btn-blue:hover { background: var(--blue-dark); }
+      .btn-wa { background: var(--wa); color: #fff; }
+      .btn-wa:hover { background: var(--wa-dark); }
+      .btn-ghost { background: var(--card); color: var(--blue-dark); border-color: var(--line); }
+      .btn-ghost:hover { border-color: var(--blue); }
+      @media (prefers-color-scheme: dark) {
+        .btn-blue { color: #082a42; }
+        .btn-blue:hover { color: #082a42; }
+      }
+
+      section { margin-top: 40px; }
+      .section-head { margin-bottom: 16px; }
+      .section-head h2 {
+        margin: 0 0 4px;
+        font-size: 1.55rem;
+        line-height: 1.25;
+        color: var(--blue-dark);
+      }
+      .section-head p { margin: 0; color: var(--ink-soft); }
+
+      .card {
+        background: var(--card);
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 24px;
+      }
+
+      .paket-card { padding: 0; overflow: hidden; }
+      .paket-top {
+        background: var(--blue);
+        color: #fff;
+        padding: 20px 24px;
+      }
+      .paket-top .mapel {
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.85;
+        margin: 0 0 4px;
+      }
+      .paket-top h3 { margin: 0; font-size: 1.5rem; line-height: 1.25; }
+      .paket-top .meta { margin: 6px 0 0; font-size: 0.95rem; opacity: 0.92; }
+      @media (prefers-color-scheme: dark) {
+        .paket-top { color: #082a42; }
+      }
+      .paket-body { padding: 22px 24px 24px; }
+      .fitur { list-style: none; margin: 0 0 22px; padding: 0; }
+      .fitur li {
+        display: flex;
+        gap: 10px;
+        padding: 7px 0;
+        border-bottom: 1px dashed var(--line);
+      }
+      .fitur li:last-child { border-bottom: none; }
+      .fitur .cek {
+        flex: 0 0 auto;
+        width: 24px; height: 24px;
+        border-radius: 50%;
+        background: var(--blue-tint);
+        color: var(--blue-dark);
+        font-weight: 800;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2px;
+      }
+      .fitur b { color: var(--ink); }
+      .paket-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+      .menyusul { text-align: center; color: var(--ink-soft); margin: 16px 0 0; font-style: italic; }
+
+      .langkah { display: grid; gap: 14px; }
+      @media (min-width: 640px) {
+        .langkah { grid-template-columns: 1fr 1fr; }
+      }
+      .langkah-item {
+        background: var(--card);
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 20px;
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .nomor {
+        flex: 0 0 auto;
+        width: 40px; height: 40px;
+        border-radius: 50%;
+        background: var(--blue);
+        color: #fff;
+        font-weight: 800;
+        font-size: 1.15rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (prefers-color-scheme: dark) { .nomor { color: #082a42; } }
+      .langkah-item h3 { margin: 2px 0 4px; font-size: 1.08rem; }
+      .langkah-item p { margin: 0; color: var(--ink-soft); font-size: 0.97rem; }
+
+      .catatan {
+        background: var(--amber-bg);
+        border: 1.5px solid var(--amber-line);
+        border-radius: var(--radius);
+        padding: 20px 24px;
+        color: var(--amber-ink);
+      }
+      .catatan h2 { margin: 0 0 6px; font-size: 1.2rem; }
+      .catatan p { margin: 0; }
+
+      /* Kartu pilih (jenjang / kelas / mapel) */
+      .grid { display: grid; gap: 14px; }
+      @media (min-width: 640px) {
+        .grid-2 { grid-template-columns: 1fr 1fr; }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+      }
+      .pilih-card {
+        display: block;
+        background: var(--card);
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 22px 24px;
+        text-decoration: none;
+        color: var(--ink);
+      }
+      a.pilih-card:hover { border-color: var(--blue); }
+      .pilih-card h3 { margin: 0 0 4px; font-size: 1.3rem; line-height: 1.25; color: var(--blue-dark); }
+      .pilih-card p { margin: 0; color: var(--ink-soft); font-size: 0.97rem; }
+      .badge {
+        display: inline-block;
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 3px 12px;
+        border-radius: 999px;
+        background: var(--blue-tint);
+        color: var(--blue-dark);
+        margin-top: 12px;
+      }
+      .badge.menyusul { background: #edf1f4; color: #5a6b7a; }
+      @media (prefers-color-scheme: dark) {
+        .badge.menyusul { background: #24384a; color: #b7d3e6; }
+      }
+
+      footer {
+        margin-top: 48px;
+        text-align: center;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+        border-top: 1.5px solid var(--line);
+        padding-top: 22px;
+      }
+      footer .kredit { font-weight: 700; color: var(--ink); }
+      footer p { margin: 3px 0; }
+
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+
+      <nav class="topnav" aria-label="Navigasi">
+        <a class="back-link" href="../">← SD</a>
+      </nav>
+
+      <header class="hero">
+        <span class="domain">pakmail.web.id</span>
+        <h1>Paket Soal — SD Kelas 1</h1>
+        <p>Paket latihan persiapan ASAS SD Kelas 1 — Semester 1, Kurikulum Merdeka. Disusun berdasarkan kisi-kisi.</p>
+      </header>
+
+      <section aria-labelledby="judul-mapel">
+        <div class="section-head">
+          <h2 id="judul-mapel">Pilih Mata Pelajaran</h2>
+          <p>Paket ASAS SD Kelas 1 — Semester 1, Kurikulum Merdeka.</p>
+        </div>
+        <div class="grid grid-2">
+        <div class="pilih-card">
+          <h3>Bahasa Indonesia</h3>
+          <p>Paket ASAS — Semester 1</p>
+          <span class="badge menyusul">Menyusul</span>
+        </div>
+        <div class="pilih-card">
+          <h3>Matematika</h3>
+          <p>Paket ASAS — Semester 1</p>
+          <span class="badge menyusul">Menyusul</span>
+        </div>
+        <div class="pilih-card">
+          <h3>IPAS</h3>
+          <p>Paket ASAS — Semester 1</p>
+          <span class="badge menyusul">Menyusul</span>
+        </div>
+        <div class="pilih-card">
+          <h3>Pendidikan Pancasila</h3>
+          <p>Paket ASAS — Semester 1</p>
+          <span class="badge menyusul">Menyusul</span>
+        </div>
+        <div class="pilih-card">
+          <h3>Pendidikan Agama Islam dan Budi Pekerti</h3>
+          <p>Paket ASAS — Semester 1</p>
+          <span class="badge menyusul">Menyusul</span>
+        </div>
+        <div class="pilih-card">
+          <h3>Bahasa Inggris</h3>
+          <p>Paket ASAS — Semester 1</p>
+          <span class="badge menyusul">Menyusul</span>
+        </div>
+        <div class="pilih-card">
+          <h3>PJOK</h3>
+          <p>Paket ASAS — Semester 1</p>
+          <span class="badge menyusul">Menyusul</span>
+        </div>
+        <div class="pilih-card">
+          <h3>Seni Budaya</h3>
+          <p>Paket ASAS — Semester 1</p>
+          <span class="badge menyusul">Menyusul</span>
+        </div>
+        </div>
+        <p class="menyusul">Paket untuk kelas ini sedang disiapkan. Silakan kembali lagi nanti.</p>
+      </section>
+
+      <footer>
+        <p class="kredit">Dikembangkan oleh Abid Khoirul Ismail, S.Pd</p>
+        <p>pakmail.web.id</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
