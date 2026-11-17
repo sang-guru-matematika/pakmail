@@ -1,0 +1,18 @@
+CARA UNGGAH KE GITHUB (pakmail.web.id - PORTAL)
+==============================================
+
+ISI PAKET INI (unggah SEMUA ini ke repo pakmail):
+  index.html                            -> beranda hub portal
+  paket-soal/index.html                 -> toko Paket Soal
+  paket-soal/bahasa-indonesia-kelas-4/index.html -> paket B. Indonesia Kelas IV
+  berita/index.html                     -> portal Berita Pendidikan
+  perangkat-pembelajaran/index.html     -> portal Perangkat Pembelajaran
+
+1. Buka repo sang-guru-matematika/pakmail di github.com
+2. Klik "Add file" > "Upload files"
+3. Seret (drag) SEMUA ISI folder ini ke halaman upload.
+   JANGAN mengunggah file ZIP-nya - GitHub tidak bisa membuka ZIP.
+4. Klik "Commit changes".
+5. Lanjut ke Settings > Pages: Branch main, Folder / (root), Save.
+6. Custom domain: pakmail.web.id, Save.
+7. DNS di indo.domains (lihat panduan aktivasi di beranda toko).
