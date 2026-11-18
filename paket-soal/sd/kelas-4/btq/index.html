@@ -84,6 +84,7 @@
       .btn.ghost{background:var(--card);color:var(--primary-d);border:2px solid var(--primary)}
       .btn.small{min-height:48px;font-size:16px;padding:10px 18px;border-radius:13px}
       .btn:disabled{opacity:.45;cursor:not-allowed}
+      a.btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
       .howto{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 20px;margin-top:22px;box-shadow:var(--shadow)}
       .howto h2{margin:0 0 8px;font-size:21px}
       .howto li{margin:5px 0}
@@ -136,15 +137,6 @@
       .modelans.show{display:block}
       .modelans h4{margin:0 0 6px}
       .qcard{scroll-margin-top:150px}
-
-      /* ---------- Menu Soal ---------- */
-      .menu-list{display:grid;gap:9px;margin:10px 0 4px}
-      .menu-item{display:flex;gap:11px;align-items:center;width:100%;text-align:left;background:var(--card);
-        border:2px solid var(--line);border-radius:14px;padding:11px 14px;box-shadow:var(--shadow);color:var(--ink)}
-      .menu-item:hover{border-color:var(--primary)}
-      .menu-item .mno{background:var(--primary);color:#fff;font-weight:900;border-radius:10px;padding:3px 11px;font-size:16px;flex:0 0 auto}
-      .menu-item .mtxt{flex:1 1 auto;font-weight:600;font-size:16px;min-width:0}
-      .menu-item .mskor{font-weight:700;color:var(--muted2);font-size:14px;flex:0 0 auto;white-space:nowrap}
 
       /* ---------- Kisi-kisi ---------- */
       .kisi-title{text-align:center;font-weight:900;font-size:clamp(18px,4.4vw,23px);line-height:1.35;margin:6px 0 14px}
@@ -307,8 +299,8 @@
         .babsec{box-shadow:none;border:1.5px solid #888;border-left:8px solid #888;break-inside:avoid;margin:10px 0;padding:12px 16px}
         .contoh{background:#f2f2f2!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
         .print-area .pq-stim,.print-area .pk-ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-        body:not([data-print]) #view-home,body:not([data-print]) #view-latihan,body:not([data-print]) #view-menu,body:not([data-print]) #view-kisi,body:not([data-print]) #view-simulasi,body:not([data-print]) #view-hasil,
-        body[data-print="ringkasan"] #view-home,body[data-print="ringkasan"] #view-latihan,body[data-print="ringkasan"] #view-menu,body[data-print="ringkasan"] #view-kisi,body[data-print="ringkasan"] #view-simulasi,body[data-print="ringkasan"] #view-hasil{display:none!important}
+        body:not([data-print]) #view-home,body:not([data-print]) #view-latihan,body:not([data-print]) #view-kisi,body:not([data-print]) #view-simulasi,body:not([data-print]) #view-hasil,
+        body[data-print="ringkasan"] #view-home,body[data-print="ringkasan"] #view-latihan,body[data-print="ringkasan"] #view-kisi,body[data-print="ringkasan"] #view-simulasi,body[data-print="ringkasan"] #view-hasil{display:none!important}
         body:not([data-print]) #view-ringkasan,body[data-print="ringkasan"] #view-ringkasan{display:block!important}
         body:not([data-print]) .print-area,body[data-print="ringkasan"] .print-area{display:none!important}
         body[data-print="soal"] .wrap{display:none!important}
@@ -346,7 +338,6 @@
       <div class="in">
         <button class="navbtn active" data-nav="home">🏠 Beranda</button>
         <button class="navbtn" data-nav="ringkasan">📖 Ringkasan</button>
-        <button class="navbtn" data-nav="menu">📋 Menu Soal</button>
         <button class="navbtn" data-nav="kisi">🗂️ Kisi-kisi</button>
         <button class="navbtn" data-nav="latihan">✏️ Latihan Soal</button>
         <button class="navbtn" data-nav="simulasi">📝 Simulasi ASAS</button>
@@ -394,7 +385,6 @@
 
         <div class="cta">
           <button class="btn" data-go="ringkasan">📖 Mulai Belajar</button>
-          <button class="btn ghost" data-go="menu">📋 Menu Soal</button>
           <button class="btn ghost" data-go="kisi">🗂️ Kisi-kisi</button>
           <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
         </div>
@@ -403,10 +393,9 @@
           <h2>Cara Menggunakan Paket Ini</h2>
           <ol>
             <li><b>Ringkasan</b> — Baca ringkasan 3 materi tajwid terlebih dahulu. Ada tombol <b>Cetak Ringkasan</b> bila ingin mencetaknya.</li>
-            <li><b>Menu Soal</b> — Lihat daftar semua 35 soal per materi. Ketuk salah satu soal untuk langsung melompat ke soal itu di Latihan Soal.</li>
             <li><b>Kisi-kisi</b> — Lihat kisi-kisi penulisan soal ASAS selengkapnya, supaya bisa dibandingkan dengan kisi-kisi dari gurumu di sekolah.</li>
             <li><b>Latihan Soal</b> — Kerjakan 35 soal per materi. Kunci dan pembahasan langsung muncul setelah kamu menjawab. Di bagian ini juga ada tombol <b>Cetak Soal</b> (lembar kerja siswa tanpa kunci) dan <b>Cetak Kunci &amp; Pembahasan</b> (untuk guru/orang tua).</li>
-            <li><b>Simulasi ASAS</b> — Uji kemampuanmu seperti ujian sungguhan: 35 soal, waktu 90 menit, ada palet nomor dan tombol ragu-ragu. Setelah selesai, kamu bisa kembali ke <b>Menu Soal</b> dari layar hasil.</li>
+            <li><b>Simulasi ASAS</b> — Uji kemampuanmu seperti ujian sungguhan: 35 soal, waktu 90 menit, ada palet nomor dan tombol ragu-ragu. Setelah selesai, kamu bisa kembali memilih mapel lain lewat tombol <b>Pilih Mapel</b> di layar hasil.</li>
           </ol>
         </div>
       </section>
@@ -477,22 +466,8 @@
         <p style="color:var(--muted2);font-weight:600;margin:0">35 soal dikelompokkan per materi. Jawab dulu, kunci dan pembahasan akan langsung muncul. Untuk soal <b>Menjodohkan</b>, pasangkan lafadz dengan hukum bacaan yang tepat. Semangat! Tombol <b>Cetak Soal</b> untuk lembar kerja siswa (tanpa kunci), tombol <b>Cetak Kunci &amp; Pembahasan</b> untuk pegangan guru/orang tua.</p>
         <div id="latihan-list"></div>
         <div class="cta">
-          <button class="btn ghost" data-go="menu">📋 Kembali ke Menu Soal</button>
+          <a class="btn ghost" href="../">← Pilih Mapel</a>
           <button class="btn orange" data-go="simulasi">📝 Siap? Coba Simulasi ASAS</button>
-        </div>
-      </section>
-
-      <!-- ================= MENU SOAL ================= -->
-      <section id="view-menu" class="view">
-        <div class="sec-head">
-          <h2>📋 Menu Soal</h2>
-          <button class="btn small no-print" data-go="kisi">🗂️ Lihat Kisi-kisi</button>
-        </div>
-        <p style="color:var(--muted2);font-weight:600;margin:0">Daftar lengkap 35 soal paket ini, dikelompokkan per materi. Ketuk salah satu soal untuk langsung melompat ke soal itu di Latihan Soal.</p>
-        <div id="menu-list"></div>
-        <div class="cta">
-          <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
-          <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
         </div>
       </section>
 
@@ -515,7 +490,6 @@
         </div>
         <div id="kisi-table"><table class="kisi"><thead><tr><th>Materi</th><th>Indikator Soal</th><th>Bentuk Soal</th><th>Level</th><th>No. Soal</th><th>Skor</th></tr></thead><tbody><tr class="kisi-bab"><td colspan="6">Materi A • Hukum Iqlab — Memahami hukum bacaan Nun Sukun atau Tanwin (Iqlab) dalam Al-Qur'an.</td></tr><tr><td data-l="Materi">Hukum Iqlab</td><td data-l="Indikator Soal">Disajikan definisi cara membaca, peserta didik dapat menentukan nama hukum bacaan dengan tepat.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">1</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Iqlab</td><td data-l="Indikator Soal">Peserta didik dapat menentukan huruf hijaiyah yang menjadi penyebab terjadinya hukum bacaan Iqlab.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">2</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Iqlab</td><td data-l="Indikator Soal">Disajikan sebuah lafadz, peserta didik dapat mengidentifikasi alasan lafadz tersebut bukan termasuk hukum Iqlab.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C2</td><td class="c" data-l="No. Soal">3</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Iqlab</td><td data-l="Indikator Soal">Peserta didik dapat mengidentifikasi alasan anatomis/ilmu tajwid mengenai perubahan bunyi nun mati menjadi mim mati pada hukum Iqlab.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C2</td><td class="c" data-l="No. Soal">4</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Iqlab</td><td data-l="Indikator Soal">Disajikan potongan ayat, peserta didik dapat menentukan transliterasi cara membaca lafadz Iqlab dengan benar.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C3</td><td class="c" data-l="No. Soal">5</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Iqlab</td><td data-l="Indikator Soal">Peserta didik dapat mengidentifikasi arti kode/tanda mim kecil (<img class="arab-img inl" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABBCAMAAAC6njdfAAAB/lBMVEX+/v4XOE+HmKR0h5UkQ1k3VGdle4qXprDEzNJMZXfd4uXn6+1CXG9bcoKotL25w8rY3eHN1dkxTmOvusJ+kJ0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACzsucyAAAAgHRSTlP///////////////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ4gXzwAAADqSURBVHja7dRJEoQgDAVQEhBBBRz6/mdtUUptdUHCsvn7V2FIIkRNzR8mIBomHQdYo1l2UrDFMmyXLICk4wGOeKrF04IaabaHaxoalisZgug/u9bUwvJ6fKR8U3MUk7tuKbXPztL02pck7cidYpYW08EVgXnpmp//ym609tdtyZ2v7knzG0W+4OzXVi84t7/9ix1yC9t0S43edNTfjRADr6N63vY4seXieGwowhMXz9T5vX+V5mJH33m31uZipEzgY5qh4MUWKHgxE/HMxPsi6QtaDEIJxhLsmDjuMDuysWIPhrAoampquPkCH6MEjbgaYewAAAAASUVORK5CYII=" alt="Lafadz م">) di atas nun mati/tanwin dalam mushaf Al-Qur'an.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">6</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Iqlab</td><td data-l="Indikator Soal">Disajikan empat contoh lafadz, peserta didik dapat mengelompokkan nomor lafadz yang memiliki kesamaan hukum bacaan Iqlab.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C3</td><td class="c" data-l="No. Soal">7</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Iqlab</td><td data-l="Indikator Soal">Peserta didik dapat menentukan deskripsi perubahan bunyi yang benar ketika kasratain bertemu dengan huruf ba.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C2</td><td class="c" data-l="No. Soal">8</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Iqlab</td><td data-l="Indikator Soal">Disajikan potongan lafadz Al-Qur'an yang mengandung tanwin bertemu huruf ba, peserta didik dapat memasangkannya dengan hukum bacaan yang tepat.</td><td class="c" data-l="Bentuk Soal">Menjodohkan</td><td class="c" data-l="Level">C3</td><td class="c" data-l="No. Soal">26</td><td class="c" data-l="Skor">2</td></tr><tr><td data-l="Materi">Hukum Iqlab</td><td data-l="Indikator Soal">Disajikan sebuah lafadz Iqlab, peserta didik dapat menjelaskan alasan terjadinya hukum bacaan tersebut dengan merujuk pada pertemuan hurufnya.</td><td class="c" data-l="Bentuk Soal">Uraian</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">31</td><td class="c" data-l="Skor">3</td></tr><tr class="kisi-bab"><td colspan="6">Materi B • Hukum Ikhfa Hakiki — Memahami hukum bacaan Nun Sukun atau Tanwin (Ikhfa Hakiki) dalam Al-Qur'an.</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Peserta didik dapat menentukan arti kata “Ikhfa” menurut istilah ilmu tajwid dengan benar.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">9</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Peserta didik dapat menentukan jumlah keseluruhan huruf hijaiyah yang termasuk huruf Ikhfa Hakiki.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">10</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Disajikan sekelompok huruf hijaiyah, peserta didik dapat menentukan nama hukum bacaan yang terjadi jika nun mati bertemu kelompok huruf tersebut.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">11</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Peserta didik dapat menjelaskan karakteristik cara melafalkan hukum bacaan Ikhfa Hakiki dengan benar.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C2</td><td class="c" data-l="No. Soal">12</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Disajikan sebuah lafadz Ikhfa, peserta didik dapat mengidentifikasi sebab terjadinya hukum bacaan tersebut (pertemuan antar huruf).</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C2</td><td class="c" data-l="No. Soal">13</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Disajikan beberapa pilihan potongan ayat, peserta didik dapat menentukan contoh lafadz Ikhfa Hakiki akibat tanwin bertemu huruf ta.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C3</td><td class="c" data-l="No. Soal">14</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Disajikan lafadz Ikhfa tebal (bertemu qaf), peserta didik dapat menentukan efek suara samarnya dengan tepat.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C2</td><td class="c" data-l="No. Soal">15</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Disajikan empat kelompok kata, peserta didik dapat mendeteksi lafadz yang bukan merupakan contoh Ikhfa Hakiki.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C4</td><td class="c" data-l="No. Soal">16</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Disajikan potongan lafadz Al-Qur'an yang mengandung nun sukun bertemu huruf dzal, peserta didik dapat memasangkannya dengan hukum bacaan yang tepat.</td><td class="c" data-l="Bentuk Soal">Menjodohkan</td><td class="c" data-l="Level">C3</td><td class="c" data-l="No. Soal">27</td><td class="c" data-l="Skor">2</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Disajikan potongan lafadz Al-Qur'an yang mengandung tanwin bertemu huruf kaf, peserta didik dapat memasangkannya dengan hukum bacaan yang tepat.</td><td class="c" data-l="Bentuk Soal">Menjodohkan</td><td class="c" data-l="Level">C3</td><td class="c" data-l="No. Soal">28</td><td class="c" data-l="Skor">2</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Peserta didik dapat menyebutkan minimal 5 huruf hijaiyah yang termasuk ke dalam kelompok huruf Ikhfa Hakiki secara tepat dari ingatannya.</td><td class="c" data-l="Bentuk Soal">Uraian</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">32</td><td class="c" data-l="Skor">3</td></tr><tr><td data-l="Materi">Hukum Ikhfa Hakiki</td><td data-l="Indikator Soal">Peserta didik dapat menjelaskan pengertian dasar hukum bacaan Ikhfa Hakiki dan Ikhfa Syafawi menurut bahasa atau istilah.</td><td class="c" data-l="Bentuk Soal">Uraian</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">33</td><td class="c" data-l="Skor">3</td></tr><tr class="kisi-bab"><td colspan="6">Materi C • Hukum Mim Sukun — Memahami hukum bacaan Mim Sukun (Ikhfa Syafawi, Idgham Mimi, Idzhar Syafawi) dalam Al-Qur'an.</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Peserta didik dapat menyebutkan tiga jenis hukum bacaan mim sukun secara berurutan.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">17</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Peserta didik dapat menjelaskan arti istilah kata “Syafawi” berdasarkan tempat keluarnya huruf (makhraj).</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">18</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Peserta didik dapat menentukan huruf hijaiyah penyebab terjadinya hukum bacaan Ikhfa Syafawi.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">19</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Disajikan potongan ayat, peserta didik dapat menentukan cara membaca hukum Ikhfa Syafawi dengan benar.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C2</td><td class="c" data-l="No. Soal">20</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Peserta didik dapat menentukan nama lain dari hukum bacaan Idgham Mimi dalam ilmu tajwid.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">21</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Disajikan beberapa pilihan kalimat, peserta didik dapat menentukan contoh kalimat yang mengandung hukum bacaan Idgham Mimi.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C3</td><td class="c" data-l="No. Soal">22</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Peserta didik dapat menjelaskan aturan cara membaca mim sukun yang bertemu dengan huruf wau atau fa (Idzhar Syafawi).</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C2</td><td class="c" data-l="No. Soal">23</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Disajikan sebuah ayat panjang, peserta didik dapat menghitung jumlah tempat terjadinya hukum bacaan Idzhar Syafawi pada ayat tersebut.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C4</td><td class="c" data-l="No. Soal">24</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Disajikan tabel analisis pasangan lafadz dan nama hukum bacaan, peserta didik dapat memvalidasi pasangan yang benar.</td><td class="c" data-l="Bentuk Soal">PG</td><td class="c" data-l="Level">C4</td><td class="c" data-l="No. Soal">25</td><td class="c" data-l="Skor">1</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Disajikan potongan lafadz Al-Qur'an yang mengandung mim sukun bertemu huruf ba, peserta didik dapat memasangkannya dengan hukum bacaan yang tepat.</td><td class="c" data-l="Bentuk Soal">Menjodohkan</td><td class="c" data-l="Level">C3</td><td class="c" data-l="No. Soal">29</td><td class="c" data-l="Skor">2</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Disajikan potongan lafadz Al-Qur'an yang mengandung mim sukun bertemu huruf fa, peserta didik dapat memasangkannya dengan hukum bacaan yang tepat.</td><td class="c" data-l="Bentuk Soal">Menjodohkan</td><td class="c" data-l="Level">—</td><td class="c" data-l="No. Soal">30</td><td class="c" data-l="Skor">2</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Peserta didik dapat menjelaskan pengertian dan ketentuan dasar dari hukum bacaan Idzhar Syafawi secara tepat.</td><td class="c" data-l="Bentuk Soal">Uraian</td><td class="c" data-l="Level">C1</td><td class="c" data-l="No. Soal">34</td><td class="c" data-l="Skor">3</td></tr><tr><td data-l="Materi">Hukum Mim Sukun</td><td data-l="Indikator Soal">Peserta didik dapat menuliskan masing-masing 1 contoh potongan lafadz/ayat Al-Qur'an yang mengandung hukum bacaan Idgham Mimi dan Idzhar Syafawi.</td><td class="c" data-l="Bentuk Soal">Uraian</td><td class="c" data-l="Level">—</td><td class="c" data-l="No. Soal">35</td><td class="c" data-l="Skor">3</td></tr><tr class="kisi-total"><td colspan="2">Total Skor: PG 25 × 1 + Menjodohkan 5 × 2 + Uraian 5 × 3</td><td class="c" colspan="3">35 soal</td><td class="c">50</td></tr></tbody></table></div>
         <div class="cta">
-          <button class="btn ghost" data-go="menu">📋 Ke Menu Soal</button>
           <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
         </div>
       </section>
@@ -585,7 +559,7 @@
         <div id="hasil-review"></div>
         <div class="cta">
           <button class="btn" id="btn-retry">🔁 Ulangi Simulasi</button>
-          <button class="btn ghost" data-go="menu">📋 Kembali ke Menu Soal</button>
+          <a class="btn ghost" href="../">← Pilih Mapel</a>
           <button class="btn ghost" data-go="ringkasan">📖 Baca Ringkasan Lagi</button>
         </div>
       </section>
@@ -876,7 +850,7 @@
     paksaKapital(document.getElementById("admin-new-nama"));
 
     /* =============== NAVIGASI =============== */
-    var VIEWS = ["home","ringkasan","menu","kisi","latihan","simulasi","hasil"];
+    var VIEWS = ["home","ringkasan","kisi","latihan","simulasi","hasil"];
     function showView(name){
       for(var i=0;i<VIEWS.length;i++){
         document.getElementById("view-"+VIEWS[i]).classList.toggle("active", VIEWS[i]===name);
@@ -1256,57 +1230,6 @@
       });
     }
     renderLatihan();
-
-    /* =============== MENU SOAL =============== */
-    /* Cuplikan soal untuk Menu Soal: teks Latin dipotong, lafadz Arab tetap tampil sebagai gambar */
-    function menuPreviewHtml(q){
-      var s = String(q.q || "").replace(/\s+/g, " ").trim();
-      var budget = 120, out = "", used = 0, last = 0, m;
-      var re = new RegExp(ARAB_KEYS.map(escRe).join("|"), "g");
-      while((m = re.exec(s)) !== null){
-        var t = s.slice(last, m.index);
-        if(used + t.length > budget){ out += esc(t.slice(0, Math.max(budget - used, 0))); return out + "…"; }
-        out += esc(t); used += t.length;
-        if(used + 8 > budget){ return out + "…"; }
-        out += arabImg(m[0], "inl"); used += 8;
-        last = m.index + m[0].length;
-      }
-      var tail = s.slice(last);
-      if(used + tail.length > budget){ out += esc(tail.slice(0, Math.max(budget - used, 0))) + "…"; }
-      else { out += esc(tail); }
-      return out;
-    }
-    function renderMenuSoal(){
-      var host = document.getElementById("menu-list");
-      var html = "", lastBab = 0;
-      var order = QUESTIONS.slice().sort(function(a,b){ if(a.bab!==b.bab) return a.bab-b.bab; return a.no-b.no; });
-      order.forEach(function(q){
-        if(q.bab!==lastBab){
-          if(lastBab!==0) html += '</div>';
-          lastBab = q.bab;
-          html += '<h3 style="margin:26px 0 4px;font-size:22px">'+BAB_NAMES[q.bab]+'</h3><div class="menu-list">';
-        }
-        html += '<button class="menu-item" data-menu-no="'+q.no+'">'
-          + '<span class="mno">'+q.no+'</span>'
-          + '<span class="qtype '+q.type+'">'+TYPE_NAMES[q.type]+'</span>'
-          + '<span class="mtxt">'+menuPreviewHtml(q)+'</span>'
-          + '<span class="mskor">Skor '+TYPE_SCORE[q.type]+'</span>'
-          + '</button>';
-      });
-      if(lastBab!==0) html += '</div>';
-      host.innerHTML = html;
-      host.querySelectorAll("[data-menu-no]").forEach(function(b){
-        b.addEventListener("click", function(){
-          var no = b.getAttribute("data-menu-no");
-          showView("latihan");
-          setTimeout(function(){
-            var el = document.getElementById("lat-"+no);
-            if(el) el.scrollIntoView({ behavior:"smooth", block:"start" });
-          }, 80);
-        });
-      });
-    }
-    renderMenuSoal();
 
     /* =============== KISI-KISI (sesuai berkas kisi-kisi ASAS BTQ) =============== */
     var KISI = [
