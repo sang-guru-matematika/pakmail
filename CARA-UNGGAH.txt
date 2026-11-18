@@ -1,39 +1,58 @@
-CARA UNGGAH — Portal Pak Mail (ZIP v6)
-=======================================
-ZIP ini menambah 7 paket baru Kelas IV + memperbarui katalog dan
-paket B. Indonesia (Menu Soal, Kisi-kisi, huruf kapital otomatis).
+CARA UNGGAH — Portal Pak Mail v7 (Kelas 2 SD Negeri Ungaran 05)
+=============================================================
+Tanggal: 18 November 2026
+Repo GitHub: sang-guru-matematika/pakmail (branch main)
 
-A. HALAMAN YANG BERUBAH (7 berkas):
-   - paket-soal/sd/index.html (badge jadi "8 paket tersedia")
-   - paket-soal/sd/kelas-1/index.html sampai kelas-6/index.html
-     (daftar mapel bertambah BTQ + Basa Jawa; "Seni Budaya" jadi
-     "Seni Rupa"; kelas-4 kini berisi 8 kartu paket)
-   Cara: di repo, buka tiap berkas, hapus yang lama, unggah yang baru.
+ISI PAKET (16 berkas)
+---------------------
+A. Pemilih jenjang (1 berkas) — badge SD kini "15 paket tersedia":
+   paket-soal/index.html
 
-B. PAKET BARU + PAKET DIPERBARUI (8 folder):
-   - paket-soal/sd/kelas-4/bahasa-indonesia/ (diperbarui)
-   - paket-soal/sd/kelas-4/matematika/ (baru)
-   - paket-soal/sd/kelas-4/ipas/ (baru)
-   - paket-soal/sd/kelas-4/pendidikan-pancasila/ (baru)
-   - paket-soal/sd/kelas-4/pai/ (baru)
-   - paket-soal/sd/kelas-4/btq/ (baru)
-   - paket-soal/sd/kelas-4/basa-jawa/ (baru)
-   - paket-soal/sd/kelas-4/seni-rupa/ (baru)
-   Cara: di repo, buka folder kelas-4, unggah tiap folder paket
-   (tiap folder berisi 1 berkas index.html). Untuk bahasa-indonesia,
-   hapus dulu index.html lamanya lalu unggah yang baru.
-   Commit sekali untuk semuanya.
+B. Halaman SD (7 berkas) — dropdown sekolah kini Ungaran 01 + Ungaran 05:
+   paket-soal/sd/index.html
+   paket-soal/sd/kelas-1/index.html
+   paket-soal/sd/kelas-2/index.html   (BARU: 7 kartu paket Kelas 2)
+   paket-soal/sd/kelas-3/index.html
+   paket-soal/sd/kelas-4/index.html   (tetap 8 paket, tidak berubah)
+   paket-soal/sd/kelas-5/index.html
+   paket-soal/sd/kelas-6/index.html
 
-C. APPS SCRIPT (PENTING, sebelum pembeli memakai paket baru):
-   Tempel ulang bagian MAPEL_LIST di Apps Script Bapak dengan berkas
-   Kode-Apps-Script-Daftar-Pembeli.gs yang baru (8 mapel), JANGAN
-   ubah baris PIN, lalu Deploy > New version. URL tetap sama.
+C. Paket Kelas 2 SD Negeri Ungaran 05 (7 berkas):
+   paket-soal/sd/kelas-2/bahasa-indonesia/index.html   (30 soal, total 43)
+   paket-soal/sd/kelas-2/matematika/index.html         (30 soal, total 45)
+   paket-soal/sd/kelas-2/pendidikan-pancasila/index.html (30 soal, total 45)
+   paket-soal/sd/kelas-2/pai/index.html               (30 soal, total 45)
+   paket-soal/sd/kelas-2/btq/index.html               (25 soal, total 100)
+   paket-soal/sd/kelas-2/basa-jawa/index.html         (25 soal, total 40)
+   paket-soal/sd/kelas-2/seni-rupa/index.html         (30 soal, total 45)
 
-PERIKSA SETELAH UNGGAH (tunggu 1-3 menit agar GitHub menayangkan):
-- https://pakmail.web.id/paket-soal/sd/ — pilih SD Negeri Ungaran 01,
-  Kelas 4 berlabel "8 paket tersedia".
-- https://pakmail.web.id/paket-soal/sd/kelas-4/ — 8 kartu paket
-  (B. Indonesia, Matematika, IPAS, Pendidikan Pancasila, PAI, BTQ,
-  Basa Jawa, Seni Rupa) + 2 mapel Menyusul (Bahasa Inggris, PJOK).
-- Buka satu paket baru: gerbang nama + tombol Admin tampil; nama tes
-  yang belum terdaftar ditolak "Nama belum terdaftar."
+CARA UNGGAH (GitHub web)
+------------------------
+1. Buka repo sang-guru-matematika/pakmail di github.com.
+2. Untuk tiap berkas: masuk ke folder tujuannya, klik "Add file" → "Upload files",
+   pilih berkas index.html yang sesuai, lalu Commit langsung ke main.
+   Pesan commit yang disarankan: "Paket ASAS v7: Kelas 2 SD Negeri Ungaran 05 (7 paket)".
+3. Tunggu 1–3 menit agar GitHub Pages menayangkan versi baru.
+4. Cek: https://pakmail.web.id/paket-soal/sd/kelas-2/
+   — harus menampilkan 7 kartu paket Kelas 2 dengan bank soal SD Negeri Ungaran 05.
+
+LANGKAH WAJIB SETELAH UNGGAH — Apps Script Daftar Pembeli
+---------------------------------------------------------
+Gerbang nama 7 paket baru TIDAK AKAN jalan sebelum daftar mapel diperbarui:
+1. Buka Apps Script Daftar Pembeli (yang sudah dipakai untuk Kelas 4).
+2. Ganti blok MAPEL_LIST dengan isi berkas
+   "Kode-Apps-Script-Daftar-Pembeli.gs" yang baru (sudah berisi 7 mapel Kelas 2
+   + 8 mapel Kelas 4 + "semua"). PIN TIDAK BOLEH diubah.
+3. Simpan, lalu Deploy → Manage deployments → pensil → New version → Deploy.
+4. Uji: buka satu paket Kelas 2, daftarkan nama sendiri lewat Panel Admin,
+   lalu buka paket dengan nama itu — paket harus terbuka.
+
+CATATAN
+-------
+- Semua paket sudah dicek: gerbang nama + Admin jalan, tanpa "Menu Soal",
+  tombol "← Pilih Mapel" ada di akhir Latihan dan Hasil Simulasi.
+- Skor: B. Indonesia total 43 (21 PG + 5 Isian + 4 Uraian); BTQ total 100
+  (tiap soal 4 poin, sesuai pedoman penilaian sumber); lainnya total 45
+  (PG 1, Isian 2, Uraian 3) atau Basa Jawa total 40.
+- Penomoran B. Indonesia mengikuti sumber persis (PG 1–20 dan 26,
+  Isian 21–25, Uraian 27–30). Seni Rupa mengikuti sumber (Bab 1, 2, 4).
