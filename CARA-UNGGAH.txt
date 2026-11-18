@@ -1,38 +1,83 @@
-CARA UNGGAH — ZIP v10 (Perbaikan format tebal/miring)
-=====================================================
-Isi ZIP ini: 5 berkas paket yang diperbaiki (kata yang seharusnya
-tebal/miring kini tampil tebal/miring) + berkas ini. HANYA 5 berkas
-ini yang perlu diunggah — masing-masing MENIMPA (overwrite) berkas
-index.html yang sudah ada di folder yang sama di repo pakmail.
+CARA UNGGAH — Portal Pak Mail v11 (Kelas 6 + Kelas 2 baru + Paket Ujicoba)
+=====================================================================
+Diperbarui: 18 November 2026
 
-Daftar berkas (jalur di repo):
-1. paket-soal/sd/kelas-2/basa-jawa/index.html
-   (Basa Jawa Kelas II — "ORA" tebal, judul "Kancil lan Semut" miring, dll.)
-2. paket-soal/sd/kelas-4/matematika/index.html
-   (Matematika Kelas IV — kata kerja indikator tebal: Urutan, diubah, Ubahlah, dll.)
-3. paket-soal/sd/kelas-4/btq/index.html
-   (BTQ Kelas IV — "BUKAN" miring soal 16, nama huruf ba/dzal/kaf/fa miring)
-4. paket-soal/sd/kelas-5/pai/index.html
-   (PAI Kelas V — istilah Arab/konsep miring: Al-Qayyum, tawakal, Zakat fitrah, dll.)
-5. paket-soal/sd/kelas-5/basa-jawa/index.html
-   (Basa Jawa Kelas V — pasangan, Sandhangan, Ukara, Dasanama tebal)
+ISI PAKET INI (19 berkas)
+-------------------------
+paket-soal/index.html                     Toko: pemilih jenjang SD / SMP / SMA
+                                          (badge SD kini "35 paket tersedia")
+paket-soal/sd/index.html                  SD: pemilih sekolah + kartu ujicoba
+                                          (kartu "Paket Ujicoba Matematika — Gratis"
+                                          paling atas; filter sekolah: Ungaran 01
+                                          DAN Ungaran 05 kini mengaktifkan Kelas 2,
+                                          4, 5, dan 6 — kisi-kisi kedua sekolah
+                                          ternyata SAMA. Kelas 1 & 3 masih Menyusul.)
+paket-soal/sd/kelas-2/index.html          Katalog 9 paket Kelas 2 + 1 Menyusul (IPAS)
+paket-soal/sd/kelas-2/bahasa-inggris/index.html
+                                          Paket ASAS B. Inggris Kelas II (30 soal, total 45)
+paket-soal/sd/kelas-2/pjok/index.html     Paket ASAS PJOK Kelas II (30 soal, total 45)
+paket-soal/sd/kelas-4/index.html          Katalog Kelas 4 — HANYA label bank soal
+                                          berubah ("SD Negeri Ungaran 01 & SD Negeri
+                                          Ungaran 05"); isi paket tidak berubah
+paket-soal/sd/kelas-5/index.html          Katalog Kelas 5 — sama, hanya label bank
+                                          soal berubah; isi paket tidak berubah
+paket-soal/sd/kelas-6/index.html          Katalog 9 paket Kelas 6 + 1 Menyusul (PJOK)
+paket-soal/sd/kelas-6/pai/index.html      Paket ASAS PAI Kelas VI (40 soal, total 60)
+paket-soal/sd/kelas-6/btq/index.html      Paket ASAS BTQ Kelas VI (35 soal, total 50)
+paket-soal/sd/kelas-6/bahasa-indonesia/index.html
+                                          Paket ASAS B. Indonesia Kelas VI (40 soal, total 60)
+paket-soal/sd/kelas-6/matematika/index.html
+                                          Paket ASAS Matematika Kelas VI (35 soal, total 55)
+paket-soal/sd/kelas-6/ipas/index.html     Paket ASAS IPAS Kelas VI (40 soal, total 60)
+paket-soal/sd/kelas-6/pendidikan-pancasila/index.html
+                                          Paket ASAS Pendidikan Pancasila Kelas VI (40 soal, total 60)
+paket-soal/sd/kelas-6/basa-jawa/index.html
+                                          Paket ASAS Basa Jawa Kelas VI (40 soal, total 60)
+paket-soal/sd/kelas-6/seni-rupa/index.html
+                                          Paket ASAS Seni Rupa Kelas VI (40 soal, total 60)
+paket-soal/sd/kelas-6/bahasa-inggris/index.html
+                                          Paket ASAS Bahasa Inggris Kelas VI (40 soal, total 60)
+paket-soal/sd/ujicoba-matematika/index.html
+                                          Paket Ujicoba Matematika — GRATIS, tanpa
+                                          gerbang nama, tanpa Admin. Latihan 10 soal
+                                          + Simulasi 10 soal (timer 30 menit),
+                                          masing-masing 8 PG + 1 Isian + 1 Uraian.
 
-LANGKAH UNGGAH (GitHub web UI, satu folder demi satu folder):
-1. Ekstrak dulu ZIP ini di komputer (klik kanan > Extract All),
-   sampai muncul folder pakmail-web-id-upload-v10.
-2. Buka github.com/sang-guru-matematika/pakmail di browser.
-3. Untuk tiap berkas di atas, satu per satu:
-   a. Klik folder demi folder sampai masuk ke folder tujuannya
-      (mis. paket-soal > sd > kelas-2 > basa-jawa).
-   b. Klik tombol "Add file" (kanan atas) > "Upload files".
-   c. Pilih berkas index.html dari folder hasil ekstrak yang sesuai
-      (mis. dari pakmail-web-id-upload-v10/paket-soal/sd/kelas-2/basa-jawa/).
-   d. Gulir ke bawah, klik tombol hijau "Commit changes".
-   e. Tunggu sampai halaman kembali ke folder — berkas lama tertimpa.
-4. Ulangi langkah 3 untuk keempat berkas lainnya.
-5. Setelah semua 5 berkas terunggah, tunggu 1-3 menit (GitHub Pages
-   perlu waktu memperbarui situs), lalu buka pakmail.web.id dan
-   periksa satu soal yang diperbaiki di tiap paket.
+LANGKAH UNGGAH (GitHub web — sama seperti v7/v9)
+-------------------------------------------------
+1. Ekstrak ZIP ini di komputer.
+2. Buka repo sang-guru-matematika/pakmail di GitHub.
+3. Klik "Add file" → "Upload files" (atau tautan "uploading an existing file").
+4. Buka folder hasil ekstrak, MASUK ke dalamnya, pilih SEMUA isi (Ctrl+A),
+   seret ke halaman upload. Jangan seret foldernya — seret isinya.
+5. Klik "Commit changes". (Pastikan commit benar-benar terjadi — cek daftar
+   commit repo setelahnya.)
+6. Tunggu 1–3 menit (GitHub Pages kadang masih menampilkan versi lama
+   sesaat setelah commit — itu normal).
 
-Catatan: jangan unggah ZIP-nya apa adanya ke repo — yang diunggah
-adalah berkas index.html di dalamnya, ke folder masing-masing.
+CEK SETELAH UNGGAH
+------------------
+- https://pakmail.web.id/paket-soal/ → badge SD "35 paket tersedia"
+- https://pakmail.web.id/paket-soal/sd/ → kartu ujicoba paling atas (di atas
+  dropdown sekolah); pilih "SD Negeri Ungaran 01": Kelas 2, 4, 5, 6 aktif,
+  Kelas 1 & 3 Menyusul; pilih "SD Negeri Ungaran 05": SAMA (semua aktif).
+- https://pakmail.web.id/paket-soal/sd/kelas-2/ → 9 kartu paket + IPAS Menyusul
+- https://pakmail.web.id/paket-soal/sd/kelas-6/ → 9 kartu paket + PJOK Menyusul
+- https://pakmail.web.id/paket-soal/sd/ujicoba-matematika/ → langsung terbuka
+  tanpa gerbang nama
+- Buka salah satu paket Kelas 6 → gerbang nama muncul.
+
+CATATAN PENTING
+--------------
+- 11 mapel baru HARUS ditambahkan dulu ke MAPEL_LIST di Apps Script Daftar
+  Pembeli (berkas lokal Kode-Apps-Script-Daftar-Pembeli.gs sudah diperbarui:
+  sd-kelas-2-bahasa-inggris, sd-kelas-2-pjok, dan 9 mapel Kelas 6) lalu
+  Deploy New version, kalau tidak gerbang paket baru akan menolak semua nama.
+- Enforce HTTPS di Settings → Pages dicentang begitu kotaknya bisa dicentang.
+- PERLU KONFIRMASI BAPAK (belum diputuskan): kisi-kisi IPAS Kelas 6 menulis
+  "20 Pilihan Ganda, 10 isian dan 5 uraian" (= 35 soal) di sampul, tetapi juga
+  "Jumlah soal: 40" dan tabelnya berisi 25 PG. Paket ini memakai tabel
+  (25 PG, total 40 soal). SUDAH DIKONFIRMASI Bapak 2026-11-18 16:20: pakai 40 soal.
+- Perbaikan bug kecil "Terjawab: 0/30" di paket Pendidikan Pancasila Kelas 5
+  (seharusnya "/40") SUDAH TERMASUK dalam ZIP ini (paket-soal/sd/kelas-5/
+  pendidikan-pancasila/index.html).

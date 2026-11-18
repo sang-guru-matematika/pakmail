@@ -301,6 +301,8 @@
       .sekolah-picker .hint { margin: 8px 0 0; color: var(--ink-soft); font-size: 0.95rem; }
       .bank-info { margin: 0 0 16px; font-weight: 700; color: var(--blue-dark); }
       .pilih-card.nonaktif { opacity: .55; pointer-events: none; }
+      .pilih-card.trial { border: 2px solid var(--wa); }
+      .pilih-card.trial .badge { background: var(--wa); color: #fff; }
 
     </style>
   </head>
@@ -322,6 +324,11 @@
           <h2 id="judul-pilih">Pilih Kelas</h2>
           <p>SD (Sekolah Dasar) — pilih sekolah, lalu kelas dan mata pelajaran.</p>
         </div>
+        <a class="pilih-card trial" href="ujicoba-matematika/">
+          <h3>🎁 Paket Ujicoba Matematika</h3>
+          <p>Gratis, coba dulu sebelum beli — 10 soal latihan + 10 soal simulasi. Tanpa daftar nama.</p>
+          <span class="badge">Gratis</span>
+        </a>
         <div class="sekolah-picker">
           <label for="pilih-sekolah">Pilih Sekolah</label>
           <select id="pilih-sekolah">
@@ -339,30 +346,30 @@
           <p>Paket untuk kelas ini menyusul.</p>
           <span class="badge menyusul">Menyusul</span>
         </a>
-        <a class="pilih-card" href="kelas-2/" data-href="kelas-2/" data-sekolah="SD Negeri Ungaran 05" data-badge="7 paket tersedia" data-desc="7 paket tersedia.">
+        <a class="pilih-card" href="kelas-2/" data-href="kelas-2/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
           <h3>Kelas 2</h3>
-          <p>7 paket tersedia.</p>
-          <span class="badge">7 paket tersedia</span>
+          <p>9 paket tersedia.</p>
+          <span class="badge">9 paket tersedia</span>
         </a>
         <a class="pilih-card" href="kelas-3/" data-href="kelas-3/" data-badge="Menyusul" data-desc="Paket untuk kelas ini menyusul.">
           <h3>Kelas 3</h3>
           <p>Paket untuk kelas ini menyusul.</p>
           <span class="badge menyusul">Menyusul</span>
         </a>
-        <a class="pilih-card" href="kelas-4/" data-href="kelas-4/" data-sekolah="SD Negeri Ungaran 01" data-badge="8 paket tersedia" data-desc="8 paket tersedia.">
+        <a class="pilih-card" href="kelas-4/" data-href="kelas-4/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05" data-badge="8 paket tersedia" data-desc="8 paket tersedia.">
           <h3>Kelas 4</h3>
           <p>8 paket tersedia.</p>
           <span class="badge">8 paket tersedia</span>
         </a>
-        <a class="pilih-card" href="kelas-5/" data-href="kelas-5/" data-sekolah="SD Negeri Ungaran 01" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
+        <a class="pilih-card" href="kelas-5/" data-href="kelas-5/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
           <h3>Kelas 5</h3>
           <p>9 paket tersedia.</p>
           <span class="badge">9 paket tersedia</span>
         </a>
-        <a class="pilih-card" href="kelas-6/" data-href="kelas-6/" data-badge="Menyusul" data-desc="Paket untuk kelas ini menyusul.">
+        <a class="pilih-card" href="kelas-6/" data-href="kelas-6/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
           <h3>Kelas 6</h3>
-          <p>Paket untuk kelas ini menyusul.</p>
-          <span class="badge menyusul">Menyusul</span>
+          <p>9 paket tersedia.</p>
+          <span class="badge">9 paket tersedia</span>
         </a>
         </div>
       </section>
@@ -388,7 +395,9 @@
           }
           grid.querySelectorAll('.pilih-card').forEach(function (c) {
             var s = c.getAttribute('data-sekolah') || '';
-            var milik = !s || s.split(',').indexOf(v) !== -1;
+            // Kartu tanpa data-sekolah = kelas belum dibuat -> nonaktif
+            // begitu sekolah dipilih (sebelumnya '!s' membuatnya aktif).
+            var milik = s ? s.split(',').indexOf(v) !== -1 : false;
             var badge = c.querySelector('.badge');
             var p = c.querySelector('p');
             if (v && !milik) {

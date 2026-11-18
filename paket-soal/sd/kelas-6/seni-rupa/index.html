@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Paket ASAS Seni Rupa Kelas VI — SD Negeri Ungaran 01 dan SD Negeri Ungaran 05</title>
+    <style>
+      button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]), textarea { min-height: 2.25rem; }
+      :root{
+        --bg:#d9eefb; --bg2:#c4e3f8; --card:#ffffff; --ink:#12314e; --muted:#476b88;
+        --primary:#0b6bcb; --primary-dark:#0856a8; --accent:#f5a623; --ok:#1e8e3e; --bad:#d93025;
+        --line:#b8d7ef; --soft:#eaf5fd; --ragu:#fff3c4; --shadow:0 2px 10px rgba(18,49,78,.12);
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#0c2238; --bg2:#0a1a2c; --card:#16324f; --ink:#e9f4fd; --muted:#a9c6de;
+          --primary:#4da3e8; --primary-dark:#2f83cc; --accent:#f5b942; --ok:#5cc46f; --bad:#f28b82;
+          --line:#2c4f6e; --soft:#1d3d5c; --ragu:#5c4d12; --shadow:0 2px 10px rgba(0,0,0,.4);
+        }
+      }
+      *{ box-sizing:border-box; }
+      html{ -webkit-text-size-adjust:100%; }
+      body{
+        margin:0; font-family:"Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+        background:linear-gradient(180deg, var(--bg), var(--bg2)); color:var(--ink);
+        min-height:100vh; line-height:1.55; font-size:16px;
+      }
+      .wrap{ max-width:880px; margin:0 auto; padding:14px 14px 30px; }
+      h1{ font-size:1.55rem; line-height:1.3; margin:.2em 0 .4em; }
+      h2{ font-size:1.3rem; margin:.2em 0 .6em; }
+      h3{ font-size:1.08rem; margin:.4em 0 .3em; }
+      p{ margin:.45em 0; }
+      .card{ background:var(--card); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:18px; margin:14px 0; }
+      .muted{ color:var(--muted); }
+      .btn{
+        display:inline-flex; align-items:center; justify-content:center; gap:8px;
+        background:var(--primary); color:#fff; border:none; border-radius:10px;
+        padding:12px 20px; font-size:1rem; font-weight:600; cursor:pointer; text-decoration:none;
+        min-height:48px;
+      }
+      .btn:hover{ background:var(--primary-dark); }
+      .btn.secondary{ background:var(--card); color:var(--primary); border:2px solid var(--primary); }
+      .btn.secondary:hover{ background:var(--soft); }
+      .btn.warn{ background:var(--accent); color:#3a2a00; }
+      .btn.small{ min-height:40px; padding:8px 14px; font-size:.92rem; }
+      .btn:disabled{ opacity:.55; cursor:not-allowed; }
+      .btn-block{ display:flex; width:100%; }
+      input[type="text"], input[type="password"], select, textarea{
+        width:100%; padding:11px 12px; border:1.5px solid var(--line); border-radius:10px;
+        background:var(--card); color:var(--ink); font-size:1rem; font-family:inherit;
+      }
+      textarea{ min-height:90px; resize:vertical; }
+      label.flabel{ display:block; font-weight:600; margin:12px 0 5px; }
+      .msg{ border-radius:10px; padding:11px 13px; margin:12px 0; display:none; }
+      .msg.err{ display:block; background:#fdecea; color:#7a130c; border:1px solid #f3b8b1; }
+      .msg.ok{ display:block; background:#e6f4ea; color:#14532a; border:1px solid #a8d8b4; }
+      @media (prefers-color-scheme: dark){
+        .msg.err{ background:#4a1712; color:#ffb4ab; border-color:#7a2d24; }
+        .msg.ok{ background:#123d22; color:#a8e6b8; border-color:#2c5c3c; }
+      }
+      #gate{ max-width:520px; margin:5vh auto 0; }
+      #gate .card{ padding:26px 22px; }
+      .gate-title{ text-align:center; }
+      .gate-title .big{ font-size:2.4rem; }
+      nav.mainnav{
+        position:sticky; top:0; z-index:20; background:var(--card); border-bottom:2px solid var(--line);
+        display:flex; gap:4px; padding:6px 8px; overflow-x:auto; scrollbar-width:none;
+      }
+      nav.mainnav::-webkit-scrollbar{ display:none; }
+      nav.mainnav button{
+        flex:1 0 auto; background:transparent; border:none; border-radius:9px; padding:10px 12px;
+        font-size:.98rem; font-weight:600; color:var(--muted); cursor:pointer; min-height:44px;
+      }
+      nav.mainnav button.active{ background:var(--primary); color:#fff; }
+      .page{ display:none; }
+      .page.active{ display:block; }
+      table.info{ width:100%; border-collapse:collapse; }
+      table.info td{ padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+      table.info td:first-child{ font-weight:600; width:42%; color:var(--muted); }
+      .disclaimer{ background:var(--ragu); border:1px solid var(--accent); border-radius:10px; padding:11px 13px; font-weight:600; }
+      .ringkas-item h3{ color:var(--primary-dark); }
+      @media (prefers-color-scheme: dark){ .ringkas-item h3{ color:var(--primary); } }
+      .kisi-scroll{ overflow:visible; }
+      table.kisi{ width:100%; border-collapse:collapse; font-size:.92rem; }
+      table.kisi th, table.kisi td{ border:1px solid var(--line); padding:7px 8px; text-align:left; vertical-align:top; }
+      table.kisi th{ background:var(--primary); color:#fff; }
+      table.kisi td.c, table.kisi th.c{ text-align:center; }
+      table.kisi tfoot td{ font-weight:700; background:var(--soft); }
+      @media (max-width:640px){
+        table.kisi, table.kisi tbody, table.kisi tr, table.kisi td{ display:block; width:100%; }
+        table.kisi thead{ display:none; }
+        table.kisi tr{ border:1px solid var(--line); border-radius:10px; margin:0 0 10px; padding:8px 10px; background:var(--card); }
+        table.kisi td{ border:none; padding:3px 0; }
+        table.kisi td::before{ content:attr(data-label) ": "; font-weight:700; color:var(--muted); }
+        table.kisi tfoot tr{ background:var(--soft); }
+      }
+      .soal-card{ background:var(--card); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:16px 18px; margin:12px 0; }
+      .soal-num{ display:inline-block; background:var(--primary); color:#fff; font-weight:700; border-radius:8px; padding:2px 10px; margin-bottom:6px; font-size:.9rem; }
+      .soal-jenis{ display:inline-block; background:var(--soft); border:1px solid var(--line); border-radius:8px; padding:2px 10px; margin:0 0 6px 6px; font-size:.85rem; color:var(--muted); font-weight:600; }
+      .opsi{ list-style:none; margin:8px 0; padding:0; }
+      .opsi li{ padding:8px 12px; border:1.5px solid var(--line); border-radius:10px; margin:6px 0; background:var(--soft); }
+      .opsi li b{ color:var(--primary-dark); margin-right:6px; }
+      @media (prefers-color-scheme: dark){ .opsi li b{ color:var(--primary); } }
+      .kunci-box{ display:none; border:1.5px dashed var(--ok); background:#eefaf1; border-radius:10px; padding:11px 13px; margin-top:10px; }
+      @media (prefers-color-scheme: dark){ .kunci-box{ background:#123324; } }
+      .kunci-box.show{ display:block; }
+      .kunci-box .kj{ font-weight:700; color:var(--ok); }
+      .sim-head{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; }
+      .timer{ font-size:1.5rem; font-weight:800; background:var(--primary); color:#fff; border-radius:10px; padding:6px 16px; font-variant-numeric:tabular-nums; }
+      .timer.danger{ background:var(--bad); }
+      .palette{ display:grid; grid-template-columns:repeat(auto-fill, minmax(44px,1fr)); gap:7px; margin:12px 0; }
+      .palette button{
+        border:2px solid var(--line); background:var(--card); color:var(--ink); border-radius:9px;
+        font-weight:700; cursor:pointer; min-height:44px; font-size:.95rem; padding:4px 0;
+      }
+      .palette button.done{ background:var(--primary); border-color:var(--primary); color:#fff; }
+      .palette button.ragu{ background:var(--ragu); border-color:var(--accent); color:var(--ink); }
+      .palette button.done.ragu{ background:var(--accent); border-color:var(--accent); color:#3a2a00; }
+      .palette button.now{ outline:3px solid var(--ink); outline-offset:1px; }
+      .opt-btn{
+        display:block; width:100%; text-align:left; background:var(--soft); color:var(--ink);
+        border:2px solid var(--line); border-radius:11px; padding:13px 14px; margin:8px 0;
+        font-size:1rem; cursor:pointer; min-height:52px; font-family:inherit;
+      }
+      .opt-btn.sel{ border-color:var(--primary); background:var(--bg); font-weight:700; }
+      .sim-nav{ display:flex; flex-wrap:wrap; gap:9px; margin-top:16px; }
+      .sim-nav .btn{ flex:1 1 auto; }
+      .legend{ display:flex; flex-wrap:wrap; gap:14px; font-size:.88rem; color:var(--muted); margin:6px 0; }
+      .legend span::before{ content:""; display:inline-block; width:13px; height:13px; border-radius:4px; margin-right:5px; vertical-align:-2px; border:1.5px solid var(--line); background:var(--card); }
+      .legend .l-done::before{ background:var(--primary); }
+      .legend .l-ragu::before{ background:var(--accent); }
+      .hasil-big{ text-align:center; }
+      .hasil-big .nilai{ font-size:3rem; font-weight:800; color:var(--primary-dark); line-height:1.1; }
+      @media (prefers-color-scheme: dark){ .hasil-big .nilai{ color:var(--primary); } }
+      .predikat{ display:inline-block; background:var(--accent); color:#3a2a00; font-weight:800; border-radius:999px; padding:6px 18px; font-size:1.05rem; }
+      .skor-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin:14px 0; }
+      .skor-cell{ background:var(--soft); border:1px solid var(--line); border-radius:12px; padding:12px; text-align:center; }
+      .skor-cell .v{ font-size:1.5rem; font-weight:800; }
+      .skor-cell .l{ font-size:.88rem; color:var(--muted); font-weight:600; }
+      .selfscore{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+      .selfscore button{
+        width:48px; height:48px; border-radius:10px; border:2px solid var(--line); background:var(--card);
+        color:var(--ink); font-size:1.05rem; font-weight:800; cursor:pointer;
+      }
+      .selfscore button.sel{ background:var(--primary); border-color:var(--primary); color:#fff; }
+      .overlay{
+        position:fixed; inset:0; background:rgba(10,30,50,.55); z-index:50; display:none;
+        overflow-y:auto; padding:16px 10px;
+      }
+      .overlay.show{ display:block; }
+      .overlay .panel{ max-width:760px; margin:2vh auto; }
+      table.admin{ width:100%; border-collapse:collapse; font-size:.9rem; }
+      table.admin th, table.admin td{ border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
+      table.admin th{ background:var(--soft); }
+      @media (max-width:640px){
+        table.admin, table.admin tbody, table.admin tr, table.admin td{ display:block; width:100%; }
+        table.admin thead{ display:none; }
+        table.admin tr{ border:1px solid var(--line); border-radius:10px; margin:0 0 10px; padding:8px 10px; }
+        table.admin td{ border:none; padding:3px 0; }
+        table.admin td::before{ content:attr(data-label) ": "; font-weight:700; color:var(--muted); }
+      }
+      footer{ text-align:center; color:var(--muted); padding:20px 14px 30px; font-size:.92rem; }
+      footer .btn{ margin-top:10px; }
+      .row-btns{ display:flex; flex-wrap:wrap; gap:10px; margin:14px 0; }
+      .hidden{ display:none !important; }
+      @media print{
+        body{ background:#fff; }
+        nav.mainnav, footer, #gate, .overlay, .no-print{ display:none !important; }
+        .wrap{ max-width:none; padding:0; }
+        .page{ display:none !important; }
+        body[data-print="ringkasan"] #page-ringkasan,
+        body[data-print="soal"] #page-latihan,
+        body[data-print="kunci"] #page-latihan{ display:block !important; }
+        .soal-card, .card{ box-shadow:none; break-inside:avoid; }
+        body[data-print="soal"] .kunci-box{ display:none !important; }
+        body[data-print="kunci"] .kunci-box{ display:block !important; }
+        table.kisi thead{ display:table-header-group; }
+      }
+    </style>
+  </head>
+  <body data-print="">
+    <!-- ================= GERBANG NAMA ================= -->
+    <div id="gate" class="wrap">
+      <div class="card">
+        <div class="gate-title">
+          <div class="big" aria-hidden="true">🎨</div>
+          <h1>Paket ASAS Seni Rupa Kelas VI</h1>
+          <p class="muted"><strong>SD Negeri Ungaran 01 dan SD Negeri Ungaran 05</strong><br />
+          Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>
+        </div>
+        <p>Paket ini khusus untuk pembeli yang terdaftar. Silakan isi <strong>nama lengkap</strong> sesuai yang didaftarkan saat pembelian, lalu tekan <strong>Buka Paket</strong>.</p>
+        <label class="flabel" for="gateNama">Nama Lengkap</label>
+        <input type="text" id="gateNama" class="upper" placeholder="TULIS NAMA LENGKAP" autocomplete="name" />
+        <div id="gateMsg" class="msg" role="alert"></div>
+        <div style="margin-top:16px">
+          <button type="button" id="btnBuka" class="btn btn-block">📂 Buka Paket</button>
+        </div>
+        <div style="margin-top:10px">
+          <button type="button" id="btnAdminGate" class="btn secondary btn-block">🔐 Admin</button>
+        </div>
+        <p class="muted" style="text-align:center; margin-top:16px; font-size:.9rem">Latihan berdasarkan kisi-kisi, bukan soal ujian asli.</p>
+      </div>
+      <footer>
+        Dikembangkan oleh Abid Khoirul Ismail, S.Pd
+        <div style="margin-top:10px">
+          <button type="button" class="btn secondary btn-block" id="btnAdminGateFooter">🔐 Admin</button>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ================= APLIKASI ================= -->
+    <div id="app" class="hidden">
+      <nav class="mainnav no-print" id="mainNav">
+        <button type="button" data-page="beranda" class="active">Beranda</button>
+        <button type="button" data-page="ringkasan">Ringkasan</button>
+        <button type="button" data-page="kisi">Kisi-kisi</button>
+        <button type="button" data-page="latihan">Latihan</button>
+        <button type="button" data-page="simulasi">Simulasi</button>
+      </nav>
+      <div class="wrap">
+
+        <!-- ===== BERANDA ===== -->
+        <section class="page active" id="page-beranda">
+          <div class="card">
+            <h1>Paket ASAS Seni Rupa Kelas VI — SD Negeri Ungaran 01 dan SD Negeri Ungaran 05</h1>
+            <p>Selamat datang! Paket ini berisi ringkasan materi, latihan soal lengkap dengan kunci jawaban dan pembahasan, kisi-kisi, serta Simulasi ASAS dengan waktu 90 menit. Selamat belajar dan semoga berhasil!</p>
+            <table class="info">
+              <tr><td>Mata Pelajaran</td><td>Seni Rupa</td></tr>
+              <tr><td>Kelas</td><td>VI (Enam)</td></tr>
+              <tr><td>Semester</td><td>1 (Ganjil)</td></tr>
+              <tr><td>Kurikulum</td><td>Kurikulum Merdeka</td></tr>
+              <tr><td>Tahun Ajaran</td><td>2026/2027</td></tr>
+              <tr><td>Bank Soal</td><td>SD Negeri Ungaran 01 dan SD Negeri Ungaran 05</td></tr>
+              <tr><td>Jumlah Soal</td><td>40 soal — 25 Pilihan Ganda, 10 Isian Singkat, 5 Uraian</td></tr>
+              <tr><td>Total Skor</td><td>60 (PG 25 × 1, Isian 10 × 2, Uraian 5 × 3)</td></tr>
+              <tr><td>Waktu Simulasi</td><td>90 menit</td></tr>
+            </table>
+            <div class="disclaimer" style="margin-top:14px">Latihan berdasarkan kisi-kisi, bukan soal ujian asli.</div>
+            <div class="row-btns no-print">
+              <button type="button" class="btn" data-goto="ringkasan">📖 Mulai dari Ringkasan</button>
+              <button type="button" class="btn secondary" data-goto="latihan">✏️ Langsung Latihan</button>
+              <button type="button" class="btn warn" data-goto="simulasi">⏱️ Coba Simulasi ASAS</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== RINGKASAN ===== -->
+        <section class="page" id="page-ringkasan">
+          <div class="card">
+            <h2>📖 Ringkasan Materi Seni Rupa</h2>
+            <p class="muted">Pelajari ringkasan ini sebelum mengerjakan latihan dan simulasi.</p>
+            <div class="row-btns no-print">
+              <button type="button" class="btn secondary" id="btnCetakRingkasan">🖨️ Cetak Ringkasan</button>
+            </div>
+            <div id="ringkasanList"></div>
+          </div>
+        </section>
+
+        <!-- ===== KISI-KISI ===== -->
+        <section class="page" id="page-kisi">
+          <div class="card">
+            <h2>📋 Kisi-kisi ASAS Seni Rupa Kelas VI</h2>
+            <p>Bank soal: <strong>SD Negeri Ungaran 01 dan SD Negeri Ungaran 05</strong> • Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>
+            <div class="kisi-scroll">
+              <table class="kisi" id="kisiTable">
+                <thead>
+                  <tr><th class="c">No</th><th>Materi</th><th>Indikator</th><th class="c">Bentuk Soal</th><th class="c">Skor</th></tr>
+                </thead>
+                <tbody id="kisiBody"></tbody>
+                <tfoot>
+                  <tr><td colspan="4">Total Skor</td><td class="c">60</td></tr>
+                </tfoot>
+              </table>
+            </div>
+            <p class="muted">Keterangan: PG = Pilihan Ganda (skor 1), Isian = Isian Singkat (skor 2), Uraian (skor 3). Nilai akhir = skor diperoleh ÷ 60 × 100.</p>
+            <p class="muted"><strong>Catatan penyusunan:</strong> Kisi-kisi sumber menyatakan jumlah soal 40 (25 Pilihan Ganda, 10 Isian, 5 Uraian) tetapi tidak menuliskan bobot skor tiap bentuk soal; skor memakai pola baku paket ASAS (PG 1, Isian 2, Uraian 3) sehingga total skor 60. Kisi-kisi sumber hanya memuat indikator soal (tanpa naskah soal, gambar, maupun penekanan tebal/miring pada teks indikator), sehingga seluruh naskah soal, pilihan jawaban, kunci, dan pembahasan disusun dari indikator tersebut. Tidak ada nomor soal yang dilewati atau digandakan dalam sumber.</p>
+          </div>
+        </section>
+
+        <!-- ===== LATIHAN ===== -->
+        <section class="page" id="page-latihan">
+          <div class="card">
+            <h2>✏️ Latihan Soal</h2>
+            <p>Kerjakan 40 soal berikut, lalu periksa jawabanmu dengan tombol <strong>Lihat Kunci &amp; Pembahasan</strong> pada setiap soal.</p>
+            <div class="row-btns no-print">
+              <button type="button" class="btn secondary" id="btnCetakSoal">🖨️ Cetak Soal</button>
+              <button type="button" class="btn secondary" id="btnCetakKunci">🖨️ Cetak Kunci</button>
+            </div>
+          </div>
+          <div id="latihanList"></div>
+          <div class="card no-print" style="text-align:center">
+            <p><strong>Selesai berlatih?</strong> Uji kemampuanmu lewat Simulasi ASAS 90 menit, atau kembali memilih mata pelajaran lain.</p>
+            <div class="row-btns" style="justify-content:center">
+              <button type="button" class="btn warn" data-goto="simulasi">⏱️ Mulai Simulasi ASAS</button>
+              <a class="btn secondary" href="../">← Pilih Mapel</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SIMULASI ===== -->
+        <section class="page" id="page-simulasi">
+          <!-- Layar mulai -->
+          <div class="card" id="simStart">
+            <h2>⏱️ Simulasi ASAS — Seni Rupa Kelas VI</h2>
+            <table class="info">
+              <tr><td>Jumlah Soal</td><td>40 soal (25 PG, 10 Isian, 5 Uraian)</td></tr>
+              <tr><td>Waktu</td><td>90 menit</td></tr>
+              <tr><td>Total Skor</td><td>60 — Nilai = skor ÷ 60 × 100</td></tr>
+            </table>
+            <p style="margin-top:12px">Petunjuk:</p>
+            <ul>
+              <li>Jawaban Pilihan Ganda dan Isian dinilai otomatis. Isian tidak peka huruf besar/kecil.</li>
+              <li>Soal Uraian dinilai sendiri (0–3) di layar hasil dengan panduan kunci dan rubrik.</li>
+              <li>Gunakan tombol <strong>Ragu-ragu</strong> untuk menandai soal yang belum yakin.</li>
+              <li>Waktu habis = simulasi otomatis selesai.</li>
+            </ul>
+            <label class="flabel" for="simNama">Nama Siswa</label>
+            <input type="text" id="simNama" class="upper" placeholder="NAMA SISWA" autocomplete="name" />
+            <label class="flabel" for="simKelas">Kelas</label>
+            <input type="text" id="simKelas" placeholder="Contoh: VI A" autocomplete="off" />
+            <label class="flabel" for="simSekolah">Nama Sekolah</label>
+            <input type="text" id="simSekolah" placeholder="Contoh: SD Negeri Ungaran 01" autocomplete="off" />
+            <div style="margin-top:16px">
+              <button type="button" class="btn btn-block" id="btnMulaiSim">▶️ Mulai Simulasi</button>
+            </div>
+          </div>
+
+          <!-- Layar pengerjaan -->
+          <div class="card hidden" id="simWork">
+            <div class="sim-head">
+              <div><strong id="simProgress">Soal 1 dari 40</strong><br /><span class="muted" id="simJenis">Pilihan Ganda • Skor 1</span></div>
+              <div class="timer" id="simTimer">90:00</div>
+            </div>
+            <div class="palette" id="simPalette"></div>
+            <div class="legend">
+              <span class="l-done">Sudah dijawab</span>
+              <span class="l-ragu">Ragu-ragu</span>
+              <span>Belum dijawab</span>
+            </div>
+            <hr style="border:none; border-top:1px solid var(--line); margin:12px 0" />
+            <div id="simSoal"></div>
+            <div class="sim-nav">
+              <button type="button" class="btn secondary" id="btnPrev">← Sebelumnya</button>
+              <button type="button" class="btn warn" id="btnRagu">🤔 Ragu-ragu</button>
+              <button type="button" class="btn secondary" id="btnNext">Berikutnya →</button>
+            </div>
+            <div style="margin-top:12px">
+              <button type="button" class="btn btn-block" id="btnSelesai">✅ Selesai &amp; Lihat Hasil</button>
+            </div>
+          </div>
+
+          <!-- Layar hasil -->
+          <div class="card hidden" id="simResult">
+            <h2 style="text-align:center">🎉 Hasil Simulasi ASAS</h2>
+            <p style="text-align:center" class="muted" id="hasilNama"></p>
+            <div id="uraianNilaiBox"></div>
+            <div class="skor-grid">
+              <div class="skor-cell"><div class="v" id="skorPG">0 / 25</div><div class="l">Pilihan Ganda</div></div>
+              <div class="skor-cell"><div class="v" id="skorIsian">0 / 20</div><div class="l">Isian Singkat</div></div>
+              <div class="skor-cell"><div class="v" id="skorUraian">0 / 15</div><div class="l">Uraian (nilai sendiri)</div></div>
+              <div class="skor-cell"><div class="v" id="skorTotal">0 / 60</div><div class="l">Skor Total</div></div>
+            </div>
+            <div class="hasil-big">
+              <div class="muted">Nilai Akhir</div>
+              <div class="nilai" id="nilaiAkhir">0</div>
+              <div><span class="predikat" id="predikat">Perlu Bimbingan</span></div>
+            </div>
+            <div class="row-btns no-print" style="justify-content:center; margin-top:18px">
+              <button type="button" class="btn" id="btnUlangSim">🔁 Ulangi Simulasi</button>
+              <button type="button" class="btn secondary" data-goto="latihan">✏️ Kembali ke Latihan</button>
+              <a class="btn secondary" href="../">← Pilih Mapel</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      <footer>
+        <div id="ownerLine">Paket milik: <strong id="ownerName">—</strong></div>
+        Dikembangkan oleh Abid Khoirul Ismail, S.Pd
+        <div>
+          <button type="button" class="btn secondary small" id="btnGantiNama">Ganti Nama</button>
+          <button type="button" class="btn secondary small" id="btnAdminFooter">🔐 Admin</button>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ================= PANEL ADMIN ================= -->
+    <div class="overlay" id="adminOverlay" role="dialog" aria-modal="true" aria-label="Panel Admin">
+      <div class="card panel">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+          <h2 style="margin:0">🔐 Panel Admin</h2>
+          <button type="button" class="btn secondary small" id="btnTutupAdmin">✕ Tutup</button>
+        </div>
+
+        <div id="adminLogin">
+          <label class="flabel" for="adminPin">PIN Admin</label>
+          <input type="password" id="adminPin" placeholder="Masukkan PIN" autocomplete="off" />
+          <div id="adminLoginMsg" class="msg" role="alert"></div>
+          <div style="margin-top:14px">
+            <button type="button" class="btn btn-block" id="btnMasukAdmin">Masuk</button>
+          </div>
+        </div>
+
+        <div id="adminMain" class="hidden">
+          <h3>➕ Tambah Pembeli</h3>
+          <label class="flabel" for="addNama">Nama Lengkap Pembeli</label>
+          <input type="text" id="addNama" class="upper" placeholder="NAMA LENGKAP" />
+          <label class="flabel" for="addMapel">Mapel</label>
+          <select id="addMapel"></select>
+          <label class="flabel" for="addKet">Keterangan</label>
+          <input type="text" id="addKet" class="upper" placeholder="MISAL: LUNAS QRIS" />
+          <div id="adminMsg" class="msg" role="alert"></div>
+          <div style="margin-top:12px">
+            <button type="button" class="btn btn-block" id="btnTambah">Tambah Pembeli</button>
+          </div>
+
+          <h3 style="margin-top:24px">👥 Daftar Pembeli</h3>
+          <div id="adminListWrap">
+            <p class="muted" id="adminListInfo">Memuat daftar…</p>
+            <table class="admin" id="adminTable">
+              <thead><tr><th>Nama</th><th>Mapel</th><th>Tanggal</th><th>Keterangan</th><th>Aksi</th></tr></thead>
+              <tbody id="adminBody"></tbody>
+            </table>
+          </div>
+          <div style="margin-top:12px">
+            <button type="button" class="btn secondary" id="btnRefreshList">🔄 Muat Ulang Daftar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    "use strict";
+    var ENDPOINT = "https://script.google.com/macros/s/AKfycbzRi3IkD-9nmjKvU_luHZ1QqGcWijJ5NgDYAiBUJTK8Tss_EnQ4oqRYFQGLtDix2XLDGg/exec";
+    var MAPEL_ID = "sd-kelas-6-seni-rupa";
+
+    var MAPEL_LIST = [
+      { id: "semua", label: "Semua Mapel" },
+      { id: "sd-kelas-6-seni-rupa", label: "Seni Rupa Kelas VI (SD)" },
+      { id: "sd-kelas-5-seni-rupa", label: "Seni Rupa Kelas V (SD)" },
+      { id: "sd-kelas-5-bahasa-indonesia", label: "Bahasa Indonesia Kelas V (SD)" },
+      { id: "sd-kelas-5-matematika", label: "Matematika Kelas V (SD)" },
+      { id: "sd-kelas-5-ipas", label: "IPAS Kelas V (SD)" },
+      { id: "sd-kelas-5-pendidikan-pancasila", label: "Pendidikan Pancasila Kelas V (SD)" },
+      { id: "sd-kelas-5-pai", label: "PAI Kelas V (SD)" },
+      { id: "sd-kelas-5-btq", label: "BTQ Kelas V (SD)" },
+      { id: "sd-kelas-5-basa-jawa", label: "Basa Jawa Kelas V (SD)" },
+      { id: "sd-kelas-5-bahasa-inggris", label: "Bahasa Inggris Kelas V (SD)" },
+      { id: "sd-kelas-4-bahasa-indonesia", label: "Bahasa Indonesia Kelas IV (SD)" },
+      { id: "sd-kelas-4-matematika", label: "Matematika Kelas IV (SD)" },
+      { id: "sd-kelas-4-ipas", label: "IPAS Kelas IV (SD)" },
+      { id: "sd-kelas-4-pendidikan-pancasila", label: "Pendidikan Pancasila Kelas IV (SD)" },
+      { id: "sd-kelas-4-pai", label: "PAI Kelas IV (SD)" },
+      { id: "sd-kelas-4-btq", label: "BTQ Kelas IV (SD)" },
+      { id: "sd-kelas-4-basa-jawa", label: "Basa Jawa Kelas IV (SD)" },
+      { id: "sd-kelas-4-seni-rupa", label: "Seni Rupa Kelas IV (SD)" },
+      { id: "sd-kelas-2-pai", label: "PAI Kelas II (SD)" },
+      { id: "sd-kelas-2-btq", label: "BTQ Kelas II (SD)" },
+      { id: "sd-kelas-2-bahasa-indonesia", label: "Bahasa Indonesia Kelas II (SD)" },
+      { id: "sd-kelas-2-matematika", label: "Matematika Kelas II (SD)" },
+      { id: "sd-kelas-2-pendidikan-pancasila", label: "Pendidikan Pancasila Kelas II (SD)" },
+      { id: "sd-kelas-2-seni-rupa", label: "Seni Rupa Kelas II (SD)" },
+      { id: "sd-kelas-2-basa-jawa", label: "Basa Jawa Kelas II (SD)" }
+    ];
+    function mapelLabel(id){
+      for (var i=0;i<MAPEL_LIST.length;i++){ if (MAPEL_LIST[i].id===id) return MAPEL_LIST[i].label; }
+      return id;
+    }
+
+    /* ---------- Ringkasan Materi ---------- */
+    var RINGKASAN = [
+      ["Unsur Rupa", "Unsur rupa adalah bagian-bagian dasar pembentuk karya seni rupa: garis, bentuk, warna, tekstur, dan ruang. Garis adalah goresan memanjang yang dapat lurus, lengkung, zigzag, atau gelombang. Bentuk adalah wujud dari gabungan garis, misalnya lingkaran, segitiga, dan persegi. Warna memberi kesan hidup pada karya; warna dasar (primer) adalah merah, kuning, dan biru. Tekstur adalah sifat permukaan karya, misalnya halus atau kasar. Ruang adalah kesan kedalaman pada karya, misalnya bagian yang tampak jauh dan dekat."],
+      ["Prinsip Desain", "Prinsip desain adalah aturan menyusun unsur rupa agar karya tampak indah dan bermakna. Keseimbangan membuat kedua sisi karya tampak sama berat, contohnya bentuk yang sama di kiri dan kanan. Kesatuan membuat semua unsur tampak menyatu dan tidak terpisah-pisah. Irama adalah pengulangan unsur secara teratur sehingga karya tampak berirama. Proporsi adalah perbandingan ukuran bagian-bagian karya yang sesuai dan serasi, misalnya kepala tidak terlalu besar dibanding badan."],
+      ["Mengulas Karya Seni Rupa", "Mengulas karya berarti menilai dan menjelaskan karya secara sederhana. Hal yang diamati saat mengulas antara lain unsur rupa yang dipakai, isi atau pesan karya, teknik yang digunakan, serta kesan yang ditimbulkan karya. Ulasan disampaikan dengan bahasa yang sopan dan disertai alasan yang jelas."],
+      ["Hubungan Unsur Rupa dan Prinsip Desain", "Unsur rupa dan prinsip desain saling berhubungan. Unsur rupa (garis, bentuk, warna, tekstur, ruang) adalah bahan pembentuk karya, sedangkan prinsip desain (keseimbangan, kesatuan, irama, proporsi) adalah cara menyusunnya. Contohnya, warna yang disusun dengan prinsip kesatuan membuat karya tampak indah dan menyatu, sedangkan ukuran yang tidak proporsional membuat karya tampak aneh."],
+      ["Apresiasi Karya Seni Rupa", "Apresiasi adalah sikap menghargai karya seni rupa dan memberikan tanggapan terhadapnya. Caranya antara lain mengamati karya dengan tenang, tidak merusak atau menyentuh karya yang dipamerkan, serta memberi tanggapan yang sopan dan membangun. Menghargai karya teman berarti menghargai usaha dan perasaan pembuatnya."],
+      ["Teknik, Alat, dan Bahan", "Teknik menggambar antara lain menggambar dengan pensil, mewarnai dengan krayon atau cat air, dan kolase (menempel potongan kertas, kain, atau daun kering). Alat yang dipakai antara lain pensil, penggaris (untuk garis lurus), kuas, krayon, dan gunting. Bahan yang dipakai antara lain kertas gambar, kertas warna, kain, dan daun kering."],
+      ["Karya Seni Rupa Dua Dimensi", "Karya seni rupa dua dimensi adalah karya yang hanya memiliki panjang dan lebar, contohnya lukisan, gambar, dan poster. Karya dua dimensi dinikmati dari satu arah (dari depan) dan tidak memiliki volume seperti patung. Ciri-cirinya: datar, hanya tampak dari depan, dan dibuat di atas bidang datar seperti kertas atau kanvas."],
+      ["Merancang Diorama Tiga Dimensi", "Diorama adalah karya tiga dimensi yang menampilkan suatu suasana dalam bentuk miniatur. Langkah merancangnya: 1) menentukan tema, 2) membuat sketsa rancangan, 3) menyiapkan alat dan bahan, 4) membuat rangka dan alas dari kardus tebal, 5) menempel dan menyusun objek, 6) memberi warna dan hiasan, 7) merapikan hasil."],
+      ["Diorama Rumah Adat", "Diorama rumah adat menampilkan miniatur rumah tradisional suatu daerah. Ciri-cirinya: bentuk atap, dinding, dan bahan bangunannya khas daerah asal, misalnya rumah joglo dari Jawa atau rumah gadang dari Sumatra Barat. Langkah membuatnya: membuat rangka dari kardus atau kayu, menempel dinding dan atap sesuai bentuk aslinya, lalu memberi hiasan seperti pagar, jalan, dan tanaman di sekitarnya."],
+      ["Diorama Flora dan Fauna", "Diorama flora dan fauna menampilkan miniatur alam beserta tumbuhan (flora) dan hewan (fauna). Objeknya antara lain pohon, bunga, rumput, burung, dan kelinci. Bahan yang dipakai antara lain ranting dan kertas hijau untuk pohon, kapas untuk awan, serta tanah liat atau plastisin untuk hewan. Diorama ini menunjukkan keindahan dan kehidupan alam. Flora adalah tumbuhan, fauna adalah hewan."]
+    ];
+
+    /* ---------- Kisi-kisi: [Materi, Indikator, Bentuk, Skor] ---------- */
+    var KISI = [
+      ["Unsur rupa","Mengenali garis, bentuk, warna, tekstur, dan ruang","PG",1],
+      ["Unsur rupa","Mengenali garis, bentuk, warna, tekstur, dan ruang","PG",1],
+      ["Unsur rupa","Mengenali garis, bentuk, warna, tekstur, dan ruang","PG",1],
+      ["Unsur rupa","Mengenali garis, bentuk, warna, tekstur, dan ruang","PG",1],
+      ["Prinsip desain","Mengenali keseimbangan, kesatuan, irama, dan proporsi","PG",1],
+      ["Prinsip desain","Mengenali keseimbangan, kesatuan, irama, dan proporsi","PG",1],
+      ["Prinsip desain","Mengenali keseimbangan, kesatuan, irama, dan proporsi","PG",1],
+      ["Mengulas karya seni rupa","Menilai dan menjelaskan karya secara sederhana","PG",1],
+      ["Mengulas karya seni rupa","Menilai dan menjelaskan karya secara sederhana","PG",1],
+      ["Unsur rupa dan prinsip desain","Menjelaskan hubungan unsur rupa dengan prinsip desain","PG",1],
+      ["Unsur rupa dan prinsip desain","Menjelaskan hubungan unsur rupa dengan prinsip desain","PG",1],
+      ["Apresiasi karya seni rupa","Menghargai karya dan memberikan tanggapan","PG",1],
+      ["Apresiasi karya seni rupa","Menghargai karya dan memberikan tanggapan","PG",1],
+      ["Teknik, alat, dan bahan","Mengenali teknik serta penggunaan alat dan bahan","PG",1],
+      ["Teknik, alat, dan bahan","Mengenali teknik serta penggunaan alat dan bahan","PG",1],
+      ["Teknik, alat, dan bahan","Mengenali teknik serta penggunaan alat dan bahan","PG",1],
+      ["Karya seni rupa dua dimensi","Mengenali ciri dan membuat karya dua dimensi","PG",1],
+      ["Karya seni rupa dua dimensi","Mengenali ciri dan membuat karya dua dimensi","PG",1],
+      ["Merancang diorama tiga dimensi","Menentukan rancangan, bentuk, dan bahan diorama","PG",1],
+      ["Merancang diorama tiga dimensi","Menentukan rancangan, bentuk, dan bahan diorama","PG",1],
+      ["Diorama rumah adat","Mengenali ciri dan langkah membuat diorama rumah adat","PG",1],
+      ["Diorama rumah adat","Mengenali ciri dan langkah membuat diorama rumah adat","PG",1],
+      ["Diorama flora dan fauna","Menentukan objek dan bahan untuk diorama alam","PG",1],
+      ["Diorama flora dan fauna","Menentukan objek dan bahan untuk diorama alam","PG",1],
+      ["Diorama flora dan fauna","Menentukan objek dan bahan untuk diorama alam","PG",1],
+      ["Mengamati dan mengenali unsur rupa","Menyebutkan unsur rupa berupa garis","Isian",2],
+      ["Menganalisis prinsip desain","Mengenali prinsip keseimbangan","Isian",2],
+      ["Mengulas karya seni rupa","Menjelaskan hal yang diamati dalam karya","Isian",2],
+      ["Hubungan unsur rupa dan prinsip desain","Menjelaskan fungsi warna dalam karya","Isian",2],
+      ["Apresiasi karya seni rupa","Menunjukkan sikap menghargai karya","Isian",2],
+      ["Teknik, alat, dan bahan","Menyebutkan alat untuk menggambar","Isian",2],
+      ["Berkarya seni rupa dua dimensi","Menyebutkan contoh karya dua dimensi","Isian",2],
+      ["Merancang diorama tiga dimensi","Menyebutkan langkah awal membuat diorama","Isian",2],
+      ["Membuat diorama rumah adat","Menyebutkan bahan membuat miniatur rumah","Isian",2],
+      ["Diorama flora dan fauna","Membedakan flora dan fauna","Isian",2],
+      ["Mengamati dan mengenali unsur rupa","Menyebutkan unsur-unsur rupa dalam sebuah gambar","Uraian",3],
+      ["Prinsip desain dan hubungan unsur rupa","Menjelaskan prinsip desain dan hubungannya dengan unsur rupa","Uraian",3],
+      ["Mengulas dan mengapresiasi karya seni rupa","Menjelaskan cara mengulas dan menghargai karya seni","Uraian",3],
+      ["Teknik, alat, bahan, dan karya dua dimensi","Menyebutkan alat, bahan, dan langkah membuat karya dua dimensi","Uraian",3],
+      ["Merancang dan membuat diorama tiga dimensi","Menjelaskan langkah membuat diorama rumah adat, flora, dan fauna","Uraian",3]
+    ];
+
+    /* ---------- Bank Soal Pilihan Ganda: key = indeks 0-3 (A=0,B=1,C=2,D=3) ---------- */
+    var PG = [
+      { q:"Unsur rupa yang berupa goresan memanjang dan dapat berbentuk lurus, lengkung, atau zigzag adalah …",
+        o:["warna","garis","tekstur","ruang"], key:1,
+        exp:"Garis adalah goresan memanjang yang dapat berbentuk lurus, lengkung, zigzag, atau gelombang." },
+      { q:"Unsur rupa yang membuat permukaan karya terasa berbeda-beda, misalnya halus dan kasar, adalah …",
+        o:["ruang","bentuk","tekstur","warna"], key:2,
+        exp:"Tekstur adalah sifat permukaan karya, misalnya halus, kasar, atau berlekuk." },
+      { q:"Unsur rupa yang memberi kesan kedalaman pada gambar sehingga ada bagian yang tampak jauh dan dekat adalah …",
+        o:["ruang","garis","warna","tekstur"], key:0,
+        exp:"Ruang memberi kesan kedalaman pada gambar, misalnya jalan yang makin jauh tampak makin sempit." },
+      { q:"Warna merah, kuning, dan biru disebut warna …",
+        o:["sekunder","tersier","netral","primer"], key:3,
+        exp:"Warna primer adalah warna dasar yang tidak dapat dibuat dari campuran warna lain, yaitu merah, kuning, dan biru." },
+      { q:"Prinsip desain yang membuat sisi kiri dan kanan karya tampak sama berat adalah prinsip …",
+        o:["irama","proporsi","keseimbangan","kesatuan"], key:2,
+        exp:"Keseimbangan membuat kedua sisi karya tampak sama berat sehingga karya tidak tampak berat sebelah." },
+      { q:"Prinsip desain yang membuat semua unsur dalam karya tampak menyatu dan tidak terpisah-pisah adalah …",
+        o:["kesatuan","irama","proporsi","keseimbangan"], key:0,
+        exp:"Kesatuan (unity) membuat seluruh unsur karya tampak menyatu menjadi satu kesatuan yang utuh." },
+      { q:"Pengulangan unsur secara teratur sehingga karya tampak berirama disebut prinsip …",
+        o:["proporsi","kesatuan","keseimbangan","irama"], key:3,
+        exp:"Irama (ritme) adalah pengulangan unsur secara teratur sehingga karya tampak berirama dan tidak membosankan." },
+      { q:"Mengulas karya seni rupa berarti …",
+        o:["membuat karya baru","menilai dan menjelaskan karya secara sederhana","menjual karya","memotret karya"], key:1,
+        exp:"Mengulas karya berarti menilai dan menjelaskan karya secara sederhana, misalnya unsur, isi, dan kesannya." },
+      { q:"Saat mengulas sebuah karya lukisan, hal yang diamati antara lain …",
+        o:["harga lukisan","nama pembuatnya saja","unsur dan isi karya","tempat lukisan dipajang"], key:2,
+        exp:"Dalam mengulas karya, yang diamati antara lain unsur rupa, isi atau pesan karya, teknik, dan kesan yang ditimbulkan." },
+      { q:"Warna yang disusun dengan prinsip kesatuan membuat karya tampak …",
+        o:["indah dan menyatu","membingungkan","berantakan","kosong"], key:0,
+        exp:"Unsur warna yang disusun mengikuti prinsip kesatuan membuat seluruh bagian karya tampak menyatu dan indah." },
+      { q:"Jika gambar kepala terlalu besar dibanding badannya, karya tersebut melanggar prinsip …",
+        o:["irama","kesatuan","keseimbangan","proporsi"], key:3,
+        exp:"Proporsi adalah perbandingan ukuran bagian-bagian karya yang sesuai dan serasi; kepala yang terlalu besar melanggar proporsi." },
+      { q:"Memberi tanggapan yang baik dan sopan terhadap karya teman adalah contoh sikap …",
+        o:["mengejek karya","menghargai karya","mengabaikan karya","meniru karya"], key:1,
+        exp:"Menghargai karya berarti memberi tanggapan yang sopan dan membangun terhadap karya orang lain." },
+      { q:"Sikap yang tepat saat melihat pameran karya seni rupa adalah …",
+        o:["mengamati dengan tenang dan tidak merusak karya","menyentuh semua karya","berbicara keras-keras","membawa pulang karya"], key:0,
+        exp:"Di pameran, karya diamati dengan tenang dan tidak disentuh atau dirusak." },
+      { q:"Alat yang digunakan untuk menggambar garis lurus dengan rapi adalah …",
+        o:["kuas","krayon","penggaris","spons"], key:2,
+        exp:"Penggaris dipakai sebagai alat bantu agar garis lurus yang digambar rapi dan lurus." },
+      { q:"Teknik mewarnai dengan cara menempelkan potongan kertas berwarna, kain, atau daun kering disebut teknik …",
+        o:["arsir","cetak","lukis","kolase"], key:3,
+        exp:"Kolase adalah teknik menempel berbagai bahan (kertas, kain, daun kering) pada bidang gambar." },
+      { q:"Bahan yang dapat digunakan untuk membuat karya kolase adalah …",
+        o:["cat air saja","kertas warna, kain, dan daun kering","tanah liat saja","kayu saja"], key:1,
+        exp:"Kolase dibuat dari potongan bahan yang ditempel, misalnya kertas warna, kain, dan daun kering." },
+      { q:"Berikut ini yang termasuk karya seni rupa dua dimensi adalah …",
+        o:["lukisan","patung","diorama","vas bunga"], key:0,
+        exp:"Lukisan hanya memiliki panjang dan lebar sehingga termasuk karya dua dimensi; patung dan diorama adalah tiga dimensi." },
+      { q:"Ciri karya seni rupa dua dimensi adalah …",
+        o:["dapat dilihat dari segala arah","memiliki volume","hanya memiliki panjang dan lebar","dapat disentuh dari semua sisi"], key:2,
+        exp:"Karya dua dimensi hanya memiliki panjang dan lebar, datar, dan dinikmati dari arah depan." },
+      { q:"Langkah pertama dalam merancang diorama tiga dimensi adalah …",
+        o:["mewarnai diorama","menempel hiasan","memotret diorama","menentukan tema dan membuat sketsa rancangan"], key:3,
+        exp:"Merancang diorama dimulai dengan menentukan tema, lalu membuat sketsa rancangan sebelum menyiapkan bahan." },
+      { q:"Bahan yang kuat dan mudah dibentuk untuk alas diorama adalah …",
+        o:["kertas tisu","kardus tebal","kapas","daun kering"], key:1,
+        exp:"Kardus tebal kuat menopang miniatur dan mudah dipotong serta dibentuk menjadi alas diorama." },
+      { q:"Ciri rumah adat yang dibuat menjadi diorama adalah …",
+        o:["bentuk atap dan bahan bangunannya khas daerah asal","selalu berwarna putih","selalu terbuat dari plastik","tidak memiliki pintu"], key:0,
+        exp:"Rumah adat dikenali dari bentuk atap dan bahan bangunannya yang khas daerah asal, misalnya joglo dari Jawa." },
+      { q:"Langkah membuat diorama rumah adat setelah membuat rangka adalah …",
+        o:["membuang rancangan","menggambar di kertas saja","membeli rumah sungguhan","menempel dinding, atap, dan memberi hiasan"], key:3,
+        exp:"Setelah rangka jadi, ditempel dinding dan atap sesuai bentuk aslinya, lalu diberi hiasan seperti pagar dan tanaman." },
+      { q:"Objek yang tepat untuk diorama flora dan fauna adalah …",
+        o:["mobil dan jalan raya","gedung bertingkat","pohon, bunga, dan hewan","pesawat terbang"], key:2,
+        exp:"Diorama flora dan fauna menampilkan alam: tumbuhan (flora) seperti pohon dan bunga, serta hewan (fauna)." },
+      { q:"Bahan yang cocok untuk membuat pohon pada diorama alam adalah …",
+        o:["besi","ranting dan kertas hijau","kaca","batu bata"], key:1,
+        exp:"Ranting dapat menjadi batang pohon dan kertas hijau menjadi daunnya pada diorama alam." },
+      { q:"Diorama flora dan fauna dibuat untuk menunjukkan …",
+        o:["cara membuat mobil","cara berhitung","cara memasak","keindahan dan kehidupan alam"], key:3,
+        exp:"Diorama flora dan fauna menampilkan keindahan dan kehidupan alam dalam bentuk miniatur." }
+    ];
+
+    /* ---------- Bank Soal Isian Singkat ---------- */
+    var ISIAN = [
+      { q:"Unsur rupa yang berupa goresan memanjang disebut ____.", ans:["garis"],
+        exp:"Garis adalah unsur rupa berupa goresan memanjang." },
+      { q:"Prinsip desain yang membuat kedua sisi karya tampak sama berat disebut ____.", ans:["keseimbangan"],
+        exp:"Keseimbangan membuat kedua sisi karya tampak sama berat." },
+      { q:"Mengulas karya berarti menilai dan ____ karya secara sederhana.", ans:["menjelaskan"],
+        exp:"Mengulas karya berarti menilai dan menjelaskan karya secara sederhana." },
+      { q:"Warna berfungsi membuat karya tampak ____ dan menarik.", ans:["indah"],
+        exp:"Warna membuat karya tampak indah, hidup, dan menarik." },
+      { q:"Memberi tanggapan yang santun kepada karya teman menunjukkan sikap ____.", ans:["menghargai","menghargai karya"],
+        exp:"Memberi tanggapan yang santun adalah wujud sikap menghargai karya orang lain." },
+      { q:"Alat yang dipakai untuk menggambar garis lurus adalah ____.", ans:["penggaris"],
+        exp:"Penggaris adalah alat bantu untuk menggambar garis lurus." },
+      { q:"Contoh karya seni rupa dua dimensi adalah ____.", ans:["lukisan","gambar","poster"],
+        exp:"Lukisan, gambar, dan poster adalah karya dua dimensi karena hanya memiliki panjang dan lebar." },
+      { q:"Langkah awal membuat diorama adalah menentukan ____ dan membuat sketsa.", ans:["tema"],
+        exp:"Langkah awal merancang diorama adalah menentukan tema, lalu membuat sketsa rancangan." },
+      { q:"Bahan yang biasa dipakai untuk membuat miniatur rumah adat adalah ____.", ans:["kardus","kardus tebal","kayu"],
+        exp:"Miniatur rumah adat biasa dibuat dari kardus tebal atau kayu yang mudah dibentuk." },
+      { q:"Tumbuhan disebut flora, sedangkan hewan disebut ____.", ans:["fauna"],
+        exp:"Flora adalah tumbuhan, fauna adalah hewan." }
+    ];
+
+    /* ---------- Bank Soal Uraian ---------- */
+    var URAIAN = [
+      { q:"Sebutkan lima unsur rupa yang ada dalam sebuah gambar dan berikan contohnya masing-masing!",
+        kunci:"Lima unsur rupa: garis (misalnya garis lengkung pada gambar awan), bentuk (misalnya lingkaran pada gambar matahari), warna (misalnya warna hijau pada daun), tekstur (misalnya permukaan kasar pada batang pohon), ruang (misalnya jalan yang tampak jauh dan dekat).",
+        rubrik:"Setiap unsur rupa yang disebutkan beserta contoh yang benar mendapat 1 poin (maksimal 3 poin)." },
+      { q:"Jelaskan prinsip desain (keseimbangan, kesatuan, irama, proporsi) dan hubungannya dengan unsur rupa dalam sebuah karya!",
+        kunci:"Prinsip desain adalah cara menyusun unsur rupa. Keseimbangan membuat kedua sisi karya sama berat; kesatuan membuat semua unsur tampak menyatu; irama adalah pengulangan unsur secara teratur; proporsi adalah ukuran bagian-bagian yang sesuai dan serasi. Tanpa unsur rupa, prinsip desain tidak dapat diterapkan, dan tanpa prinsip desain, unsur rupa tersusun sembarangan sehingga karya tidak indah.",
+        rubrik:"Menyebutkan prinsip desain 1 poin, menjelaskan hubungan prinsip dengan unsur rupa 1 poin, memberi contoh penerapan 1 poin." },
+      { q:"Jelaskan cara mengulas karya seni rupa dan cara menghargai karya seni!",
+        kunci:"Cara mengulas karya: mengamati unsur rupa dan isi karya, menilai teknik dan kesan yang ditimbulkan, lalu menjelaskan penilaian dengan bahasa sopan dan alasan yang jelas. Cara menghargai karya: mengamati dengan tenang, tidak merusak atau menyentuh karya yang dipamerkan, serta memberi tanggapan yang sopan dan membangun.",
+        rubrik:"Menjelaskan cara mengulas 1 poin, menjelaskan cara menghargai 1 poin, menyebut contoh sikap menghargai 1 poin." },
+      { q:"Sebutkan alat, bahan, dan langkah-langkah membuat karya seni rupa dua dimensi (misalnya lukisan)!",
+        kunci:"Alat: pensil, penggaris, kuas, krayon. Bahan: kertas gambar, cat air atau cat poster. Langkah: 1) menentukan tema, 2) membuat sketsa, 3) memberi detail, 4) mewarnai, 5) merapikan hasil.",
+        rubrik:"Menyebutkan alat 1 poin, menyebutkan bahan 1 poin, menyebutkan langkah-langkah secara urut 1 poin." },
+      { q:"Jelaskan langkah-langkah membuat diorama rumah adat serta diorama flora dan fauna!",
+        kunci:"Diorama rumah adat: menentukan daerah asal rumah adat, membuat sketsa, membuat rangka dari kardus atau kayu, menempel dinding dan atap sesuai bentuk aslinya, lalu memberi hiasan pagar, jalan, dan tanaman. Diorama flora dan fauna: menentukan tema alam, membuat alas dari kardus, membuat pohon dari ranting dan kertas hijau, membuat hewan dari plastisin atau tanah liat, lalu menyusun dan merapikan.",
+        rubrik:"Menjelaskan langkah diorama rumah adat 1 poin, menjelaskan langkah diorama flora dan fauna 1 poin, menyebutkan bahan yang dipakai 1 poin." }
+    ];
+
+    function esc(s){
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+    /* Penekanan tebal/miring: penanda [[b]]...[[/b]] dan [[i]]...[[/i]] diubah
+       menjadi <b>/<i> SETELAH esc(), sehingga tidak ada tag mentah dalam data soal.
+       Sumber kisi-kisi Kelas VI ini tidak menandai tebal/miring pada teks indikator,
+       jadi tidak ada penanda yang dipakai dalam paket ini. */
+    function fmt(s){
+      return esc(s)
+        .replace(/\[\[b\]\]/g,"<b>").replace(/\[\[\/b\]\]/g,"</b>")
+        .replace(/\[\[i\]\]/g,"<i>").replace(/\[\[\/i\]\]/g,"</i>");
+    }
+    function normJawaban(s){
+      return (s||"").toLowerCase().trim().replace(/\s+/g," ");
+    }
+
+    /* ================= RENDER: Ringkasan & Kisi-kisi ================= */
+    function renderRingkasan(){
+      var html = "";
+      RINGKASAN.forEach(function(r, i){
+        html += '<div class="ringkas-item"><h3>'+(i+1)+'. '+fmt(r[0])+'</h3><p>'+fmt(r[1])+'</p></div>';
+      });
+      document.getElementById("ringkasanList").innerHTML = html;
+    }
+    function renderKisi(){
+      var html = "";
+      KISI.forEach(function(k, i){
+        html += '<tr><td class="c" data-label="No">'+(i+1)+'</td><td data-label="Materi">'+fmt(k[0])+'</td><td data-label="Indikator">'+fmt(k[1])+'</td><td class="c" data-label="Bentuk Soal">'+fmt(k[2])+'</td><td class="c" data-label="Skor">'+k[3]+'</td></tr>';
+      });
+      document.getElementById("kisiBody").innerHTML = html;
+    }
+
+    /* ================= RENDER: Latihan ================= */
+    function renderLatihan(){
+      var html = "", huruf = ["a","b","c","d"], i, j;
+      for (i=0;i<PG.length;i++){
+        html += '<div class="soal-card"><span class="soal-num">Soal '+(i+1)+'</span><span class="soal-jenis">Pilihan Ganda • Skor 1</span>' +
+          '<p>'+fmt(PG[i].q)+'</p>' +
+          '<ul class="opsi">' + PG[i].o.map(function(o,j){ return '<li><b>'+huruf[j]+'.</b>'+fmt(o)+'</li>'; }).join("") + '</ul>' +
+          '<button type="button" class="btn secondary small no-print" data-kunci="'+i+'">Lihat Kunci &amp; Pembahasan</button>' +
+          '<div class="kunci-box" id="kunci-pg-'+i+'"><p><span class="kj">Kunci: '+huruf[PG[i].key].toUpperCase()+' — '+fmt(PG[i].o[PG[i].key])+'</span></p><p><strong>Pembahasan:</strong> '+fmt(PG[i].exp)+'</p></div></div>';
+      }
+      for (i=0;i<ISIAN.length;i++){
+        html += '<div class="soal-card"><span class="soal-num">Soal '+(26+i)+'</span><span class="soal-jenis">Isian Singkat • Skor 2</span>' +
+          '<p>'+fmt(ISIAN[i].q)+'</p>' +
+          '<button type="button" class="btn secondary small no-print" data-kunci="i'+i+'">Lihat Kunci &amp; Pembahasan</button>' +
+          '<div class="kunci-box" id="kunci-is-'+i+'"><p><span class="kj">Jawaban: '+fmt(ISIAN[i].ans[0])+'</span></p><p><strong>Pembahasan:</strong> '+fmt(ISIAN[i].exp)+'</p></div></div>';
+      }
+      for (i=0;i<URAIAN.length;i++){
+        html += '<div class="soal-card"><span class="soal-num">Soal '+(36+i)+'</span><span class="soal-jenis">Uraian • Skor 3</span>' +
+          '<p>'+fmt(URAIAN[i].q)+'</p>' +
+          '<button type="button" class="btn secondary small no-print" data-kunci="u'+i+'">Lihat Kunci &amp; Rubrik</button>' +
+          '<div class="kunci-box" id="kunci-ur-'+i+'"><p><span class="kj">Kunci Jawaban:</span> '+fmt(URAIAN[i].kunci)+'</p><p><strong>Rubrik:</strong> '+fmt(URAIAN[i].rubrik)+'</p></div></div>';
+      }
+      document.getElementById("latihanList").innerHTML = html;
+      var btns = document.querySelectorAll("[data-kunci]");
+      btns.forEach(function(b){
+        b.addEventListener("click", function(){
+          var k = b.getAttribute("data-kunci"), box;
+          if (k.charAt(0)==="i") box = document.getElementById("kunci-is-"+k.slice(1));
+          else if (k.charAt(0)==="u") box = document.getElementById("kunci-ur-"+k.slice(1));
+          else box = document.getElementById("kunci-pg-"+k);
+          if (box) box.classList.toggle("show");
+        });
+      });
+    }
+
+    /* ================= NAVIGASI ================= */
+    function showPage(name){
+      document.querySelectorAll(".page").forEach(function(p){ p.classList.remove("active"); });
+      var el = document.getElementById("page-"+name);
+      if (el) el.classList.add("active");
+      document.querySelectorAll("#mainNav button").forEach(function(b){
+        b.classList.toggle("active", b.getAttribute("data-page")===name);
+      });
+      window.scrollTo(0,0);
+    }
+    document.querySelectorAll("#mainNav button").forEach(function(b){
+      b.addEventListener("click", function(){ showPage(b.getAttribute("data-page")); });
+    });
+    document.querySelectorAll("[data-goto]").forEach(function(b){
+      b.addEventListener("click", function(){ showPage(b.getAttribute("data-goto")); });
+    });
+
+    /* ================= CETAK ================= */
+    function cetak(mode){
+      document.body.setAttribute("data-print", mode);
+      window.print();
+      setTimeout(function(){ document.body.setAttribute("data-print",""); }, 500);
+    }
+    document.getElementById("btnCetakRingkasan").addEventListener("click", function(){ cetak("ringkasan"); });
+    document.getElementById("btnCetakSoal").addEventListener("click", function(){ cetak("soal"); });
+    document.getElementById("btnCetakKunci").addEventListener("click", function(){ cetak("kunci"); });
+    window.addEventListener("afterprint", function(){ document.body.setAttribute("data-print",""); });
+
+    /* ================= AUTO-UPPERCASE ================= */
+    document.querySelectorAll("input.upper").forEach(function(inp){
+      inp.addEventListener("input", function(){
+        var pos = inp.selectionStart;
+        inp.value = inp.value.toUpperCase();
+        try { inp.setSelectionRange(pos, pos); } catch(e){}
+      });
+    });
+
+    /* ================= GERBANG NAMA ================= */
+    var buyerName = "";
+    function normNama(s){ return (s||"").toLowerCase().trim().replace(/\s+/g," "); }
+    function gateMsg(text, ok){
+      var m = document.getElementById("gateMsg");
+      m.textContent = text; m.className = "msg " + (ok ? "ok" : "err");
+    }
+    document.getElementById("btnBuka").addEventListener("click", function(){
+      var namaRaw = document.getElementById("gateNama").value.trim();
+      if (!namaRaw){ gateMsg("Nama belum diisi. Silakan tulis nama lengkap dulu.", false); return; }
+      var btn = document.getElementById("btnBuka");
+      btn.disabled = true; btn.textContent = "Memeriksa…";
+      var url = ENDPOINT + "?action=check&nama=" + encodeURIComponent(normNama(namaRaw)) + "&mapel=" + encodeURIComponent(MAPEL_ID);
+      fetch(url).then(function(r){ return r.json(); }).then(function(d){
+        btn.disabled = false; btn.textContent = "📂 Buka Paket";
+        if (d && d.allowed){
+          buyerName = namaRaw.toUpperCase();
+          document.getElementById("ownerName").textContent = buyerName;
+          document.getElementById("simNama").value = buyerName;
+          document.getElementById("gate").classList.add("hidden");
+          document.getElementById("app").classList.remove("hidden");
+          showPage("beranda");
+        } else {
+          gateMsg("Nama belum terdaftar. Silakan hubungi penjual.", false);
+        }
+      }).catch(function(){
+        btn.disabled = false; btn.textContent = "📂 Buka Paket";
+        gateMsg("Gagal terhubung ke server. Periksa koneksi internet Anda, lalu coba lagi.", false);
+      });
+    });
+    document.getElementById("gateNama").addEventListener("keydown", function(e){
+      if (e.key === "Enter"){ document.getElementById("btnBuka").click(); }
+    });
+    document.getElementById("btnGantiNama").addEventListener("click", function(){
+      buyerName = "";
+      document.getElementById("gateNama").value = "";
+      document.getElementById("gateMsg").className = "msg";
+      document.getElementById("app").classList.add("hidden");
+      document.getElementById("gate").classList.remove("hidden");
+      window.scrollTo(0,0);
+    });
+
+    /* ================= ADMIN ================= */
+    var adminPin = "";
+    function openAdmin(){
+      document.getElementById("adminOverlay").classList.add("show");
+      if (!adminPin){ document.getElementById("adminPin").focus(); }
+    }
+    function closeAdmin(){ document.getElementById("adminOverlay").classList.remove("show"); }
+    document.getElementById("btnAdminGate").addEventListener("click", openAdmin);
+    document.getElementById("btnAdminGateFooter").addEventListener("click", openAdmin);
+    document.getElementById("btnAdminFooter").addEventListener("click", openAdmin);
+    document.getElementById("btnTutupAdmin").addEventListener("click", closeAdmin);
+
+    function fillMapelDropdown(){
+      var sel = document.getElementById("addMapel"), html = "";
+      MAPEL_LIST.forEach(function(m){ html += '<option value="'+m.id+'">'+esc(m.label)+'</option>'; });
+      sel.innerHTML = html;
+      sel.value = MAPEL_ID;
+    }
+    function adminMsg(text, ok){
+      var m = document.getElementById("adminMsg");
+      m.textContent = text; m.className = "msg " + (ok ? "ok" : "err");
+    }
+    function loadList(){
+      var info = document.getElementById("adminListInfo");
+      info.textContent = "Memuat daftar…";
+      fetch(ENDPOINT + "?action=list&pin=" + encodeURIComponent(adminPin))
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if (!d || d.ok === false || !Array.isArray(d.buyers)){
+            document.getElementById("adminMain").classList.add("hidden");
+            document.getElementById("adminLogin").classList.remove("hidden");
+            var lm = document.getElementById("adminLoginMsg");
+            lm.textContent = (d && d.error) ? d.error : "PIN salah atau sesi berakhir. Silakan masuk lagi.";
+            lm.className = "msg err";
+            adminPin = "";
+            return;
+          }
+          renderBuyers(d.buyers);
+        })
+        .catch(function(){
+          info.textContent = "Gagal memuat daftar. Periksa koneksi internet Anda, lalu tekan Muat Ulang Daftar.";
+        });
+    }
+    function renderBuyers(buyers){
+      var info = document.getElementById("adminListInfo");
+      var body = document.getElementById("adminBody");
+      info.textContent = buyers.length ? ("Jumlah pembeli: " + buyers.length) : "Belum ada pembeli terdaftar.";
+      var html = "";
+      buyers.forEach(function(b){
+        var row = (b.row !== undefined && b.row !== null) ? b.row : "";
+        html += '<tr><td data-label="Nama">'+esc(b.nama||"")+'</td><td data-label="Mapel">'+esc(mapelLabel(b.mapel||""))+'</td><td data-label="Tanggal">'+esc(b.tanggal||"")+'</td><td data-label="Keterangan">'+esc(b.ket||"")+'</td>' +
+          '<td data-label="Aksi"><button type="button" class="btn secondary small" data-hapus="'+row+'">Hapus</button></td></tr>';
+      });
+      body.innerHTML = html;
+      body.querySelectorAll("[data-hapus]").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var row = btn.getAttribute("data-hapus");
+          btn.disabled = true; btn.textContent = "Menghapus…";
+          fetch(ENDPOINT, { method:"POST", headers:{ "Content-Type":"text/plain" },
+            body: JSON.stringify({ action:"remove", pin: adminPin, row: isNaN(parseInt(row,10)) ? row : parseInt(row,10) }) })
+            .then(function(r){ return r.json(); })
+            .then(function(){ adminMsg("Pembeli berhasil dihapus.", true); loadList(); })
+            .catch(function(){ btn.disabled = false; btn.textContent = "Hapus"; adminMsg("Gagal menghapus. Periksa koneksi internet Anda.", false); });
+        });
+      });
+    }
+    document.getElementById("btnMasukAdmin").addEventListener("click", function(){
+      var pin = document.getElementById("adminPin").value;
+      var lm = document.getElementById("adminLoginMsg");
+      if (!pin){ lm.textContent = "PIN belum diisi."; lm.className = "msg err"; return; }
+      var btn = document.getElementById("btnMasukAdmin");
+      btn.disabled = true; btn.textContent = "Memeriksa…";
+      fetch(ENDPOINT + "?action=list&pin=" + encodeURIComponent(pin))
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          btn.disabled = false; btn.textContent = "Masuk";
+          if (d && Array.isArray(d.buyers)){
+            adminPin = pin;
+            document.getElementById("adminLogin").classList.add("hidden");
+            document.getElementById("adminMain").classList.remove("hidden");
+            lm.className = "msg";
+            renderBuyers(d.buyers);
+          } else {
+            lm.textContent = (d && d.error) ? d.error : "PIN salah. Silakan coba lagi.";
+            lm.className = "msg err";
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "Masuk";
+          lm.textContent = "Gagal terhubung ke server. Periksa koneksi internet Anda, lalu coba lagi.";
+          lm.className = "msg err";
+        });
+    });
+    document.getElementById("adminPin").addEventListener("keydown", function(e){
+      if (e.key === "Enter"){ document.getElementById("btnMasukAdmin").click(); }
+    });
+    document.getElementById("btnTambah").addEventListener("click", function(){
+      var nama = document.getElementById("addNama").value.trim();
+      var mapel = document.getElementById("addMapel").value;
+      var ket = document.getElementById("addKet").value.trim();
+      if (!nama){ adminMsg("Nama pembeli belum diisi.", false); return; }
+      var btn = document.getElementById("btnTambah");
+      btn.disabled = true; btn.textContent = "Menyimpan…";
+      fetch(ENDPOINT, { method:"POST", headers:{ "Content-Type":"text/plain" },
+        body: JSON.stringify({ action:"add", pin: adminPin, nama: nama, mapel: mapel, ket: ket }) })
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          btn.disabled = false; btn.textContent = "Tambah Pembeli";
+          if (d && d.ok === false){ adminMsg(d.error || "Gagal menambah pembeli.", false); return; }
+          adminMsg("Pembeli “"+nama+"” berhasil ditambahkan.", true);
+          document.getElementById("addNama").value = "";
+          document.getElementById("addKet").value = "";
+          loadList();
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "Tambah Pembeli";
+          adminMsg("Gagal menambah pembeli. Periksa koneksi internet Anda.", false);
+        });
+    });
+    document.getElementById("btnRefreshList").addEventListener("click", loadList);
+
+    /* ================= SIMULASI ================= */
+    var sim = { aktif:false, idx:0, sisa:90*60, timer:null, pgAns:[], isAns:[], urAns:[], urSkor:[], ragu:[], nama:"", kelas:"", sekolah:"" };
+    function resetSim(){
+      sim.idx = 0; sim.sisa = 90*60;
+      sim.pgAns = []; sim.isAns = []; sim.urAns = []; sim.urSkor = []; sim.ragu = [];
+      for (var i=0;i<25;i++){ sim.pgAns.push(-1); sim.ragu.push(false); }
+      for (var j=0;j<10;j++){ sim.isAns.push(""); sim.ragu.push(false); }
+      for (var k=0;k<5;k++){ sim.urAns.push(""); sim.urSkor.push(null); sim.ragu.push(false); }
+    }
+    function soalJenis(idx){
+      if (idx < 25) return "Pilihan Ganda • Skor 1";
+      if (idx < 35) return "Isian Singkat • Skor 2";
+      return "Uraian • Skor 3 (dinilai sendiri di hasil)";
+    }
+    function sudahDijawab(idx){
+      if (idx < 25) return sim.pgAns[idx] !== -1;
+      if (idx < 35) return sim.isAns[idx-25].trim() !== "";
+      return sim.urAns[idx-35].trim() !== "";
+    }
+    function renderPalette(){
+      var html = "";
+      for (var i=0;i<40;i++){
+        var cls = "";
+        if (sudahDijawab(i)) cls += " done";
+        if (sim.ragu[i]) cls += " ragu";
+        if (i === sim.idx) cls += " now";
+        html += '<button type="button" class="'+cls.trim()+'" data-pal="'+i+'">'+(i+1)+'</button>';
+      }
+      var pal = document.getElementById("simPalette");
+      pal.innerHTML = html;
+      pal.querySelectorAll("[data-pal]").forEach(function(b){
+        b.addEventListener("click", function(){ sim.idx = parseInt(b.getAttribute("data-pal"),10); renderSoal(); });
+      });
+    }
+    function renderSoal(){
+      var idx = sim.idx, html = "", huruf = ["a","b","c","d"];
+      document.getElementById("simProgress").textContent = "Soal "+(idx+1)+" dari 40";
+      document.getElementById("simJenis").textContent = soalJenis(idx);
+      if (idx < 25){
+        var s = PG[idx];
+        html = '<p><strong>'+(idx+1)+'.</strong> '+fmt(s.q)+'</p>';
+        s.o.forEach(function(o, j){
+          html += '<button type="button" class="opt-btn'+(sim.pgAns[idx]===j?" sel":"")+'" data-opt="'+j+'"><b>'+huruf[j]+'.</b> '+fmt(o)+'</button>';
+        });
+        document.getElementById("simSoal").innerHTML = html;
+        document.querySelectorAll("[data-opt]").forEach(function(b){
+          b.addEventListener("click", function(){
+            sim.pgAns[idx] = parseInt(b.getAttribute("data-opt"),10);
+            renderSoal(); renderPalette();
+          });
+        });
+      } else if (idx < 35){
+        var f = ISIAN[idx-25];
+        html = '<p><strong>'+(idx+1)+'.</strong> '+fmt(f.q)+'</p>' +
+          '<label class="flabel" for="simIsian">Jawabanmu:</label>' +
+          '<input type="text" id="simIsian" value="'+esc(sim.isAns[idx-25])+'" placeholder="Tulis jawaban singkat" autocomplete="off" />';
+        document.getElementById("simSoal").innerHTML = html;
+        var inp = document.getElementById("simIsian");
+        inp.addEventListener("input", function(){ sim.isAns[idx-25] = inp.value; renderPalette(); });
+      } else {
+        var u = URAIAN[idx-35];
+        html = '<p><strong>'+(idx+1)+'.</strong> '+fmt(u.q)+'</p>' +
+          '<label class="flabel" for="simUraian">Jawabanmu:</label>' +
+          '<textarea id="simUraian" placeholder="Tulis jawaban uraianmu di sini">'+esc(sim.urAns[idx-35])+'</textarea>' +
+          '<p class="muted">Soal uraian dinilai sendiri (0–3) di layar hasil dengan panduan kunci dan rubrik.</p>';
+        document.getElementById("simSoal").innerHTML = html;
+        var ta = document.getElementById("simUraian");
+        ta.addEventListener("input", function(){ sim.urAns[idx-35] = ta.value; renderPalette(); });
+      }
+      document.getElementById("btnRagu").textContent = sim.ragu[idx] ? "✅ Ragu-ragu (aktif)" : "🤔 Ragu-ragu";
+      document.getElementById("btnPrev").disabled = (idx === 0);
+      document.getElementById("btnNext").disabled = (idx === 39);
+      renderPalette();
+    }
+    function fmtWaktu(s){
+      var m = Math.floor(s/60), d = s%60;
+      return (m<10?"0":"")+m+":"+(d<10?"0":"")+d;
+    }
+    function tick(){
+      sim.sisa--;
+      var t = document.getElementById("simTimer");
+      t.textContent = fmtWaktu(Math.max(sim.sisa,0));
+      if (sim.sisa <= 300) t.classList.add("danger");
+      if (sim.sisa <= 0){ selesaiSim(true); }
+    }
+    document.getElementById("btnMulaiSim").addEventListener("click", function(){
+      sim.nama = document.getElementById("simNama").value.trim();
+      sim.kelas = document.getElementById("simKelas").value.trim();
+      sim.sekolah = document.getElementById("simSekolah").value.trim();
+      resetSim();
+      sim.aktif = true;
+      document.getElementById("simStart").classList.add("hidden");
+      document.getElementById("simResult").classList.add("hidden");
+      document.getElementById("simWork").classList.remove("hidden");
+      var t = document.getElementById("simTimer");
+      t.textContent = "90:00"; t.classList.remove("danger");
+      renderSoal();
+      if (sim.timer) clearInterval(sim.timer);
+      sim.timer = setInterval(tick, 1000);
+      window.scrollTo(0,0);
+    });
+    document.getElementById("btnPrev").addEventListener("click", function(){ if (sim.idx>0){ sim.idx--; renderSoal(); } });
+    document.getElementById("btnNext").addEventListener("click", function(){ if (sim.idx<39){ sim.idx++; renderSoal(); } });
+    document.getElementById("btnRagu").addEventListener("click", function(){
+      sim.ragu[sim.idx] = !sim.ragu[sim.idx];
+      renderSoal();
+    });
+    document.getElementById("btnSelesai").addEventListener("click", function(){ selesaiSim(false); });
+
+    function hitungPG(){
+      var s = 0;
+      for (var i=0;i<25;i++){ if (sim.pgAns[i] === PG[i].key) s += 1; }
+      return s;
+    }
+    function hitungIsian(){
+      var s = 0;
+      for (var i=0;i<10;i++){
+        var jw = normJawaban(sim.isAns[i]);
+        if (!jw) continue;
+        for (var j=0;j<ISIAN[i].ans.length;j++){ if (jw === normJawaban(ISIAN[i].ans[j])){ s += 2; break; } }
+      }
+      return s;
+    }
+    function hitungUraian(){
+      var s = 0;
+      for (var i=0;i<5;i++){ if (typeof sim.urSkor[i] === "number") s += sim.urSkor[i]; }
+      return s;
+    }
+    function updateHasil(){
+      var pg = hitungPG(), is = hitungIsian(), ur = hitungUraian();
+      var total = pg + is + ur;
+      var nilai = Math.round(total/60*100);
+      document.getElementById("skorPG").textContent = pg + " / 25";
+      document.getElementById("skorIsian").textContent = is + " / 20";
+      document.getElementById("skorUraian").textContent = ur + " / 15";
+      document.getElementById("skorTotal").textContent = total + " / 60";
+      document.getElementById("nilaiAkhir").textContent = nilai;
+      var pred = nilai >= 90 ? "Sangat Baik" : nilai >= 75 ? "Baik" : nilai >= 60 ? "Cukup" : "Perlu Bimbingan";
+      document.getElementById("predikat").textContent = pred;
+    }
+    function selesaiSim(otomatis){
+      if (!sim.aktif) return;
+      sim.aktif = false;
+      if (sim.timer){ clearInterval(sim.timer); sim.timer = null; }
+      document.getElementById("simWork").classList.add("hidden");
+      document.getElementById("simResult").classList.remove("hidden");
+      document.getElementById("hasilNama").textContent =
+        (otomatis ? "Waktu habis — simulasi otomatis selesai. " : "") +
+        "Nama: " + (sim.nama || buyerName || "-") + " • Kelas: " + (sim.kelas || "-") + " • Sekolah: " + (sim.sekolah || "-");
+      /* Panel nilai sendiri untuk uraian */
+      var html = '<div class="card" style="margin:0 0 14px; box-shadow:none"><h3>📝 Nilai Sendiri Soal Uraian (0–3)</h3>' +
+        '<p class="muted">Bandingkan jawabanmu dengan kunci dan rubrik, lalu pilih skor untuk tiap soal. Skor total di bawah akan berubah otomatis.</p>';
+      URAIAN.forEach(function(u, i){
+        html += '<div style="border-top:1px solid var(--line); padding:10px 0"><p><strong>Soal '+(36+i)+'.</strong> '+fmt(u.q)+'</p>' +
+          '<p><strong>Jawabanmu:</strong> ' + (sim.urAns[i].trim() ? esc(sim.urAns[i]) : '<em>(tidak dijawab)</em>') + '</p>' +
+          '<p><strong>Kunci:</strong> '+fmt(u.kunci)+'</p>' +
+          '<p><strong>Rubrik:</strong> '+fmt(u.rubrik)+'</p>' +
+          '<div class="selfscore" data-ur="'+i+'">' +
+          [0,1,2,3].map(function(v){ return '<button type="button" data-v="'+v+'">'+v+'</button>'; }).join("") +
+          '</div></div>';
+      });
+      html += '</div>';
+      var box = document.getElementById("uraianNilaiBox");
+      box.innerHTML = html;
+      box.querySelectorAll(".selfscore").forEach(function(row){
+        var i = parseInt(row.getAttribute("data-ur"),10);
+        row.querySelectorAll("button").forEach(function(b){
+          b.addEventListener("click", function(){
+            sim.urSkor[i] = parseInt(b.getAttribute("data-v"),10);
+            row.querySelectorAll("button").forEach(function(x){ x.classList.toggle("sel", x===b); });
+            updateHasil();
+          });
+        });
+      });
+      updateHasil();
+      window.scrollTo(0,0);
+    }
+    document.getElementById("btnUlangSim").addEventListener("click", function(){
+      document.getElementById("simResult").classList.add("hidden");
+      document.getElementById("simStart").classList.remove("hidden");
+      window.scrollTo(0,0);
+    });
+
+    /* ================= INIT ================= */
+    renderRingkasan();
+    renderKisi();
+    renderLatihan();
+    fillMapelDropdown();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1511 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Paket ASAS Bahasa Inggris Kelas II — SD Negeri Ungaran 01 &amp; SD Negeri Ungaran 05</title>
+    <style>
+      :root{
+        color-scheme: light dark;
+        --bg:#dff1fd;
+        --bg-soft:#eef7ff;
+        --card:#ffffff;
+        --ink:#12314e;
+        --muted:#4a6a86;
+        --line:#b9d9f2;
+        --primary:#1565c0;
+        --primary-dark:#0d47a1;
+        --primary-ink:#ffffff;
+        --accent:#f9a825;
+        --good:#2e7d32;
+        --good-bg:#e6f4ea;
+        --bad:#c62828;
+        --bad-bg:#fdecea;
+        --warn-bg:#fff8e1;
+        --warn-line:#f9a825;
+        --chip:#e3f2fd;
+        --shadow:0 2px 10px rgba(21,101,192,.12);
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#0b2239;
+          --bg-soft:#0f2c47;
+          --card:#14334f;
+          --ink:#e8f3fd;
+          --muted:#a9c6de;
+          --line:#2c5377;
+          --primary:#42a5f5;
+          --primary-dark:#90caf9;
+          --primary-ink:#08263f;
+          --good:#81c784;
+          --good-bg:#1d3a24;
+          --bad:#ef9a9a;
+          --bad-bg:#3d2222;
+          --warn-bg:#3a3319;
+          --chip:#1b4062;
+          --shadow:0 2px 10px rgba(0,0,0,.35);
+        }
+      }
+      *{box-sizing:border-box}
+      html{-webkit-text-size-adjust:100%}
+      body{
+        margin:0;
+        font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+        background:var(--bg);
+        color:var(--ink);
+        line-height:1.55;
+      }
+      button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:2.25rem}
+      button{font:inherit;cursor:pointer}
+      input,select,textarea{font:inherit;color:var(--ink)}
+      a{color:var(--primary)}
+      .wrap{max-width:960px;margin:0 auto;padding:0 14px 40px}
+
+      /* ---------- Gerbang nama ---------- */
+      .gate{
+        position:fixed;inset:0;z-index:100;
+        background:var(--bg);
+        display:flex;align-items:flex-start;justify-content:center;
+        overflow-y:auto;padding:28px 14px;
+      }
+      .gate.hidden{display:none}
+      .gate-card{
+        background:var(--card);border:1px solid var(--line);border-radius:16px;
+        box-shadow:var(--shadow);max-width:520px;width:100%;padding:26px 22px;text-align:center;
+      }
+      .gate-card h1{font-size:1.35rem;margin:0 0 6px;line-height:1.3}
+      .gate-card .sub{color:var(--muted);margin:0 0 18px;font-size:.95rem}
+      .gate-card label{display:block;text-align:left;font-weight:600;margin-bottom:6px}
+      .gate-card input[type="text"]{
+        width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;
+        background:var(--bg-soft);text-transform:uppercase;
+      }
+      .gate-msg{min-height:1.4em;margin:10px 0;font-weight:600}
+      .gate-msg.err{color:var(--bad)}
+      .gate-msg.ok{color:var(--good)}
+
+      /* ---------- Tombol ---------- */
+      .btn{
+        display:inline-flex;align-items:center;justify-content:center;gap:6px;
+        border:1.5px solid var(--primary);background:var(--primary);color:var(--primary-ink);
+        border-radius:10px;padding:9px 16px;font-weight:600;text-decoration:none;min-height:44px;
+      }
+      .btn:hover{background:var(--primary-dark);border-color:var(--primary-dark)}
+      .btn.secondary{background:var(--card);color:var(--primary)}
+      .btn.secondary:hover{background:var(--chip)}
+      .btn.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+      .btn.big{width:100%;font-size:1.05rem;padding:12px 16px}
+      .btn:disabled{opacity:.55;cursor:not-allowed}
+      .btn.warn{background:var(--accent);border-color:var(--accent);color:#3a2a00}
+      .btn-row{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+      .btn-row .btn{flex:1 1 150px}
+      .score-btn{
+        border:1.5px solid var(--primary);background:var(--card);color:var(--primary);
+        border-radius:10px;padding:8px 14px;font-weight:800;min-width:52px;min-height:44px;
+      }
+      .score-btn.selected{background:var(--primary);color:var(--primary-ink)}
+
+      /* ---------- Bar atas & navigasi ---------- */
+      .topbar{
+        background:var(--card);border-bottom:1px solid var(--line);
+        padding:10px 14px;display:none;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+      }
+      .topbar.show{display:flex}
+      .owner{font-weight:700}
+      .mainnav{
+        display:none;gap:8px;flex-wrap:wrap;justify-content:center;
+        padding:12px 14px 4px;max-width:960px;margin:0 auto;
+      }
+      .mainnav.show{display:flex}
+      .mainnav button{
+        border:1.5px solid var(--primary);background:var(--card);color:var(--primary);
+        border-radius:999px;padding:8px 18px;font-weight:700;min-height:44px;flex:1 1 auto;
+      }
+      .mainnav button.active{background:var(--primary);color:var(--primary-ink)}
+
+      /* ---------- Kartu & tampilan ---------- */
+      .view{display:none}
+      .view.active{display:block}
+      .card{
+        background:var(--card);border:1px solid var(--line);border-radius:14px;
+        box-shadow:var(--shadow);padding:20px;margin:16px 0;
+      }
+      .card h2{margin-top:0;font-size:1.25rem}
+      .card h3{margin-bottom:6px}
+      .hero{text-align:center;padding:28px 20px}
+      .hero h1{font-size:1.6rem;margin:0 0 8px;line-height:1.3}
+      .hero .sub{color:var(--muted);font-weight:600;margin:0 0 10px}
+      .disclaimer{
+        background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;
+        padding:10px 14px;font-weight:600;display:inline-block;margin:8px 0;
+      }
+      .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0;text-align:center}
+      .info-grid .cell{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:12px 8px}
+      .info-grid .cell b{display:block;font-size:1.15rem;color:var(--primary)}
+      table{border-collapse:collapse;width:100%;margin:10px 0}
+      th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+      th{background:var(--chip)}
+      .vocab td:first-child{font-weight:600;width:45%}
+      .ex-list{margin:6px 0;padding-left:20px}
+      .ex-list li{margin:4px 0}
+      .stimulus{
+        background:var(--bg-soft);border:1px solid var(--line);border-left:5px solid var(--primary);
+        border-radius:8px;padding:12px 14px;margin:0 0 12px;font-style:italic;
+      }
+      .stimulus .stim-label{font-style:normal;font-weight:700;font-size:.82rem;color:var(--primary);display:block;margin-bottom:4px}
+      .gap-note{
+        background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;
+        padding:12px 14px;margin:12px 0;
+      }
+      .field{margin:10px 0}
+      .field label{display:block;font-weight:600;margin-bottom:4px;text-align:left}
+      .field input{
+        width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg-soft);
+      }
+      .sim-msg{min-height:1.4em;font-weight:600;color:var(--bad);margin:8px 0}
+
+      /* ---------- Soal ---------- */
+      .bab-title{
+        background:var(--primary);color:var(--primary-ink);border-radius:10px;
+        padding:10px 14px;font-weight:700;margin:22px 0 6px;font-size:1.05rem;
+      }
+      .qcard{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px;margin:14px 0}
+      .qhead{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+      .qno{font-weight:800}
+      .qmeta{font-size:.82rem;color:var(--muted);font-weight:600}
+      .qtext{font-weight:600;margin:6px 0 12px;white-space:pre-wrap}
+      .opts{display:grid;gap:8px}
+      .opt-btn{
+        display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;
+        background:var(--bg-soft);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;min-height:48px;
+      }
+      .opt-btn .letter{font-weight:800;color:var(--primary);flex:0 0 auto}
+      .opt-btn.selected{border-color:var(--primary);background:var(--chip)}
+      .opt-btn.correct{border-color:var(--good);background:var(--good-bg)}
+      .opt-btn.wrong{border-color:var(--bad);background:var(--bad-bg)}
+      .opt-btn:disabled{cursor:default;opacity:1}
+      .tf-row{display:flex;gap:10px;flex-wrap:wrap}
+      .tf-row .opt-btn{flex:1 1 130px;justify-content:center;text-align:center}
+      .isian-input{
+        width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg-soft);
+      }
+      textarea.isian-input{min-height:96px;resize:vertical}
+      .feedback{border-radius:10px;padding:10px 14px;margin-top:12px;display:none}
+      .feedback.show{display:block}
+      .feedback.ok{background:var(--good-bg);border:1px solid var(--good)}
+      .feedback.no{background:var(--bad-bg);border:1px solid var(--bad)}
+      .feedback.info{background:var(--chip);border:1px solid var(--primary)}
+      .feedback .verdict{font-weight:800}
+      .feedback p{margin:4px 0}
+      .rubric{
+        background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:8px;
+        padding:10px 12px;margin-top:8px;font-size:.95rem;
+      }
+
+      /* ---------- Simulasi ---------- */
+      .sim-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+      .timer{font-size:1.3rem;font-weight:800;background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:6px 14px}
+      .timer.danger{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+      .palette{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:14px 0}
+      @media (max-width:520px){.palette{grid-template-columns:repeat(5,1fr)}}
+      .pal-btn{
+        border:1.5px solid var(--line);background:var(--card);border-radius:8px;
+        font-weight:700;min-height:44px;padding:4px 0;
+      }
+      .pal-btn.answered{background:var(--good);border-color:var(--good);color:#fff}
+      .pal-btn.flagged{background:var(--accent);border-color:var(--accent);color:#3a2a00}
+      .pal-btn.current{outline:3px solid var(--primary);outline-offset:1px}
+      .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);margin:4px 0 10px}
+      .legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px;border:1px solid var(--line)}
+      .legend .lg-a::before{background:var(--good)}
+      .legend .lg-f::before{background:var(--accent)}
+      .legend .lg-c::before{background:var(--card);outline:2px solid var(--primary)}
+      .sim-nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+      .sim-nav .btn{flex:1 1 130px}
+
+      /* ---------- Hasil ---------- */
+      .score-hero{text-align:center}
+      .score-hero .nilai{font-size:3rem;font-weight:800;color:var(--primary);line-height:1.1}
+      .score-hero .predikat{font-size:1.15rem;font-weight:700}
+      .type-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:14px 0}
+      .type-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+      .type-card b{display:block;font-size:1.5rem;color:var(--primary)}
+      .recap-table td,.recap-table th{padding:6px 8px;font-size:.92rem}
+      .st-ok{color:var(--good);font-weight:700}
+      .st-no{color:var(--bad);font-weight:700}
+      .st-self{color:var(--primary);font-weight:700}
+      .review-item{border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0;background:var(--card)}
+      .review-item p{margin:4px 0}
+      .selfscore-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+
+      /* ---------- Modal ---------- */
+      .modal{position:fixed;inset:0;z-index:120;background:rgba(10,35,60,.55);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:20px 12px}
+      .modal.show{display:flex}
+      .modal-card{background:var(--card);border-radius:14px;max-width:640px;width:100%;padding:22px;box-shadow:var(--shadow)}
+      .modal-card h2{margin-top:0}
+      .modal-card input[type="text"],.modal-card input[type="password"],.modal-card select{
+        width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg-soft);margin-bottom:10px;
+      }
+      .modal-card label{font-weight:600;display:block;margin:8px 0 4px}
+      .admin-table td,.admin-table th{font-size:.9rem;padding:6px 8px}
+      .admin-msg{min-height:1.4em;font-weight:600;margin:8px 0}
+      .admin-msg.err{color:var(--bad)}
+      .admin-msg.ok{color:var(--good)}
+      .del-btn{background:var(--bad);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-weight:700;min-height:36px}
+
+      footer{
+        text-align:center;color:var(--muted);padding:22px 14px 30px;font-size:.92rem;
+      }
+      footer .btn{margin-top:10px}
+
+      /* ---------- Kisi-kisi responsif ---------- */
+      @media (max-width:680px){
+        .kisi-table thead{display:none}
+        .kisi-table,.kisi-table tbody,.kisi-table tr,.kisi-table td{display:block;width:100%}
+        .kisi-table tr{border:1px solid var(--line);border-radius:10px;margin-bottom:12px;background:var(--card);padding:6px 4px}
+        .kisi-table td{border:none;padding:5px 10px}
+        .kisi-table td::before{content:attr(data-label);display:block;font-weight:700;font-size:.78rem;color:var(--primary)}
+        .kisi-table tr.total-row td::before{content:""}
+      }
+
+      /* ---------- Cetak ---------- */
+      .print-area{display:none}
+      @media print{
+        body{background:#fff;color:#000}
+        .gate,.topbar,.mainnav,footer,.modal,.no-print{display:none !important}
+        .view{display:none !important}
+        .print-area{display:none}
+        body[data-print="ringkasan"] #view-ringkasan{display:block !important}
+        body[data-print="soal"] #print-soal{display:block !important}
+        body[data-print="kunci"] #print-kunci{display:block !important}
+        .card,.qcard{box-shadow:none;border-color:#999}
+        .wrap{max-width:none;padding:0}
+        .print-area h2{margin-bottom:4px}
+        .print-area .p-q{margin:0 0 12px;page-break-inside:avoid}
+        .print-area .p-opts{margin:2px 0 2px 18px}
+        .ident{margin:10px 0 16px}
+      }
+    </style>
+  </head>
+  <body data-print="">
+
+    <!-- ===== GERBANG NAMA ===== -->
+    <div class="gate" id="gate">
+      <div class="gate-card">
+        <h1>📚 Paket ASAS Bahasa Inggris Kelas II</h1>
+        <p class="sub">SD Negeri Ungaran 01 &amp; SD Negeri Ungaran 05 • Semester 1 (Ganjil) • Kurikulum Merdeka<br />Tahun Ajaran 2026/2027</p>
+        <label for="gateName">Nama Lengkap Pembeli</label>
+        <input type="text" id="gateName" placeholder="TULIS NAMA LENGKAP ANDA" autocomplete="name" />
+        <p class="gate-msg" id="gateMsg" role="status"></p>
+        <button class="btn big" id="gateOpenBtn" type="button">🔓 Buka Paket</button>
+        <div style="height:14px"></div>
+        <button class="btn secondary big" id="gateAdminBtn" type="button">🔐 Admin</button>
+        <p class="sub" style="margin-top:14px">Paket ini hanya dapat dibuka dengan nama yang sudah terdaftar pada penjual.</p>
+      </div>
+    </div>
+
+    <!-- ===== BAR ATAS ===== -->
+    <div class="topbar" id="topbar">
+      <span class="owner" id="ownerLabel">👤 Paket milik: —</span>
+      <button class="btn secondary" id="changeNameBtn" type="button">Ganti Nama</button>
+    </div>
+
+    <!-- ===== NAVIGASI ===== -->
+    <nav class="mainnav" id="mainnav" aria-label="Navigasi utama">
+      <button type="button" data-nav="beranda" class="active">Beranda</button>
+      <button type="button" data-nav="ringkasan">Ringkasan</button>
+      <button type="button" data-nav="kisi">Kisi-kisi</button>
+      <button type="button" data-nav="latihan">Latihan</button>
+      <button type="button" data-nav="simulasi">Simulasi</button>
+    </nav>
+
+    <div class="wrap" id="app" style="display:none">
+
+      <!-- ===== BERANDA ===== -->
+      <section class="view active" id="view-beranda">
+        <div class="card hero">
+          <h1>Paket ASAS Bahasa Inggris Kelas II — SD Negeri Ungaran 01 &amp; SD Negeri Ungaran 05</h1>
+          <p class="sub">Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>
+          <p><span class="disclaimer">Paket latihan berdasarkan kisi-kisi, bukan soal ujian asli.</span></p>
+          <div class="info-grid">
+            <div class="cell"><b>30</b>Soal</div>
+            <div class="cell"><b>45</b>Skor Maksimal</div>
+            <div class="cell"><b>90 menit</b>Simulasi ASAS</div>
+            <div class="cell"><b>Ungaran 01 &amp; 05</b>Bank Soal</div>
+          </div>
+          <p>Materi: <strong>Classroom Objects</strong> (benda-benda di kelas), <strong>Preposition</strong> (on, in, under), dan <strong>There is / There are</strong>. Berlatihlah lewat Ringkasan dan Latihan, lalu uji kemampuanmu pada Simulasi ASAS dengan waktu 90 menit seperti ujian sungguhan.</p>
+          <div class="btn-row">
+            <button class="btn" type="button" data-goto="ringkasan">📖 Ringkasan Materi</button>
+            <button class="btn" type="button" data-goto="latihan">✏️ Latihan Soal</button>
+            <button class="btn" type="button" data-goto="simulasi">⏱️ Simulasi ASAS</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== RINGKASAN ===== -->
+      <section class="view" id="view-ringkasan">
+        <div class="btn-row no-print">
+          <button class="btn" type="button" id="printRingkasanBtn">🖨️ Cetak Ringkasan</button>
+        </div>
+
+        <div class="card">
+          <h2>1. Classroom Objects (Benda-Benda di Kelas)</h2>
+          <table class="vocab">
+            <thead><tr><th>English</th><th>Bahasa Indonesia</th></tr></thead>
+            <tbody>
+              <tr><td>chair</td><td>kursi</td></tr>
+              <tr><td>table</td><td>meja</td></tr>
+              <tr><td>desk</td><td>meja belajar</td></tr>
+              <tr><td>whiteboard</td><td>papan tulis</td></tr>
+              <tr><td>clock</td><td>jam dinding</td></tr>
+              <tr><td>door</td><td>pintu</td></tr>
+              <tr><td>window</td><td>jendela</td></tr>
+              <tr><td>bag / school bag</td><td>tas / tas sekolah</td></tr>
+              <tr><td>book</td><td>buku</td></tr>
+              <tr><td>pencil</td><td>pensil</td></tr>
+              <tr><td>pen</td><td>pulpen</td></tr>
+              <tr><td>ruler</td><td>penggaris</td></tr>
+              <tr><td>eraser</td><td>penghapus</td></tr>
+              <tr><td>marker</td><td>spidol</td></tr>
+              <tr><td>crayon</td><td>krayon</td></tr>
+              <tr><td>sharpener</td><td>rautan</td></tr>
+              <tr><td>teacher's table</td><td>meja guru</td></tr>
+            </tbody>
+          </table>
+          <h3>Contoh Kalimat</h3>
+          <ul class="ex-list">
+            <li>“This is a chair.” (Ini adalah sebuah kursi.)</li>
+            <li>“That is my bag.” (Itu adalah tasku.)</li>
+            <li>“I have a red pencil.” (Saya mempunyai sebuah pensil merah.)</li>
+            <li>“She has a blue ruler.” (Dia mempunyai sebuah penggaris biru.)</li>
+          </ul>
+          <h3>Is, Are, dan It dalam Kalimat Tanya</h3>
+          <ul class="ex-list">
+            <li><strong>Is this …?</strong> untuk satu benda: “Is this your bag?” — “Yes, it is.” / “No, it isn't.”</li>
+            <li><strong>Are these …?</strong> untuk lebih dari satu benda: “Are these your books?” — “Yes, they are.”</li>
+            <li><strong>It</strong> dipakai untuk menunjuk satu benda: “What is it?” — “It is a pencil.”</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>2. Preposition: on, in, under (Kata Depan)</h2>
+          <table class="vocab">
+            <thead><tr><th>English</th><th>Arti</th><th>Contoh</th></tr></thead>
+            <tbody>
+              <tr><td>on</td><td>di atas (menempel di permukaan)</td><td>The book is <strong>on</strong> the table. (Buku itu ada di atas meja.)</td></tr>
+              <tr><td>in</td><td>di dalam</td><td>The pencil is <strong>in</strong> the bag. (Pensil itu ada di dalam tas.)</td></tr>
+              <tr><td>under</td><td>di bawah</td><td>The bag is <strong>under</strong> the chair. (Tas itu ada di bawah kursi.)</td></tr>
+            </tbody>
+          </table>
+          <h3>Cara Mengingatnya</h3>
+          <ul class="ex-list">
+            <li><strong>on</strong> = benda menempel di atas permukaan (buku di atas meja).</li>
+            <li><strong>in</strong> = benda berada di dalam wadah (pensil di dalam tas).</li>
+            <li><strong>under</strong> = benda berada di bawah sesuatu (tas di bawah kursi).</li>
+          </ul>
+          <h3>Contoh Kalimat Lain</h3>
+          <ul class="ex-list">
+            <li>“The clock is on the wall.” (Jam itu ada di dinding.)</li>
+            <li>“My ruler is in my bag.” (Penggarisku ada di dalam tasku.)</li>
+            <li>“The cat is under the table.” (Kucing itu ada di bawah meja.)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>3. There is / There are (Ada …)</h2>
+          <table class="vocab">
+            <thead><tr><th>Pola</th><th>Untuk</th><th>Contoh</th></tr></thead>
+            <tbody>
+              <tr><td>There is + a/an + benda tunggal</td><td>1 benda</td><td>There is <strong>a whiteboard</strong> in my classroom. (Ada sebuah papan tulis di kelasku.)</td></tr>
+              <tr><td>There are + benda jamak</td><td>lebih dari 1 benda</td><td>There are <strong>five books</strong> on the table. (Ada lima buku di atas meja.)</td></tr>
+              <tr><td>Is there …?</td><td>bertanya 1 benda</td><td>Is there a clock in the classroom? — Yes, there is.</td></tr>
+              <tr><td>Are there …?</td><td>bertanya banyak benda</td><td>Are there ten tables? — Yes, there are.</td></tr>
+            </tbody>
+          </table>
+          <h3>Ingat!</h3>
+          <ul class="ex-list">
+            <li>Jumlah <strong>1</strong> → pakai <strong>there is</strong>.</li>
+            <li>Jumlah <strong>2 atau lebih</strong> → pakai <strong>there are</strong>.</li>
+            <li>Perhatikan akhiran <strong>-s</strong> pada benda jamak: book → books, chair → chairs.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>4. Tips Mengerjakan Soal</h2>
+          <ul class="ex-list">
+            <li>Baca teks bacaan dengan teliti sebelum menjawab soal 9–20.</li>
+            <li>Hitung bendanya satu per satu pada soal hitungan (soal 6–7).</li>
+            <li>Perhatikan siapa pemilik benda (Sinta atau Budi) pada soal kepemilikan.</li>
+            <li>Untuk soal menyusun huruf atau kata, cari dulu huruf/kata awalnya, lalu susun sampai menjadi kata atau kalimat yang benar.</li>
+            <li>Untuk soal uraian, nilai sendiri jawabanmu dengan jujur 0–3 dengan membandingkan jawabanmu pada jawaban model dan aturan skor.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== KISI-KISI ===== -->
+      <section class="view" id="view-kisi">
+        <div class="card">
+          <h2 style="text-align:center">KISI-KISI BAHASA INGGRIS KELAS 2 SD</h2>
+          <p style="text-align:center;margin-top:0">Mata Pelajaran: Bahasa Inggris • Kelas II • Bank Soal: SD Negeri Ungaran 01 &amp; SD Negeri Ungaran 05<br />Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027 • Alokasi Waktu: 90 Menit</p>
+          <table class="kisi-table">
+            <thead>
+              <tr><th>Materi</th><th>Indikator Soal</th><th>Bentuk Soal</th><th>No. Soal</th><th>Skor</th></tr>
+            </thead>
+            <tbody id="kisiBody"></tbody>
+          </table>
+          <div class="gap-note">
+            <h3 style="margin-top:0">Catatan tentang Sumber &amp; Penomoran</h3>
+            <ul class="ex-list">
+              <li><strong>Penomoran sumber:</strong> dalam berkas kisi-kisi, Isian Singkat dan Uraian diberi nomor sendiri mulai dari 1. Dalam paket ini semua soal dinomori berurutan 1–30 agar mudah diikuti: Pilihan Ganda No. 1–15, Benar/Salah No. 16–20, Isian Singkat No. 21–25 (Isian sumber No. 1–5), Uraian No. 26–30 (Uraian sumber No. 1–5).</li>
+              <li><strong>Soal disusun dari indikator:</strong> berkas kisi-kisi hanya berisi materi, indikator, bentuk, dan nomor soal — tidak berisi teks soal, pilihan jawaban, kunci jawaban, gambar, maupun skor per soal. Semua teks soal, pilihan jawaban, kunci, dan pembahasan dalam paket ini disusun berdasarkan indikator kisi-kisi tersebut.</li>
+              <li><strong>Gambar diganti deskripsi tertulis:</strong> indikator yang menyebut “berdasarkan gambar” (PG No. 1, 2, 4, 6, 7, 8 dan Uraian No. 30) dilengkapi dengan deskripsi gambar tertulis di dalam soal, karena berkas kisi-kisi tidak menyertakan gambar.</li>
+              <li><strong>Skor:</strong> sumber tidak menuliskan skor per soal, sehingga dipakai pola standar paket: Pilihan Ganda 1, Benar/Salah 1, Isian Singkat 2, Uraian 3. Total skor = 15×1 + 5×1 + 5×2 + 5×3 = <strong>45</strong>. Nilai akhir = total skor ÷ 45 × 100.</li>
+              <li><strong>Teks bacaan bersama:</strong> satu teks “My Classroom” dipakai bersama untuk PG No. 9–15 dan Benar/Salah No. 16–20, sesuai indikator yang sama-sama merujuk pada teks sederhana tentang benda di kelas, kepemilikan tas, dan letak pensil.</li>
+              <li><strong>Tebal/miring:</strong> berkas kisi-kisi tidak menandai tebal atau miring pada teks soal apa pun (tebal hanya pada judul dan kepala tabel), sehingga tidak ada penanda tebal/miring pada soal-soal paket ini.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== LATIHAN ===== -->
+      <section class="view" id="view-latihan">
+        <div class="card">
+          <h2>✏️ Latihan Soal</h2>
+          <p>Kerjakan 30 soal berikut. Pilihan Ganda dan Benar/Salah langsung diperiksa saat diklik. Untuk Isian Singkat, klik tombol <strong>✔ Periksa</strong> setelah menjawab. Untuk Uraian, klik <strong>📖 Lihat Jawaban Model</strong> lalu nilai sendiri jawabanmu 0–3 dengan jujur.</p>
+          <div class="btn-row no-print">
+            <button class="btn" type="button" id="printSoalBtn">🖨️ Cetak Soal</button>
+            <button class="btn secondary" type="button" id="printKunciBtn">🖨️ Cetak Kunci &amp; Pembahasan</button>
+          </div>
+        </div>
+        <div id="latihanList"></div>
+        <div class="btn-row">
+          <a class="btn secondary" href="../">← Pilih Mapel</a>
+        </div>
+      </section>
+
+      <!-- ===== SIMULASI ===== -->
+      <section class="view" id="view-simulasi">
+        <!-- Layar mulai -->
+        <div class="card" id="simStart">
+          <h2>⏱️ Simulasi ASAS</h2>
+          <div class="info-grid">
+            <div class="cell"><b>30</b>Soal</div>
+            <div class="cell"><b>90 menit</b>Waktu</div>
+            <div class="cell"><b>45</b>Skor Maksimal</div>
+          </div>
+          <p>Simulasi ini meniru suasana ASAS sungguhan: ada batas waktu 90 menit, palet nomor soal, dan tombol ragu-ragu. Jawaban tersimpan setiap kali kamu berpindah soal. Jika waktu habis, simulasi otomatis selesai dan dinilai.</p>
+          <h3>Identitas Peserta</h3>
+          <div class="field">
+            <label for="simNama">Nama Siswa</label>
+            <input type="text" id="simNama" placeholder="NAMA LENGKAP SISWA" />
+          </div>
+          <div class="field">
+            <label for="simKelas">Kelas</label>
+            <input type="text" id="simKelas" placeholder="Contoh: II A" />
+          </div>
+          <div class="field">
+            <label for="simSekolah">Nama Sekolah</label>
+            <input type="text" id="simSekolah" placeholder="Contoh: SD Negeri Ungaran 01" />
+          </div>
+          <p class="sim-msg" id="simMsg"></p>
+          <button class="btn big" type="button" id="simStartBtn">▶️ Mulai Simulasi</button>
+        </div>
+
+        <!-- Layar ujian -->
+        <div id="simExam" style="display:none">
+          <div class="card">
+            <div class="sim-head">
+              <strong>Simulasi ASAS — Bahasa Inggris Kelas II</strong>
+              <span class="timer" id="simTimer">⏱️ 90:00</span>
+            </div>
+            <div class="palette" id="simPalette"></div>
+            <div class="legend">
+              <span class="lg-a">Terjawab</span>
+              <span class="lg-f">Ragu-ragu</span>
+              <span class="lg-c">Soal aktif</span>
+            </div>
+          </div>
+          <div id="simQuestion"></div>
+          <div class="card">
+            <div class="sim-nav">
+              <button class="btn secondary" type="button" id="simPrevBtn">⬅️ Sebelumnya</button>
+              <button class="btn warn" type="button" id="simFlagBtn">🚩 Ragu-ragu</button>
+              <button class="btn secondary" type="button" id="simNextBtn">Berikutnya ➡️</button>
+              <button class="btn" type="button" id="simFinishBtn">✔ Selesai</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Layar hasil -->
+        <div id="simResult" style="display:none">
+          <div class="card score-hero">
+            <h2>📊 Hasil Simulasi ASAS</h2>
+            <p style="margin:2px 0">Nama: <strong id="resNama">—</strong></p>
+            <p style="margin:2px 0">Kelas: <strong id="resKelas">—</strong> • Sekolah: <strong id="resSekolah">—</strong></p>
+            <div class="nilai" id="resNilai">0</div>
+            <p class="predikat" id="resPredikat">—</p>
+            <p>Total Skor: <strong id="resTotal">0 / 45</strong></p>
+            <div class="type-grid" id="resTypeGrid"></div>
+          </div>
+          <div class="card" id="selfScoreCard">
+            <h3>📝 Nilai Sendiri Soal Uraianmu</h3>
+            <p>Soal Uraian (No. 26–30) tidak dinilai otomatis. Bandingkan jawabanmu dengan <strong>jawaban model</strong> dan <strong>aturan skor</strong> di bawah ini, lalu tekan skor 0–3 untuk tiap soal dengan jujur. Nilai dan predikat di atas akan diperbarui otomatis.</p>
+            <div id="selfScoreList"></div>
+          </div>
+          <div class="card">
+            <h3>Tabel Rekap Jawaban</h3>
+            <div id="resRecapTop"></div>
+          </div>
+          <div class="card">
+            <h3>Pembahasan Semua Soal</h3>
+            <div id="resReview"></div>
+          </div>
+          <div class="card">
+            <h3>Tabel Rekap Jawaban</h3>
+            <div id="resRecapBottom"></div>
+          </div>
+          <div class="btn-row">
+            <button class="btn" type="button" id="resDownloadBtn">📥 Unduh Rekap Hari Ini (Excel)</button>
+            <button class="btn secondary" type="button" id="resRetryBtn">🔁 Ulangi Simulasi</button>
+            <a class="btn secondary" href="../">← Pilih Mapel</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer id="pageFooter" style="display:none">
+      <div>Dikembangkan oleh Abid Khoirul Ismail, S.Pd</div>
+      <button class="btn secondary" type="button" id="footerAdminBtn">🔐 Admin</button>
+    </footer>
+
+    <!-- ===== MODAL ADMIN ===== -->
+    <div class="modal" id="adminModal" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <h2>🔐 Panel Admin</h2>
+        <div id="adminPinArea">
+          <label for="adminPin">PIN Admin</label>
+          <input type="password" id="adminPin" placeholder="Masukkan PIN" autocomplete="off" />
+          <p class="admin-msg" id="adminPinMsg"></p>
+          <div class="btn-row">
+            <button class="btn" type="button" id="adminLoginBtn">Masuk</button>
+            <button class="btn ghost" type="button" data-close-admin>Tutup</button>
+          </div>
+        </div>
+        <div id="adminMain" style="display:none">
+          <h3>➕ Tambah Pembeli</h3>
+          <label for="adminNama">Nama Pembeli</label>
+          <input type="text" id="adminNama" placeholder="NAMA LENGKAP PEMBELI" />
+          <label for="adminMapel">Mapel</label>
+          <select id="adminMapel">
+            <option value="sd-kelas-2-bahasa-inggris" selected>Bahasa Inggris Kelas II (SD)</option>
+            <option value="sd-kelas-2-pai">PAI Kelas II (SD)</option>
+            <option value="sd-kelas-2-btq">BTQ Kelas II (SD)</option>
+            <option value="sd-kelas-2-bahasa-indonesia">Bahasa Indonesia Kelas II (SD)</option>
+            <option value="sd-kelas-2-matematika">Matematika Kelas II (SD)</option>
+            <option value="sd-kelas-2-pendidikan-pancasila">Pendidikan Pancasila Kelas II (SD)</option>
+            <option value="sd-kelas-2-seni-rupa">Seni Rupa Kelas II (SD)</option>
+            <option value="sd-kelas-2-basa-jawa">Basa Jawa Kelas II (SD)</option>
+            <option value="semua">Semua Mapel</option>
+          </select>
+          <label for="adminKet">Keterangan (opsional)</label>
+          <input type="text" id="adminKet" placeholder="KETERANGAN" />
+          <p class="admin-msg" id="adminMsg"></p>
+          <div class="btn-row">
+            <button class="btn" type="button" id="adminAddBtn">＋ Tambah</button>
+            <button class="btn secondary" type="button" id="adminReloadBtn">↻ Muat Ulang Daftar</button>
+            <button class="btn ghost" type="button" data-close-admin>Tutup</button>
+          </div>
+          <h3>📋 Daftar Pembeli</h3>
+          <div id="adminListWrap"><p>Memuat daftar…</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== MODAL KONFIRMASI SELESAI ===== -->
+    <div class="modal" id="confirmModal" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <h2>✔ Selesaikan Simulasi?</h2>
+        <p id="confirmText">—</p>
+        <div class="btn-row">
+          <button class="btn ghost" type="button" id="confirmCancelBtn">Batal</button>
+          <button class="btn" type="button" id="confirmOkBtn">✔ Ya, Selesai</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== AREA CETAK ===== -->
+    <div class="print-area" id="print-soal"></div>
+    <div class="print-area" id="print-kunci"></div>
+
+    <script>
+    "use strict";
+    var MAPEL_ID = "sd-kelas-2-bahasa-inggris";
+    var MAPEL_LABEL = "Bahasa Inggris Kelas II (SD)";
+    var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRi3IkD-9nmjKvU_luHZ1QqGcWijJ5NgDYAiBUJTK8Tss_EnQ4oqRYFQGLtDix2XLDGg/exec";
+    var STORAGE_KEY = "paket-asas-bing2-nama";
+    var TOTAL_MAX = 45;
+    var SIM_SECONDS = 90 * 60;
+
+    var TEKS_KELAS = "Hello! My name is Sinta. This is my classroom. There are twenty chairs and ten tables in my classroom. There is one whiteboard and one clock on the wall. I have a red bag. My bag is under my table. There is a blue pencil on my table. There is a green pencil under the chair. Budi has a black bag. His bag is on the chair. There are five books on the teacher's table. There is one ruler in my bag.";
+    var GAMBAR_KELAS = "Picture: In the classroom there are 4 chairs and 3 tables. There are 2 bags on the floor: one red bag and one blue bag. The red bag is Sinta's. The blue bag is Budi's.";
+    var GAMBAR_BUKU = "Picture: A book is below the table.";
+
+    var BAB_LABEL = {
+      1: "Bagian 1 • Pilihan Ganda (No. 1–15)",
+      2: "Bagian 2 • Benar / Salah (No. 16–20)",
+      3: "Bagian 3 • Isian Singkat (No. 21–25)",
+      4: "Bagian 4 • Uraian (No. 26–30)"
+    };
+    var TYPE_LABEL = { pg: "Pilihan Ganda", tf: "Benar / Salah", isian: "Isian Singkat", uraian: "Uraian" };
+
+    var QUESTIONS = [
+      {no:1,bab:1,type:"pg",skor:1,q:"Look at the picture. It is a thing we use to write on the whiteboard. What is it?",options:["marker","ruler","eraser","bag"],answer:0,explain:"Spidol (marker) dipakai untuk menulis di papan tulis (whiteboard)."},
+      {no:2,bab:1,type:"pg",skor:1,q:"Look at the picture. We sit on it in the classroom. What is it?",options:["table","chair","whiteboard","clock"],answer:1,explain:"Kita duduk di atas kursi (chair) di kelas."},
+      {no:3,bab:1,type:"pg",skor:1,q:"The word 'eraser' in Bahasa Indonesia means ....",options:["penggaris","pensil","penghapus","tas"],answer:2,explain:"Eraser artinya penghapus."},
+      {no:4,bab:1,type:"pg",skor:1,q:"Look at the picture. It is a thing we use to draw a straight line. What is it?",options:["pencil","bag","chair","ruler"],answer:3,explain:"Penggaris (ruler) dipakai untuk menggambar garis lurus."},
+      {no:5,bab:1,type:"pg",skor:1,q:"Complete the question: '___ this your bag?'",options:["Are","Is","Am","Do"],answer:1,explain:"Kata 'this' menunjuk satu benda, jadi kata tanya yang tepat adalah Is: 'Is this your bag?'"},
+      {no:6,bab:1,type:"pg",skor:1,stimulus:GAMBAR_KELAS,stimLabel:"Picture for questions 6–8",q:"How many chairs are there in the picture?",options:["Two","Three","Four","Five"],answer:2,explain:"Pada gambar tertulis ada 4 chairs (empat kursi)."},
+      {no:7,bab:1,type:"pg",skor:1,stimulus:GAMBAR_KELAS,stimLabel:"Picture for questions 6–8",q:"How many tables are there in the picture?",options:["Three","Four","Two","Five"],answer:0,explain:"Pada gambar tertulis ada 3 tables (tiga meja)."},
+      {no:8,bab:1,type:"pg",skor:1,stimulus:GAMBAR_KELAS,stimLabel:"Picture for questions 6–8",q:"Whose bag is blue?",options:["Sinta's","Andi's","Rina's","Budi's"],answer:3,explain:"Pada gambar: tas merah milik Sinta, tas biru milik Budi."},
+      {no:9,bab:1,type:"pg",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 9–15",q:"Who is the girl in the text?",options:["Maya","Sinta","Lina","Dewi"],answer:1,explain:"Teks diawali: 'Hello! My name is Sinta.' Jadi nama tokoh perempuan itu Sinta."},
+      {no:10,bab:1,type:"pg",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 9–15",q:"What colour is Sinta's bag?",options:["Blue","Black","Red","Green"],answer:2,explain:"Teks: 'I have a red bag.' Tas Sinta berwarna merah."},
+      {no:11,bab:1,type:"pg",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 9–15",q:"Where is Sinta's bag?",options:["Under the table","On the chair","In the bag","On the wall"],answer:0,explain:"Teks: 'My bag is under my table.' Tas Sinta ada di bawah meja."},
+      {no:12,bab:1,type:"pg",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 9–15",q:"What is on Sinta's table?",options:["A green pencil","A red bag","A ruler","A blue pencil"],answer:3,explain:"Teks: 'There is a blue pencil on my table.' Di atas meja Sinta ada pensil biru."},
+      {no:13,bab:1,type:"pg",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 9–15",q:"What colour is Budi's bag?",options:["Red","Black","Blue","Yellow"],answer:1,explain:"Teks: 'Budi has a black bag.' Tas Budi berwarna hitam."},
+      {no:14,bab:1,type:"pg",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 9–15",q:"Where is Budi's bag?",options:["Under the table","In the bag","On the chair","On the wall"],answer:2,explain:"Teks: 'His bag is on the chair.' Tas Budi ada di atas kursi."},
+      {no:15,bab:1,type:"pg",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 9–15",q:"How many books are on the teacher's table?",options:["Five","Four","Three","Six"],answer:0,explain:"Teks: 'There are five books on the teacher's table.' Ada lima buku di atas meja guru."},
+      {no:16,bab:2,type:"tf",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 16–20",q:"'There are twenty chairs in Sinta's classroom.' — Benar atau Salah?",answer:true,explain:"Teks: 'There are twenty chairs ... in my classroom.' Pernyataan benar."},
+      {no:17,bab:2,type:"tf",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 16–20",q:"'Sinta has a black bag.' — Benar atau Salah?",answer:false,explain:"Teks: 'I have a red bag.' Tas Sinta merah, bukan hitam. Pernyataan salah."},
+      {no:18,bab:2,type:"tf",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 16–20",q:"'The blue pencil is under the table.' — Benar atau Salah?",answer:false,explain:"Teks: 'There is a blue pencil on my table.' Pensil biru ada di atas meja, bukan di bawah meja. Pernyataan salah."},
+      {no:19,bab:2,type:"tf",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 16–20",q:"'There are ten tables in the classroom.' — Benar atau Salah?",answer:true,explain:"Teks: 'There are ... ten tables in my classroom.' Pernyataan benar."},
+      {no:20,bab:2,type:"tf",skor:1,stimulus:TEKS_KELAS,stimLabel:"Text for questions 16–20",q:"'Budi has a red bag.' — Benar atau Salah?",answer:false,explain:"Teks: 'Budi has a black bag.' Tas Budi hitam, bukan merah. Pernyataan salah."},
+      {no:21,bab:3,type:"isian",skor:2,q:"The book is ___ the table. (Buku itu ada di atas meja.)",accept:["on"],model:"on",explain:"Buku ada di atas meja → kata depan yang tepat adalah on (di atas)."},
+      {no:22,bab:3,type:"isian",skor:2,q:"The pencil is ___ the bag. (Pensil itu ada di dalam tas.)",accept:["in"],model:"in",explain:"Pensil ada di dalam tas → kata depan yang tepat adalah in (di dalam)."},
+      {no:23,bab:3,type:"isian",skor:2,q:"The cat is ___ the chair. (Kucing itu ada di bawah kursi.)",accept:["under"],model:"under",explain:"Kucing ada di bawah kursi → kata depan yang tepat adalah under (di bawah)."},
+      {no:24,bab:3,type:"isian",skor:2,q:"___ a whiteboard in my classroom. (Ada sebuah papan tulis di kelasku.)",accept:["there is"],model:"There is",explain:"Whiteboard hanya satu (tunggal) → pakai There is."},
+      {no:25,bab:3,type:"isian",skor:2,q:"___ five books on the teacher's table. (Ada lima buku di atas meja guru.)",accept:["there are"],model:"There are",explain:"Buku ada lima (jamak) → pakai There are."},
+      {no:26,bab:4,type:"uraian",skor:3,q:"Susun huruf acak berikut menjadi nama benda di kelas: G – A – B",model:"BAG",rubric:"3 = ejaan BAG benar dan lengkap; 2 = benar tetapi ada 1 huruf salah atau tertukar; 1 = mencoba menjawab tetapi salah; 0 = kosong atau tidak menjawab.",explain:"Huruf G-A-B disusun menjadi BAG (tas)."},
+      {no:27,bab:4,type:"uraian",skor:3,q:"Terjemahkan ke dalam bahasa Inggris: 'Ini adalah sebuah tas.'",model:"This is a bag.",rubric:"3 = terjemahan benar dan lengkap; 2 = benar tetapi ada 1 kata salah; 1 = mencoba menjawab tetapi banyak kata salah; 0 = kosong atau tidak menjawab.",explain:"'Ini' = This, 'adalah' = is, 'sebuah tas' = a bag → 'This is a bag.'"},
+      {no:28,bab:4,type:"uraian",skor:3,q:"Terjemahkan ke dalam bahasa Indonesia: 'The pencil is on the table.'",model:"Pensil itu ada di atas meja.",rubric:"3 = terjemahan benar dan lengkap; 2 = benar tetapi ada 1 kata salah; 1 = mencoba menjawab tetapi banyak kata salah; 0 = kosong atau tidak menjawab.",explain:"'The pencil' = pensil itu, 'is on the table' = ada di atas meja."},
+      {no:29,bab:4,type:"uraian",skor:3,q:"Susun kata acak berikut menjadi kalimat yang benar: is / bag / my / red",model:"My bag is red.",rubric:"3 = susunan benar dan lengkap; 2 = benar tetapi 1 kata salah posisi; 1 = mencoba menjawab tetapi susunan salah; 0 = kosong atau tidak menjawab.",explain:"Urutan benar: My bag (subject) is (verb) red → 'My bag is red.'"},
+      {no:30,bab:4,type:"uraian",skor:3,stimulus:GAMBAR_BUKU,stimLabel:"Picture for question 30",q:"Lengkapi kalimat berikut dengan kata depan yang tepat: 'The book is ___ the table.'",model:"The book is under the table.",rubric:"3 = kalimat lengkap dan kata depan benar; 2 = kata depan benar tetapi ada kesalahan ejaan lain; 1 = mencoba menjawab tetapi kata depan salah; 0 = kosong atau tidak menjawab.",explain:"Pada gambar, buku ada di bawah meja → kata depan yang tepat adalah under."}
+    ];
+
+    var KISI = [
+      ["Classroom Objects","Peserta didik dapat mengidentifikasi nama benda-benda di kelas berdasarkan gambar.","Pilihan Ganda","1, 2, 4","1"],
+      ["Classroom Objects","Peserta didik dapat menerjemahkan kosakata benda di kelas dari bahasa Inggris ke bahasa Indonesia.","Pilihan Ganda","3","1"],
+      ["Classroom Objects","Peserta didik dapat melengkapi kalimat tanya menggunakan is, are, atau it dengan tepat.","Pilihan Ganda","5","1"],
+      ["Classroom Objects","Peserta didik dapat menentukan jumlah benda berdasarkan informasi pada gambar.","Pilihan Ganda","6","1"],
+      ["Classroom Objects","Peserta didik dapat menentukan jumlah benda berdasarkan informasi pada gambar.","Pilihan Ganda","7","1"],
+      ["Classroom Objects","Peserta didik dapat mengidentifikasi benda yang dimiliki seseorang berdasarkan gambar atau informasi.","Pilihan Ganda","8","1"],
+      ["Preposition","Peserta didik dapat menemukan informasi tentang nama tokoh dalam teks sederhana.","Pilihan Ganda","9, 10, 11, 12, 13, 14, 15","1"],
+      ["There is/ There are","Peserta didik dapat menentukan benar atau salah suatu pernyataan berdasarkan teks tentang jumlah benda di kelas.","Benar/Salah","16, 19","1"],
+      ["Classroom Objects","Peserta didik dapat mengidentifikasi informasi tentang kepemilikan tas berdasarkan teks.","Benar/Salah","17, 20","1"],
+      ["Preposition","Peserta didik dapat menentukan kebenaran informasi tentang letak pensil berdasarkan teks.","Benar/Salah","18","1"],
+      ["Preposition","Peserta didik dapat melengkapi kalimat dengan kata depan on, in, dan under sesuai artinya.","Isian Singkat","1, 2, 3 (paket No. 21–23)","2"],
+      ["There is dan There are","Peserta didik dapat melengkapi kalimat menggunakan there is atau there are sesuai jumlah benda.","Isian Singkat","4, 5 (paket No. 24–25)","2"],
+      ["Classroom Objects","Peserta didik dapat menyusun huruf acak menjadi kosakata benda di kelas dengan benar.","Uraian","1 (paket No. 26)","3"],
+      ["Classroom Objects","Peserta didik dapat menerjemahkan kalimat sederhana dari bahasa Indonesia ke bahasa Inggris dan sebaliknya.","Uraian","2, 3 (paket No. 27–28)","3"],
+      ["There is dan There are","Peserta didik dapat menyusun kata acak menjadi kalimat sederhana dengan susunan yang benar.","Uraian","4 (paket No. 29)","3"],
+      ["Preposition","Peserta didik dapat melengkapi kalimat berdasarkan gambar menggunakan kata depan yang tepat.","Uraian","5 (paket No. 30)","3"]
+    ];
+
+    /* ---------- Util ---------- */
+    function el(id){ return document.getElementById(id); }
+    function esc(s){
+      return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+        return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+      });
+    }
+    /* Penanda tebal/miring: [[b]]...[[/b]] dan [[i]]...[[/i]] diubah jadi <b>/<i> SETELAH esc().
+       Sumber kisi-kisi ini tidak menandai tebal/miring pada teks soal apa pun, sehingga
+       tidak ada penanda pada string soal di paket ini; mekanisme ini tetap disiapkan. */
+    function fmt(s){
+      return esc(s)
+        .replace(/\[\[b\]\]/g, "<b>").replace(/\[\[\/b\]\]/g, "</b>")
+        .replace(/\[\[i\]\]/g, "<i>").replace(/\[\[\/i\]\]/g, "</i>");
+    }
+    function normalizeName(s){ return String(s || "").toLowerCase().replace(/\s+/g, " ").trim(); }
+    function normalizeAnswer(s){
+      return String(s || "").toLowerCase().replace(/[.,!?'"]/g, " ").replace(/\s+/g, " ").trim();
+    }
+    function attachUppercase(input){
+      if(!input) return;
+      function up(){ var v = input.value; var u = v.toUpperCase(); if(v !== u){ var pos = input.selectionStart; input.value = u; try{ input.setSelectionRange(pos, pos); }catch(e){} } }
+      input.addEventListener("input", up);
+      input.addEventListener("change", up);
+      input.addEventListener("blur", up);
+    }
+    function letters(i){ return "ABCD".charAt(i); }
+
+    /* ---------- Penilaian ---------- */
+    function isCorrect(q, ans){
+      if(ans === null || ans === undefined) return false;
+      if(q.type === "pg"){ return ans === q.answer; }
+      if(q.type === "tf"){ return ans === q.answer; }
+      if(q.type === "isian"){
+        var n = normalizeAnswer(ans);
+        if(n === "") return false;
+        for(var j=0;j<q.accept.length;j++){ if(n === normalizeAnswer(q.accept[j])) return true; }
+        return false;
+      }
+      /* Uraian: tidak dinilai otomatis; dinilai sendiri 0–3. */
+      return false;
+    }
+    function isAnswered(q, ans){
+      if(ans === null || ans === undefined) return false;
+      if(q.type === "isian" || q.type === "uraian") return String(ans).trim() !== "";
+      return true;
+    }
+    function answerText(q, ans){
+      if(!isAnswered(q, ans)) return "(belum dijawab)";
+      if(q.type === "pg") return letters(ans) + ". " + q.options[ans];
+      if(q.type === "tf") return ans ? "Benar" : "Salah";
+      return String(ans);
+    }
+    function keyText(q){
+      if(q.type === "pg") return letters(q.answer) + ". " + q.options[q.answer];
+      if(q.type === "tf") return q.answer ? "Benar" : "Salah";
+      return q.model;
+    }
+    function predikat(nilai){
+      if(nilai >= 90) return "🌟 Sangat Baik — Luar Biasa!";
+      if(nilai >= 75) return "👍 Baik — Hebat!";
+      if(nilai >= 60) return "🙂 Cukup — Terus Berlatih!";
+      return "💪 Perlu Berlatih Lagi — Kamu Pasti Bisa!";
+    }
+
+    /* ---------- Navigasi ---------- */
+    var ownerName = "";
+    function showView(name){
+      var views = ["beranda","ringkasan","kisi","latihan","simulasi"];
+      views.forEach(function(v){ el("view-" + v).classList.toggle("active", v === name); });
+      var navBtns = document.querySelectorAll("#mainnav button");
+      navBtns.forEach(function(b){ b.classList.toggle("active", b.getAttribute("data-nav") === name); });
+      window.scrollTo(0, 0);
+    }
+    function unlock(name){
+      ownerName = name;
+      el("ownerLabel").textContent = "👤 Paket milik: " + name;
+      el("gate").classList.add("hidden");
+      el("topbar").classList.add("show");
+      el("mainnav").classList.add("show");
+      el("app").style.display = "";
+      el("pageFooter").style.display = "";
+    }
+    function lock(){
+      ownerName = "";
+      try{ sessionStorage.removeItem(STORAGE_KEY); }catch(e){}
+      el("gate").classList.remove("hidden");
+      el("topbar").classList.remove("show");
+      el("mainnav").classList.remove("show");
+      el("app").style.display = "none";
+      el("pageFooter").style.display = "none";
+      el("gateMsg").textContent = "";
+      el("gateMsg").className = "gate-msg";
+    }
+
+    /* ---------- Gerbang ---------- */
+    function checkGate(){
+      var raw = el("gateName").value || "";
+      var norm = normalizeName(raw);
+      var msg = el("gateMsg");
+      msg.className = "gate-msg err";
+      if(norm === ""){ msg.textContent = "Nama belum diisi. Silakan tulis nama lengkap Anda."; return; }
+      if(norm.replace(/\s/g, "").length < 3){ msg.textContent = "Nama terlalu pendek. Tulis nama lengkap Anda (minimal 3 huruf)."; return; }
+      var btn = el("gateOpenBtn");
+      btn.disabled = true;
+      msg.className = "gate-msg";
+      msg.textContent = "Memeriksa nama…";
+      var url = APPS_SCRIPT_URL + "?action=check&nama=" + encodeURIComponent(norm) + "&mapel=" + encodeURIComponent(MAPEL_ID);
+      fetch(url).then(function(r){ return r.json(); }).then(function(data){
+        btn.disabled = false;
+        if(data && data.allowed){
+          var upper = norm.toUpperCase();
+          try{ sessionStorage.setItem(STORAGE_KEY, upper); }catch(e){}
+          unlock(upper);
+        }else{
+          msg.className = "gate-msg err";
+          msg.textContent = "Nama belum terdaftar. Silakan hubungi penjual.";
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        msg.className = "gate-msg err";
+        msg.textContent = "Tidak bisa memeriksa nama. Periksa internet Anda lalu coba lagi.";
+      });
+    }
+
+    /* ---------- Kisi-kisi ---------- */
+    function buildKisi(){
+      var labels = ["Materi","Indikator Soal","Bentuk Soal","No. Soal","Skor"];
+      var html = "";
+      KISI.forEach(function(r){
+        html += "<tr>" + r.map(function(c, i){ return '<td data-label="' + labels[i] + '">' + esc(c) + "</td>"; }).join("") + "</tr>";
+      });
+      html += '<tr class="total-row"><td data-label=""><strong>Total</strong></td><td data-label=""><strong>Total Skor: PG 15 × 1 + Benar/Salah 5 × 1 + Isian Singkat 5 × 2 + Uraian 5 × 3</strong></td><td data-label=""></td><td data-label=""><strong>30 soal</strong></td><td data-label=""><strong>45</strong></td></tr>';
+      el("kisiBody").innerHTML = html;
+    }
+
+    /* ---------- Latihan ---------- */
+    function stimulusHtml(q){
+      if(!q.stimulus) return "";
+      return '<div class="stimulus"><span class="stim-label">' + esc(q.stimLabel || "Teks bacaan") + '</span>' + fmt(q.stimulus) + "</div>";
+    }
+    function feedbackHtml(q, ok){
+      return '<div class="verdict">' + (ok ? "✅ Benar! +" + q.skor + " poin" : "❌ Belum tepat. Skor 0.") + "</div>" +
+        "<p><strong>Kunci:</strong> " + fmt(keyText(q)) + "</p>" +
+        "<p><strong>Pembahasan:</strong> " + fmt(q.explain) + "</p>";
+    }
+    function uraianFeedbackHtml(q){
+      return '<div class="verdict">📖 Jawaban Model</div>' +
+        "<p><strong>Jawaban model:</strong> " + fmt(q.model) + "</p>" +
+        "<p><strong>Pembahasan:</strong> " + fmt(q.explain) + "</p>" +
+        '<div class="rubric"><strong>Aturan skor (nilai sendiri 0–3 dengan jujur):</strong><br />' + fmt(q.rubric) + "</div>" +
+        "<p><em>Soal uraian tidak dinilai otomatis. Bandingkan jawabanmu dengan jawaban model di atas.</em></p>";
+    }
+    function buildLatihan(){
+      var wrap = el("latihanList");
+      wrap.innerHTML = "";
+      var lastBab = 0;
+      QUESTIONS.forEach(function(q){
+        if(q.bab !== lastBab){
+          lastBab = q.bab;
+          var h = document.createElement("div");
+          h.className = "bab-title";
+          h.textContent = BAB_LABEL[q.bab];
+          wrap.appendChild(h);
+        }
+        var card = document.createElement("div");
+        card.className = "qcard";
+        var head = '<div class="qhead"><span class="qno">Soal ' + q.no + '</span><span class="qmeta">' + TYPE_LABEL[q.type] + " • Skor " + q.skor + "</span></div>";
+        card.innerHTML = head + stimulusHtml(q) + '<div class="qtext">' + fmt(q.q) + "</div>";
+        var fb = document.createElement("div");
+        fb.className = "feedback";
+
+        if(q.type === "pg"){
+          var opts = document.createElement("div");
+          opts.className = "opts";
+          q.options.forEach(function(opt, i){
+            var b = document.createElement("button");
+            b.type = "button";
+            b.className = "opt-btn";
+            b.innerHTML = '<span class="letter">' + letters(i) + ".</span><span>" + fmt(opt) + "</span>";
+            b.addEventListener("click", function(){
+              var btns = opts.querySelectorAll(".opt-btn");
+              btns.forEach(function(x, xi){
+                x.disabled = true;
+                if(xi === q.answer) x.classList.add("correct");
+                else if(xi === i) x.classList.add("wrong");
+              });
+              fb.className = "feedback show " + (i === q.answer ? "ok" : "no");
+              fb.innerHTML = feedbackHtml(q, i === q.answer);
+            });
+            opts.appendChild(b);
+          });
+          card.appendChild(opts);
+        } else if(q.type === "tf"){
+          var row = document.createElement("div");
+          row.className = "tf-row";
+          [true, false].forEach(function(val){
+            var b = document.createElement("button");
+            b.type = "button";
+            b.className = "opt-btn";
+            b.textContent = val ? "✔ Benar" : "✘ Salah";
+            b.addEventListener("click", function(){
+              var btns = row.querySelectorAll(".opt-btn");
+              btns.forEach(function(x, xi){
+                x.disabled = true;
+                var xv = xi === 0;
+                if(xv === q.answer) x.classList.add("correct");
+                else if(xv === val) x.classList.add("wrong");
+              });
+              fb.className = "feedback show " + (val === q.answer ? "ok" : "no");
+              fb.innerHTML = feedbackHtml(q, val === q.answer);
+            });
+            row.appendChild(b);
+          });
+          card.appendChild(row);
+        } else if(q.type === "isian"){
+          var inp = document.createElement("input");
+          inp.type = "text";
+          inp.className = "isian-input";
+          inp.placeholder = "Tulis jawabanmu di sini…";
+          inp.setAttribute("aria-label", "Jawaban soal " + q.no);
+          card.appendChild(inp);
+          var chk = document.createElement("button");
+          chk.type = "button";
+          chk.className = "btn";
+          chk.style.marginTop = "10px";
+          chk.textContent = "✔ Periksa";
+          chk.addEventListener("click", function(){
+            var ok = isCorrect(q, inp.value);
+            fb.className = "feedback show " + (ok ? "ok" : "no");
+            fb.innerHTML = feedbackHtml(q, ok);
+          });
+          card.appendChild(chk);
+        } else if(q.type === "uraian"){
+          var ta = document.createElement("textarea");
+          ta.className = "isian-input";
+          ta.placeholder = "Tulis jawabanmu di sini…";
+          ta.setAttribute("aria-label", "Jawaban soal " + q.no);
+          card.appendChild(ta);
+          var modelBtn = document.createElement("button");
+          modelBtn.type = "button";
+          modelBtn.className = "btn";
+          modelBtn.style.marginTop = "10px";
+          modelBtn.textContent = "📖 Lihat Jawaban Model";
+          modelBtn.addEventListener("click", function(){
+            fb.className = "feedback show info";
+            fb.innerHTML = uraianFeedbackHtml(q);
+          });
+          card.appendChild(modelBtn);
+        }
+        card.appendChild(fb);
+        wrap.appendChild(card);
+      });
+    }
+
+    /* ---------- Area cetak ---------- */
+    function buildPrintAreas(){
+      var head = '<h2>Latihan Soal ASAS Bahasa Inggris Kelas II</h2>' +
+        '<p style="margin:2px 0">Paket ASAS Bahasa Inggris Kelas II — SD Negeri Ungaran 01 &amp; SD Negeri Ungaran 05 • Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>' +
+        '<p class="ident">Nama: ______________________________ &nbsp; Kelas: __________ &nbsp; Tanggal: ____________________</p>' +
+        '<p><strong>Jumlah soal: 30 • Skor maksimal: 45</strong></p>';
+      var soalHtml = head, kunciHtml = head.replace("Latihan Soal", "Kunci & Pembahasan Soal");
+      var lastBab = 0, lastBab2 = 0;
+      QUESTIONS.forEach(function(q){
+        if(q.bab !== lastBab){ lastBab = q.bab; soalHtml += "<h3>" + esc(BAB_LABEL[q.bab]) + "</h3>"; }
+        if(q.bab !== lastBab2){ lastBab2 = q.bab; kunciHtml += "<h3>" + esc(BAB_LABEL[q.bab]) + "</h3>"; }
+        var stim = q.stimulus ? '<p style="font-style:italic;border:1px solid #999;padding:8px">' + fmt(q.stimulus) + "</p>" : "";
+        soalHtml += '<div class="p-q">' + stim + "<p><strong>" + q.no + ".</strong> (" + TYPE_LABEL[q.type] + ", skor " + q.skor + ") " + fmt(q.q) + "</p>";
+        kunciHtml += '<div class="p-q">' + stim + "<p><strong>" + q.no + ".</strong> (" + TYPE_LABEL[q.type] + ", skor " + q.skor + ") " + fmt(q.q) + "</p>";
+        if(q.options){
+          soalHtml += '<p class="p-opts">' + q.options.map(function(o, i){ return letters(i) + ". " + fmt(o); }).join("<br />") + "</p>";
+        } else if(q.type === "tf"){
+          soalHtml += '<p class="p-opts">Benar / Salah (lingkari salah satu)</p>';
+        } else if(q.type === "isian"){
+          soalHtml += '<p class="p-opts">Jawaban: ____________________________________________________________</p>';
+        } else {
+          soalHtml += '<p class="p-opts">Jawaban:<br />________________________________________________________________________<br />________________________________________________________________________</p>';
+        }
+        soalHtml += "</div>";
+        if(q.type === "uraian"){
+          kunciHtml += "<p><strong>Jawaban model:</strong> " + fmt(q.model) + "</p><p><strong>Pembahasan:</strong> " + fmt(q.explain) + "</p><p><strong>Aturan skor:</strong> " + fmt(q.rubric) + "</p></div>";
+        } else {
+          kunciHtml += "<p><strong>Kunci:</strong> " + fmt(keyText(q)) + "</p><p><strong>Pembahasan:</strong> " + fmt(q.explain) + "</p></div>";
+        }
+      });
+      el("print-soal").innerHTML = soalHtml;
+      el("print-kunci").innerHTML = kunciHtml;
+    }
+    function doPrint(kind){
+      document.body.setAttribute("data-print", kind);
+      window.print();
+      setTimeout(function(){ document.body.setAttribute("data-print", ""); }, 500);
+    }
+
+    /* ---------- Simulasi ---------- */
+    var sim = { active: false, idx: 0, answers: {}, flags: {}, uraianScores: {}, timeLeft: SIM_SECONDS, timerId: null, lastResult: null, identity: { nama: "", kelas: "", sekolah: "" } };
+
+    function simStart(){
+      var nama = (el("simNama").value || "").trim();
+      var kelas = (el("simKelas").value || "").trim();
+      var sekolah = (el("simSekolah").value || "").trim();
+      var msg = el("simMsg");
+      if(!nama || !kelas || !sekolah){
+        msg.textContent = "Lengkapi dulu Nama Siswa, Kelas, dan Nama Sekolah sebelum memulai.";
+        return;
+      }
+      msg.textContent = "";
+      sim.identity = { nama: nama, kelas: kelas, sekolah: sekolah };
+      sim.active = true;
+      sim.idx = 0;
+      sim.answers = {};
+      sim.flags = {};
+      sim.uraianScores = {};
+      sim.timeLeft = SIM_SECONDS;
+      sim.lastResult = null;
+      el("simStart").style.display = "none";
+      el("simResult").style.display = "none";
+      el("simExam").style.display = "";
+      buildPalette();
+      renderSimQuestion();
+      updateTimer();
+      if(sim.timerId) clearInterval(sim.timerId);
+      sim.timerId = setInterval(function(){
+        sim.timeLeft--;
+        updateTimer();
+        if(sim.timeLeft <= 0){ finishSim(); }
+      }, 1000);
+    }
+    function fmtTime(s){
+      if(s < 0) s = 0;
+      var m = Math.floor(s / 60), d = s % 60;
+      return (m < 10 ? "0" : "") + m + ":" + (d < 10 ? "0" : "") + d;
+    }
+    function updateTimer(){
+      var t = el("simTimer");
+      t.textContent = "⏱️ " + fmtTime(sim.timeLeft);
+      t.classList.toggle("danger", sim.timeLeft <= 300);
+    }
+    function buildPalette(){
+      var pal = el("simPalette");
+      pal.innerHTML = "";
+      QUESTIONS.forEach(function(q, i){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "pal-btn";
+        b.textContent = q.no;
+        b.setAttribute("aria-label", "Ke soal " + q.no);
+        b.addEventListener("click", function(){ collectSimAnswer(); sim.idx = i; renderSimQuestion(); });
+        pal.appendChild(b);
+      });
+      refreshPalette();
+    }
+    function refreshPalette(){
+      var btns = el("simPalette").querySelectorAll(".pal-btn");
+      btns.forEach(function(b, i){
+        var q = QUESTIONS[i];
+        b.classList.toggle("answered", isAnswered(q, sim.answers[q.no]));
+        b.classList.toggle("flagged", !!sim.flags[q.no]);
+        b.classList.toggle("current", i === sim.idx);
+      });
+      el("simFlagBtn").textContent = sim.flags[QUESTIONS[sim.idx].no] ? "🚩 Batal Ragu-ragu" : "🚩 Ragu-ragu";
+    }
+    function collectSimAnswer(){
+      var q = QUESTIONS[sim.idx];
+      var box = el("simQuestion");
+      if(q.type === "isian" || q.type === "uraian"){
+        var inp = box.querySelector(".isian-input");
+        if(inp) sim.answers[q.no] = inp.value;
+      }
+      /* pg dan tf tersimpan langsung saat diklik */
+    }
+    function renderSimQuestion(){
+      var q = QUESTIONS[sim.idx];
+      var box = el("simQuestion");
+      box.innerHTML = "";
+      var card = document.createElement("div");
+      card.className = "qcard";
+      card.innerHTML = '<div class="qhead"><span class="qno">Soal ' + q.no + " dari 30</span>" +
+        '<span class="qmeta">' + esc(BAB_LABEL[q.bab]) + " • " + TYPE_LABEL[q.type] + " • Skor " + q.skor + "</span></div>" +
+        stimulusHtml(q) + '<div class="qtext">' + fmt(q.q) + "</div>";
+      var ans = sim.answers[q.no];
+      if(q.type === "pg"){
+        var opts = document.createElement("div");
+        opts.className = "opts";
+        q.options.forEach(function(opt, i){
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "opt-btn" + (ans === i ? " selected" : "");
+          b.innerHTML = '<span class="letter">' + letters(i) + ".</span><span>" + fmt(opt) + "</span>";
+          b.addEventListener("click", function(){
+            sim.answers[q.no] = i;
+            opts.querySelectorAll(".opt-btn").forEach(function(x, xi){ x.classList.toggle("selected", xi === i); });
+            refreshPalette();
+          });
+          opts.appendChild(b);
+        });
+        card.appendChild(opts);
+      } else if(q.type === "tf"){
+        var row = document.createElement("div");
+        row.className = "tf-row";
+        [true, false].forEach(function(val){
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "opt-btn" + (ans === val ? " selected" : "");
+          b.textContent = val ? "✔ Benar" : "✘ Salah";
+          b.addEventListener("click", function(){
+            sim.answers[q.no] = val;
+            row.querySelectorAll(".opt-btn").forEach(function(x, xi){ x.classList.toggle("selected", (xi === 0) === val); });
+            refreshPalette();
+          });
+          row.appendChild(b);
+        });
+        card.appendChild(row);
+      } else if(q.type === "isian"){
+        var inp = document.createElement("input");
+        inp.type = "text";
+        inp.className = "isian-input";
+        inp.placeholder = "Tulis jawabanmu di sini…";
+        inp.value = ans || "";
+        inp.setAttribute("aria-label", "Jawaban soal " + q.no);
+        inp.addEventListener("input", function(){ sim.answers[q.no] = inp.value; refreshPalette(); });
+        card.appendChild(inp);
+      } else if(q.type === "uraian"){
+        var ta = document.createElement("textarea");
+        ta.className = "isian-input";
+        ta.placeholder = "Tulis jawabanmu di sini… (Soal uraian dinilai sendiri 0–3 setelah simulasi selesai.)";
+        ta.value = ans || "";
+        ta.setAttribute("aria-label", "Jawaban soal " + q.no);
+        ta.addEventListener("input", function(){ sim.answers[q.no] = ta.value; refreshPalette(); });
+        card.appendChild(ta);
+      }
+      box.appendChild(card);
+      el("simPrevBtn").disabled = sim.idx === 0;
+      el("simNextBtn").disabled = sim.idx === QUESTIONS.length - 1;
+      refreshPalette();
+    }
+    function simGo(delta){
+      collectSimAnswer();
+      var n = sim.idx + delta;
+      if(n < 0) n = 0;
+      if(n > QUESTIONS.length - 1) n = QUESTIONS.length - 1;
+      sim.idx = n;
+      renderSimQuestion();
+    }
+    function openConfirm(){
+      collectSimAnswer();
+      var answered = 0, flagged = 0;
+      QUESTIONS.forEach(function(q){
+        if(isAnswered(q, sim.answers[q.no])) answered++;
+        if(sim.flags[q.no]) flagged++;
+      });
+      el("confirmText").textContent = "Terjawab: " + answered + " soal • Belum dijawab: " + (QUESTIONS.length - answered) + " soal • Ditandai ragu-ragu: " + flagged + " soal. Setelah selesai, jawaban tidak dapat diubah lagi. Soal Uraian dinilai sendiri 0–3 pada layar hasil.";
+      el("confirmModal").classList.add("show");
+    }
+    function computeScores(){
+      var per = { pg: 0, tf: 0, isian: 0, uraian: 0 };
+      var perMax = { pg: 0, tf: 0, isian: 0, uraian: 0 };
+      var total = 0;
+      QUESTIONS.forEach(function(q){
+        var s;
+        if(q.type === "uraian"){ s = sim.uraianScores[q.no] || 0; }
+        else { s = isCorrect(q, sim.answers[q.no]) ? q.skor : 0; }
+        per[q.type] += s;
+        perMax[q.type] += q.skor;
+        total += s;
+      });
+      return { per: per, perMax: perMax, total: total, nilai: Math.round(total / TOTAL_MAX * 100) };
+    }
+    function updateSimTotals(){
+      var r = computeScores();
+      var pred = predikat(r.nilai);
+      sim.lastResult = { per: r.per, perMax: r.perMax, total: r.total, nilai: r.nilai, predikat: pred, tanggal: (sim.lastResult && sim.lastResult.tanggal) || new Date() };
+      el("resNilai").textContent = r.nilai;
+      el("resPredikat").textContent = pred;
+      el("resTotal").textContent = r.total + " / " + TOTAL_MAX;
+      var cards = [
+        ["Pilihan Ganda (15 soal × 1)", r.per.pg, r.perMax.pg],
+        ["Benar/Salah (5 soal × 1)", r.per.tf, r.perMax.tf],
+        ["Isian Singkat (5 soal × 2)", r.per.isian, r.perMax.isian],
+        ["Uraian (5 soal × 3, nilai sendiri)", r.per.uraian, r.perMax.uraian]
+      ];
+      el("resTypeGrid").innerHTML = cards.map(function(c){
+        return '<div class="type-card"><b>' + c[1] + " / " + c[2] + "</b>" + esc(c[0]) + "</div>";
+      }).join("");
+      var recap = buildRecapTable();
+      el("resRecapTop").innerHTML = recap;
+      el("resRecapBottom").innerHTML = recap;
+      renderReview();
+    }
+    function finishSim(){
+      if(!sim.active) return;
+      collectSimAnswer();
+      sim.active = false;
+      if(sim.timerId){ clearInterval(sim.timerId); sim.timerId = null; }
+      el("confirmModal").classList.remove("show");
+      el("resNama").textContent = sim.identity.nama || ownerName || "—";
+      el("resKelas").textContent = sim.identity.kelas || "—";
+      el("resSekolah").textContent = sim.identity.sekolah || "—";
+      buildSelfScore();
+      updateSimTotals();
+      el("simExam").style.display = "none";
+      el("simStart").style.display = "none";
+      el("simResult").style.display = "";
+      window.scrollTo(0, 0);
+    }
+    function buildSelfScore(){
+      var wrap = el("selfScoreList");
+      wrap.innerHTML = "";
+      QUESTIONS.filter(function(q){ return q.type === "uraian"; }).forEach(function(q){
+        var a = sim.answers[q.no];
+        var item = document.createElement("div");
+        item.className = "review-item";
+        item.innerHTML =
+          "<p><strong>Soal " + q.no + "</strong> (Uraian, skor maks 3)</p>" +
+          (q.stimulus ? '<div class="stimulus">' + fmt(q.stimulus) + "</div>" : "") +
+          '<p class="qtext">' + fmt(q.q) + "</p>" +
+          "<p><strong>Jawaban kamu:</strong> " + fmt(answerText(q, a)) + "</p>" +
+          "<p><strong>Jawaban model:</strong> " + fmt(q.model) + "</p>" +
+          "<p><strong>Pembahasan:</strong> " + fmt(q.explain) + "</p>" +
+          '<div class="rubric"><strong>Aturan skor:</strong><br />' + fmt(q.rubric) + "</div>";
+        var row = document.createElement("div");
+        row.className = "selfscore-row";
+        var lab = document.createElement("span");
+        lab.innerHTML = "<strong>Skor saya:</strong>";
+        row.appendChild(lab);
+        [0,1,2,3].forEach(function(v){
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "score-btn" + ((sim.uraianScores[q.no] || 0) === v && sim.uraianScores[q.no] !== undefined ? " selected" : "");
+          b.textContent = v;
+          b.addEventListener("click", function(){
+            sim.uraianScores[q.no] = v;
+            row.querySelectorAll(".score-btn").forEach(function(x, xi){ x.classList.toggle("selected", xi === v); });
+            updateSimTotals();
+          });
+          row.appendChild(b);
+        });
+        var note = document.createElement("span");
+        note.style.color = "var(--muted)";
+        note.style.fontSize = ".9rem";
+        note.textContent = "Belum dinilai = 0. Tekan 0–3 dengan jujur.";
+        row.appendChild(note);
+        item.appendChild(row);
+        wrap.appendChild(item);
+      });
+    }
+    function buildRecapTable(){
+      var html = '<table class="recap-table"><thead><tr><th>No.</th><th>Jenis</th><th>Status</th><th>Skor</th></tr></thead><tbody>';
+      QUESTIONS.forEach(function(q){
+        var a = sim.answers[q.no];
+        var cell, skorCell;
+        if(q.type === "uraian"){
+          var s = sim.uraianScores[q.no];
+          if(s === undefined){
+            cell = '<span class="st-self">📝 Belum dinilai sendiri</span>';
+            skorCell = "0 / " + q.skor;
+          } else {
+            cell = '<span class="st-self">📝 Dinilai sendiri: ' + s + " / 3</span>";
+            skorCell = s + " / " + q.skor;
+          }
+        } else {
+          var ok = isCorrect(q, a);
+          cell = ok ? '<span class="st-ok">✅ Benar</span>' : '<span class="st-no">❌ Salah</span>';
+          skorCell = (ok ? q.skor : 0) + " / " + q.skor;
+        }
+        html += "<tr><td>" + q.no + "</td><td>" + TYPE_LABEL[q.type] + "</td><td>" + cell + "</td><td>" + skorCell + "</td></tr>";
+      });
+      html += "</tbody></table>";
+      return html;
+    }
+    function renderReview(){
+      el("resReview").innerHTML = QUESTIONS.map(function(q){
+        var a = sim.answers[q.no];
+        var statusHtml;
+        if(q.type === "uraian"){
+          var s = sim.uraianScores[q.no];
+          statusHtml = s === undefined
+            ? '<span class="st-self">📝 Belum dinilai sendiri (0)</span>'
+            : '<span class="st-self">📝 Dinilai sendiri: ' + s + " / 3</span>";
+        } else {
+          var ok = isCorrect(q, a);
+          statusHtml = '<span class="' + (ok ? "st-ok" : "st-no") + '">' + (ok ? "✅ Benar (+" + q.skor + ")" : "❌ Salah (0)") + "</span>";
+        }
+        return '<div class="review-item">' +
+          "<p><strong>Soal " + q.no + "</strong> (" + TYPE_LABEL[q.type] + ", skor " + q.skor + ") — " + statusHtml + "</p>" +
+          (q.stimulus ? '<div class="stimulus">' + fmt(q.stimulus) + "</div>" : "") +
+          '<p class="qtext">' + fmt(q.q) + "</p>" +
+          "<p><strong>Jawaban kamu:</strong> " + fmt(answerText(q, a)) + "</p>" +
+          (q.type === "uraian"
+            ? "<p><strong>Jawaban model:</strong> " + fmt(q.model) + "</p><p><strong>Pembahasan:</strong> " + fmt(q.explain) + "</p>" + '<div class="rubric"><strong>Aturan skor:</strong><br />' + fmt(q.rubric) + "</div>"
+            : "<p><strong>Kunci:</strong> " + fmt(keyText(q)) + "</p><p><strong>Pembahasan:</strong> " + fmt(q.explain) + "</p>") +
+          "</div>";
+      }).join("");
+    }
+    function downloadRecap(){
+      var r = sim.lastResult;
+      if(!r) return;
+      var d = r.tanggal;
+      var tgl = d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+      var rows = [
+        ["Rekap Hasil Simulasi ASAS"],
+        ["Nama", sim.identity.nama || ownerName || ""],
+        ["Kelas", sim.identity.kelas || ""],
+        ["Sekolah", sim.identity.sekolah || ""],
+        ["Mapel", "Bahasa Inggris"],
+        ["Kelas", "II"],
+        ["Bank Soal", "SD Negeri Ungaran 01 & SD Negeri Ungaran 05"],
+        ["Tanggal", tgl],
+        ["Skor Pilihan Ganda (maks 15)", r.per.pg],
+        ["Skor Benar/Salah (maks 5)", r.per.tf],
+        ["Skor Isian Singkat (maks 10)", r.per.isian],
+        ["Skor Uraian (maks 15, nilai sendiri)", r.per.uraian],
+        ["Total Skor (maks 45)", r.total],
+        ["Nilai (0–100)", r.nilai],
+        ["Predikat", r.predikat]
+      ];
+      var html = '<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"></head><body><table>' +
+        rows.map(function(row){
+          return "<tr>" + row.map(function(c){ return "<td>" + esc(c) + "</td>"; }).join("") + "</tr>";
+        }).join("") + "</table></body></html>";
+      var blob = new Blob(["\ufeff" + html], { type: "application/vnd.ms-excel" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "rekap-asas-bahasa-inggris-kelas-ii-" + tgl + ".xls";
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 400);
+    }
+
+    /* ---------- Admin ---------- */
+    var adminPinValue = "";
+    function openAdmin(){
+      el("adminModal").classList.add("show");
+      el("adminPinMsg").textContent = "";
+      el("adminPinMsg").className = "admin-msg";
+    }
+    function closeAdmin(){
+      el("adminModal").classList.remove("show");
+    }
+    function adminPost(payload){
+      return fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      }).then(function(r){ return r.json(); });
+    }
+    function loadAdminList(){
+      var wrap = el("adminListWrap");
+      wrap.innerHTML = "<p>Memuat daftar…</p>";
+      var url = APPS_SCRIPT_URL + "?action=list&pin=" + encodeURIComponent(adminPinValue);
+      return fetch(url).then(function(r){ return r.json(); }).then(function(data){
+        var items = [];
+        if(Array.isArray(data)) items = data;
+        else if(data && Array.isArray(data.buyers)) items = data.buyers;
+        else if(data && Array.isArray(data.list)) items = data.list;
+        else if(data && Array.isArray(data.rows)) items = data.rows;
+        if(!items.length){ wrap.innerHTML = "<p>Belum ada pembeli terdaftar.</p>"; return; }
+        var html = '<table class="admin-table"><thead><tr><th>Nama</th><th>Mapel</th><th>Tanggal</th><th>Ket</th><th></th></tr></thead><tbody>';
+        items.forEach(function(it, i){
+          var row = (it.row !== undefined && it.row !== null) ? it.row : i;
+          html += "<tr><td>" + esc(it.nama || it.name || "") + "</td><td>" + esc(it.mapel || "") + "</td><td>" +
+            esc(it.tanggal || it.date || "") + "</td><td>" + esc(it.ket || it.keterangan || "") + "</td>" +
+            '<td><button type="button" class="del-btn" data-row="' + esc(row) + '">Hapus</button></td></tr>';
+        });
+        html += "</tbody></table>";
+        wrap.innerHTML = html;
+        wrap.querySelectorAll(".del-btn").forEach(function(b){
+          b.addEventListener("click", function(){
+            var rowVal = b.getAttribute("data-row");
+            var rowNum = parseInt(rowVal, 10);
+            b.disabled = true;
+            adminPost({ action: "remove", pin: adminPinValue, row: isNaN(rowNum) ? rowVal : rowNum }).then(function(){
+              loadAdminList();
+            }).catch(function(){
+              b.disabled = false;
+              el("adminMsg").className = "admin-msg err";
+              el("adminMsg").textContent = "Gagal menghapus. Periksa internet Anda lalu coba lagi.";
+            });
+          });
+        });
+      });
+    }
+    function adminLogin(){
+      var pin = el("adminPin").value || "";
+      var msg = el("adminPinMsg");
+      msg.className = "admin-msg err";
+      if(pin === ""){ msg.textContent = "PIN belum diisi."; return; }
+      msg.className = "admin-msg";
+      msg.textContent = "Memeriksa PIN…";
+      var url = APPS_SCRIPT_URL + "?action=list&pin=" + encodeURIComponent(pin);
+      fetch(url).then(function(r){ return r.json(); }).then(function(data){
+        var ok = data && (data.ok === true || data.allowed === true || Array.isArray(data) || Array.isArray(data.buyers) || Array.isArray(data.list) || Array.isArray(data.rows));
+        if(ok){
+          adminPinValue = pin;
+          msg.textContent = "";
+          el("adminPinArea").style.display = "none";
+          el("adminMain").style.display = "";
+          loadAdminList().catch(function(){
+            el("adminListWrap").innerHTML = "<p>Gagal memuat daftar. Coba tombol Muat Ulang Daftar.</p>";
+          });
+        }else{
+          msg.className = "admin-msg err";
+          msg.textContent = "PIN salah. Silakan coba lagi.";
+        }
+      }).catch(function(){
+        msg.className = "admin-msg err";
+        msg.textContent = "Tidak bisa memeriksa PIN. Periksa internet Anda lalu coba lagi.";
+      });
+    }
+    function adminAdd(){
+      var nama = (el("adminNama").value || "").toUpperCase().replace(/\s+/g, " ").trim();
+      var mapel = el("adminMapel").value;
+      var ket = (el("adminKet").value || "").toUpperCase().replace(/\s+/g, " ").trim();
+      var msg = el("adminMsg");
+      msg.className = "admin-msg err";
+      if(nama.replace(/\s/g, "").length < 3){ msg.textContent = "Nama pembeli belum diisi dengan benar (minimal 3 huruf)."; return; }
+      msg.className = "admin-msg";
+      msg.textContent = "Menyimpan…";
+      adminPost({ action: "add", pin: adminPinValue, nama: nama, mapel: mapel, ket: ket }).then(function(){
+        msg.className = "admin-msg ok";
+        msg.textContent = "✅ Pembeli berhasil ditambahkan.";
+        el("adminNama").value = "";
+        el("adminKet").value = "";
+        loadAdminList();
+      }).catch(function(){
+        msg.className = "admin-msg err";
+        msg.textContent = "Gagal menyimpan. Periksa internet Anda lalu coba lagi.";
+      });
+    }
+
+    /* ---------- Inisialisasi ---------- */
+    document.addEventListener("DOMContentLoaded", function(){
+      buildKisi();
+      buildLatihan();
+      buildPrintAreas();
+
+      attachUppercase(el("gateName"));
+      attachUppercase(el("adminNama"));
+      attachUppercase(el("adminKet"));
+      attachUppercase(el("simNama"));
+      attachUppercase(el("simKelas"));
+      attachUppercase(el("simSekolah"));
+
+      el("gateOpenBtn").addEventListener("click", checkGate);
+      el("gateName").addEventListener("keydown", function(e){ if(e.key === "Enter"){ e.preventDefault(); checkGate(); } });
+      el("gateAdminBtn").addEventListener("click", openAdmin);
+      el("footerAdminBtn").addEventListener("click", openAdmin);
+      el("changeNameBtn").addEventListener("click", lock);
+
+      document.querySelectorAll("#mainnav button").forEach(function(b){
+        b.addEventListener("click", function(){ showView(b.getAttribute("data-nav")); });
+      });
+      document.querySelectorAll("[data-goto]").forEach(function(b){
+        b.addEventListener("click", function(){ showView(b.getAttribute("data-goto")); });
+      });
+
+      el("printRingkasanBtn").addEventListener("click", function(){ doPrint("ringkasan"); });
+      el("printSoalBtn").addEventListener("click", function(){ doPrint("soal"); });
+      el("printKunciBtn").addEventListener("click", function(){ doPrint("kunci"); });
+
+      el("simStartBtn").addEventListener("click", simStart);
+      el("simPrevBtn").addEventListener("click", function(){ simGo(-1); });
+      el("simNextBtn").addEventListener("click", function(){ simGo(1); });
+      el("simFlagBtn").addEventListener("click", function(){
+        var no = QUESTIONS[sim.idx].no;
+        sim.flags[no] = !sim.flags[no];
+        refreshPalette();
+      });
+      el("simFinishBtn").addEventListener("click", openConfirm);
+      el("confirmCancelBtn").addEventListener("click", function(){ el("confirmModal").classList.remove("show"); });
+      el("confirmOkBtn").addEventListener("click", finishSim);
+      el("resRetryBtn").addEventListener("click", function(){
+        el("simResult").style.display = "none";
+        el("simStart").style.display = "";
+        window.scrollTo(0, 0);
+      });
+      el("resDownloadBtn").addEventListener("click", downloadRecap);
+
+      el("adminLoginBtn").addEventListener("click", adminLogin);
+      el("adminPin").addEventListener("keydown", function(e){ if(e.key === "Enter"){ e.preventDefault(); adminLogin(); } });
+      el("adminAddBtn").addEventListener("click", adminAdd);
+      el("adminReloadBtn").addEventListener("click", function(){
+        loadAdminList().catch(function(){
+          el("adminListWrap").innerHTML = "<p>Gagal memuat daftar. Periksa internet Anda lalu coba lagi.</p>";
+        });
+      });
+      document.querySelectorAll("[data-close-admin]").forEach(function(b){
+        b.addEventListener("click", closeAdmin);
+      });
+
+      var saved = null;
+      try{ saved = sessionStorage.getItem(STORAGE_KEY); }catch(e){}
+      if(saved){ unlock(saved); el("simNama").value = saved; }
+    });
+    </script>
+  </body>
+</html>

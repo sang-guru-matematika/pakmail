@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paket ASAS Ujicoba — Matematika SD (Gratis)</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#e0f2fe;color:#0f172a}
+header{background:#0284c7;color:#fff;padding:18px 16px;text-align:center}
+header h1{margin:0;font-size:22px}
+header p{margin:6px 0 0;font-size:14px}
+.badge{display:inline-block;background:#facc15;color:#422006;font-weight:bold;padding:4px 12px;border-radius:20px;margin-top:10px;font-size:14px}
+nav{background:#0369a1;display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:8px}
+nav button{background:transparent;border:0;color:#fff;font-size:15px;font-weight:bold;padding:10px 14px;cursor:pointer;border-radius:8px}
+nav button:hover,nav button.active{background:#075985}
+main{max-width:900px;margin:0 auto;padding:16px}
+.card{background:#fff;border-radius:12px;padding:18px;margin-bottom:16px;box-shadow:0 2px 8px rgba(2,132,199,.15)}
+h2{color:#0369a1;margin-top:0}
+h3{color:#0369a1}
+.btn{background:#0284c7;color:#fff;border:0;padding:11px 18px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;margin:4px 4px 4px 0}
+.btn:hover{background:#0369a1}
+.btn.green{background:#16a34a}.btn.green:hover{background:#15803d}
+.btn.grey{background:#64748b}.btn.grey:hover{background:#475569}
+.btn.light{background:#e0f2fe;color:#0369a1;border:1px solid #0284c7}
+input[type=text],textarea,select{width:100%;padding:10px;border:1px solid #94a3b8;border-radius:8px;font-size:15px;margin:4px 0 10px}
+label{font-weight:bold;font-size:14px}
+.q{border:1px solid #bae6fd;border-radius:10px;padding:14px;margin-bottom:14px;background:#f0f9ff}
+.q p{margin-top:0;font-weight:bold}
+.opt{display:block;padding:8px 10px;border-radius:8px;cursor:pointer;margin:4px 0}
+.opt:hover{background:#e0f2fe}
+.opt input{margin-right:8px}
+.correct{background:#dcfce7 !important}
+.wrong{background:#fee2e2 !important}
+.pembahasan{background:#fef9c3;border-radius:8px;padding:10px;margin-top:10px;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid #94a3b8;padding:8px;text-align:left}
+th{background:#0284c7;color:#fff}
+.palette{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.palette button{width:44px;height:44px;border-radius:8px;border:2px solid #0284c7;background:#fff;font-weight:bold;cursor:pointer;font-size:15px}
+.palette button.answered{background:#16a34a;color:#fff;border-color:#16a34a}
+.palette button.ragu{background:#facc15;border-color:#eab308}
+.palette button.current{outline:3px solid #0369a1}
+.timer{font-size:22px;font-weight:bold;color:#b91c1c;text-align:center;background:#fff;border-radius:10px;padding:10px;margin-bottom:12px}
+.scorebox{background:#dcfce7;border-radius:10px;padding:14px;font-size:16px}
+footer{text-align:center;padding:20px 12px 30px;color:#334155;font-size:14px}
+.hidden{display:none}
+@media print{nav,header .badge,.noprint{display:none !important}body{background:#fff}}
+</style>
+</head>
+<body>
+<header>
+<h1>📘 Paket ASAS Ujicoba — Matematika SD</h1>
+<p>Latihan &amp; Simulasi ASAS &bull; Semester 1 (Ganjil) &bull; Kurikulum Merdeka</p>
+<span class="badge">UJICOBA — Gratis, tanpa daftar nama</span>
+<p style="font-size:13px">Siapa pun boleh membuka dan mencoba paket ini — tidak perlu mendaftar nama, tidak ada kunci, tidak ada panel admin.</p>
+</header>
+<nav>
+<button data-view="beranda" class="active" onclick="show('beranda',this)">Beranda</button>
+<button data-view="ringkasan" onclick="show('ringkasan',this)">Ringkasan</button>
+<button data-view="kisi" onclick="show('kisi',this)">Kisi-kisi</button>
+<button data-view="latihan" onclick="show('latihan',this)">Latihan</button>
+<button data-view="simulasi" onclick="show('simulasi',this)">Simulasi</button>
+</nav>
+<main>
+
+<!-- BERANDA -->
+<section id="view-beranda" class="card">
+<h2>Selamat Datang di Paket Ujicoba! 🎉</h2>
+<p><strong>UJICOBA — Gratis, tanpa daftar nama.</strong> Paket ini adalah contoh gratis dari Paket Soal ASAS Matematika SD. Coba dulu, rasakan manfaatnya, baru putuskan untuk membeli paket lengkapnya.</p>
+<p>Paket ujicoba ini berisi materi <strong>Matematika SD tingkat mudah</strong> — campuran empat topik: <strong>bilangan, operasi hitung, bangun datar, dan pengukuran</strong>. Cocok untuk pemanasan sebelum ASAS.</p>
+<ul>
+<li><strong>Ringkasan</strong> — ringkasan singkat 4 topik.</li>
+<li><strong>Kisi-kisi</strong> — daftar soal, bentuk soal, dan skor.</li>
+<li><strong>Latihan (10 soal)</strong> — 8 Pilihan Ganda + 1 Isian + 1 Uraian, lengkap dengan kunci dan pembahasan.</li>
+<li><strong>Simulasi (10 soal)</strong> — 8 Pilihan Ganda + 1 Isian + 1 Uraian, <strong>timer 30 menit</strong>, palet soal, tombol Ragu-ragu, dan predikat.</li>
+</ul>
+<p><strong>Cara penilaian:</strong> Pilihan Ganda = 1 poin, Isian = 2 poin, Uraian = 3 poin. Skor maksimal tiap bagian = <strong>13 poin</strong>. Nilai = skor &divide; 13 &times; 100.</p>
+<p><strong>Predikat:</strong> 90–100 Sangat Baik &bull; 75–89 Baik &bull; 60–74 Cukup &bull; di bawah 60 Perlu Latihan Lagi.</p>
+<button class="btn" onclick="show('ringkasan',document.querySelector('[data-view=ringkasan]'))">📖 Mulai dari Ringkasan</button>
+<button class="btn green" onclick="show('latihan',document.querySelector('[data-view=latihan]'))">✏️ Langsung Latihan</button>
+<button class="btn grey" onclick="show('simulasi',document.querySelector('[data-view=simulasi]'))">⏱️ Coba Simulasi 30 Menit</button>
+<p style="font-size:14px;background:#fef9c3;padding:10px;border-radius:8px">💡 <strong>Suka paket ini?</strong> Paket lengkap (40 soal, semua bab) tersedia per mapel — hubungi penjual melalui WhatsApp yang tertera di beranda toko <strong>pakmail.web.id</strong>.</p>
+</section>
+
+<!-- RINGKASAN -->
+<section id="view-ringkasan" class="card hidden">
+<h2>Ringkasan — Matematika SD (4 Topik)</h2>
+<p><strong>Materi yang diujikan:</strong> (1) Bilangan, (2) Operasi Hitung, (3) Bangun Datar, (4) Pengukuran. Ringkasan singkat di bawah ini mencakup keempat materi tersebut.</p>
+<div id="print-ringkasan">
+<h3>1. Bilangan</h3>
+<p>Bilangan cacah sampai ribuan: membaca, menulis, membandingkan, dan mengurutkan bilangan. Contoh: 125 dibaca "seratus dua puluh lima". Bilangan genap habis dibagi 2 (2, 4, 6, 8, …); bilangan ganjil sisanya 1 (1, 3, 5, 7, …).</p>
+<h3>2. Operasi Hitung</h3>
+<p>Penjumlahan, pengurangan, perkalian, dan pembagian bilangan cacah. Ingat: perkalian dan pembagian dikerjakan sebelum penjumlahan dan pengurangan. Contoh: 20 &times; 5 − 10 = 100 − 10 = 90. Hafalkan perkalian dasar (misalnya 7 &times; 8 = 56 dan 9 &times; 6 = 54) agar cepat.</p>
+<h3>3. Bangun Datar</h3>
+<p><strong>Persegi:</strong> keliling = 4 &times; sisi; luas = sisi &times; sisi. Contoh: sisi 7 cm → luas 49 cm². <strong>Persegi panjang:</strong> keliling = 2 &times; (panjang + lebar); luas = panjang &times; lebar. Contoh: 12 cm &times; 5 cm → luas 60 cm². <strong>Segitiga:</strong> mempunyai 3 sisi dan 3 sudut; keliling segitiga sama sisi = 3 &times; sisi.</p>
+<h3>4. Pengukuran</h3>
+<p><strong>Panjang:</strong> 1 m = 100 cm; 1 km = 1.000 m. <strong>Berat:</strong> 1 kg = 1.000 gram. <strong>Waktu:</strong> 1 jam = 60 menit; 1 menit = 60 detik. Contoh: 3 jam = 3 &times; 60 = 180 menit; 2 kg = 2.000 gram.</p>
+</div>
+<button class="btn noprint" onclick="doPrint('ringkasan')">🖨️ Cetak Ringkasan</button>
+</section>
+
+<!-- KISI-KISI -->
+<section id="view-kisi" class="card hidden">
+<h2>Kisi-kisi — Paket Ujicoba Matematika SD</h2>
+<p>Total tiap bagian: <strong>10 soal — skor maksimal 13</strong> (PG 8 &times; 1 + Isian 1 &times; 2 + Uraian 1 &times; 3). Tabel di bawah ini adalah kisi-kisi Latihan; Simulasi memakai pola yang sama (nomor, materi, dan bentuk soal sama — soalnya berbeda).</p>
+<table>
+<tr><th>No.</th><th>Materi</th><th>Indikator</th><th>Bentuk Soal</th><th>Skor</th></tr>
+<tr><td>1</td><td>Operasi Hitung</td><td>Menentukan hasil penjumlahan bilangan cacah</td><td>Pilihan Ganda</td><td>1</td></tr>
+<tr><td>2</td><td>Operasi Hitung</td><td>Menentukan hasil perkalian bilangan cacah</td><td>Pilihan Ganda</td><td>1</td></tr>
+<tr><td>3</td><td>Bangun Datar</td><td>Menentukan keliling persegi</td><td>Pilihan Ganda</td><td>1</td></tr>
+<tr><td>4</td><td>Operasi Hitung</td><td>Menentukan hasil pengurangan bilangan cacah</td><td>Pilihan Ganda</td><td>1</td></tr>
+<tr><td>5</td><td>Bilangan</td><td>Menentukan hasil penjumlahan pecahan sederhana</td><td>Pilihan Ganda</td><td>1</td></tr>
+<tr><td>6</td><td>Bangun Datar</td><td>Menentukan luas persegi panjang</td><td>Pilihan Ganda</td><td>1</td></tr>
+<tr><td>7</td><td>Pengukuran</td><td>Menentukan kesetaraan satuan waktu (jam ke menit)</td><td>Pilihan Ganda</td><td>1</td></tr>
+<tr><td>8</td><td>Pengukuran</td><td>Menentukan kesetaraan satuan berat (kg ke gram)</td><td>Pilihan Ganda</td><td>1</td></tr>
+<tr><td>9</td><td>Operasi Hitung</td><td>Menentukan hasil perkalian bilangan cacah</td><td>Isian Singkat</td><td>2</td></tr>
+<tr><td>10</td><td>Bangun Datar</td><td>Menyelesaikan soal cerita keliling persegi panjang</td><td>Uraian</td><td>3</td></tr>
+<tr><td colspan="4" style="text-align:right"><strong>Total</strong></td><td><strong>13</strong></td></tr>
+</table>
+<p style="font-size:14px">Berlaku sama untuk <strong>Latihan</strong> dan <strong>Simulasi</strong> (soal Simulasi berbeda dari soal Latihan). Nilai = skor &divide; 13 &times; 100.</p>
+<button class="btn noprint" onclick="doPrint('kisi')">🖨️ Cetak Kisi-kisi</button>
+</section>
+
+<!-- LATIHAN -->
+<section id="view-latihan" class="card hidden">
+<h2>Latihan — 10 Soal (Matematika SD)</h2>
+<p>Jawab semua soal, lalu tekan <strong>Periksa Jawaban</strong>. Kunci dan pembahasan muncul di bawah setiap soal. Skor maksimal 13.</p>
+<div id="latihan-soal"></div>
+<button class="btn green" onclick="periksaLatihan()">✅ Periksa Jawaban</button>
+<button class="btn light" onclick="doPrint('latihan')">🖨️ Cetak Soal</button>
+<div id="latihan-hasil" style="margin-top:14px"></div>
+<div id="latihan-kunci" style="margin-top:14px"></div>
+<p style="margin-top:16px"><a class="btn grey" href="../" style="text-decoration:none;display:inline-block">← Kembali</a></p>
+</section>
+
+<!-- SIMULASI -->
+<section id="view-simulasi" class="card hidden">
+<h2>Simulasi ASAS — 10 Soal • 30 Menit</h2>
+<div id="sim-identitas">
+<p>Isi identitasmu (bebas — ini hanya ujicoba, tanpa daftar nama):</p>
+<label>Nama Siswa</label>
+<input type="text" id="sim-nama" placeholder="Contoh: Budi Santoso">
+<label>Kelas</label>
+<input type="text" id="sim-kelas" placeholder="Contoh: 4A">
+<label>Nama Sekolah (opsional)</label>
+<input type="text" id="sim-sekolah" placeholder="Contoh: SD Negeri Ungaran 01 (boleh dikosongkan)">
+<button class="btn green" onclick="mulaiSimulasi()">▶️ Mulai Simulasi (30 Menit)</button>
+</div>
+<div id="sim-jalan" class="hidden">
+<div class="timer">⏱️ Sisa waktu: <span id="sim-timer">30:00</span></div>
+<p id="sim-identitas-tampil" style="font-size:14px"></p>
+<div class="palette" id="sim-palette"></div>
+<div id="sim-soal"></div>
+<button class="btn light" onclick="tandaiRagu()">🚩 Ragu-ragu</button>
+<button class="btn" onclick="simSebelumnya()">⬅️ Sebelumnya</button>
+<button class="btn" onclick="simBerikutnya()">Berikutnya ➡️</button>
+<button class="btn green" onclick="selesaiSimulasi()">✅ Selesai &amp; Lihat Nilai</button>
+</div>
+<div id="sim-hasil" class="hidden"></div>
+</section>
+
+</main>
+<footer>Dikembangkan oleh Abid Khoirul Ismail, S.Pd<br>Paket Ujicoba Gratis — Matematika SD • pakmail.web.id</footer>
+<script>
+// ===== DATA SOAL =====
+// Kunci PG Latihan: B,A,C,D,A,C,D,B  -> A2 B2 C2 D2
+// Kunci PG Simulasi: A,C,B,D,A,D,C,B -> A2 B2 C2 D2
+const LAT=[
+{q:"1. Hasil dari 125 + 237 adalah …",type:"pg",opts:["352","362","372","342"],key:1,pen:"125 + 237 = 362. Jumlahkan satuan dulu: 5 + 7 = 12 (tulis 2, simpan 1)."},
+{q:"2. Hasil dari 7 × 8 adalah …",type:"pg",opts:["56","54","48","64"],key:0,pen:"7 × 8 = 56 (hafalan perkalian 7)."},
+{q:"3. Keliling persegi dengan panjang sisi 9 cm adalah …",type:"pg",opts:["18 cm","27 cm","36 cm","81 cm"],key:2,pen:"Keliling persegi = 4 × sisi = 4 × 9 = 36 cm."},
+{q:"4. Hasil dari 500 − 175 adalah …",type:"pg",opts:["315","335","375","325"],key:3,pen:"500 − 175 = 325."},
+{q:"5. Hasil dari 1/2 + 1/4 adalah …",type:"pg",opts:["3/4","2/4","1/2","1"],key:0,pen:"Samakan penyebut: 1/2 = 2/4, jadi 2/4 + 1/4 = 3/4."},
+{q:"6. Luas persegi panjang dengan panjang 12 cm dan lebar 5 cm adalah …",type:"pg",opts:["34 cm²","50 cm²","60 cm²","70 cm²"],key:2,pen:"Luas = panjang × lebar = 12 × 5 = 60 cm²."},
+{q:"7. 3 jam sama dengan … menit.",type:"pg",opts:["120 menit","150 menit","200 menit","180 menit"],key:3,pen:"1 jam = 60 menit, jadi 3 jam = 3 × 60 = 180 menit."},
+{q:"8. 2 kg sama dengan … gram.",type:"pg",opts:["200 gram","2.000 gram","20 gram","20.000 gram"],key:1,pen:"1 kg = 1.000 gram, jadi 2 kg = 2 × 1.000 = 2.000 gram."},
+{q:"9. Hasil dari 15 × 4 adalah … (tulis angkanya saja)",type:"isian",answer:"60",pen:"15 × 4 = 60."},
+{q:"10. Sebuah taman berbentuk persegi panjang dengan panjang 10 m dan lebar 6 m. Berapa keliling taman itu? Tuliskan caramu!",type:"uraian",model:"Keliling = 2 × (panjang + lebar) = 2 × (10 + 6) = 2 × 16 = 32 m. Jadi, keliling taman adalah 32 m.",rubrik:"Skor 3: cara benar + jawaban benar (32 m). Skor 2: cara benar, jawaban salah / tidak lengkap. Skor 1: ada usaha menulis cara/jawaban. Skor 0: kosong atau salah total."}
+];
+const SIM=[
+{q:"1. Hasil dari 240 + 135 adalah …",type:"pg",opts:["375","365","385","345"],key:0,pen:"240 + 135 = 375."},
+{q:"2. Hasil dari 9 × 6 adalah …",type:"pg",opts:["48","63","54","45"],key:2,pen:"9 × 6 = 54."},
+{q:"3. Luas persegi dengan panjang sisi 7 cm adalah …",type:"pg",opts:["14 cm²","49 cm²","28 cm²","35 cm²"],key:1,pen:"Luas persegi = sisi × sisi = 7 × 7 = 49 cm²."},
+{q:"4. Hasil dari 1.000 − 248 adalah …",type:"pg",opts:["742","762","758","752"],key:3,pen:"1.000 − 248 = 752."},
+{q:"5. 1 meter sama dengan … cm.",type:"pg",opts:["100 cm","10 cm","1.000 cm","10.000 cm"],key:0,pen:"1 m = 100 cm."},
+{q:"6. Hasil dari 36 ÷ 4 adalah …",type:"pg",opts:["6","8","12","9"],key:3,pen:"36 ÷ 4 = 9, karena 4 × 9 = 36."},
+{q:"7. Keliling segitiga sama sisi dengan panjang sisi 8 cm adalah …",type:"pg",opts:["16 cm","20 cm","24 cm","32 cm"],key:2,pen:"Keliling = 3 × sisi = 3 × 8 = 24 cm."},
+{q:"8. Hasil dari 5 × 9 − 5 adalah …",type:"pg",opts:["35","40","45","50"],key:1,pen:"Perkalian dulu: 5 × 9 = 45, lalu 45 − 5 = 40."},
+{q:"9. Hasil dari 20 × 5 − 10 adalah … (tulis angkanya saja)",type:"isian",answer:"90",pen:"Perkalian dulu: 20 × 5 = 100, lalu 100 − 10 = 90."},
+{q:"10. Sebuah kebun berbentuk persegi panjang dengan panjang 8 cm (pada gambar) dan lebar 5 cm. Berapa luas kebun itu? Tuliskan caramu!",type:"uraian",model:"Luas = panjang × lebar = 8 × 5 = 40 cm². Jadi, luas kebun adalah 40 cm².",rubrik:"Skor 3: cara benar + jawaban benar (40 cm²). Skor 2: cara benar, jawaban salah / tidak lengkap. Skor 1: ada usaha menulis cara/jawaban. Skor 0: kosong atau salah total."}
+];
+const HURUF=["A","B","C","D"];
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function predikat(n){return n>=90?"Sangat Baik":n>=75?"Baik":n>=60?"Cukup":"Perlu Latihan Lagi";}
+function norm(s){return String(s||"").replace(/\s+/g,"").toLowerCase().replace(",",".");}
+
+// ===== NAVIGASI =====
+function show(id,btn){
+["beranda","ringkasan","kisi","latihan","simulasi"].forEach(v=>document.getElementById("view-"+v).classList.add("hidden"));
+document.getElementById("view-"+id).classList.remove("hidden");
+document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+if(btn)btn.classList.add("active"); else {const b=document.querySelector('[data-view="'+id+'"]'); if(b)b.classList.add("active");}
+window.scrollTo(0,0);
+}
+function doPrint(bagian){
+const map={ringkasan:"ringkasan",kisi:"kisi",latihan:"latihan"};
+if(map[bagian])show(map[bagian],document.querySelector('[data-view="'+map[bagian]+'"]'));
+setTimeout(()=>window.print(),300);
+}
+
+// ===== LATIHAN =====
+function renderLatihan(){
+const w=document.getElementById("latihan-soal");let h="";
+LAT.forEach((s,i)=>{
+h+='<div class="q" id="lat-q'+i+'"><p>'+esc(s.q)+'</p>';
+if(s.type==="pg"){s.opts.forEach((o,j)=>{h+='<label class="opt"><input type="radio" name="lat'+i+'" value="'+j+'"> '+HURUF[j]+'. '+esc(o)+'</label>';});}
+else if(s.type==="isian"){h+='<input type="text" id="lat-in'+i+'" placeholder="Tulis jawabanmu di sini">';}
+else{h+='<textarea id="lat-ur'+i+'" rows="3" placeholder="Tuliskan caramu di sini…"></textarea><label>Skor uraianmu (nilai sendiri 0–3, lihat jawaban model di bawah setelah diperiksa):</label><select id="lat-urs'+i+'"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>';}
+h+='<div class="pembahasan hidden" id="lat-pen'+i+'"></div></div>';
+});
+w.innerHTML=h;
+}
+function periksaLatihan(){
+let pg=0,isian=0,uraian=0;
+LAT.forEach((s,i)=>{
+const pen=document.getElementById("lat-pen"+i);pen.classList.remove("hidden");
+if(s.type==="pg"){
+const r=document.querySelector('input[name="lat'+i+'"]:checked');
+const benar=r&&parseInt(r.value)===s.key; if(benar)pg+=1;
+document.querySelectorAll('input[name="lat'+i+'"]').forEach(inp=>{
+const lab=inp.parentElement;
+if(parseInt(inp.value)===s.key)lab.classList.add("correct");
+else if(inp.checked)lab.classList.add("wrong");
+});
+pen.innerHTML="<strong>"+(benar?"✅ Benar (+1)":"❌ Salah — kunci: "+HURUF[s.key]+" ("+esc(s.opts[s.key])+")")+"</strong><br>"+esc(s.pen);
+}else if(s.type==="isian"){
+const v=document.getElementById("lat-in"+i).value;const benar=norm(v)===norm(s.answer); if(benar)isian+=2;
+pen.innerHTML="<strong>"+(benar?"✅ Benar (+2)":"❌ Salah — kunci: "+esc(s.answer))+"</strong><br>"+esc(s.pen);
+}else{
+const sk=parseInt(document.getElementById("lat-urs"+i).value)||0;uraian+=sk;
+pen.innerHTML="<strong>Jawaban model:</strong> "+esc(s.model)+"<br><strong>Aturan skor:</strong> "+esc(s.rubrik)+"<br><strong>Skor uraianmu: "+sk+" / 3</strong>";
+}
+});
+const total=pg+isian+uraian;const nilai=Math.round(total/13*100);
+document.getElementById("latihan-hasil").innerHTML='<div class="scorebox"><strong>🎉 Hasil Latihanmu</strong><br>Pilihan Ganda: '+pg+' / 8 &nbsp;•&nbsp; Isian: '+isian+' / 2 &nbsp;•&nbsp; Uraian: '+uraian+' / 3<br><strong>Total: '+total+' / 13 &nbsp;•&nbsp; Nilai: '+nilai+' &nbsp;•&nbsp; Predikat: '+predikat(nilai)+'</strong></div>';
+let kunci="<h3>🔑 Kunci &amp; Pembahasan Lengkap</h3><table><tr><th>No.</th><th>Kunci</th><th>Pembahasan</th></tr>";
+LAT.forEach((s,i)=>{kunci+="<tr><td>"+(i+1)+"</td><td>"+(s.type==="pg"?HURUF[s.key]:s.type==="isian"?esc(s.answer):"Lihat jawaban model")+"</td><td>"+esc(s.pen||s.model)+"</td></tr>";});
+kunci+="</table>";
+document.getElementById("latihan-kunci").innerHTML=kunci;
+}
+renderLatihan();
+
+// ===== SIMULASI =====
+let simIdx=0,simAns={},simRagu={},simTimerInt=null,simSisa=30*60;
+function mulaiSimulasi(){
+const nama=document.getElementById("sim-nama").value.trim();
+const kelas=document.getElementById("sim-kelas").value.trim();
+if(!nama){alert("Isi Nama Siswa dulu ya.");return;}
+if(!kelas){alert("Isi Kelas dulu ya.");return;}
+const sekolah=document.getElementById("sim-sekolah").value.trim();
+document.getElementById("sim-identitas").classList.add("hidden");
+document.getElementById("sim-jalan").classList.remove("hidden");
+document.getElementById("sim-identitas-tampil").innerHTML="<strong>Nama:</strong> "+esc(nama.toUpperCase())+" &nbsp;•&nbsp; <strong>Kelas:</strong> "+esc(kelas)+" &nbsp;•&nbsp; <strong>Sekolah:</strong> "+esc(sekolah||"-");
+simIdx=0;simAns={};simRagu={};simSisa=30*60;
+renderSimPalette();renderSimSoal();
+clearInterval(simTimerInt);
+simTimerInt=setInterval(()=>{
+simSisa--;
+const m=Math.floor(simSisa/60),d=simSisa%60;
+document.getElementById("sim-timer").textContent=String(m).padStart(2,"0")+":"+String(d).padStart(2,"0");
+if(simSisa<=0){clearInterval(simTimerInt);alert("Waktu habis! Jawabanmu dinilai sekarang.");selesaiSimulasi();}
+},1000);
+}
+function renderSimPalette(){
+let h="";for(let i=0;i<10;i++){const cls=(simAns[i]!==undefined&&simAns[i]!=="")?"answered":(simRagu[i]?"ragu":"");h+='<button class="'+cls+(i===simIdx?" current":"")+'" onclick="simKe('+i+')">'+(i+1)+'</button>';}
+document.getElementById("sim-palette").innerHTML=h;
+}
+function simKe(i){simIdx=i;renderSimPalette();renderSimSoal();}
+function simSebelumnya(){if(simIdx>0)simKe(simIdx-1);}
+function simBerikutnya(){if(simIdx<9)simKe(simIdx+1);}
+function tandaiRagu(){simRagu[simIdx]=!simRagu[simIdx];renderSimPalette();}
+function simpanSim(){
+const s=SIM[simIdx];
+if(s.type==="pg"){const r=document.querySelector('input[name="simpg"]:checked');simAns[simIdx]=r?parseInt(r.value):undefined;}
+else if(s.type==="isian"){simAns[simIdx]=document.getElementById("sim-in").value;}
+else{simAns[simIdx]=document.getElementById("sim-ur").value;}
+renderSimPalette();
+}
+function renderSimSoal(){
+const s=SIM[simIdx];const w=document.getElementById("sim-soal");let h='<div class="q"><p>Soal '+(simIdx+1)+' dari 10 — '+esc(s.q)+'</p>';
+if(s.type==="pg"){s.opts.forEach((o,j)=>{const ch=simAns[simIdx]===j?"checked":"";h+='<label class="opt"><input type="radio" name="simpg" value="'+j+'" '+ch+' onchange="simpanSim()"> '+HURUF[j]+'. '+esc(o)+'</label>';});}
+else if(s.type==="isian"){h+='<input type="text" id="sim-in" value="'+esc(simAns[simIdx]||"")+'" placeholder="Tulis jawabanmu di sini" oninput="simpanSim()">';}
+else{h+='<textarea id="sim-ur" rows="3" placeholder="Tuliskan caramu di sini…" oninput="simpanSim()">'+esc(simAns[simIdx]||"")+'</textarea>';}
+h+="</div>";w.innerHTML=h;
+}
+function selesaiSimulasi(){
+clearInterval(simTimerInt);
+let pg=0,isian=0,detail="";
+SIM.forEach((s,i)=>{
+if(s.type==="pg"){const ok=simAns[i]===s.key;if(ok)pg+=1;detail+="<tr><td>"+(i+1)+"</td><td>"+(ok?"✅ Benar (+1)":"❌ Salah — kunci "+HURUF[s.key])+"</td><td>"+esc(s.pen)+"</td></tr>";}
+else if(s.type==="isian"){const ok=norm(simAns[i])===norm(s.answer);if(ok)isian+=2;detail+="<tr><td>"+(i+1)+"</td><td>"+(ok?"✅ Benar (+2)":"❌ Salah — kunci "+esc(s.answer))+"</td><td>"+esc(s.pen)+"</td></tr>";}
+else{detail+="<tr><td>"+(i+1)+"</td><td>Uraian — nilai sendiri di bawah</td><td>"+esc(s.model)+"</td></tr>";}
+});
+document.getElementById("sim-jalan").classList.add("hidden");
+const hasil=document.getElementById("sim-hasil");hasil.classList.remove("hidden");
+hasil.innerHTML='<h2>🏆 Hasil Simulasi</h2>'
++'<div class="scorebox">Pilihan Ganda: <strong>'+pg+' / 8</strong> &nbsp;•&nbsp; Isian: <strong>'+isian+' / 2</strong><br>'
++'Skor sementara (tanpa Uraian): <strong>'+(pg+isian)+' / 10</strong> — tambah skor Uraian di bawah untuk total akhir (maks. 13).</div>'
++'<h3>📝 Nilai Sendiri Soal Uraianmu</h3>'
++'<p><strong>Soal 10:</strong> '+esc(SIM[9].q)+'</p>'
++'<p><strong>Jawaban model:</strong> '+esc(SIM[9].model)+'</p>'
++'<p><strong>Aturan skor:</strong> '+esc(SIM[9].rubrik)+'</p>'
++'<p><strong>Jawabanmu:</strong> '+esc(simAns[9]||"(kosong)")+'</p>'
++'<label>Pilih skor Uraianmu (0–3) — jujur ya!</label>'
++'<select id="sim-urskor"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>'
++'<button class="btn green" onclick="hitungSimAkhir('+pg+','+isian+')">✅ Hitung Nilai Akhir</button>'
++'<div id="sim-akhir" style="margin-top:12px"></div>'
++'<h3>🔑 Kunci &amp; Pembahasan</h3><table><tr><th>No.</th><th>Hasil</th><th>Pembahasan</th></tr>'+detail+'</table>'
++'<p style="margin-top:16px"><a class="btn grey" href="../" style="text-decoration:none;display:inline-block">← Kembali</a></p>'
++'<button class="btn light" onclick="doPrint(\'simulasi\')">🖨️ Cetak Kunci &amp; Pembahasan</button>';
+}
+function hitungSimAkhir(pg,isian){
+const ur=parseInt(document.getElementById("sim-urskor").value)||0;
+const total=pg+isian+ur;const nilai=Math.round(total/13*100);
+document.getElementById("sim-akhir").innerHTML='<div class="scorebox"><strong>🎉 Nilai Akhir Simulasi</strong><br>Pilihan Ganda: '+pg+' / 8 &nbsp;•&nbsp; Isian: '+isian+' / 2 &nbsp;•&nbsp; Uraian: '+ur+' / 3<br><strong>Total: '+total+' / 13 &nbsp;•&nbsp; Nilai: '+nilai+' &nbsp;•&nbsp; Predikat: '+predikat(nilai)+'</strong></div>';
+}
+</script>
+</body>
+</html>

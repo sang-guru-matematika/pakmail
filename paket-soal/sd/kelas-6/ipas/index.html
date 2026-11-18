@@ -1,0 +1,1612 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Paket ASAS IPAS Kelas VI — SD Negeri Ungaran 01 dan SD Negeri Ungaran 05</title>
+    <style>
+      :root{
+        --bg:#dcf0fd; --bg2:#eef8ff; --card:#ffffff; --ink:#17384f; --muted:#51708499;
+        --muted2:#47687e; --primary:#0f7bd4; --primary-d:#0a5ea3; --accent:#ffb020;
+        --good:#1d9e62; --good-bg:#e2f7ec; --bad:#df463a; --bad-bg:#fdecea;
+        --warn:#e9a400; --warn-bg:#fff6da; --line:#b9dcf3; --chip:#eaf5fe;
+        --bab1:#f08c00; --bab2:#1d9e62; --bab3:#d6337f; --bab4:#0f7bd4;
+        --bab5:#0e7490; --bab6:#b45309; --bab7:#b3402a;
+        --shadow:0 4px 14px rgba(23,90,140,.14);
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#0c2233; --bg2:#0f2a3f; --card:#17384f; --ink:#ecf7ff; --muted2:#a9c6d8;
+          --primary:#3aa0ec; --primary-d:#7cc0f5; --accent:#ffb020;
+          --good:#43d68a; --good-bg:#123d2a; --bad:#ff7a6e; --bad-bg:#4a2320;
+          --warn:#ffcf4d; --warn-bg:#4a3a10; --line:#2c5878; --chip:#1d425f;
+          --shadow:0 4px 14px rgba(0,0,0,.4);
+        }
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2) 320px,var(--bg2));color:var(--ink);
+        font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+        font-size:17px;line-height:1.55;-webkit-text-size-adjust:100%}
+      .wrap{max-width:880px;margin:0 auto;padding:0 16px 40px}
+      button{font-family:inherit;cursor:pointer}
+      button,[role="button"],select,input,textarea{font-family:inherit}
+
+      /* ---------- Navigasi ---------- */
+      nav.topnav{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:3px solid var(--accent);
+        box-shadow:0 2px 10px rgba(23,90,140,.15)}
+      .topnav .in{max-width:880px;margin:0 auto;padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap}
+      .navbtn{flex:1 1 auto;min-height:48px;border:2px solid var(--line);background:var(--chip);color:var(--ink);
+        border-radius:14px;font-size:16px;font-weight:700;padding:8px 10px}
+      .navbtn.active{background:var(--primary);border-color:var(--primary);color:#fff}
+
+      .view{display:none}
+      .view.active{display:block}
+
+      /* ---------- Beranda ---------- */
+      .hero{text-align:center;padding:30px 10px 8px}
+      .hero .badge{display:inline-block;background:var(--accent);color:#4a2f00;font-weight:800;
+        padding:6px 16px;border-radius:999px;font-size:15px;letter-spacing:.3px}
+      .hero h1{font-size:clamp(28px,6vw,42px);margin:14px 0 6px;line-height:1.2;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.hero h1{color:#a8d8ff}}
+      .hero p.sub{font-size:clamp(16px,3.6vw,20px);color:var(--muted2);margin:4px 0 10px;font-weight:600}
+      .disclaimer{max-width:620px;margin:14px auto 0;background:var(--warn-bg);border:2px dashed var(--warn);
+        border-radius:14px;padding:12px 16px;font-weight:700;font-size:16px}
+      .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:26px 0 8px}
+      .stat{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 14px;text-align:center;box-shadow:var(--shadow)}
+      .stat .big{font-size:34px;font-weight:900;color:var(--primary-d);line-height:1.1}
+      @media (prefers-color-scheme: dark){.stat .big{color:#a8d8ff}}
+      .stat .lbl{font-weight:700;color:var(--muted2);margin-top:4px}
+      .babgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0}
+      .babcard{background:var(--card);border-radius:18px;padding:16px;box-shadow:var(--shadow);border-top:8px solid var(--line)}
+      .babcard h3{margin:0 0 6px;font-size:19px}
+      .babcard p{margin:0;color:var(--muted2);font-size:15.5px}
+      .babcard.b1{border-top-color:var(--bab1)} .babcard.b2{border-top-color:var(--bab2)}
+      .babcard.b3{border-top-color:var(--bab3)} .babcard.b4{border-top-color:var(--bab4)}
+      .babcard.b5{border-top-color:var(--bab5)} .babcard.b6{border-top-color:var(--bab6)}
+      .babcard.b7{border-top-color:var(--bab7)}
+      .cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:26px 0 6px}
+      .btn{min-height:52px;border:none;border-radius:16px;font-size:18px;font-weight:800;padding:12px 26px;
+        background:var(--primary);color:#fff;box-shadow:var(--shadow)}
+      .btn:hover{background:var(--primary-d)}
+      a.btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+      .btn.orange{background:#f08c00}.btn.orange:hover{background:#c77400}
+      .btn.ghost{background:var(--card);color:var(--primary-d);border:2px solid var(--primary)}
+      .btn.small{min-height:48px;font-size:16px;padding:10px 18px;border-radius:13px}
+      .btn:disabled{opacity:.45;cursor:not-allowed}
+      .howto{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 20px;margin-top:22px;box-shadow:var(--shadow)}
+      .howto h2{margin:0 0 8px;font-size:21px}
+      .howto li{margin:5px 0}
+
+      /* ---------- Ringkasan ---------- */
+      .sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:24px 0 6px}
+      .sec-head h2{margin:0;font-size:clamp(23px,5vw,30px);color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.sec-head h2{color:#a8d8ff}}
+      .babsec{background:var(--card);border-radius:20px;box-shadow:var(--shadow);margin:18px 0;padding:20px 22px;border-left:10px solid var(--line)}
+      .babsec.b1{border-left-color:var(--bab1)} .babsec.b2{border-left-color:var(--bab2)}
+      .babsec.b3{border-left-color:var(--bab3)} .babsec.b4{border-left-color:var(--bab4)}
+      .babsec.b5{border-left-color:var(--bab5)} .babsec.b6{border-left-color:var(--bab6)}
+      .babsec.b7{border-left-color:var(--bab7)}
+      .babsec h3{margin:0 0 4px;font-size:23px}
+      .babsec .tema{color:var(--muted2);font-weight:600;margin:0 0 10px}
+      .konsep{margin:0;padding:0;list-style:none}
+      .konsep li{padding:9px 0;border-bottom:1px dashed var(--line)}
+      .konsep li:last-child{border-bottom:none}
+      .konsep b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.konsep b{color:#a8d8ff}}
+      .contoh{display:block;margin-top:3px;background:var(--chip);border-radius:10px;padding:7px 12px;font-size:16px}
+      .contoh::before{content:"Contoh: ";font-weight:800}
+
+      /* ---------- Soal ---------- */
+      .qcard{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 20px;margin:14px 0;box-shadow:var(--shadow)}
+      .qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+      .qno{background:var(--primary);color:#fff;font-weight:900;border-radius:10px;padding:3px 12px;font-size:16px}
+      .qtype{font-weight:800;font-size:13.5px;padding:4px 11px;border-radius:999px;background:var(--chip);color:var(--muted2);border:1.5px solid var(--line)}
+      .qtype.pg{background:#e3f0ff;color:#0a5ea3}.qtype.isian{background:#fff0d6;color:#8a5a00}.qtype.uraian{background:#ffe3f0;color:#9c1c58}
+      @media (prefers-color-scheme: dark){.qtype.pg{background:#173a55;color:#a8d8ff}.qtype.isian{background:#4a3a10;color:#ffcf4d}.qtype.uraian{background:#47203a;color:#ff9ec7}}
+      .qskor{margin-left:auto;font-weight:700;color:var(--muted2);font-size:14.5px}
+      .stimulus{background:var(--chip);border-left:6px solid var(--accent);border-radius:10px;padding:12px 16px;margin:10px 0;font-size:17px}
+      .qtext{font-size:18px;font-weight:600;margin:8px 0}
+      .opts{display:grid;gap:9px;margin-top:10px}
+      .opt{min-height:52px;text-align:left;border:2px solid var(--line);background:var(--card);color:var(--ink);
+        border-radius:13px;padding:11px 15px;font-size:17px;font-weight:600;width:100%}
+      .opt .huruf{display:inline-block;background:var(--chip);border:1.5px solid var(--line);border-radius:8px;
+        font-weight:900;padding:1px 9px;margin-right:9px}
+      .opt.sel{border-color:var(--primary);background:var(--chip)}
+      .opt.benar{border-color:var(--good);background:var(--good-bg)}
+      .opt.salah{border-color:var(--bad);background:var(--bad-bg)}
+      .opt:disabled{cursor:default;opacity:1}
+      .explain{display:none;margin-top:12px;border-radius:12px;padding:12px 15px;font-size:16px}
+      .explain.show{display:block}
+      .explain.ok{background:var(--good-bg);border:1.5px solid var(--good)}
+      .explain.no{background:var(--bad-bg);border:1.5px solid var(--bad)}
+      .explain.info{background:var(--chip);border:1.5px solid var(--line)}
+      .explain .verdict{font-weight:900}
+      .fillin{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+      .fillin input{flex:1 1 220px;min-height:52px;font-size:18px;padding:10px 14px;border:2px solid var(--line);
+        border-radius:13px;background:var(--card);color:var(--ink)}
+      textarea.essay{width:100%;min-height:110px;font-size:17px;padding:12px 14px;border:2px solid var(--line);
+        border-radius:13px;background:var(--card);color:var(--ink);resize:vertical;line-height:1.5}
+      .modelans{display:none;margin-top:12px;background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:12px;padding:12px 15px;font-size:16px}
+      .modelans.show{display:block}
+      .modelans h4{margin:0 0 6px}
+      .svgbox{text-align:center;margin:10px 0}
+      .svgbox svg{max-width:100%;height:auto}
+      .qcard{scroll-margin-top:150px}
+
+      /* ---------- Kisi-kisi ---------- */
+      .kisi-title{text-align:center;font-weight:900;font-size:clamp(18px,4.4vw,23px);line-height:1.35;margin:6px 0 14px}
+      .kisi-meta{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);margin:0 0 16px}
+      .kisi-meta table{border-collapse:collapse}
+      .kisi-meta td{padding:3.5px 14px 3.5px 0;font-size:16px;vertical-align:top}
+      .kisi-meta td:first-child{font-weight:800;white-space:nowrap}
+      table.kisi{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+      table.kisi th,table.kisi td{border:1.5px solid var(--line);padding:8px 11px;text-align:left;font-size:15.5px;vertical-align:top}
+      table.kisi thead th{background:var(--primary);color:#fff;font-size:15px}
+      table.kisi td.c{text-align:center;white-space:nowrap;font-weight:700}
+      table.kisi tr.kisi-bab td{background:var(--chip);font-weight:900;font-size:16.5px;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){table.kisi tr.kisi-bab td{color:#a8d8ff}}
+      table.kisi tr.kisi-total td{background:var(--warn-bg);font-weight:800}
+      @media (max-width:640px){
+        table.kisi thead{display:none}
+        table.kisi,table.kisi tbody,table.kisi tr,table.kisi td{display:block;width:100%}
+        table.kisi tr{border-bottom:2.5px solid var(--line)}
+        table.kisi td{border:none;padding:4px 13px}
+        table.kisi td.c{text-align:left}
+        table.kisi td[data-l]::before{content:attr(data-l)": ";font-weight:800;color:var(--muted2)}
+        table.kisi tr.kisi-bab td,table.kisi tr.kisi-total td{padding:9px 13px}
+        .kisi-meta td:first-child{white-space:normal}
+      }
+
+      /* ---------- Simulasi ---------- */
+      .simbar{position:sticky;top:70px;z-index:40;background:var(--card);border:2px solid var(--line);border-radius:16px;
+        box-shadow:var(--shadow);padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}
+      .timer{font-size:22px;font-weight:900;background:var(--chip);border:2px solid var(--line);border-radius:12px;padding:4px 14px;font-variant-numeric:tabular-nums}
+      .timer.kritis{color:#fff;background:var(--bad);border-color:var(--bad)}
+      .prog{flex:1 1 140px}
+      .progbar{height:12px;background:var(--chip);border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+      .progbar i{display:block;height:100%;background:var(--primary);width:0%}
+      .palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:7px;margin:14px 0}
+      .pal{min-height:46px;border-radius:11px;border:2px solid var(--line);background:var(--card);color:var(--ink);font-weight:800;font-size:16px;padding:4px}
+      .pal.terjawab{background:var(--good);border-color:var(--good);color:#fff}
+      .pal.ragu{background:var(--warn);border-color:var(--warn);color:#4a2f00}
+      .pal.terjawab.ragu{background:linear-gradient(135deg,var(--good) 55%,var(--warn) 55%)}
+      .pal.kini{outline:3.5px solid var(--primary);outline-offset:1px}
+      .simnav{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+      .simnav .btn{flex:1 1 auto}
+      .btn.ragu-on{background:var(--warn);color:#4a2f00}
+      .legenda{display:flex;gap:14px;flex-wrap:wrap;font-size:14.5px;color:var(--muted2);font-weight:600;margin:6px 0}
+      .legenda .kotak{display:inline-block;width:15px;height:15px;border-radius:4px;vertical-align:-2px;margin-right:5px;border:1.5px solid var(--line)}
+
+      /* ---------- Hasil ---------- */
+      .scoregrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin:16px 0}
+      .scorecard{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:15px;text-align:center;box-shadow:var(--shadow)}
+      .scorecard .angka{font-size:30px;font-weight:900;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.scorecard .angka{color:#a8d8ff}}
+      .scorecard .ket{font-weight:700;color:var(--muted2);font-size:15px}
+      .nilai-besar{background:var(--primary);color:#fff;border-radius:20px;text-align:center;padding:22px;margin:16px 0;box-shadow:var(--shadow)}
+      .nilai-besar .n{font-size:56px;font-weight:900;line-height:1}
+      .nilai-besar .p{font-size:21px;font-weight:800;margin-top:6px}
+      .selfscore{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+      .selfscore .ss{min-height:48px;min-width:52px;border-radius:12px;border:2px solid var(--line);background:var(--card);
+        color:var(--ink);font-size:18px;font-weight:900}
+      .selfscore .ss.pick{background:var(--primary);border-color:var(--primary);color:#fff}
+      .jawaban-siswa{background:var(--chip);border-radius:10px;padding:10px 14px;margin:8px 0;white-space:pre-wrap;font-size:16px}
+      table.rekap{width:100%;border-collapse:collapse;margin:10px 0;background:var(--card);border-radius:14px;overflow:hidden}
+      table.rekap th,table.rekap td{border:1.5px solid var(--line);padding:9px 12px;text-align:left;font-size:16px}
+      table.rekap th{background:var(--chip)}
+
+      /* ---------- Modal ---------- */
+      .modal{display:none;position:fixed;inset:0;background:rgba(10,35,55,.55);z-index:100;align-items:center;justify-content:center;padding:18px}
+      .modal.show{display:flex}
+      .modal .box{background:var(--card);color:var(--ink);border-radius:20px;max-width:440px;width:100%;padding:24px;box-shadow:var(--shadow)}
+      .modal h3{margin:0 0 8px;font-size:22px}
+      .modal .row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+      .modal .row .btn{flex:1}
+
+      @media (max-width:760px){ .simbar{top:128px} }
+      footer{text-align:center;color:var(--muted2);font-weight:700;padding:26px 16px 34px;font-size:15.5px}
+      .hidden{display:none!important}
+
+      /* ---------- Layar Kunci Nama ---------- */
+      .gate{position:fixed;inset:0;z-index:300;background:linear-gradient(180deg,var(--bg),var(--bg2));display:flex;align-items:center;justify-content:center;padding:20px 16px;overflow-y:auto}
+      .gate.hidden{display:none!important}
+      .gate-card{background:var(--card);border:2px solid var(--line);border-radius:22px;box-shadow:var(--shadow);max-width:480px;width:100%;padding:28px 24px;text-align:center}
+      .gate-card .badge{display:inline-block;background:var(--accent);color:#4a2f00;font-weight:800;padding:6px 16px;border-radius:999px;font-size:14px;letter-spacing:.3px}
+      .gate-card h1{font-size:clamp(24px,5.5vw,32px);margin:14px 0 8px;line-height:1.25;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.gate-card h1{color:#a8d8ff}}
+      .gate-card .gate-sub{font-size:17px;font-weight:600;margin:6px 0 4px}
+      .gate-card .gate-note{font-size:15px;color:var(--muted2);font-weight:600;margin:0 0 20px}
+      .gate-field{text-align:left;margin:0 0 6px}
+      .gate-field label{display:block;font-weight:800;font-size:16px;margin-bottom:7px}
+      .gate-field input{width:100%;min-height:54px;font-size:18px;padding:12px 15px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
+      .gate-field input:focus{outline:3px solid var(--primary);outline-offset:1px;border-color:var(--primary)}
+      .gate-error{display:none;text-align:left;color:var(--bad);background:var(--bad-bg);border:1.5px solid var(--bad);border-radius:12px;padding:10px 13px;font-weight:700;font-size:15.5px;margin:10px 0 0}
+      .gate-error.show{display:block}
+      .gate-card .btn{width:100%;margin-top:16px}
+      body.locked{overflow:hidden}
+
+      /* ---------- Bar Pemilik Paket ---------- */
+      .owner-bar{max-width:880px;margin:0 auto;padding:10px 16px 0}
+      .owner-bar .in{background:var(--card);border:2px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+      .owner-bar .milik{font-weight:700;font-size:16px;flex:1 1 180px;min-width:0;overflow-wrap:break-word}
+      .owner-bar .milik b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.owner-bar .milik b{color:#a8d8ff}}
+      .btn-ganti{min-height:44px;border:2px solid var(--primary);background:var(--card);color:var(--primary-d);border-radius:11px;font-size:15px;font-weight:800;padding:8px 16px}
+      .hasil-nama{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 16px;font-weight:700;font-size:17px;margin:14px 0 0;box-shadow:var(--shadow)}
+      .hasil-nama b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.hasil-nama b{color:#a8d8ff}}
+      .gate-system-msg{display:none;background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15.5px;margin:0 0 14px;text-align:left}
+      .gate-system-msg.show{display:block}
+      .btn-admin-footer{min-height:52px;border:2.5px solid var(--primary-d);background:var(--primary-d);color:#fff;border-radius:999px;font-size:16.5px;font-weight:800;padding:12px 30px;margin-top:12px;box-shadow:var(--shadow)}
+      @media (prefers-color-scheme: dark){.btn-admin-footer{color:#0c2233}}
+      .btn-admin-footer:hover{opacity:.88}
+      .btn-admin-gate{width:100%;min-height:54px;border:2.5px solid var(--primary-d);background:var(--primary-d);color:#fff;border-radius:16px;font-size:18px;font-weight:800;padding:12px 20px;margin-top:12px;box-shadow:var(--shadow)}
+      @media (prefers-color-scheme: dark){.btn-admin-gate{color:#0c2233}}
+      .btn-admin-gate:hover{opacity:.88}
+      .gate-admin-note{font-size:14px;color:var(--muted2);font-weight:600;margin:8px 0 0}
+      #modal-admin{z-index:400}
+      .admin-modal .box{max-width:560px;max-height:88vh;overflow-y:auto}
+      .admin-field{margin:12px 0;text-align:left}
+      .admin-field label{display:block;font-weight:800;font-size:15px;margin-bottom:6px}
+      .admin-field input,.admin-field select{width:100%;min-height:50px;font-size:16px;padding:10px 13px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+      .admin-msg{display:none;border-radius:11px;padding:10px 13px;font-weight:700;font-size:15px;margin:12px 0 0;text-align:left}
+      .admin-msg.show{display:block}
+      .admin-msg.err{color:var(--bad);background:var(--bad-bg);border:1.5px solid var(--bad)}
+      .admin-msg.ok{color:var(--good);background:var(--good-bg);border:1.5px solid var(--good)}
+      .admin-msg.info{background:var(--chip);border:1.5px solid var(--line)}
+      .admin-list{margin:14px 0 0;display:grid;gap:9px}
+      .admin-row{display:flex;gap:10px;align-items:flex-start;background:var(--chip);border:1.5px solid var(--line);border-radius:13px;padding:11px 13px;text-align:left}
+      .admin-row .info{flex:1;min-width:0;overflow-wrap:break-word}
+      .admin-row .info b{display:block;font-size:16px}
+      .admin-row .info span{display:block;font-size:13.5px;color:var(--muted2);font-weight:600}
+      .btn-hapus{min-height:40px;border:1.5px solid var(--bad);background:var(--card);color:var(--bad);border-radius:10px;font-size:14px;font-weight:800;padding:6px 12px;white-space:nowrap}
+      .admin-empty{font-weight:600;color:var(--muted2);background:var(--chip);border:1.5px dashed var(--line);border-radius:12px;padding:14px;text-align:center}
+      .ringkasan-print-nama{display:none}
+
+      /* ---------- Area Cetak Soal & Kunci (hanya tampil saat print) ---------- */
+      .print-area{display:none}
+      .print-area .p-head{text-align:center;border-bottom:3px double #000;padding-bottom:12px;margin-bottom:14px}
+      .print-area .p-head h1{font-size:20px;margin:0 0 4px;line-height:1.25}
+      .print-area .p-head p{margin:2px 0;font-size:13.5px}
+      .print-area .p-ident{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 18px;font-size:14px;font-weight:700}
+      .print-area .p-ident span{flex:1 1 180px;border-bottom:1.5px dotted #000;padding-bottom:6px;white-space:nowrap}
+      .print-area .p-petunjuk{border:1.5px solid #000;border-radius:8px;padding:10px 14px;font-size:13.5px;margin-bottom:16px}
+      .print-area .p-bab{font-size:16px;font-weight:900;margin:20px 0 8px;border-bottom:2px solid #000;padding-bottom:4px}
+      .print-area .pq{break-inside:avoid;margin:0 0 16px}
+      .print-area .pq-no{font-weight:900}
+      .print-area .pq-stim{border:1.5px solid #888;border-left:6px solid #888;padding:8px 12px;margin:6px 0;font-size:13.5px;background:#f7f7f7}
+      .print-area .pq-opts{margin:6px 0 0 18px;padding:0;list-style:none}
+      .print-area .pq-opts li{margin:4px 0;font-size:14px}
+      .print-area .pq-blank{border-bottom:1.5px solid #000;height:28px;margin:8px 0 2px}
+      .print-area .pq-lines{margin-top:8px}
+      .print-area .pq-lines i{display:block;height:26px;border-bottom:1.5px solid #999}
+      .print-area .pk-item{break-inside:avoid;border:1.5px solid #888;border-radius:8px;padding:10px 14px;margin:0 0 12px}
+      .print-area .pk-item h4{margin:0 0 6px;font-size:14.5px}
+      .print-area .pk-ans{background:#f2f2f2;border:1px solid #bbb;padding:8px 10px;border-radius:6px;font-weight:700;margin:6px 0}
+      .print-area .pk-exp{font-size:13.5px;margin:4px 0}
+      .print-area .pk-model{white-space:pre-wrap;font-size:13.5px;background:#fafafa;border:1px solid #ddd;padding:8px 10px;border-radius:6px;margin:6px 0}
+
+      @media print{
+        nav.topnav,footer,.no-print,.modal,.gate,.owner-bar{display:none!important}
+        .ringkasan-print-nama{display:block!important;font-size:14px;font-weight:700;border:1.5px solid #000;border-radius:8px;padding:10px 14px;margin:0 0 14px}
+        body{background:#fff!important;color:#000!important;font-size:13.5px}
+        .wrap{max-width:none;padding:0}
+        .babsec{box-shadow:none;border:1.5px solid #888;border-left:8px solid #888;break-inside:avoid;margin:10px 0;padding:12px 16px}
+        .contoh{background:#f2f2f2!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+        .print-area .pq-stim,.print-area .pk-ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+        body:not([data-print]) #view-home,body:not([data-print]) #view-latihan,body:not([data-print]) #view-kisi,body:not([data-print]) #view-simulasi,body:not([data-print]) #view-hasil,
+        body[data-print="ringkasan"] #view-home,body[data-print="ringkasan"] #view-latihan,body[data-print="ringkasan"] #view-kisi,body[data-print="ringkasan"] #view-simulasi,body[data-print="ringkasan"] #view-hasil{display:none!important}
+        body:not([data-print]) #view-ringkasan,body[data-print="ringkasan"] #view-ringkasan{display:block!important}
+        body:not([data-print]) .print-area,body[data-print="ringkasan"] .print-area{display:none!important}
+        body[data-print="soal"] .wrap{display:none!important}
+        body[data-print="soal"] #print-soal{display:block!important}
+        body[data-print="soal"] #print-kunci{display:none!important}
+        body[data-print="kunci"] .wrap{display:none!important}
+        body[data-print="kunci"] #print-kunci{display:block!important}
+        body[data-print="kunci"] #print-soal{display:none!important}
+        @page{margin:16mm 14mm}
+      }
+    </style>
+  </head>
+  <body class="locked">
+    <!-- ================= LAYAR KUNCI NAMA ================= -->
+    <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+      <div class="gate-card">
+        <span class="badge">PAKET BELAJAR ASAS</span>
+        <h1 id="gate-title">Paket ASAS IPAS Kelas VI — SD Negeri Ungaran 01 dan SD Negeri Ungaran 05</h1>
+        <p class="gate-sub">Masukkan nama lengkap Anda untuk membuka paket ini.</p>
+        <p class="gate-note">Hanya nama pembeli yang terdaftar yang dapat membuka paket. Nama ini tercantum di paket dan hasil latihan Anda.</p>
+        <p class="gate-system-msg" id="gate-system-msg" role="alert"></p>
+        <form id="gate-form" novalidate>
+          <div class="gate-field">
+            <label for="gate-nama">Nama Lengkap</label>
+            <input type="text" id="gate-nama" placeholder="Tulis nama lengkap di sini…" autocomplete="name" maxlength="80" style="text-transform:uppercase">
+          </div>
+          <p class="gate-error" id="gate-error" role="alert"></p>
+          <button type="submit" class="btn" id="btn-buka-paket">🔓 Buka Paket</button>
+        </form>
+        <button type="button" class="btn-admin-gate" id="btn-admin-open-gate">🔐 Admin</button>
+      </div>
+    </div>
+
+    <nav class="topnav no-print">
+      <div class="in">
+        <button class="navbtn active" data-nav="home">🏠 Beranda</button>
+        <button class="navbtn" data-nav="ringkasan">📖 Ringkasan</button>
+        <button class="navbtn" data-nav="kisi">🗂️ Kisi-kisi</button>
+        <button class="navbtn" data-nav="latihan">✏️ Latihan Soal</button>
+        <button class="navbtn" data-nav="simulasi">📝 Simulasi ASAS</button>
+      </div>
+    </nav>
+
+    <div class="owner-bar hidden no-print" id="owner-bar">
+      <div class="in">
+        <span class="milik">👤 Paket milik: <b id="owner-name">—</b></span>
+        <button type="button" class="btn-ganti" id="btn-ganti-nama">Ganti Nama</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <!-- ================= BERANDA ================= -->
+      <section id="view-home" class="view active">
+        <div class="hero">
+          <span class="badge">PAKET BELAJAR ASAS</span>
+          <h1>Paket ASAS IPAS Kelas VI</h1>
+          <p class="sub">Semester 1 (Ganjil) • Kurikulum Merdeka • 40 Soal</p>
+          <p class="sub" style="font-weight:500">SD Negeri Ungaran 01 dan SD Negeri Ungaran 05 • Tahun Ajaran 2026/2027</p>
+          <div class="disclaimer">⚠️ Soal latihan berdasarkan kisi-kisi — bukan soal ujian asli.</div>
+        </div>
+
+        <div class="cards">
+          <div class="stat"><div class="big">3</div><div class="lbl">Bab Ringkasan Materi</div></div>
+          <div class="stat"><div class="big">40</div><div class="lbl">Soal Latihan &amp; Simulasi</div></div>
+          <div class="stat"><div class="big">60</div><div class="lbl">Total Skor Maksimal</div></div>
+          <div class="stat"><div class="big">90</div><div class="lbl">Menit Waktu Simulasi</div></div>
+        </div>
+
+        <div class="babgrid">
+          <div class="babcard b1"><h3>Bab 1 • Makanan Bergizi untuk Kesehatan Pencernaanmu</h3><p>Sistem pencernaan dari mulut sampai anus, zat gizi, dan cara menjaga kesehatan pencernaan.</p></div>
+          <div class="babcard b2"><h3>Bab 2 • Tarik dan Embuskan</h3><p>Sistem pernapasan, pertukaran gas di alveolus, bahaya asap rokok, dan pentingnya udara bersih.</p></div>
+          <div class="babcard b3"><h3>Bab 3 • Jejak Sang Pahlawan</h3><p>Nilai kepahlawanan, tokoh Ki Hajar Dewantara, W.R. Supratman, R.A. Kartini, dan perjuangan masa kini.</p></div>
+        </div>
+        <table class="rekap">
+          <tr><th>Bentuk Soal</th><th>Jumlah</th><th>Skor per Soal</th><th>Total Skor</th></tr>
+          <tr><td>Pilihan Ganda (PG)</td><td>25 soal (No. 1–25)</td><td>1</td><td>25</td></tr>
+          <tr><td>Isian</td><td>10 soal (No. 26–35)</td><td>2</td><td>20</td></tr>
+          <tr><td>Uraian</td><td>5 soal (No. 36–40)</td><td>3</td><td>15</td></tr>
+          <tr><th colspan="3">Nilai Akhir = Total Skor ÷ 60 × 100</th><th>60 → 100</th></tr>
+        </table>
+
+        <div class="cta">
+          <button class="btn" data-go="ringkasan">📖 Mulai Belajar</button>
+          <button class="btn ghost" data-go="kisi">🗂️ Kisi-kisi</button>
+          <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
+        </div>
+
+        <div class="howto">
+          <h2>Cara Menggunakan Paket Ini</h2>
+          <ol>
+            <li><b>Ringkasan</b> — Baca ringkasan materi 3 bab terlebih dahulu. Ada tombol <b>Cetak Ringkasan</b> bila ingin mencetaknya.</li>
+            <li><b>Kisi-kisi</b> — Lihat kisi-kisi penulisan soal ASAS selengkapnya, supaya bisa dibandingkan dengan kisi-kisi dari gurumu di sekolah.</li>
+            <li><b>Latihan Soal</b> — Kerjakan 40 soal yang dikelompokkan per bab. Kunci dan pembahasan langsung muncul setelah kamu menjawab. Di bagian ini juga ada tombol <b>Cetak Soal</b> (lembar kerja siswa tanpa kunci) dan <b>Cetak Kunci &amp; Pembahasan</b> (untuk guru/orang tua).</li>
+            <li><b>Simulasi ASAS</b> — Uji kemampuanmu seperti ujian sungguhan: 40 soal, waktu 90 menit, ada palet nomor dan tombol ragu-ragu. Setelah selesai, kamu bisa memilih mapel lain lewat tombol <b>Pilih Mapel</b> di layar hasil.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= RINGKASAN ================= -->
+      <section id="view-ringkasan" class="view">
+        <div class="ringkasan-print-nama" id="ringkasan-print-nama">Nama: —</div>
+        <div class="sec-head">
+          <h2>📖 Ringkasan Materi</h2>
+          <button class="btn small no-print" id="btn-print">🖨️ Cetak Ringkasan</button>
+        </div>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 6px">Baca baik-baik ya! Satu baris = satu konsep penting, lengkap dengan contohnya.</p>
+
+        <div class="babsec b1">
+          <h3>Bab 1 • Makanan Bergizi untuk Kesehatan Pencernaanmu</h3>
+          <p class="tema">Sistem pencernaan, zat gizi, dan menjaga kesehatan pencernaan</p>
+          <ul class="konsep">
+            <li><b>Sistem pencernaan</b> adalah rangkaian organ yang mengubah makanan menjadi sari-sari makanan yang dapat diserap tubuh. Urutannya: <b>mulut → kerongkongan → lambung → usus halus → usus besar → anus</b>.</li>
+            <li><b>Mulut:</b> organ pencernaan pertama. Gigi mengunyah makanan (pencernaan mekanis), lidah membantu mengaduk, dan air liur yang mengandung enzim ptialin mengubah karbohidrat menjadi gula sederhana (pencernaan kimiawi).</li>
+            <li><b>Kerongkongan (esofagus):</b> saluran penghubung mulut dengan lambung. Makanan didorong ke lambung dengan gerakan meremas yang disebut <b>gerak peristaltik</b>.</li>
+            <li><b>Lambung:</b> mengaduk makanan dan mencernanya secara kimiawi dengan bantuan asam lambung dan enzim pepsin yang mengubah protein menjadi zat yang lebih sederhana.</li>
+            <li><b>Usus halus:</b> tempat pencernaan kimiawi dilanjutkan dan tempat penyerapan sari-sari makanan. Dinding usus halus dipenuhi <b>jonjot usus (vili)</b> yang menyerap sari makanan ke dalam darah.</li>
+            <li><b>Usus besar:</b> menyerap air dan mineral dari sisa makanan, lalu membentuk sisa makanan menjadi tinja yang dikeluarkan melalui anus.</li>
+            <li><b>Karbohidrat</b> adalah zat gizi sumber energi utama tubuh.<span class="contoh">Nasi, roti, kentang, dan jagung.</span></li>
+            <li><b>Protein</b> berfungsi membangun dan memperbaiki jaringan tubuh, termasuk menyembuhkan luka.<span class="contoh">Protein hewani: telur, ikan, daging, susu. Protein nabati: tempe, tahu, dan kacang-kacangan.</span></li>
+            <li><b>Lemak</b> adalah sumber energi cadangan dan pelindung organ tubuh.<span class="contoh">Mentega, minyak goreng, dan kacang-kacangan.</span></li>
+            <li><b>Vitamin dan mineral</b> mengatur proses tubuh dan menjaga daya tahan tubuh.<span class="contoh">Sayur bayam, wortel, dan buah-buahan.</span></li>
+            <li><b>Gizi seimbang</b> artinya makan makanan yang beragam dan mengandung semua zat gizi dalam jumlah cukup, agar tubuh tumbuh sehat dan tidak mudah sakit.</li>
+            <li><b>Gangguan pencernaan:</b> maag (perut perih karena makan tidak teratur), sembelit (sulit buang air besar karena kurang serat dan air), dan diare (buang air besar terus-menerus karena makanan atau minuman yang tidak bersih).</li>
+            <li><b>Menjaga kesehatan pencernaan:</b> makan teratur, mengunyah makanan perlahan, makan sayur dan buah setiap hari, minum air putih yang cukup, dan mencuci tangan sebelum makan.</li>
+          </ul>
+        </div>
+
+        <div class="babsec b2">
+          <h3>Bab 2 • Tarik dan Embuskan</h3>
+          <p class="tema">Sistem pernapasan, pertukaran gas, dan menjaga kesehatan pernapasan</p>
+          <ul class="konsep">
+            <li><b>Sistem pernapasan</b> adalah rangkaian organ yang mengambil oksigen dari udara dan mengeluarkan karbon dioksida. Urutannya: <b>hidung → faring → laring → trakea → bronkus → bronkiolus → alveolus</b>.</li>
+            <li><b>Hidung:</b> organ pertama yang dilalui udara. Rambut-rambut halus dan lendir di dalam hidung menyaring debu dan kotoran, serta menghangatkan dan melembapkan udara.</li>
+            <li><b>Faring</b> adalah persimpangan saluran pernapasan dan saluran pencernaan, sedangkan <b>laring</b> adalah pangkal tenggorok tempat pita suara berada.</li>
+            <li><b>Trakea (batang tenggorok):</b> saluran udara dari laring menuju bronkus. Dindingnya memiliki cincin tulang rawan agar saluran tetap terbuka.</li>
+            <li><b>Bronkus</b> adalah cabang trakea yang menuju ke paru-paru kiri dan paru-paru kanan, lalu bercabang menjadi <b>bronkiolus</b> yang berakhir di alveolus.</li>
+            <li><b>Alveolus</b> adalah gelembung-gelembung kecil di paru-paru tempat terjadinya pertukaran gas: oksigen dari udara masuk ke darah, sedangkan karbon dioksida dari darah dilepas untuk diembuskan keluar.</li>
+            <li><b>Menarik napas (inspirasi)</b> adalah menghirup udara yang kaya oksigen ke dalam paru-paru. <b>Mengembuskan napas (ekspirasi)</b> adalah mengeluarkan udara yang kaya karbon dioksida dari paru-paru.</li>
+            <li><b>Perbandingan udara:</b> udara yang dihirup mengandung oksigen sekitar 21% dan karbon dioksida 0,04%, sedangkan udara yang diembuskan mengandung oksigen sekitar 16% dan karbon dioksida sekitar 4%.</li>
+            <li><b>Bahaya asap rokok:</b> asap rokok mengandung racun, seperti nikotin dan tar, yang merusak saluran pernapasan dan paru-paru. Perokok maupun orang di sekitarnya dapat mengalami batuk, sesak napas, bronkitis, bahkan kanker paru-paru.</li>
+            <li><b>Udara bersih</b> sangat penting karena tubuh membutuhkan oksigen untuk bernapas dan menghasilkan energi. Udara kotor mengandung debu, asap, dan kuman yang menyebabkan penyakit pernapasan.</li>
+            <li><b>Menjaga kesehatan pernapasan:</b> tidak merokok dan menjauhi asap rokok, berolahraga teratur, membuka jendela agar udara segar masuk, menanam pohon, dan tidak membuang sampah sembarangan.</li>
+            <li><b>Rumah sehat untuk pernapasan</b> memiliki ventilasi yang baik, bersih dari debu, bebas asap rokok, dan ditumbuhi tanaman yang menghasilkan oksigen.</li>
+          </ul>
+        </div>
+
+        <div class="babsec b3">
+          <h3>Bab 3 • Jejak Sang Pahlawan</h3>
+          <p class="tema">Nilai kepahlawanan, tokoh pahlawan, dan perjuangan masa kini</p>
+          <ul class="konsep">
+            <li><b>Pahlawan</b> adalah orang yang berjuang dengan gagah berani dan rela berkorban demi kepentingan bangsa dan negara.</li>
+            <li><b>Nilai-nilai kepahlawanan:</b> rela berkorban, pantang menyerah, cinta tanah air, jujur, disiplin, kerja sama, dan gotong royong.</li>
+            <li><b>Ki Hajar Dewantara</b> adalah Bapak Pendidikan Nasional. Ia mendirikan Taman Siswa pada tahun 1922 agar rakyat Indonesia dapat bersekolah. Semboyannya: <b>"Tut Wuri Handayani"</b> yang berarti dari belakang memberi dorongan.</li>
+            <li><b>W.R. Supratman</b> berjuang melalui bidang musik. Lagu ciptaannya, <b>"Indonesia Raya"</b>, membangkitkan semangat persatuan dan menjadi lagu kebangsaan Indonesia.</li>
+            <li><b>R.A. Kartini</b>, tokoh dari Jepara, Jawa Tengah, berjuang agar perempuan Indonesia dapat bersekolah dan memperoleh pendidikan seperti laki-laki.</li>
+            <li><b>Pangeran Diponegoro</b> berjuang dengan senjata memimpin perlawanan rakyat terhadap penjajah pada Perang Jawa (1825–1830).</li>
+            <li><b>Perjuangan dapat dilakukan melalui berbagai bidang:</b> pendidikan, olahraga, seni, teknologi, dan karya nyata — tidak selalu dengan senjata.</li>
+            <li><b>Tujuan perjuangan setelah proklamasi 17 Agustus 1945</b> adalah mempertahankan kemerdekaan dari ancaman penjajah, lalu mengisi kemerdekaan dengan pembangunan, pendidikan, dan karya nyata.</li>
+            <li><b>Perjuangan masa kini (tanpa senjata):</b> belajar dengan sungguh-sungguh, berprestasi, membantu teman yang kesulitan, mengikuti upacara dengan khidmat, menjaga kebersihan lingkungan, dan bekerja sama dalam kelompok.</li>
+            <li><b>Meneladani pahlawan</b> berarti meniru sikap dan nilai perjuangannya dalam kehidupan sehari-hari, bukan sekadar menghafal namanya.</li>
+          </ul>
+        </div>
+        <div class="cta no-print">
+          <button class="btn" data-go="latihan">✏️ Lanjut ke Latihan Soal</button>
+        </div>
+      </section>
+
+      <!-- ================= LATIHAN SOAL ================= -->
+      <section id="view-latihan" class="view">
+        <div class="sec-head">
+          <h2>✏️ Latihan Soal</h2>
+          <div style="display:flex;gap:8px;flex-wrap:wrap" class="no-print">
+            <button class="btn small" id="btn-print-soal">🖨️ Cetak Soal</button>
+            <button class="btn small ghost" id="btn-print-kunci">🖨️ Cetak Kunci &amp; Pembahasan</button>
+          </div>
+        </div>
+        <p style="color:var(--muted2);font-weight:600;margin:0">40 soal dikelompokkan per bab. Jawab dulu, kunci dan pembahasan akan langsung muncul. Semangat! Tombol <b>Cetak Soal</b> untuk lembar kerja siswa (tanpa kunci), tombol <b>Cetak Kunci &amp; Pembahasan</b> untuk pegangan guru/orang tua.</p>
+        <div id="latihan-list"></div>
+        <div class="cta">
+          <a class="btn ghost" href="../">← Pilih Mapel</a>
+          <button class="btn orange" data-go="simulasi">📝 Siap? Coba Simulasi ASAS</button>
+        </div>
+      </section>
+
+      <!-- ================= KISI-KISI ================= -->
+      <section id="view-kisi" class="view">
+        <div class="sec-head"><h2>🗂️ Kisi-kisi ASAS</h2></div>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 10px">Kisi-kisi di bawah ini ditampilkan apa adanya, agar dapat dibandingkan dengan kisi-kisi yang diberikan guru di sekolah — sama atau tidak.</p>
+        <div class="kisi-title">KISI-KISI PENULISAN SOAL<br>ASESMEN SUMATIF AKHIR SEMESTER GANJIL<br>TAHUN PELAJARAN 2026/2027</div>
+        <div class="kisi-meta">
+          <table>
+            <tr><td>Jenis Sekolah</td><td>: SD</td></tr>
+            <tr><td>Muatan Pelajaran</td><td>: IPAS</td></tr>
+            <tr><td>Kurikulum</td><td>: Kurikulum Merdeka</td></tr>
+            <tr><td>Jumlah Soal</td><td>: 40</td></tr>
+            <tr><td>Bentuk Soal</td><td>: 1) Pilihan ganda = 25; 2) Isian = 10; 3) Uraian = 5</td></tr>
+            <tr><td>Kelas</td><td>: VI (Enam)</td></tr>
+            <tr><td>Semester</td><td>: 1 (Ganjil)</td></tr>
+            <tr><td>Tahun Ajaran</td><td>: 2026/2027</td></tr>
+            <tr><td>Bank Soal</td><td>: SD Negeri Ungaran 01 dan SD Negeri Ungaran 05</td></tr>
+          </table>
+        </div>
+        <div class="disclaimer" style="max-width:none;text-align:left;margin:0 0 16px">📝 <b>Catatan dari penyusun paket (berdasarkan kisi-kisi sumber):</b><br>
+        1) Pada sampul kisi-kisi tertulis "20 Pilihan Ganda", tetapi tabel kisi-kisi memuat <b>25 soal Pilihan Ganda (No. 1–25)</b> sehingga jumlah soal tetap 40 — paket ini mengikuti tabel kisi-kisi.<br>
+        2) Kisi-kisi tidak menuliskan skor per soal; dipakai pola umum paket ini: <b>PG 1, Isian 2, Uraian 3</b>, total skor <b>60</b>.<br>
+        3) Pada indikator No. 4 tertulis "dapat 5menentukan" — angka 5 tersebut diduga salah ketik dan dibaca <b>"menentukan"</b>.</div>
+        <div id="kisi-table"></div>
+        <div class="cta">
+          <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
+        </div>
+      </section>
+
+      <!-- ================= SIMULASI ASAS ================= -->
+      <section id="view-simulasi" class="view">
+        <div id="sim-start">
+          <div class="sec-head"><h2>📝 Simulasi ASAS</h2></div>
+          <div class="qcard">
+            <h3 style="margin-top:0">Petunjuk Pengerjaan</h3>
+            <ul style="margin:0;padding-left:22px">
+              <li>Jumlah soal <b>40</b>: PG No. 1–25, Isian No. 26–35, Uraian No. 36–40.</li>
+              <li>Waktu pengerjaan <b>90 menit</b>. Jika waktu habis, simulasi otomatis selesai.</li>
+              <li>Gunakan <b>palet nomor</b> untuk berpindah soal. Hijau = sudah dijawab, kuning = ragu-ragu.</li>
+              <li>Tombol <b>Ragu-ragu</b> menandai soal yang belum yakin jawabannya.</li>
+              <li>PG dan Isian dinilai otomatis. Uraian dinilai olehmu sendiri (0–3) di layar hasil dengan membandingkan jawabanmu dengan jawaban model.</li>
+              <li>Total skor maksimal 60. Nilai = total skor ÷ 60 × 100.</li>
+            </ul>
+            <div id="sim-identitas">
+              <div class="admin-field">
+                <label for="sim-nama">Nama Siswa</label>
+                <input type="text" id="sim-nama" placeholder="Tulis nama lengkap…" autocomplete="off" maxlength="80" style="text-transform:uppercase">
+              </div>
+              <div class="admin-field">
+                <label for="sim-kelas">Kelas</label>
+                <input type="text" id="sim-kelas" placeholder="Contoh: VI A" autocomplete="off" maxlength="20">
+              </div>
+              <div class="admin-field">
+                <label for="sim-sekolah">Nama Sekolah</label>
+                <input type="text" id="sim-sekolah" placeholder="Contoh: SD Negeri Ungaran 01" autocomplete="off" maxlength="80">
+              </div>
+              <p class="admin-msg" id="sim-identitas-msg" role="alert"></p>
+            </div>
+            <div class="cta" style="justify-content:flex-start">
+              <button class="btn" id="btn-start-sim">▶️ Mulai Simulasi</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="sim-quiz" class="hidden">
+          <div class="simbar">
+            <div class="timer" id="sim-timer">⏱️ 90:00</div>
+            <div class="prog">
+              <div style="font-weight:800;font-size:15px;margin-bottom:3px"><span id="sim-prog-text">Soal 1 dari 40</span> • Terjawab: <span id="sim-answered">0</span>/40</div>
+              <div class="progbar"><i id="sim-prog-bar"></i></div>
+            </div>
+            <button class="btn small" id="btn-finish-top" style="background:var(--bad)">✔ Selesai</button>
+          </div>
+          <div class="palette" id="sim-palette"></div>
+          <div class="legenda">
+            <span><span class="kotak" style="background:var(--good)"></span>Sudah dijawab</span>
+            <span><span class="kotak" style="background:var(--warn)"></span>Ragu-ragu</span>
+            <span><span class="kotak" style="background:var(--card)"></span>Belum dijawab</span>
+          </div>
+          <div id="sim-question"></div>
+          <div class="simnav">
+            <button class="btn ghost" id="btn-prev">⬅️ Sebelumnya</button>
+            <button class="btn ghost" id="btn-flag">🚩 Ragu-ragu</button>
+            <button class="btn" id="btn-next">Berikutnya ➡️</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= HASIL ================= -->
+      <section id="view-hasil" class="view">
+        <div class="sec-head"><h2>🏆 Hasil Simulasi ASAS</h2></div>
+        <div class="hasil-nama" id="hasil-nama">👤 Nama: <b id="hasil-nama-val">—</b></div>
+        <div class="nilai-besar">
+          <div style="font-weight:800;font-size:18px">Nilai Akhir</div>
+          <div class="n" id="hasil-nilai">0</div>
+          <div class="p" id="hasil-predikat">—</div>
+          <div style="font-weight:700;opacity:.92">Total Skor: <span id="hasil-total">0</span> / 60</div>
+        </div>
+        <div class="scoregrid">
+          <div class="scorecard"><div class="angka"><span id="skor-pg">0</span>/25</div><div class="ket">Pilihan Ganda (25 soal × 1)</div></div>
+          <div class="scorecard"><div class="angka"><span id="skor-isian">0</span>/20</div><div class="ket">Isian (10 soal × 2)</div></div>
+          <div class="scorecard"><div class="angka"><span id="skor-uraian">0</span>/15</div><div class="ket">Uraian (5 soal × 3, nilai sendiri)</div></div>
+        </div>
+        <div id="uraian-self"></div>
+        <h3 style="margin:24px 0 4px;font-size:22px">📚 Pembahasan Semua Soal</h3>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 6px">Pelajari pembahasan tiap soal ya, supaya makin paham!</p>
+        <div id="hasil-review"></div>
+        <div class="cta">
+          <button class="btn" id="btn-retry">🔁 Ulangi Simulasi</button>
+          <a class="btn ghost" href="../">← Pilih Mapel</a>
+          <button class="btn ghost" data-go="ringkasan">📖 Baca Ringkasan Lagi</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== AREA CETAK: LEMBAR SOAL (tanpa kunci) ===== -->
+    <div id="print-soal" class="print-area" aria-hidden="true"></div>
+    <!-- ===== AREA CETAK: KUNCI & PEMBAHASAN ===== -->
+    <div id="print-kunci" class="print-area" aria-hidden="true"></div>
+
+    <footer>Dikembangkan oleh Abid Khoirul Ismail, S.Pd<br><button type="button" class="btn-admin-footer" id="btn-admin-open">🔐 Admin</button></footer>
+
+    <!-- Modal Admin -->
+    <div class="modal admin-modal" id="modal-admin" role="dialog" aria-modal="true" aria-labelledby="admin-title">
+      <div class="box">
+        <h3 id="admin-title">Panel Admin</h3>
+        <p style="margin:0;font-size:15.5px;color:var(--muted2);font-weight:600">Kelola daftar nama pembeli yang dapat membuka paket ini.</p>
+        <p class="admin-msg" id="admin-system-msg" role="alert"></p>
+        <div id="admin-login">
+          <div class="admin-field">
+            <label for="admin-pin">PIN Admin</label>
+            <input type="password" id="admin-pin" placeholder="Masukkan PIN" autocomplete="current-password">
+          </div>
+          <p class="admin-msg" id="admin-login-msg" role="alert"></p>
+          <div class="row">
+            <button type="button" class="btn ghost" id="btn-admin-close">Tutup</button>
+            <button type="button" class="btn" id="btn-admin-login">Masuk</button>
+          </div>
+        </div>
+        <div id="admin-content" class="hidden">
+          <p class="admin-msg" id="admin-msg" role="alert"></p>
+          <div class="admin-field">
+            <label for="admin-new-nama">Nama pembeli baru</label>
+            <input type="text" id="admin-new-nama" placeholder="Tulis nama lengkap pembeli…" autocomplete="off" maxlength="80" style="text-transform:uppercase">
+          </div>
+          <div class="admin-field">
+            <label for="admin-new-mapel">Mapel</label>
+            <select id="admin-new-mapel">
+              <option value="sd-kelas-6-ipas" selected>IPAS Kelas VI (SD)</option>
+              <option value="semua">Semua Mapel</option>
+            </select>
+          </div>
+          <div class="admin-field">
+            <label for="admin-new-ket">Keterangan (opsional)</label>
+            <input type="text" id="admin-new-ket" placeholder="Contoh: WA, Kelas VI A, dsb." autocomplete="off" maxlength="120">
+          </div>
+          <button type="button" class="btn" id="btn-admin-add" style="width:100%">＋ Tambah</button>
+          <h4 style="margin:20px 0 4px;font-size:17px">Daftar Nama Pembeli</h4>
+          <div class="admin-list" id="admin-list"></div>
+          <div class="row">
+            <button type="button" class="btn ghost" id="btn-admin-refresh">↻ Muat Ulang Daftar</button>
+            <button type="button" class="btn ghost" id="btn-admin-done">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal konfirmasi selesai -->
+    <div class="modal" id="modal-finish">
+      <div class="box">
+        <h3>Selesaikan Simulasi?</h3>
+        <p id="modal-finish-text" style="margin:0;font-size:16.5px"></p>
+        <div class="row">
+          <button class="btn ghost" id="btn-modal-back">Kembali Mengerjakan</button>
+          <button class="btn" id="btn-modal-yes" style="background:var(--bad)">Ya, Selesai ✔</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    "use strict";
+    /* ============================================================
+       URL /exec APPS SCRIPT (gerbang nama pembeli + panel Admin)
+       ============================================================ */
+    var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRi3IkD-9nmjKvU_luHZ1QqGcWijJ5NgDYAiBUJTK8Tss_EnQ4oqRYFQGLtDix2XLDGg/exec";
+    /* Identitas mapel paket ini — setiap mapel dibeli terpisah,
+       jadi pemeriksaan nama dan daftar pembeli selalu per mapel. */
+    var MAPEL_ID = "sd-kelas-6-ipas";
+    var MAPEL_LABEL = "IPAS Kelas VI (SD)";
+          + '<rect x="0" y="0" width="150" height="130" fill="#eaf7ea"/>'
+      + '<polygon points="75,18 132,112 18,112" fill="#8d6e63" stroke="#5d4037" stroke-width="3"/>'
+      + '<polygon points="75,18 90,44 82,38 75,48 66,38 60,44" fill="#ffffff"/>'
+      + '</svg><div style="font-weight:700;color:var(--muted2)">Simbol pada peta</div></div>';
+
+    /* =============== BANK SOAL (sesuai nomor kisi-kisi) =============== */
+    var QUESTIONS = [
+    /* ---------- BAB 1 : PG 1-9 ---------- */
+    {no:1,bab:1,type:"pg",
+      stimulus:"Rani sedang makan siang. Ia mengambil sepotong ayam goreng, lalu menggigit dan mengunyahnya.",
+      q:"Organ pencernaan yang pertama kali bekerja saat Rani makan adalah …",
+      options:["mulut","lambung","usus halus","kerongkongan"],answer:0,
+      explain:"Mulut adalah organ pencernaan yang pertama kali bekerja. Di dalam mulut, gigi mengunyah makanan, lidah membantu mengaduk, dan air liur membasahi makanan agar mudah ditelan."},
+    {no:2,bab:1,type:"pg",
+      stimulus:"Di dalam mulut, makanan dikunyah oleh gigi dan dicampur dengan air liur.",
+      q:"Proses pencernaan yang terjadi di dalam mulut adalah …",
+      options:["pencernaan mekanis saja","pencernaan mekanis dan kimiawi","pencernaan kimiawi saja","tidak terjadi pencernaan"],answer:1,
+      explain:"Di mulut terjadi dua proses sekaligus. Pencernaan mekanis dilakukan gigi yang mengunyah makanan menjadi potongan kecil. Pencernaan kimiawi dilakukan enzim ptialin dalam air liur yang mengubah karbohidrat menjadi gula sederhana."},
+    {no:3,bab:1,type:"pg",
+      stimulus:"Setelah dikunyah, makanan ditelan dan bergerak menuju lambung melalui saluran yang panjang.",
+      q:"Organ yang dilalui makanan setelah mulut dan sebelum sampai ke lambung adalah …",
+      options:["usus halus","usus besar","kerongkongan","anus"],answer:2,
+      explain:"Setelah dari mulut, makanan masuk ke kerongkongan (esofagus). Kerongkongan mendorong makanan ke lambung dengan gerakan meremas yang disebut gerak peristaltik."},
+    {no:4,bab:1,type:"pg",
+      stimulus:"Dinding usus halus dipenuhi jonjot-jonjot halus yang disebut vili.",
+      q:"Fungsi jonjot usus (vili) dalam proses pencernaan adalah …",
+      options:["menghasilkan asam lambung","mengaduk makanan di dalam lambung","menyerap air dari sisa makanan","menyerap sari-sari makanan ke dalam darah"],answer:3,
+      explain:"Jonjot usus atau vili berfungsi menyerap sari-sari makanan yang sudah dicerna di usus halus, lalu menyalurkannya ke dalam darah untuk diedarkan ke seluruh tubuh. Jonjot yang banyak memperluas permukaan penyerapan."},
+    {no:5,bab:1,type:"pg",
+      stimulus:"Perhatikan tabel bahan makanan dan kandungan gizinya berikut!\n• Nasi — karbohidrat\n• Telur — protein\n• Mentega — lemak\n• Bayam — vitamin dan mineral",
+      q:"Berdasarkan tabel di atas, bahan makanan yang menjadi sumber energi utama tubuh adalah …",
+      options:["nasi","telur","mentega","bayam"],answer:0,
+      explain:"Karbohidrat adalah sumber energi utama tubuh. Nasi, roti, dan kentang banyak mengandung karbohidrat, sehingga menjadi makanan pokok yang memberi tenaga untuk beraktivitas."},
+    {no:6,bab:1,type:"pg",
+      stimulus:"Setelah jatuh dan lututnya luka, ibu memberi Dimas banyak lauk telur, ikan, dan tempe agar lukanya cepat sembuh.",
+      q:"Zat gizi yang berperan memperbaiki jaringan tubuh yang rusak adalah …",
+      options:["karbohidrat","protein","lemak","air"],answer:1,
+      explain:"Protein berfungsi membangun dan memperbaiki jaringan tubuh, termasuk menyembuhkan luka. Telur, ikan, daging, tahu, dan tempe adalah sumber protein."},
+    {no:7,bab:1,type:"pg",
+      stimulus:"Perhatikan daftar makanan berikut!\nTempe, tahu, daging ayam, kacang hijau, telur, dan ikan.",
+      q:"Makanan yang termasuk sumber protein nabati (berasal dari tumbuhan) adalah …",
+      options:["daging ayam dan telur","ikan dan daging ayam","tempe, tahu, dan kacang hijau","telur dan ikan"],answer:2,
+      explain:"Protein nabati berasal dari tumbuhan, misalnya tempe, tahu, dan kacang hijau yang dibuat dari kedelai. Daging ayam, telur, dan ikan termasuk protein hewani karena berasal dari hewan."},
+    {no:8,bab:1,type:"pg",
+      stimulus:"Sinta sering makan tidak teratur, suka makan makanan pedas, dan minum minuman bersoda setiap hari. Akhir-akhir ini perutnya sering terasa perih.",
+      q:"Gangguan pencernaan yang kemungkinan dialami Sinta adalah …",
+      options:["sembelit","diare","sariawan","maag (tukak lambung)"],answer:3,
+      explain:"Maag adalah gangguan pencernaan berupa perih pada lambung. Makan tidak teratur, makanan pedas, dan minuman bersoda dapat memicu maag karena meningkatkan asam lambung."},
+    {no:9,bab:1,type:"pg",
+      stimulus:"Perhatikan tabel kebiasaan makan berikut!\n(1) Makan tiga kali sehari secara teratur.\n(2) Mengunyah makanan dengan cepat sambil bermain.\n(3) Makan sayur dan buah setiap hari.\n(4) Minum air putih yang cukup.",
+      q:"Kebiasaan yang mendukung kesehatan pencernaan ditunjukkan oleh nomor …",
+      options:["(1), (3), dan (4)","(2) saja","(1) dan (2)","(2) dan (4)"],answer:0,
+      explain:"Kesehatan pencernaan dijaga dengan makan teratur (1), makan sayur dan buah yang kaya serat (3), serta minum air putih yang cukup (4). Mengunyah cepat sambil bermain (2) justru mengganggu pencernaan."},
+    /* ---------- BAB 2 : PG 10-17 ---------- */
+    {no:10,bab:2,type:"pg",
+      stimulus:"Budi menarik napas dalam-dalam melalui hidungnya saat berolahraga pagi.",
+      q:"Organ pertama yang dilalui udara saat kita menarik napas adalah …",
+      options:["trakea","hidung","bronkus","alveolus"],answer:1,
+      explain:"Udara yang dihirup pertama kali masuk melalui hidung. Di dalam hidung, udara disaring oleh rambut-rambut halus dan lendir, dihangatkan, serta dilembapkan sebelum menuju organ pernapasan berikutnya."},
+    {no:11,bab:2,type:"pg",
+      stimulus:"Saat angin berdebu, Andi tetap bernapas melalui hidung.",
+      q:"Fungsi rambut-rambut halus di dalam hidung adalah …",
+      options:["menghangatkan udara","menghasilkan suara","menyaring debu dan kotoran dari udara","menyerap oksigen dari udara"],answer:2,
+      explain:"Rambut-rambut halus di hidung bersama lendir berfungsi menyaring debu, kotoran, dan kuman dari udara yang dihirup, sehingga udara yang masuk ke paru-paru lebih bersih."},
+    {no:12,bab:2,type:"pg",
+      stimulus:"Perhatikan urutan organ pernapasan berikut yang belum lengkap!\nHidung → faring → laring → … → bronkus → bronkiolus → alveolus",
+      q:"Organ pernapasan yang tepat untuk melengkapi urutan tersebut adalah …",
+      options:["kerongkongan","lambung","usus halus","trakea"],answer:3,
+      explain:"Urutan organ pernapasan yang benar adalah: hidung → faring → laring → trakea → bronkus → bronkiolus → alveolus. Trakea atau batang tenggorok terletak setelah laring dan sebelum bronkus."},
+    {no:13,bab:2,type:"pg",
+      stimulus:"Di ujung bronkiolus terdapat gelembung-gelembung kecil yang dikelilingi pembuluh darah halus.",
+      q:"Gelembung paru-paru tempat terjadinya pertukaran gas disebut …",
+      options:["alveolus","bronkus","diafragma","laring"],answer:0,
+      explain:"Alveolus adalah gelembung-gelembung kecil di paru-paru. Di alveolus terjadi pertukaran gas: oksigen dari udara masuk ke darah, sedangkan karbon dioksida dari darah dilepas ke udara untuk diembuskan keluar."},
+    {no:14,bab:2,type:"pg",
+      stimulus:"Perhatikan tabel jenis gas berikut!\nOksigen, karbon dioksida, nitrogen, dan hidrogen.",
+      q:"Gas yang dibutuhkan tubuh dalam proses pernapasan adalah …",
+      options:["karbon dioksida","oksigen","nitrogen","hidrogen"],answer:1,
+      explain:"Tubuh membutuhkan oksigen untuk membakar zat makanan dan menghasilkan energi. Oksigen dihirup dari udara, sedangkan karbon dioksida adalah sisa pernapasan yang dikeluarkan tubuh."},
+    {no:15,bab:2,type:"pg",
+      stimulus:"Perhatikan tabel perbandingan udara yang dihirup dan diembuskan berikut!\n• Udara yang dihirup: oksigen 21%, karbon dioksida 0,04%.\n• Udara yang diembuskan: oksigen 16%, karbon dioksida 4%.",
+      q:"Berdasarkan tabel di atas, gas yang lebih banyak dikeluarkan saat mengembuskan napas adalah …",
+      options:["oksigen","nitrogen","karbon dioksida","hidrogen"],answer:2,
+      explain:"Udara yang diembuskan mengandung karbon dioksida jauh lebih banyak (4%) daripada udara yang dihirup (0,04%). Sebaliknya, kadar oksigennya berkurang karena sebagian oksigen diserap tubuh."},
+    {no:16,bab:2,type:"pg",
+      stimulus:"Paman Rudi merokok setiap hari di dalam rumah. Anak-anaknya sering batuk dan sesak napas.",
+      q:"Dampak paparan asap rokok terhadap sistem pernapasan adalah …",
+      options:["paru-paru menjadi lebih kuat","pernapasan menjadi lebih lancar","tidak ada pengaruhnya bagi kesehatan","paru-paru rusak dan mudah terserang penyakit"],answer:3,
+      explain:"Asap rokok mengandung racun, seperti nikotin dan tar, yang merusak saluran pernapasan dan paru-paru. Perokok maupun orang di sekitarnya dapat mengalami batuk, sesak napas, bronkitis, bahkan kanker paru-paru."},
+    {no:17,bab:2,type:"pg",
+      stimulus:"Perhatikan tabel kondisi beberapa rumah berikut!\n• Rumah A: ventilasi baik, bersih, dan banyak tanaman.\n• Rumah B: pengap, berdebu, dan penghuninya merokok di dalam rumah.\n• Rumah C: dekat pabrik yang berasap dan jendelanya jarang dibuka.",
+      q:"Lingkungan rumah yang paling mendukung kesehatan pernapasan adalah …",
+      options:["Rumah A","Rumah B","Rumah C","Rumah B dan C"],answer:0,
+      explain:"Rumah yang sehat untuk pernapasan memiliki ventilasi yang baik sehingga udara segar dapat masuk, bersih dari debu, bebas asap rokok, dan ditumbuhi tanaman yang menghasilkan oksigen."},
+    /* ---------- BAB 3 : PG 18-25 ---------- */
+    {no:18,bab:3,type:"pg",
+      stimulus:"Seorang pemuda menolak tawaran bekerja di luar negeri dengan gaji besar karena ingin membangun desanya dan memajukan bangsanya.",
+      q:"Sikap kepahlawanan yang ditunjukkan pemuda tersebut adalah …",
+      options:["mementingkan diri sendiri","rela berkorban demi kepentingan bangsa","mencari keuntungan pribadi","menghindar dari tanggung jawab"],answer:1,
+      explain:"Rela berkorban adalah sikap mengutamakan kepentingan bangsa dan negara di atas kepentingan pribadi. Pemuda itu rela kehilangan gaji besar demi membangun desa dan memajukan bangsanya."},
+    {no:19,bab:3,type:"pg",
+      stimulus:"Ada yang berjuang dengan senjata di masa lalu, ada yang berjuang lewat pendidikan, olahraga, seni, dan teknologi pada masa kini.",
+      q:"Kesimpulan yang tepat dari informasi tersebut adalah …",
+      options:["perjuangan hanya dapat dilakukan dengan senjata","perjuangan hanya untuk tentara","perjuangan dapat dilakukan melalui berbagai bidang","perjuangan sudah tidak diperlukan lagi"],answer:2,
+      explain:"Perjuangan tidak selalu dengan senjata. Pada masa kini, perjuangan dapat dilakukan melalui berbagai bidang, misalnya belajar dengan giat, berprestasi dalam olahraga, berkarya dalam seni, dan mengembangkan teknologi."},
+    {no:20,bab:3,type:"pg",
+      stimulus:"Tokoh ini mendirikan Taman Siswa dan dikenal sebagai Bapak Pendidikan Nasional. Semboyannya adalah 'Tut Wuri Handayani'.",
+      q:"Tokoh pendidikan yang dimaksud adalah …",
+      options:["W.R. Supratman","R.A. Kartini","Pangeran Diponegoro","Ki Hajar Dewantara"],answer:3,
+      explain:"Ki Hajar Dewantara mendirikan Taman Siswa pada tahun 1922 untuk memberi kesempatan pendidikan bagi rakyat Indonesia. Ia dikenal sebagai Bapak Pendidikan Nasional dan pencetus semboyan 'Tut Wuri Handayani'."},
+    {no:21,bab:3,type:"pg",
+      stimulus:"W.R. Supratman menciptakan lagu 'Indonesia Raya' yang kemudian menjadi lagu kebangsaan Indonesia.",
+      q:"Bidang perjuangan W.R. Supratman adalah …",
+      options:["musik (lagu kebangsaan)","pendidikan","militer","pertanian"],answer:0,
+      explain:"W.R. Supratman berjuang melalui bidang musik. Lagu ciptaannya, 'Indonesia Raya', membangkitkan semangat persatuan dan perjuangan bangsa Indonesia, hingga ditetapkan sebagai lagu kebangsaan."},
+    {no:22,bab:3,type:"pg",
+      stimulus:"Setelah Indonesia memproklamasikan kemerdekaan pada 17 Agustus 1945, bangsa Indonesia tetap harus berjuang.",
+      q:"Tujuan perjuangan bangsa Indonesia setelah proklamasi kemerdekaan adalah …",
+      options:["merebut kembali kekuasaan penjajah","mempertahankan dan mengisi kemerdekaan","kembali dijajah bangsa lain","menyerahkan kemerdekaan kepada penjajah"],answer:1,
+      explain:"Setelah proklamasi, perjuangan bangsa Indonesia bertujuan mempertahankan kemerdekaan dari ancaman penjajah yang ingin kembali, lalu mengisi kemerdekaan dengan pembangunan, pendidikan, dan karya nyata."},
+    {no:23,bab:3,type:"pg",
+      stimulus:"Perhatikan tabel kegiatan siswa berikut!\n(1) Belajar dengan sungguh-sungguh dan membantu teman yang kesulitan.\n(2) Membolos dan tidak mengerjakan tugas.\n(3) Mengikuti upacara bendera dengan khidmat.\n(4) Merusak fasilitas sekolah.",
+      q:"Kegiatan yang mencerminkan semangat perjuangan pahlawan ditunjukkan oleh nomor …",
+      options:["(1) dan (2)","(2) dan (4)","(1) dan (3)","(3) dan (4)"],answer:2,
+      explain:"Semangat perjuangan pahlawan di masa kini diwujudkan dengan belajar sungguh-sungguh (1) dan mengikuti upacara dengan khidmat sebagai wujud cinta tanah air (3). Membolos dan merusak fasilitas (2 dan 4) bertentangan dengan nilai kepahlawanan."},
+    {no:24,bab:3,type:"pg",
+      stimulus:"R.A. Kartini, tokoh dari Jepara, Jawa Tengah, berjuang agar perempuan Indonesia dapat bersekolah dan memperoleh pendidikan seperti laki-laki.",
+      q:"Warisan nilai perjuangan R.A. Kartini yang dapat kita teladani adalah …",
+      options:["mementingkan diri sendiri","takut menghadapi tantangan","hanya memikirkan kepentingan sendiri","semangat belajar dan pantang menyerah memperjuangkan pendidikan"],answer:3,
+      explain:"R.A. Kartini mewariskan semangat belajar, pantang menyerah, dan keberanian memperjuangkan pendidikan bagi semua, termasuk perempuan. Nilai-nilai itu tetap relevan bagi pelajar masa kini."},
+    {no:25,bab:3,type:"pg",
+      stimulus:"Kelompok Sinta membersihkan halaman sekolah bersama-sama. Mereka berbagi tugas, saling membantu, dan menyelesaikan pekerjaan tepat waktu.",
+      q:"Nilai kepahlawanan yang tercermin dalam kegiatan tersebut adalah …",
+      options:["gotong royong dan kerja sama","mementingkan diri sendiri","bersikap acuh tak acuh","saling menyalahkan"],answer:0,
+      explain:"Gotong royong dan kerja sama adalah nilai kepahlawanan yang tercermin saat sekelompok orang bekerja bersama, berbagi tugas, dan saling membantu demi kepentingan bersama."},
+    /* ---------- ISIAN 26-35 ---------- */
+    {no:26,bab:1,type:"isian",q:"Organ yang menghubungkan mulut dengan lambung adalah …",
+      accept:["kerongkongan","esofagus"],model:"kerongkongan (esofagus)",
+      explain:"Kerongkongan atau esofagus adalah saluran yang menghubungkan mulut dengan lambung. Makanan didorong ke lambung melalui kerongkongan dengan gerak peristaltik."},
+    {no:27,bab:1,type:"isian",q:"Dinding usus halus dipenuhi jonjot-jonjot halus. Proses yang terjadi di usus halus dengan bantuan jonjot tersebut adalah … sari makanan.",
+      accept:["penyerapan sari makanan","penyerapan","absorpsi","penyerapan makanan"],model:"penyerapan sari makanan (absorpsi)",
+      explain:"Di usus halus terjadi penyerapan sari-sari makanan oleh jonjot usus (vili). Sari makanan yang diserap masuk ke dalam darah untuk diedarkan ke seluruh tubuh."},
+    {no:28,bab:1,type:"isian",q:"Nasi, roti, dan kentang banyak mengandung zat gizi yang menjadi sumber energi utama tubuh, yaitu …",
+      accept:["karbohidrat"],model:"karbohidrat",
+      explain:"Karbohidrat adalah zat gizi sumber energi utama tubuh. Nasi, roti, dan kentang banyak mengandung karbohidrat, sehingga menjadi makanan pokok."},
+    {no:29,bab:1,type:"isian",q:"Andi jarang makan sayur dan buah serta kurang minum air putih, sehingga ia sulit buang air besar. Gangguan pencernaan yang dialami Andi disebut …",
+      accept:["sembelit","konstipasi","susah buang air besar"],model:"sembelit (konstipasi)",
+      explain:"Sembelit atau konstipasi adalah gangguan pencernaan berupa sulit buang air besar. Penyebabnya antara lain kurang makan makanan berserat (sayur dan buah) serta kurang minum air putih."},
+    {no:30,bab:2,type:"isian",q:"Udara yang dihirup pertama kali masuk melalui organ pernapasan yang berfungsi menyaring debu dan kotoran, yaitu …",
+      accept:["hidung"],model:"hidung",
+      explain:"Hidung adalah organ pernapasan pertama yang dilalui udara. Rambut-rambut halus dan lendir di dalam hidung menyaring debu dan kotoran dari udara yang dihirup."},
+    {no:31,bab:2,type:"isian",q:"Trakea bercabang menjadi dua saluran yang masing-masing menuju ke paru-paru kiri dan paru-paru kanan. Cabang trakea tersebut disebut …",
+      accept:["bronkus"],model:"bronkus",
+      explain:"Bronkus adalah cabang trakea yang menuju ke paru-paru kiri dan paru-paru kanan. Bronkus kemudian bercabang lagi menjadi bronkiolus yang berakhir di alveolus."},
+    {no:32,bab:2,type:"isian",q:"Bagian paru-paru yang berbentuk gelembung kecil dan menjadi tempat pertukaran gas oksigen dan karbon dioksida disebut …",
+      accept:["alveolus","alveoli","gelembung paru-paru"],model:"alveolus",
+      explain:"Alveolus adalah gelembung-gelembung kecil di paru-paru tempat terjadinya pertukaran gas: oksigen masuk ke darah dan karbon dioksida keluar dari darah."},
+    {no:33,bab:2,type:"isian",q:"Dedi sering berada di dekat orang yang merokok sehingga ia sering batuk dan sesak napas. Kebiasaan yang harus dihindari agar pernapasannya sehat adalah …",
+      accept:["merokok","merokok di dalam rumah","merokok dan menghirup asap rokok"],model:"merokok (termasuk menghirup asap rokok)",
+      explain:"Merokok dan menghirup asap rokok merusak saluran pernapasan dan paru-paru. Kebiasaan ini harus dihindari dan tidak boleh dilakukan di dekat anak-anak."},
+    {no:34,bab:3,type:"isian",q:"Tokoh yang mengemukakan semboyan 'Tut Wuri Handayani' dan mendirikan Taman Siswa adalah …",
+      accept:["ki hajar dewantara","ki hadjar dewantara"],model:"Ki Hajar Dewantara",
+      explain:"Ki Hajar Dewantara adalah tokoh pendidikan yang mendirikan Taman Siswa dan mengemukakan semboyan 'Tut Wuri Handayani', yang berarti dari belakang memberi dorongan."},
+    {no:35,bab:3,type:"isian",q:"Generasi sekarang berjuang dengan belajar dan berkarya untuk mengabdi kepada bangsa dan negara demi … bangsa Indonesia.",
+      accept:["kemajuan bangsa","kemajuan dan kesejahteraan bangsa indonesia","memajukan bangsa","kemajuan bangsa indonesia","kesejahteraan bangsa","kemajuan dan kesejahteraan bangsa"],model:"kemajuan dan kesejahteraan bangsa Indonesia",
+      explain:"Tujuan pengabdian kepada bangsa dan negara adalah demi kemajuan dan kesejahteraan bangsa Indonesia. Generasi sekarang mewujudkannya dengan belajar giat, berkarya, dan menjaga persatuan."},
+    /* ---------- URAIAN 36-40 ---------- */
+    {no:36,bab:1,type:"uraian",q:"Jelaskan fungsi lambung, usus halus, dan usus besar dalam proses pencernaan!",
+      model:"Fungsi lambung, usus halus, dan usus besar dalam proses pencernaan:\n• Lambung: mengaduk makanan dan mencernanya secara kimiawi dengan bantuan asam lambung dan enzim pepsin yang mengubah protein menjadi zat yang lebih sederhana.\n• Usus halus: tempat pencernaan kimiawi dilanjutkan dengan bantuan enzim dari pankreas dan empedu, serta tempat penyerapan sari-sari makanan oleh jonjot usus (vili) ke dalam darah.\n• Usus besar: menyerap air dan mineral dari sisa makanan, serta membentuk sisa makanan menjadi tinja yang dikeluarkan melalui anus.",
+      rubrik:"Skor 3: menjelaskan fungsi lambung, usus halus, dan usus besar dengan benar. Skor 2: menjelaskan dua organ dengan benar, satu kurang tepat. Skor 1: hanya menjelaskan satu organ dengan benar. Skor 0: jawaban salah atau kosong.",
+      explain:"Lambung mengaduk dan mencerna makanan secara kimiawi, usus halus melanjutkan pencernaan dan menyerap sari makanan, sedangkan usus besar menyerap air dan membentuk sisa makanan."},
+    {no:37,bab:1,type:"uraian",
+      stimulus:"Perhatikan tabel menu makanan sehari-hari berikut!\n• Sarapan: nasi, telur dadar, sayur bayam, susu.\n• Makan siang: nasi, ikan goreng, tempe, buah pisang.\n• Makan malam: nasi, ayam goreng, sayur sop.",
+      q:"Berdasarkan tabel menu di atas, identifikasi jenis zat gizi yang terkandung dalam makanan tersebut, jelaskan fungsinya, dan analisis pentingnya gizi seimbang!",
+      model:"Jenis zat gizi dalam menu sehari-hari dan fungsinya:\n• Karbohidrat (nasi): sumber energi utama tubuh untuk beraktivitas dan belajar.\n• Protein (telur, ikan, tempe, ayam, susu): membangun dan memperbaiki jaringan tubuh, serta membantu pertumbuhan.\n• Vitamin dan mineral (sayur bayam, sayur sop, buah pisang): mengatur proses tubuh, menjaga daya tahan tubuh, dan melancarkan pencernaan.\n• Lemak (minyak untuk menggoreng): sumber energi cadangan dan pelindung organ tubuh.\nPentingnya gizi seimbang: makanan yang mengandung semua zat gizi dalam jumlah yang cukup dan beragam membuat tubuh tumbuh sehat, tidak mudah sakit, dan dapat belajar dengan baik. Kekurangan salah satu zat gizi dapat menyebabkan tubuh lemah, mudah sakit, dan sulit berkonsentrasi.",
+      rubrik:"Skor 3: mengidentifikasi jenis zat gizi dan fungsinya dengan benar serta menganalisis pentingnya gizi seimbang. Skor 2: jenis zat gizi dan fungsi dijelaskan dengan benar, tetapi analisis gizi seimbang kurang lengkap. Skor 1: hanya menyebutkan jenis zat gizi atau fungsinya sebagian. Skor 0: jawaban salah atau kosong.",
+      explain:"Menu sehari-hari yang beragam mengandung karbohidrat, protein, vitamin, mineral, dan lemak. Gizi seimbang penting agar tubuh sehat, tumbuh dengan baik, dan tidak mudah sakit."},
+    {no:38,bab:2,type:"uraian",q:"Jelaskan fungsi hidung, trakea, dan bronkus, serta proses pertukaran gas yang terjadi di alveoli!",
+      model:"Fungsi organ pernapasan dan pertukaran gas di alveoli:\n• Hidung: organ pertama yang dilalui udara; menyaring debu dan kotoran dengan rambut halus dan lendir, serta menghangatkan dan melembapkan udara.\n• Trakea (batang tenggorok): saluran udara dari laring menuju bronkus; dindingnya memiliki cincin tulang rawan agar saluran tetap terbuka.\n• Bronkus: cabang trakea yang menyalurkan udara ke paru-paru kiri dan paru-paru kanan, lalu bercabang menjadi bronkiolus.\n• Pertukaran gas di alveoli: oksigen dari udara di dalam alveolus masuk ke pembuluh darah dan diangkut ke seluruh tubuh, sedangkan karbon dioksida dari darah masuk ke alveolus untuk diembuskan keluar saat mengembuskan napas.",
+      rubrik:"Skor 3: menjelaskan fungsi hidung, trakea, dan bronkus serta proses pertukaran gas di alveoli dengan benar. Skor 2: menjelaskan tiga bagian dengan benar, satu kurang tepat. Skor 1: hanya menjelaskan satu atau dua bagian dengan benar. Skor 0: jawaban salah atau kosong.",
+      explain:"Hidung menyaring udara, trakea menyalurkan udara, bronkus membagi udara ke kedua paru-paru, dan di alveolus terjadi pertukaran oksigen dan karbon dioksida dengan darah."},
+    {no:39,bab:2,type:"uraian",
+      stimulus:"Perhatikan tabel kebiasaan sehari-hari berikut!\n(1) Merokok di dekat anak-anak.\n(2) Membuka jendela rumah setiap pagi.\n(3) Berolahraga secara teratur.\n(4) Membuang sampah sembarangan hingga menumpuk.\n(5) Menanam pohon di halaman rumah.",
+      q:"Berdasarkan tabel di atas, bedakan kebiasaan yang mengganggu dan yang menjaga kesehatan pernapasan, serta jelaskan pentingnya udara bersih bagi kesehatan!",
+      model:"Kebiasaan yang mengganggu dan menjaga kesehatan pernapasan:\n• Mengganggu kesehatan pernapasan: (1) merokok di dekat anak-anak — asap rokok merusak paru-paru; (4) membuang sampah sembarangan — sampah menumpuk menimbulkan bau, kuman, dan udara kotor.\n• Menjaga kesehatan pernapasan: (2) membuka jendela setiap pagi — udara segar masuk dan sirkulasi udara lancar; (3) berolahraga teratur — melatih paru-paru dan memperkuat pernapasan; (5) menanam pohon — pohon menghasilkan oksigen dan menyerap karbon dioksida.\nPentingnya udara bersih: udara bersih yang kaya oksigen dibutuhkan tubuh untuk bernapas dan menghasilkan energi. Udara yang kotor mengandung debu, asap, dan kuman yang dapat menyebabkan batuk, sesak napas, dan penyakit paru-paru. Oleh karena itu, kita wajib menjaga kebersihan udara di rumah, sekolah, dan lingkungan.",
+      rubrik:"Skor 3: membedakan kebiasaan yang mengganggu dan menjaga kesehatan pernapasan dengan benar serta menjelaskan pentingnya udara bersih. Skor 2: pembedaan kebiasaan benar, tetapi penjelasan pentingnya udara bersih kurang lengkap. Skor 1: hanya membedakan sebagian kebiasaan dengan benar. Skor 0: jawaban salah atau kosong.",
+      explain:"Merokok dan membuang sampah sembarangan mengotori udara dan mengganggu pernapasan, sedangkan ventilasi baik, olahraga, dan menanam pohon menjaga kesehatan pernapasan. Udara bersih penting karena tubuh membutuhkan oksigen."},
+    {no:40,bab:3,type:"uraian",
+      stimulus:"Perhatikan tabel tokoh dan bidang perjuangannya berikut!\n• Ki Hajar Dewantara — pendidikan.\n• W.R. Supratman — musik (lagu kebangsaan).\n• R.A. Kartini — pendidikan perempuan.\n• Pangeran Diponegoro — perjuangan bersenjata melawan penjajah.",
+      q:"Berdasarkan tabel di atas, jelaskan bentuk perjuangan masing-masing tokoh, analisis makna perjuangan tanpa senjata, dan berikan contoh penerapan nilai kepahlawanan dalam kehidupan sehari-hari!",
+      model:"Bentuk perjuangan para tokoh:\n• Ki Hajar Dewantara: berjuang melalui pendidikan dengan mendirikan Taman Siswa agar rakyat Indonesia dapat bersekolah.\n• W.R. Supratman: berjuang melalui musik dengan menciptakan lagu 'Indonesia Raya' yang membangkitkan semangat persatuan.\n• R.A. Kartini: berjuang melalui pendidikan perempuan agar perempuan Indonesia dapat bersekolah seperti laki-laki.\n• Pangeran Diponegoro: berjuang dengan senjata memimpin perlawanan terhadap penjajah.\nMakna perjuangan tanpa senjata: perjuangan tidak selalu dengan senjata; melalui pendidikan, seni, dan karya, seseorang dapat memajukan bangsa dan menumbuhkan semangat persatuan. Perjuangan seperti inilah yang paling dibutuhkan pada masa kini.\nContoh penerapan nilai kepahlawanan sehari-hari: belajar dengan sungguh-sungguh, membantu teman yang kesulitan, mengikuti upacara dengan khidmat, menjaga kebersihan lingkungan, dan bekerja sama dalam kelompok.",
+      rubrik:"Skor 3: menjelaskan bentuk perjuangan tokoh-tokoh dengan benar, menganalisis makna perjuangan tanpa senjata, dan memberi contoh penerapan nilai kepahlawanan. Skor 2: menjelaskan bentuk perjuangan dan makna perjuangan tanpa senjata dengan benar, tetapi contoh penerapan kurang. Skor 1: hanya menjelaskan sebagian bentuk perjuangan tokoh. Skor 0: jawaban salah atau kosong.",
+      explain:"Para pahlawan berjuang melalui bidang yang berbeda-beda: pendidikan, musik, dan perjuangan bersenjata. Perjuangan tanpa senjata bermakna memajukan bangsa melalui ilmu dan karya, yang dapat kita terapkan dengan belajar giat dan membantu sesama."}
+    ];
+    var BAB_NAMES = {1:"Bab 1 • Makanan Bergizi untuk Kesehatan Pencernaanmu",2:"Bab 2 • Tarik dan Embuskan",3:"Bab 3 • Jejak Sang Pahlawan"};
+    var TYPE_NAMES = {pg:"Pilihan Ganda",isian:"Isian",uraian:"Uraian"};
+    var TYPE_SCORE = {pg:1,isian:2,uraian:3};
+    function byNo(n){ for(var i=0;i<QUESTIONS.length;i++){ if(QUESTIONS[i].no===n) return QUESTIONS[i]; } return null; }
+    function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+    /* fmt(): teks soal boleh memakai penanda [[b]]...[[/b]] dan [[i]]...[[/i]].
+       Penanda diubah menjadi <b>/<i> SETELAH esc(), jadi tidak ada tag mentah
+       di dalam string soal. Kisi-kisi sumber paket ini tidak memakai
+       tebal/miring pada isi indikator, sehingga tidak ada penanda yang dipakai. */
+    function fmt(s){ return esc(s).replace(/\[\[b\]\]/g,"<b>").replace(/\[\[\/b\]\]/g,"</b>").replace(/\[\[i\]\]/g,"<i>").replace(/\[\[\/i\]\]/g,"</i>"); }
+    function fmtBr(s){ return fmt(s).replace(/\n/g,"<br>"); }
+    function nl2br(s){ return esc(s).replace(/\n/g,"<br>"); }
+    function norm(s){ return String(s==null?"":s).toLowerCase().trim().replace(/\s+/g," ").replace(/[.?!]+$/,""); }
+
+    /* =============== NAMA PEMILIK PAKET (gerbang akses) =============== */
+    var OWNER_KEY = "paket-asas-ipas6-nama";
+    var ownerName = "";
+    try{ ownerName = String(sessionStorage.getItem(OWNER_KEY) || "").trim(); }catch(e){ ownerName = ""; }
+    function saveOwnerName(n){ ownerName = n; try{ sessionStorage.setItem(OWNER_KEY, n); }catch(e){} }
+    function refreshOwnerUI(){
+      var sn = document.getElementById("sim-nama"); if(sn && !sn.value && ownerName) sn.value = ownerName;
+      var on = document.getElementById("owner-name"); if(on) on.textContent = ownerName || "—";
+      var hv = document.getElementById("hasil-nama-val"); if(hv) hv.textContent = ownerName || "—";
+      var rp = document.getElementById("ringkasan-print-nama"); if(rp) rp.textContent = "Nama: " + (ownerName || "—") + "  •  Paket ASAS IPAS Kelas VI — Ringkasan Materi";
+    }
+    function isianBenar(q,val){ var v=norm(val); if(!v) return false; for(var i=0;i<q.accept.length;i++){ if(norm(q.accept[i])===v) return true; } return false; }
+
+    /* =============== HURUF KAPITAL OTOMATIS UNTUK ISIAN NAMA =============== */
+    /* Semua kolom isian nama (gerbang pembeli & panel Admin) dipaksa
+       huruf KAPITAL semua pada NILAI sebenarnya saat diketik, agar tidak
+       ada kesalahan penulisan nama saat membuka paket. */
+    function forceUpper(input){
+      if(!input) return;
+      var start = null, end = null;
+      try{ start = input.selectionStart; end = input.selectionEnd; }catch(e){}
+      var up = input.value.toUpperCase();
+      if(input.value !== up){ input.value = up; }
+      if(start !== null){ try{ input.setSelectionRange(start, end); }catch(e){} }
+    }
+    function bindUpper(id){
+      var el = document.getElementById(id);
+      if(el){ el.addEventListener("input", function(){ forceUpper(el); }); }
+    }
+    bindUpper("gate-nama");
+    bindUpper("admin-new-nama");
+    bindUpper("admin-new-ket");
+    function upperName(s){ return String(s == null ? "" : s).toUpperCase().trim().replace(/\s+/g, " "); }
+
+    /* =============== NAVIGASI =============== */
+    var VIEWS = ["home","ringkasan","kisi","latihan","simulasi","hasil"];
+    function showView(name){
+      for(var i=0;i<VIEWS.length;i++){
+        document.getElementById("view-"+VIEWS[i]).classList.toggle("active", VIEWS[i]===name);
+      }
+      var btns = document.querySelectorAll(".navbtn");
+      for(var j=0;j<btns.length;j++){ btns[j].classList.toggle("active", btns[j].getAttribute("data-nav")===name); }
+      window.scrollTo(0,0);
+    }
+    var navBtns = document.querySelectorAll("[data-nav]");
+    for(var nb=0; nb<navBtns.length; nb++){ navBtns[nb].addEventListener("click", function(){ showView(this.getAttribute("data-nav")); }); }
+    var goBtns = document.querySelectorAll("[data-go]");
+    for(var gb=0; gb<goBtns.length; gb++){ goBtns[gb].addEventListener("click", function(){ showView(this.getAttribute("data-go")); }); }
+    function printWithMode(mode){
+      if(typeof renderPrintAreas === "function"){ renderPrintAreas(); }
+      refreshOwnerUI();
+      document.body.setAttribute("data-print", mode);
+      setTimeout(function(){ window.print(); }, 60);
+    }
+    window.addEventListener("afterprint", function(){ document.body.removeAttribute("data-print"); });
+    document.getElementById("btn-print").addEventListener("click", function(){ printWithMode("ringkasan"); });
+
+    function renderPrintAreas(){
+      /* --- Lembar Soal (tanpa kunci & tanpa pembahasan) --- */
+      var sh = '<div class="p-head"><h1>Paket ASAS IPAS Kelas VI — Latihan Soal</h1>'
+        + '<p>Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>'
+        + '<p>Jumlah soal: 40 (PG No. 1–25 • Isian No. 26–35 • Uraian No. 36–40) • Skor maksimal: 60</p></div>'
+        + '<div class="p-ident"><span>Nama: '+esc(ownerName)+'</span><span>Kelas: </span><span>Tanggal: </span></div>'
+        + '<div class="p-petunjuk"><b>Petunjuk:</b> Bacalah setiap soal dengan teliti. Untuk Pilihan Ganda, beri tanda silang (×) pada huruf jawaban yang paling tepat. Untuk Isian, tulislah jawaban pada garis yang tersedia. Untuk Uraian, tulislah jawaban dengan lengkap pada ruang yang disediakan.</div>';
+      var lastBabS = 0;
+      var sortedS = QUESTIONS.slice().sort(function(a,b){ return a.no-b.no; });
+      sortedS.forEach(function(q){
+        if(q.bab!==lastBabS){ lastBabS=q.bab; sh += '<div class="p-bab">'+esc(BAB_NAMES[q.bab])+'</div>'; }
+        sh += '<div class="pq">';
+        if(q.stimulus){ sh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="pq-stim">'+fmtBr(q.stimulus)+'</div>'; }
+        sh += '<span class="pq-no">'+q.no+'. </span><span style="font-weight:600">'+fmt(q.q)+'</span>';
+        if(q.type==="pg"){
+          sh += '<ul class="pq-opts">';
+          q.options.forEach(function(op,i){ sh += '<li><b>'+"ABCD"[i]+'.</b> '+fmt(op)+'</li>'; });
+          sh += '</ul>';
+        } else if(q.type==="isian"){
+          sh += '<div class="pq-blank"></div>';
+        } else {
+          sh += '<div class="pq-lines"><i></i><i></i><i></i><i></i><i></i></div>';
+        }
+        sh += '</div>';
+      });
+      sh += '<p style="text-align:center;font-weight:700;margin-top:20px">— Selamat mengerjakan, semoga berhasil! —</p>';
+      document.getElementById("print-soal").innerHTML = sh;
+
+      /* --- Kunci & Pembahasan (untuk guru / orang tua) --- */
+      var kh = '<div class="p-head"><h1>Paket ASAS IPAS Kelas VI — Kunci &amp; Pembahasan</h1>'
+        + '<p>Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>'
+        + '<p>Pegangan guru / orang tua — kunci jawaban dan pembahasan 40 soal latihan</p></div>'
+        + '<div class="p-ident"><span>Nama: '+esc(ownerName)+'</span><span>Kelas: </span><span>Tanggal: </span></div>';
+      var lastBabK = 0;
+      sortedS.forEach(function(q){
+        if(q.bab!==lastBabK){ lastBabK=q.bab; kh += '<div class="p-bab">'+esc(BAB_NAMES[q.bab])+'</div>'; }
+        kh += '<div class="pk-item"><h4>No. '+q.no+' • '+TYPE_NAMES[q.type]+' • Skor '+TYPE_SCORE[q.type]+'</h4>';
+        if(q.stimulus){ kh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="pq-stim">'+fmtBr(q.stimulus)+'</div>'; }
+        kh += '<div style="font-weight:600">'+fmt(q.q)+'</div>';
+        if(q.type==="pg"){
+          kh += '<div class="pk-ans">Kunci Jawaban: '+"ABCD"[q.answer]+'. '+esc(q.options[q.answer])+'</div>';
+        } else if(q.type==="isian"){
+          kh += '<div class="pk-ans">Kunci Jawaban: '+fmt(q.model)+'</div>';
+        } else {
+          kh += '<div class="pk-ans">Jawaban Model:</div><div class="pk-model">'+fmt(q.model)+'</div>'
+            + '<p class="pk-exp"><b>Aturan Skor:</b> '+fmt(q.rubrik||"")+'</p>';
+        }
+        kh += '<p class="pk-exp"><b>Pembahasan:</b> '+fmt(q.explain)+'</p></div>';
+      });
+      document.getElementById("print-kunci").innerHTML = kh;
+    }
+    renderPrintAreas();
+
+    /* =============== GERBANG NAMA TERVERIFIKASI =============== */
+    function isBackendReady(){ return !!(APPS_SCRIPT_URL && String(APPS_SCRIPT_URL).trim() !== ""); }
+    function normalizeName(s){ return String(s == null ? "" : s).toLowerCase().trim().replace(/\s+/g, " "); }
+    function showGateError(msg){
+      var err = document.getElementById("gate-error");
+      err.textContent = msg; err.classList.add("show");
+    }
+    function hideGateError(){ document.getElementById("gate-error").classList.remove("show"); }
+    function refreshGateSystemMsg(){
+      var el = document.getElementById("gate-system-msg");
+      var btn = document.getElementById("btn-buka-paket");
+      if(!isBackendReady()){
+        el.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.";
+        el.classList.add("show");
+        if(btn){ btn.disabled = true; }
+      } else {
+        el.textContent = ""; el.classList.remove("show");
+        if(btn){ btn.disabled = false; }
+      }
+    }
+    function unlockPackage(){
+      document.getElementById("gate").classList.add("hidden");
+      document.body.classList.remove("locked");
+      document.getElementById("owner-bar").classList.remove("hidden");
+      refreshOwnerUI();
+      renderPrintAreas();
+    }
+    function lockPackage(){
+      var inp = document.getElementById("gate-nama");
+      inp.value = ownerName || "";
+      hideGateError();
+      refreshGateSystemMsg();
+      document.getElementById("gate").classList.remove("hidden");
+      document.body.classList.add("locked");
+      setTimeout(function(){ inp.focus(); inp.select(); }, 60);
+      window.scrollTo(0,0);
+    }
+    document.getElementById("gate-form").addEventListener("submit", function(ev){
+      ev.preventDefault();
+      var inp = document.getElementById("gate-nama");
+      forceUpper(inp);
+      /* Nama disimpan & ditampilkan dalam huruf KAPITAL semua */
+      var displayName = upperName(inp.value);
+      inp.value = displayName;
+      if(!isBackendReady()){
+        showGateError("Sistem pemeriksaan nama belum dipasang. Hubungi penjual.");
+        var sm = document.getElementById("gate-system-msg");
+        sm.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual."; sm.classList.add("show");
+        return;
+      }
+      if(!displayName){
+        showGateError("Nama lengkap wajib diisi.");
+        inp.focus();
+        return;
+      }
+      if(displayName.length < 3){
+        showGateError("Nama lengkap minimal 3 huruf.");
+        inp.focus();
+        return;
+      }
+      hideGateError();
+      var btn = document.getElementById("btn-buka-paket");
+      var labelAsli = btn.textContent;
+      btn.disabled = true; btn.textContent = "⏳ Memeriksa nama…";
+      var namaNorm = normalizeName(displayName);
+      var url = APPS_SCRIPT_URL + "?action=check&nama=" + encodeURIComponent(namaNorm) + "&mapel=" + encodeURIComponent(MAPEL_ID);
+      fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = labelAsli;
+          if(data && data.allowed){
+            saveOwnerName(displayName);
+            unlockPackage();
+          } else {
+            showGateError("Nama belum terdaftar. Silakan hubungi penjual.");
+            inp.focus();
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = labelAsli;
+          showGateError("Tidak bisa memeriksa nama. Periksa internet Anda lalu coba lagi.");
+        });
+    });
+    document.getElementById("gate-nama").addEventListener("input", function(){
+      hideGateError();
+    });
+    document.getElementById("btn-ganti-nama").addEventListener("click", lockPackage);
+    refreshGateSystemMsg();
+    if(isBackendReady() && ownerName && ownerName.length >= 3){ saveOwnerName(upperName(ownerName)); unlockPackage(); } else { refreshOwnerUI(); if(!isBackendReady()){ refreshGateSystemMsg(); } }
+
+    /* =============== PANEL ADMIN =============== */
+    var adminPin = "";
+    function setAdminMsg(id, msg, kind){
+      var el = document.getElementById(id);
+      if(!el) return;
+      if(!msg){ el.textContent = ""; el.className = "admin-msg"; return; }
+      el.textContent = msg; el.className = "admin-msg show " + (kind || "info");
+    }
+    function renderAdminList(rows){
+      var host = document.getElementById("admin-list");
+      if(!rows || rows.length === 0){
+        host.innerHTML = '<div class="admin-empty">Belum ada nama pembeli terdaftar.</div>';
+        return;
+      }
+      var html = "";
+      rows.forEach(function(r){
+        var meta = [];
+        if(r.mapel) meta.push("Mapel: " + (r.mapel === "semua" ? "Semua Mapel" : (r.mapel === MAPEL_ID ? MAPEL_LABEL : esc(r.mapel))));
+        if(r.tanggal) meta.push(esc(r.tanggal));
+        if(r.ket) meta.push(esc(r.ket));
+        html += '<div class="admin-row"><div class="info"><b>' + esc(upperName(r.nama || "")) + '</b>'
+          + (meta.length ? '<span>' + meta.join(" • ") + '</span>' : '')
+          + '</div><button type="button" class="btn-hapus" data-admin-remove="' + esc(String(r.row)) + '">Hapus</button></div>';
+      });
+      host.innerHTML = html;
+      host.querySelectorAll("[data-admin-remove]").forEach(function(b){
+        b.addEventListener("click", function(){
+          var row = b.getAttribute("data-admin-remove");
+          removeBuyer(row, b);
+        });
+      });
+    }
+    function loadAdminList(){
+      if(!isBackendReady()){ setAdminMsg("admin-msg", "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.", "err"); return Promise.resolve(); }
+      var url = APPS_SCRIPT_URL + "?action=list&pin=" + encodeURIComponent(adminPin);
+      return fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          if(!data || !data.ok){ throw new Error("pin"); }
+          renderAdminList(data.rows || []);
+        });
+    }
+    function postAdmin(payload){
+      return fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(payload)
+      }).then(function(r){ return r.json(); });
+    }
+    function addBuyer(){
+      var namaEl = document.getElementById("admin-new-nama");
+      var ketEl = document.getElementById("admin-new-ket");
+      var mapelEl = document.getElementById("admin-new-mapel");
+      forceUpper(namaEl);
+      /* Nama pembeli disimpan dalam huruf KAPITAL semua */
+      var nama = upperName(namaEl.value);
+      namaEl.value = nama;
+      var ket = ketEl.value.trim();
+      var mapel = mapelEl ? mapelEl.value : MAPEL_ID;
+      if(!nama){ setAdminMsg("admin-msg", "Nama pembeli baru wajib diisi.", "err"); namaEl.focus(); return; }
+      var btn = document.getElementById("btn-admin-add");
+      btn.disabled = true; btn.textContent = "⏳ Menyimpan…";
+      postAdmin({ action: "add", pin: adminPin, nama: nama, ket: ket, mapel: mapel })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = "＋ Tambah";
+          if(data && data.ok){
+            setAdminMsg("admin-msg", "Nama berhasil ditambahkan.", "ok");
+            namaEl.value = ""; ketEl.value = "";
+            if(mapelEl) mapelEl.value = MAPEL_ID;
+            return loadAdminList();
+          } else {
+            setAdminMsg("admin-msg", (data && data.error) ? data.error : "Gagal menambahkan nama. Coba lagi.", "err");
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "＋ Tambah";
+          setAdminMsg("admin-msg", "Tidak bisa menghubungi server. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    }
+    function removeBuyer(row, btnEl){
+      if(btnEl){ btnEl.disabled = true; btnEl.textContent = "…"; }
+      postAdmin({ action: "remove", pin: adminPin, row: isNaN(+row) ? row : +row })
+        .then(function(data){
+          if(data && data.ok){
+            setAdminMsg("admin-msg", "Nama berhasil dihapus.", "ok");
+            return loadAdminList();
+          } else {
+            if(btnEl){ btnEl.disabled = false; btnEl.textContent = "Hapus"; }
+            setAdminMsg("admin-msg", (data && data.error) ? data.error : "Gagal menghapus nama. Coba lagi.", "err");
+          }
+        })
+        .catch(function(){
+          if(btnEl){ btnEl.disabled = false; btnEl.textContent = "Hapus"; }
+          setAdminMsg("admin-msg", "Tidak bisa menghubungi server. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    }
+    function openAdmin(){
+      var modal = document.getElementById("modal-admin");
+      modal.classList.add("show");
+      setAdminMsg("admin-login-msg", "", "");
+      setAdminMsg("admin-msg", "", "");
+      var sys = document.getElementById("admin-system-msg");
+      if(!isBackendReady()){
+        sys.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.";
+        sys.className = "admin-msg show err";
+        document.getElementById("admin-login").classList.add("hidden");
+        document.getElementById("admin-content").classList.add("hidden");
+        return;
+      }
+      sys.textContent = ""; sys.className = "admin-msg";
+      if(adminPin){
+        document.getElementById("admin-login").classList.add("hidden");
+        document.getElementById("admin-content").classList.remove("hidden");
+        loadAdminList().catch(function(){ setAdminMsg("admin-msg", "Tidak bisa memuat daftar. Periksa internet Anda lalu coba lagi.", "err"); });
+      } else {
+        document.getElementById("admin-login").classList.remove("hidden");
+        document.getElementById("admin-content").classList.add("hidden");
+        setTimeout(function(){ document.getElementById("admin-pin").focus(); }, 60);
+      }
+    }
+    function closeAdmin(){ document.getElementById("modal-admin").classList.remove("show"); }
+    document.getElementById("btn-admin-open").addEventListener("click", openAdmin);
+    document.getElementById("btn-admin-open-gate").addEventListener("click", openAdmin);
+    document.getElementById("btn-admin-close").addEventListener("click", closeAdmin);
+    document.getElementById("btn-admin-done").addEventListener("click", closeAdmin);
+    document.getElementById("btn-admin-login").addEventListener("click", function(){
+      var pin = document.getElementById("admin-pin").value;
+      if(!isBackendReady()){ setAdminMsg("admin-login-msg", "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.", "err"); return; }
+      if(!pin){ setAdminMsg("admin-login-msg", "PIN wajib diisi.", "err"); return; }
+      var btn = document.getElementById("btn-admin-login");
+      btn.disabled = true; btn.textContent = "⏳ Memeriksa…";
+      setAdminMsg("admin-login-msg", "", "");
+      var url = APPS_SCRIPT_URL + "?action=list&pin=" + encodeURIComponent(pin);
+      fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = "Masuk";
+          if(data && data.ok){
+            adminPin = pin;
+            document.getElementById("admin-pin").value = "";
+            document.getElementById("admin-login").classList.add("hidden");
+            document.getElementById("admin-content").classList.remove("hidden");
+            setAdminMsg("admin-msg", "", "");
+            renderAdminList(data.rows || []);
+          } else {
+            setAdminMsg("admin-login-msg", "PIN salah.", "err");
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "Masuk";
+          setAdminMsg("admin-login-msg", "Tidak bisa memeriksa PIN. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    });
+    document.getElementById("admin-pin").addEventListener("keydown", function(ev){
+      if(ev.key === "Enter"){ ev.preventDefault(); document.getElementById("btn-admin-login").click(); }
+    });
+    document.getElementById("btn-admin-add").addEventListener("click", addBuyer);
+    document.getElementById("btn-admin-refresh").addEventListener("click", function(){
+      setAdminMsg("admin-msg", "", "");
+      loadAdminList().catch(function(){ setAdminMsg("admin-msg", "Tidak bisa memuat daftar. Periksa internet Anda lalu coba lagi.", "err"); });
+    });
+
+    var btnPS = document.getElementById("btn-print-soal");
+    if(btnPS){ btnPS.addEventListener("click", function(){ printWithMode("soal"); }); }
+    var btnPK = document.getElementById("btn-print-kunci");
+    if(btnPK){ btnPK.addEventListener("click", function(){ printWithMode("kunci"); }); }
+
+    function qHeadHtml(q){
+      return '<div class="qhead"><span class="qno">No. '+q.no+'</span>'
+        +'<span class="qtype '+q.type+'">'+TYPE_NAMES[q.type]+'</span>'
+        +'<span class="qtype">'+BAB_NAMES[q.bab]+'</span>'
+        +'<span class="qskor">Skor: '+TYPE_SCORE[q.type]+'</span></div>';
+    }
+
+    /* =============== LATIHAN SOAL =============== */
+    function renderLatihan(){
+      var host = document.getElementById("latihan-list");
+      var html = "", lastBab = 0;
+      var order = [];
+      QUESTIONS.forEach(function(q){ order.push(q); });
+      order.sort(function(a,b){ if(a.bab!==b.bab) return a.bab-b.bab; return a.no-b.no; });
+      order.forEach(function(q){
+        if(q.bab!==lastBab){ lastBab=q.bab; html += '<h3 style="margin:26px 0 4px;font-size:22px">'+BAB_NAMES[q.bab]+'</h3>'; }
+        html += '<div class="qcard" id="lat-'+q.no+'">'+qHeadHtml(q);
+        if(q.stimulus){ html += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+fmtBr(q.stimulus)+'</div>'; }
+        html += '<div class="qtext">'+fmt(q.q)+'</div>';
+        if(q.type==="pg"){
+          html += '<div class="opts">';
+          q.options.forEach(function(op,i){
+            html += '<button class="opt" data-lat-pg="'+q.no+'" data-idx="'+i+'"><span class="huruf">'+"ABCD"[i]+'</span>'+fmt(op)+'</button>';
+          });
+          html += '</div><div class="explain" id="lat-ex-'+q.no+'"></div>';
+        } else if(q.type==="isian"){
+          html += '<div class="fillin"><input type="text" id="lat-in-'+q.no+'" placeholder="Tulis jawabanmu di sini…" autocomplete="off">'
+            +'<button class="btn small" data-lat-check="'+q.no+'">✔ Periksa</button></div>'
+            +'<div class="explain" id="lat-ex-'+q.no+'"></div>';
+        } else {
+          html += '<textarea class="essay" placeholder="Tulis jawabanmu di sini…"></textarea>'
+            +'<div style="margin-top:10px"><button class="btn small ghost" data-lat-model="'+q.no+'">👀 Lihat Contoh Jawaban</button></div>'
+            +'<div class="modelans" id="lat-model-'+q.no+'"><h4>Contoh Jawaban:</h4>'+fmtBr(q.model)
+            +'<h4 style="margin-top:10px">Aturan Skor:</h4>'+fmt(q.rubrik)
+            +'<h4 style="margin-top:10px">Pembahasan:</h4>'+fmt(q.explain)+'</div>';
+        }
+        html += '</div>';
+      });
+      host.innerHTML = html;
+
+      var pgBtns = host.querySelectorAll("[data-lat-pg]");
+      pgBtns.forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-pg"), idx = +btn.getAttribute("data-idx"), q = byNo(no);
+          var card = document.getElementById("lat-"+no);
+          var opts = card.querySelectorAll(".opt");
+          opts.forEach(function(o,i){ o.disabled = true; o.classList.toggle("benar", i===q.answer); o.classList.remove("sel"); });
+          if(idx!==q.answer){ btn.classList.add("salah"); }
+          var ex = document.getElementById("lat-ex-"+no);
+          ex.className = "explain show " + (idx===q.answer ? "ok" : "no");
+          ex.innerHTML = '<span class="verdict">'+(idx===q.answer ? "🎉 Benar! Kerja bagus." : "Belum tepat. Jawaban yang benar: "+"ABCD"[q.answer]+".")+'</span><br>'+fmt(q.explain);
+        });
+      });
+      var chkBtns = host.querySelectorAll("[data-lat-check]");
+      chkBtns.forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-check"), q = byNo(no);
+          var val = document.getElementById("lat-in-"+no).value;
+          var ex = document.getElementById("lat-ex-"+no);
+          if(!norm(val)){ ex.className="explain show info"; ex.innerHTML='<span class="verdict">Isi dulu jawabanmu ya!</span>'; return; }
+          var ok = isianBenar(q,val);
+          ex.className = "explain show " + (ok ? "ok" : "no");
+          ex.innerHTML = '<span class="verdict">'+(ok ? "🎉 Benar! Hebat." : "Belum tepat. Jawaban yang benar: <b>"+fmt(q.model)+"</b>.")+'</span><br>'+fmt(q.explain);
+        });
+      });
+      var mdlBtns = host.querySelectorAll("[data-lat-model]");
+      mdlBtns.forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-model");
+          var box = document.getElementById("lat-model-"+no);
+          var show = box.classList.toggle("show");
+          btn.textContent = show ? "🙈 Sembunyikan Contoh Jawaban" : "👀 Lihat Contoh Jawaban";
+        });
+      });
+    }
+    renderLatihan();
+
+    /* =============== KISI-KISI (sesuai berkas kisi-kisi ASAS IPAS) =============== */
+    var KISI = [
+      {bab:1, rows:[
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Menentukan organ pencernaan yang pertama kali bekerja berdasarkan cerita tentang kegiatan makan.","PG","1",1],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Mengidentifikasi proses pencernaan mekanis dan kimiawi di mulut berdasarkan urutan proses makan.","PG","2",1],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Menentukan organ pencernaan yang tepat berdasarkan ilustrasi perjalanan makanan.","PG","3",1],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Menentukan fungsi jonjot usus berdasarkan informasi tentang jonjot usus.","PG","4",1],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Menentukan sumber energi utama berdasarkan tabel bahan makanan dan kandungan gizinya.","PG","5",1],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Menentukan zat gizi yang berperan memperbaiki jaringan tubuh berdasarkan cerita tentang proses penyembuhan luka.","PG","6",1],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Mengelompokkan sumber protein nabati berdasarkan daftar makanan.","PG","7",1],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Mengidentifikasi gangguan pencernaan berdasarkan cerita tentang kebiasaan makan dan minum.","PG","8",1],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Menentukan kebiasaan yang mendukung kesehatan pencernaan berdasarkan tabel kebiasaan makan.","PG","9",1],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Menyebutkan organ yang menghubungkan mulut dengan lambung berdasarkan cerita tentang perjalanan makanan.","Isian","26",2],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Menyebutkan proses yang terjadi di usus halus berdasarkan informasi tentang jonjot usus.","Isian","27",2],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Menyebutkan kandungan zat gizi utama pada nasi, roti, dan kentang berdasarkan daftar makanan.","Isian","28",2],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Menyebutkan jenis gangguan pencernaan berdasarkan cerita tentang kesulitan buang air besar.","Isian","29",2],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Menjelaskan fungsi lambung, usus halus, dan usus besar dalam proses pencernaan berdasarkan ilustrasi perjalanan makanan.","Uraian","36",3],
+        ["Makanan Bergizi untuk Kesehatan Pencernaanmu","Mengidentifikasi jenis zat gizi, menjelaskan fungsinya, dan menganalisis pentingnya gizi seimbang berdasarkan tabel menu makanan sehari-hari.","Uraian","37",3]
+      ]},
+      {bab:2, rows:[
+        ["Tarik dan Embuskan","Menentukan organ pertama yang dilalui udara berdasarkan cerita tentang kegiatan menarik napas.","PG","10",1],
+        ["Tarik dan Embuskan","Menjelaskan fungsi rambut-rambut halus di hidung berdasarkan ilustrasi lingkungan berdebu.","PG","11",1],
+        ["Tarik dan Embuskan","Menentukan organ yang tepat berdasarkan urutan organ pernapasan yang belum lengkap.","PG","12",1],
+        ["Tarik dan Embuskan","Mengidentifikasi tempat pertukaran gas berdasarkan informasi tentang gelembung paru-paru.","PG","13",1],
+        ["Tarik dan Embuskan","Menentukan gas yang dibutuhkan tubuh dalam proses pernapasan berdasarkan tabel jenis gas.","PG","14",1],
+        ["Tarik dan Embuskan","Menentukan gas yang lebih banyak dikeluarkan berdasarkan tabel perbandingan udara yang dihirup dan diembuskan.","PG","15",1],
+        ["Tarik dan Embuskan","Menganalisis dampak paparan asap rokok terhadap sistem pernapasan berdasarkan cerita tentang paparan asap rokok.","PG","16",1],
+        ["Tarik dan Embuskan","Menentukan lingkungan rumah yang mendukung kesehatan pernapasan berdasarkan tabel kondisi beberapa rumah.","PG","17",1],
+        ["Tarik dan Embuskan","Menyebutkan organ pernapasan yang pertama kali dilalui udara berdasarkan ilustrasi tentang penyaringan udara.","Isian","30",2],
+        ["Tarik dan Embuskan","Menyebutkan cabang trakea yang menuju paru-paru berdasarkan urutan organ pernapasan.","Isian","31",2],
+        ["Tarik dan Embuskan","Menyebutkan nama bagian paru-paru tempat pertukaran gas berdasarkan informasi tentang tempat pertukaran gas.","Isian","32",2],
+        ["Tarik dan Embuskan","Menyebutkan kebiasaan yang harus dihindari berdasarkan cerita tentang paparan asap rokok.","Isian","33",2],
+        ["Tarik dan Embuskan","Menjelaskan fungsi hidung, trakea, bronkus, dan proses pertukaran gas di alveoli berdasarkan ilustrasi perjalanan udara.","Uraian","38",3],
+        ["Tarik dan Embuskan","Membedakan kebiasaan yang mengganggu dan menjaga kesehatan pernapasan serta menjelaskan pentingnya udara bersih berdasarkan tabel kebiasaan sehari-hari.","Uraian","39",3]
+      ]},
+      {bab:3, rows:[
+        ["Jejak Sang Pahlawan","Mengidentifikasi sikap kepahlawanan berdasarkan cerita tentang seseorang yang mengutamakan kepentingan bangsa.","PG","18",1],
+        ["Jejak Sang Pahlawan","Menyimpulkan bahwa perjuangan dapat dilakukan melalui berbagai bidang berdasarkan informasi berbagai bentuk perjuangan.","PG","19",1],
+        ["Jejak Sang Pahlawan","Mengidentifikasi Ki Hajar Dewantara berdasarkan informasi tentang tokoh pendidikan.","PG","20",1],
+        ["Jejak Sang Pahlawan","Menentukan bidang perjuangan W.R. Supratman berdasarkan informasi tentang W.R. Supratman.","PG","21",1],
+        ["Jejak Sang Pahlawan","Menentukan tujuan perjuangan bangsa Indonesia berdasarkan cerita tentang keadaan setelah proklamasi.","PG","22",1],
+        ["Jejak Sang Pahlawan","Memilih kegiatan yang mencerminkan semangat perjuangan pahlawan berdasarkan tabel kegiatan siswa.","PG","23",1],
+        ["Jejak Sang Pahlawan","Mengidentifikasi warisan nilai-nilai perjuangan berdasarkan cerita tentang perjuangan tokoh daerah.","PG","24",1],
+        ["Jejak Sang Pahlawan","Menentukan nilai kepahlawanan yang tercermin dalam kegiatan tersebut berdasarkan ilustrasi kerja kelompok.","PG","25",1],
+        ["Jejak Sang Pahlawan","Menyebutkan tokoh yang mengemukakan semboyan Tut Wuri Handayani berdasarkan informasi tentang semboyan tersebut.","Isian","34",2],
+        ["Jejak Sang Pahlawan","Melengkapi tujuan pengabdian kepada bangsa dan negara berdasarkan cerita tentang perjuangan generasi sekarang.","Isian","35",2],
+        ["Jejak Sang Pahlawan","Menjelaskan bentuk perjuangan, menganalisis makna perjuangan tanpa senjata, dan memberikan contoh penerapan nilai kepahlawanan berdasarkan tabel tokoh dan bidang perjuangannya.","Uraian","40",3]
+      ]}
+    ];
+    function renderKisi(){
+      var html = '<table class="kisi"><thead><tr><th>Materi Pokok</th><th>Indikator Soal</th><th>Bentuk Soal</th><th>No. Soal</th><th>Skor</th></tr></thead><tbody>';
+      KISI.forEach(function(g){
+        html += '<tr class="kisi-bab"><td colspan="5">'+esc(BAB_NAMES[g.bab])+'</td></tr>';
+        g.rows.forEach(function(r){
+          html += '<tr><td data-l="Materi Pokok">'+esc(r[0])+'</td>'
+            + '<td data-l="Indikator Soal">'+esc(r[1])+'</td>'
+            + '<td class="c" data-l="Bentuk Soal">'+esc(r[2])+'</td>'
+            + '<td class="c" data-l="No. Soal">'+esc(r[3])+'</td>'
+            + '<td class="c" data-l="Skor">'+r[4]+'</td></tr>';
+        });
+      });
+      html += '<tr class="kisi-total"><td colspan="2">Total Skor: PG 25 × 1 + Isian 10 × 2 + Uraian 5 × 3</td><td class="c" colspan="2">40 soal</td><td class="c">60</td></tr>';
+      html += '</tbody></table>';
+      document.getElementById("kisi-table").innerHTML = html;
+    }
+    renderKisi();
+
+    /* =============== SIMULASI ASAS =============== */
+    var sim = { aktif:false, idx:0, answers:{}, flags:{}, sisa:90*60, timerId:null, selesai:false, selfScore:{}, nama:"", kelas:"", sekolah:"" };
+
+    function renderPalette(){
+      var host = document.getElementById("sim-palette");
+      var html = "";
+      QUESTIONS.forEach(function(q,i){
+        var cls = "pal";
+        if(sim.answers[q.no] !== undefined && sim.answers[q.no] !== null && String(sim.answers[q.no]).trim()!=="") cls += " terjawab";
+        if(sim.flags[q.no]) cls += " ragu";
+        if(i===sim.idx) cls += " kini";
+        html += '<button class="'+cls+'" data-pal="'+i+'">'+q.no+'</button>';
+      });
+      host.innerHTML = html;
+      host.querySelectorAll("[data-pal]").forEach(function(b){
+        b.addEventListener("click", function(){ sim.idx = +b.getAttribute("data-pal"); renderSimQuestion(); });
+      });
+      var terjawab = 0;
+      QUESTIONS.forEach(function(q){ if(sim.answers[q.no] !== undefined && String(sim.answers[q.no]).trim()!=="") terjawab++; });
+      document.getElementById("sim-answered").textContent = terjawab;
+      document.getElementById("sim-prog-bar").style.width = (terjawab/QUESTIONS.length*100)+"%";
+    }
+
+    function renderSimQuestion(){
+      var q = QUESTIONS[sim.idx];
+      document.getElementById("sim-prog-text").textContent = "Soal "+(sim.idx+1)+" dari 40";
+      var host = document.getElementById("sim-question");
+      var html = '<div class="qcard">'+qHeadHtml(q);
+      if(q.stimulus){ html += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+fmtBr(q.stimulus)+'</div>'; }
+      html += '<div class="qtext">'+fmt(q.q)+'</div>';
+      if(q.type==="pg"){
+        html += '<div class="opts">';
+        q.options.forEach(function(op,i){
+          var sel = sim.answers[q.no]===i ? " sel" : "";
+          html += '<button class="opt'+sel+'" data-sim-pg="'+i+'"><span class="huruf">'+"ABCD"[i]+'</span>'+fmt(op)+'</button>';
+        });
+        html += '</div>';
+      } else if(q.type==="isian"){
+        html += '<div class="fillin"><input type="text" id="sim-in" placeholder="Tulis jawabanmu di sini…" autocomplete="off" value="'+esc(sim.answers[q.no]||"")+'"></div>';
+      } else {
+        html += '<textarea class="essay" id="sim-in" placeholder="Tulis jawabanmu dengan lengkap di sini…">'+esc(sim.answers[q.no]||"")+'</textarea>';
+      }
+      html += '</div>';
+      host.innerHTML = html;
+
+      host.querySelectorAll("[data-sim-pg]").forEach(function(b){
+        b.addEventListener("click", function(){
+          sim.answers[q.no] = +b.getAttribute("data-sim-pg");
+          renderSimQuestion();
+        });
+      });
+      var inp = document.getElementById("sim-in");
+      if(inp){
+        inp.addEventListener("input", function(){ sim.answers[q.no] = inp.value; renderPaletteSoft(); });
+      }
+      var flagBtn = document.getElementById("btn-flag");
+      flagBtn.classList.toggle("ragu-on", !!sim.flags[q.no]);
+      flagBtn.textContent = sim.flags[q.no] ? "🚩 Ragu-ragu (Aktif)" : "🚩 Ragu-ragu";
+      document.getElementById("btn-prev").disabled = sim.idx===0;
+      document.getElementById("btn-next").disabled = sim.idx===QUESTIONS.length-1;
+      renderPalette();
+    }
+    function renderPaletteSoft(){ renderPalette(); }
+
+    function fmtTime(s){ var m=Math.floor(s/60), d=s%60; return (m<10?"0":"")+m+":"+(d<10?"0":"")+d; }
+    function tickTimer(){
+      sim.sisa--;
+      var el = document.getElementById("sim-timer");
+      el.textContent = "⏱️ " + fmtTime(Math.max(sim.sisa,0));
+      el.classList.toggle("kritis", sim.sisa<=300);
+      if(sim.sisa<=0){ finishSim(true); }
+    }
+    function startSim(){
+      var nmEl = document.getElementById("sim-nama"), klEl = document.getElementById("sim-kelas"), skEl = document.getElementById("sim-sekolah");
+      var nm = nmEl ? upperName(nmEl.value) : "", kl = klEl ? klEl.value.trim() : "", sk = skEl ? skEl.value.trim() : "";
+      if(nmEl) nmEl.value = nm;
+      var im = document.getElementById("sim-identitas-msg");
+      if(!nm || !kl){
+        if(im){ im.textContent = "Isi Nama Siswa dan Kelas dulu ya, sebelum mulai simulasi."; im.className = "admin-msg show err"; }
+        if(!nm && nmEl) nmEl.focus(); else if(klEl) klEl.focus();
+        return;
+      }
+      if(im){ im.textContent = ""; im.className = "admin-msg"; }
+      sim.nama = nm; sim.kelas = kl; sim.sekolah = sk;
+      sim.aktif = true; sim.selesai = false; sim.idx = 0; sim.answers = {}; sim.flags = {}; sim.selfScore = {}; sim.sisa = 90*60;
+      document.getElementById("sim-start").classList.add("hidden");
+      document.getElementById("sim-quiz").classList.remove("hidden");
+      document.getElementById("sim-timer").textContent = "⏱️ 90:00";
+      document.getElementById("sim-timer").classList.remove("kritis");
+      if(sim.timerId) clearInterval(sim.timerId);
+      sim.timerId = setInterval(tickTimer, 1000);
+      renderSimQuestion();
+      window.scrollTo(0,0);
+    }
+    document.getElementById("btn-start-sim").addEventListener("click", startSim);
+    document.getElementById("btn-prev").addEventListener("click", function(){ if(sim.idx>0){ sim.idx--; renderSimQuestion(); } });
+    document.getElementById("btn-next").addEventListener("click", function(){ if(sim.idx<QUESTIONS.length-1){ sim.idx++; renderSimQuestion(); } });
+    document.getElementById("btn-flag").addEventListener("click", function(){
+      var q = QUESTIONS[sim.idx]; sim.flags[q.no] = !sim.flags[q.no]; renderSimQuestion();
+    });
+    function askFinish(){
+      var terjawab=0, ragu=0;
+      QUESTIONS.forEach(function(q){
+        if(sim.answers[q.no]!==undefined && String(sim.answers[q.no]).trim()!=="") terjawab++;
+        if(sim.flags[q.no]) ragu++;
+      });
+      document.getElementById("modal-finish-text").innerHTML =
+        "Kamu sudah menjawab <b>"+terjawab+"</b> dari 40 soal. Belum dijawab: <b>"+(40-terjawab)+"</b> soal. Ditandai ragu-ragu: <b>"+ragu+"</b> soal.<br><br>Setelah selesai, kamu tidak dapat mengubah jawaban PG dan Isian. Soal uraian akan kamu nilai sendiri di layar hasil.";
+      document.getElementById("modal-finish").classList.add("show");
+    }
+    document.getElementById("btn-finish-top").addEventListener("click", askFinish);
+    document.getElementById("btn-modal-back").addEventListener("click", function(){ document.getElementById("modal-finish").classList.remove("show"); });
+    document.getElementById("btn-modal-yes").addEventListener("click", function(){
+      document.getElementById("modal-finish").classList.remove("show"); finishSim(false);
+    });
+
+    function hitungSkor(){
+      var pg=0, isian=0, uraian=0;
+      QUESTIONS.forEach(function(q){
+        if(q.type==="pg"){ if(sim.answers[q.no]===q.answer) pg += 1; }
+        else if(q.type==="isian"){ if(isianBenar(q, sim.answers[q.no])) isian += 2; }
+        else { uraian += (sim.selfScore[q.no]||0); }
+      });
+      return {pg:pg, isian:isian, uraian:uraian, total:pg+isian+uraian};
+    }
+    function updateHasil(){
+      var s = hitungSkor();
+      var nilai = Math.round(s.total/60*100);
+      document.getElementById("skor-pg").textContent = s.pg;
+      document.getElementById("skor-isian").textContent = s.isian;
+      document.getElementById("skor-uraian").textContent = s.uraian;
+      document.getElementById("hasil-total").textContent = s.total;
+      document.getElementById("hasil-nilai").textContent = nilai;
+      var predikat;
+      if(nilai>=90){ predikat="🌟 Sangat Baik — Luar Biasa!"; }
+      else if(nilai>=75){ predikat="👍 Baik — Hebat!"; }
+      else if(nilai>=60){ predikat="🙂 Cukup — Terus Berlatih!"; }
+      else { predikat="💪 Perlu Berlatih Lagi — Kamu Pasti Bisa!"; }
+      document.getElementById("hasil-predikat").textContent = predikat;
+    }
+    function finishSim(karenaWaktu){
+      if(sim.selesai) return;
+      sim.selesai = true; sim.aktif = false;
+      if(sim.timerId) clearInterval(sim.timerId);
+      document.getElementById("sim-quiz").classList.add("hidden");
+      document.getElementById("sim-start").classList.remove("hidden");
+      renderHasil(karenaWaktu);
+      showView("hasil");
+    }
+    function renderHasil(karenaWaktu){
+      var hn = document.getElementById("hasil-nama");
+      if(hn){ hn.innerHTML = "👤 Nama: <b>" + esc(sim.nama || ownerName || "—") + "</b> &nbsp;•&nbsp; Kelas: <b>" + esc(sim.kelas || "—") + "</b> &nbsp;•&nbsp; Sekolah: <b>" + esc(sim.sekolah || "—") + "</b>"; }
+      /* --- Penilaian uraian oleh siswa --- */
+      var uh = "";
+      if(karenaWaktu){ uh += '<div class="disclaimer" style="margin:0 0 14px">⏰ Waktu habis! Simulasi otomatis diselesaikan.</div>'; }
+      uh += '<div class="qcard"><h3 style="margin-top:0">✍️ Nilai Sendiri Soal Uraianmu</h3>'
+        +'<p style="margin:0 0 6px">Bandingkan jawabanmu dengan <b>jawaban model</b>, lalu pilih skor untuk tiap soal uraian sesuai aturan skor:</p>'
+        +'<ul style="margin:0;padding-left:22px"><li><b>Skor 3</b> = jawaban lengkap dan tepat.</li><li><b>Skor 2</b> = jawaban benar tetapi kurang lengkap.</li><li><b>Skor 1</b> = jawaban hanya benar sebagian.</li><li><b>Skor 0</b> = jawaban salah atau kosong.</li></ul>'
+        +'<p style="margin:6px 0 0">Jujur ya saat menilai, supaya hasil belajarmu benar-benar terlihat!</p></div>';
+      QUESTIONS.forEach(function(q){
+        if(q.type!=="uraian") return;
+        var jawab = sim.answers[q.no];
+        uh += '<div class="qcard">'+qHeadHtml(q)
+          +'<div class="qtext">'+fmt(q.q)+'</div>'
+          +'<div style="font-weight:800;margin-top:8px">Jawabanmu:</div>'
+          +'<div class="jawaban-siswa">'+(jawab && String(jawab).trim() ? esc(jawab) : "(tidak dijawab)")+'</div>'
+          +'<div class="modelans show"><h4>Jawaban Model:</h4>'+fmtBr(q.model)
+          +'<h4 style="margin-top:10px">Aturan Skor:</h4>'+fmt(q.rubrik)+'</div>'
+          +'<div class="selfscore"><span style="font-weight:800">Skor saya:</span>';
+        for(var s=0;s<=3;s++){ uh += '<button class="ss'+((sim.selfScore[q.no]||0)===s?" pick":"")+'" data-ss="'+q.no+'" data-val="'+s+'">'+s+'</button>'; }
+        uh += '</div></div>';
+      });
+      document.getElementById("uraian-self").innerHTML = uh;
+      document.querySelectorAll("[data-ss]").forEach(function(b){
+        b.addEventListener("click", function(){
+          sim.selfScore[+b.getAttribute("data-ss")] = +b.getAttribute("data-val");
+          var grup = b.parentElement.querySelectorAll(".ss");
+          grup.forEach(function(x){ x.classList.toggle("pick", x===b); });
+          updateHasil();
+        });
+      });
+
+      /* --- Pembahasan semua soal --- */
+      var rh = "";
+      QUESTIONS.forEach(function(q){
+        rh += '<div class="qcard">'+qHeadHtml(q);
+        if(q.stimulus){ rh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+fmtBr(q.stimulus)+'</div>'; }
+        rh += '<div class="qtext">'+fmt(q.q)+'</div>';
+        if(q.type==="pg"){
+          var pilih = sim.answers[q.no];
+          rh += '<div class="opts">';
+          q.options.forEach(function(op,i){
+            var cls = "opt";
+            if(i===q.answer) cls += " benar";
+            else if(pilih===i) cls += " salah";
+            rh += '<button class="'+cls+'" disabled><span class="huruf">'+"ABCD"[i]+'</span>'+fmt(op)+(pilih===i ? ' <b>(jawabanmu)</b>' : '')+'</button>';
+          });
+          rh += '</div>';
+          var ok = pilih===q.answer;
+          rh += '<div class="explain show '+(ok?"ok":"no")+'"><span class="verdict">'+(ok?"🎉 Benar!":"Jawabanmu belum tepat. Kunci jawaban: "+"ABCD"[q.answer]+".")+'</span><br>'+fmt(q.explain)+'</div>';
+        } else if(q.type==="isian"){
+          var val = sim.answers[q.no];
+          var ok2 = isianBenar(q, val);
+          rh += '<div class="jawaban-siswa">Jawabanmu: <b>'+(val && String(val).trim() ? esc(val) : "(tidak dijawab)")+'</b></div>';
+          rh += '<div class="explain show '+(ok2?"ok":"no")+'"><span class="verdict">'+(ok2?"🎉 Benar!":"Jawaban yang benar: "+fmt(q.model)+".")+'</span><br>'+fmt(q.explain)+'</div>';
+        } else {
+          rh += '<div class="modelans show"><h4>Jawaban Model:</h4>'+fmtBr(q.model)+'<h4 style="margin-top:10px">Pembahasan:</h4>'+fmt(q.explain)+'</div>';
+          rh += '<div class="explain show info">Skor uraian yang kamu berikan untuk soal ini: <b>'+(sim.selfScore[q.no]||0)+'</b> dari 3.</div>';
+        }
+        rh += '</div>';
+      });
+      document.getElementById("hasil-review").innerHTML = rh;
+      updateHasil();
+    }
+    document.getElementById("btn-retry").addEventListener("click", function(){
+      showView("simulasi"); startSim();
+    });
+    </script>
+  </body>
+</html>
