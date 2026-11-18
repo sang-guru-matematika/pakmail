@@ -1,0 +1,1545 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Paket ASAS IPAS Kelas V — SD Negeri Ungaran 01</title>
+    <style>
+      :root{
+        --bg:#dcf0fd; --bg2:#eef8ff; --card:#ffffff; --ink:#17384f; --muted:#51708499;
+        --muted2:#47687e; --primary:#0f7bd4; --primary-d:#0a5ea3; --accent:#ffb020;
+        --good:#1d9e62; --good-bg:#e2f7ec; --bad:#df463a; --bad-bg:#fdecea;
+        --warn:#e9a400; --warn-bg:#fff6da; --line:#b9dcf3; --chip:#eaf5fe;
+        --bab1:#f08c00; --bab2:#1d9e62; --bab3:#d6337f; --bab4:#0f7bd4;
+        --bab5:#0e7490; --bab6:#b45309; --bab7:#b3402a;
+        --shadow:0 4px 14px rgba(23,90,140,.14);
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#0c2233; --bg2:#0f2a3f; --card:#17384f; --ink:#ecf7ff; --muted2:#a9c6d8;
+          --primary:#3aa0ec; --primary-d:#7cc0f5; --accent:#ffb020;
+          --good:#43d68a; --good-bg:#123d2a; --bad:#ff7a6e; --bad-bg:#4a2320;
+          --warn:#ffcf4d; --warn-bg:#4a3a10; --line:#2c5878; --chip:#1d425f;
+          --shadow:0 4px 14px rgba(0,0,0,.4);
+        }
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2) 320px,var(--bg2));color:var(--ink);
+        font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+        font-size:17px;line-height:1.55;-webkit-text-size-adjust:100%}
+      .wrap{max-width:880px;margin:0 auto;padding:0 16px 40px}
+      button{font-family:inherit;cursor:pointer}
+      button,[role="button"],select,input,textarea{font-family:inherit}
+
+      /* ---------- Navigasi ---------- */
+      nav.topnav{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:3px solid var(--accent);
+        box-shadow:0 2px 10px rgba(23,90,140,.15)}
+      .topnav .in{max-width:880px;margin:0 auto;padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap}
+      .navbtn{flex:1 1 auto;min-height:48px;border:2px solid var(--line);background:var(--chip);color:var(--ink);
+        border-radius:14px;font-size:16px;font-weight:700;padding:8px 10px}
+      .navbtn.active{background:var(--primary);border-color:var(--primary);color:#fff}
+
+      .view{display:none}
+      .view.active{display:block}
+
+      /* ---------- Beranda ---------- */
+      .hero{text-align:center;padding:30px 10px 8px}
+      .hero .badge{display:inline-block;background:var(--accent);color:#4a2f00;font-weight:800;
+        padding:6px 16px;border-radius:999px;font-size:15px;letter-spacing:.3px}
+      .hero h1{font-size:clamp(28px,6vw,42px);margin:14px 0 6px;line-height:1.2;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.hero h1{color:#a8d8ff}}
+      .hero p.sub{font-size:clamp(16px,3.6vw,20px);color:var(--muted2);margin:4px 0 10px;font-weight:600}
+      .disclaimer{max-width:620px;margin:14px auto 0;background:var(--warn-bg);border:2px dashed var(--warn);
+        border-radius:14px;padding:12px 16px;font-weight:700;font-size:16px}
+      .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:26px 0 8px}
+      .stat{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 14px;text-align:center;box-shadow:var(--shadow)}
+      .stat .big{font-size:34px;font-weight:900;color:var(--primary-d);line-height:1.1}
+      @media (prefers-color-scheme: dark){.stat .big{color:#a8d8ff}}
+      .stat .lbl{font-weight:700;color:var(--muted2);margin-top:4px}
+      .babgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0}
+      .babcard{background:var(--card);border-radius:18px;padding:16px;box-shadow:var(--shadow);border-top:8px solid var(--line)}
+      .babcard h3{margin:0 0 6px;font-size:19px}
+      .babcard p{margin:0;color:var(--muted2);font-size:15.5px}
+      .babcard.b1{border-top-color:var(--bab1)} .babcard.b2{border-top-color:var(--bab2)}
+      .babcard.b3{border-top-color:var(--bab3)} .babcard.b4{border-top-color:var(--bab4)}
+      .babcard.b5{border-top-color:var(--bab5)} .babcard.b6{border-top-color:var(--bab6)}
+      .babcard.b7{border-top-color:var(--bab7)}
+      .cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:26px 0 6px}
+      .btn{min-height:52px;border:none;border-radius:16px;font-size:18px;font-weight:800;padding:12px 26px;
+        background:var(--primary);color:#fff;box-shadow:var(--shadow)}
+      .btn:hover{background:var(--primary-d)}
+      a.btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+      .btn.orange{background:#f08c00}.btn.orange:hover{background:#c77400}
+      .btn.ghost{background:var(--card);color:var(--primary-d);border:2px solid var(--primary)}
+      .btn.small{min-height:48px;font-size:16px;padding:10px 18px;border-radius:13px}
+      .btn:disabled{opacity:.45;cursor:not-allowed}
+      .howto{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 20px;margin-top:22px;box-shadow:var(--shadow)}
+      .howto h2{margin:0 0 8px;font-size:21px}
+      .howto li{margin:5px 0}
+
+      /* ---------- Ringkasan ---------- */
+      .sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:24px 0 6px}
+      .sec-head h2{margin:0;font-size:clamp(23px,5vw,30px);color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.sec-head h2{color:#a8d8ff}}
+      .babsec{background:var(--card);border-radius:20px;box-shadow:var(--shadow);margin:18px 0;padding:20px 22px;border-left:10px solid var(--line)}
+      .babsec.b1{border-left-color:var(--bab1)} .babsec.b2{border-left-color:var(--bab2)}
+      .babsec.b3{border-left-color:var(--bab3)} .babsec.b4{border-left-color:var(--bab4)}
+      .babsec.b5{border-left-color:var(--bab5)} .babsec.b6{border-left-color:var(--bab6)}
+      .babsec.b7{border-left-color:var(--bab7)}
+      .babsec h3{margin:0 0 4px;font-size:23px}
+      .babsec .tema{color:var(--muted2);font-weight:600;margin:0 0 10px}
+      .konsep{margin:0;padding:0;list-style:none}
+      .konsep li{padding:9px 0;border-bottom:1px dashed var(--line)}
+      .konsep li:last-child{border-bottom:none}
+      .konsep b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.konsep b{color:#a8d8ff}}
+      .contoh{display:block;margin-top:3px;background:var(--chip);border-radius:10px;padding:7px 12px;font-size:16px}
+      .contoh::before{content:"Contoh: ";font-weight:800}
+
+      /* ---------- Soal ---------- */
+      .qcard{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 20px;margin:14px 0;box-shadow:var(--shadow)}
+      .qhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+      .qno{background:var(--primary);color:#fff;font-weight:900;border-radius:10px;padding:3px 12px;font-size:16px}
+      .qtype{font-weight:800;font-size:13.5px;padding:4px 11px;border-radius:999px;background:var(--chip);color:var(--muted2);border:1.5px solid var(--line)}
+      .qtype.pg{background:#e3f0ff;color:#0a5ea3}.qtype.isian{background:#fff0d6;color:#8a5a00}.qtype.uraian{background:#ffe3f0;color:#9c1c58}
+      @media (prefers-color-scheme: dark){.qtype.pg{background:#173a55;color:#a8d8ff}.qtype.isian{background:#4a3a10;color:#ffcf4d}.qtype.uraian{background:#47203a;color:#ff9ec7}}
+      .qskor{margin-left:auto;font-weight:700;color:var(--muted2);font-size:14.5px}
+      .stimulus{background:var(--chip);border-left:6px solid var(--accent);border-radius:10px;padding:12px 16px;margin:10px 0;font-size:17px}
+      .qtext{font-size:18px;font-weight:600;margin:8px 0}
+      .opts{display:grid;gap:9px;margin-top:10px}
+      .opt{min-height:52px;text-align:left;border:2px solid var(--line);background:var(--card);color:var(--ink);
+        border-radius:13px;padding:11px 15px;font-size:17px;font-weight:600;width:100%}
+      .opt .huruf{display:inline-block;background:var(--chip);border:1.5px solid var(--line);border-radius:8px;
+        font-weight:900;padding:1px 9px;margin-right:9px}
+      .opt.sel{border-color:var(--primary);background:var(--chip)}
+      .opt.benar{border-color:var(--good);background:var(--good-bg)}
+      .opt.salah{border-color:var(--bad);background:var(--bad-bg)}
+      .opt:disabled{cursor:default;opacity:1}
+      .explain{display:none;margin-top:12px;border-radius:12px;padding:12px 15px;font-size:16px}
+      .explain.show{display:block}
+      .explain.ok{background:var(--good-bg);border:1.5px solid var(--good)}
+      .explain.no{background:var(--bad-bg);border:1.5px solid var(--bad)}
+      .explain.info{background:var(--chip);border:1.5px solid var(--line)}
+      .explain .verdict{font-weight:900}
+      .fillin{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+      .fillin input{flex:1 1 220px;min-height:52px;font-size:18px;padding:10px 14px;border:2px solid var(--line);
+        border-radius:13px;background:var(--card);color:var(--ink)}
+      textarea.essay{width:100%;min-height:110px;font-size:17px;padding:12px 14px;border:2px solid var(--line);
+        border-radius:13px;background:var(--card);color:var(--ink);resize:vertical;line-height:1.5}
+      .modelans{display:none;margin-top:12px;background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:12px;padding:12px 15px;font-size:16px}
+      .modelans.show{display:block}
+      .modelans h4{margin:0 0 6px}
+      .svgbox{text-align:center;margin:10px 0}
+      .svgbox svg{max-width:100%;height:auto}
+      .qcard{scroll-margin-top:150px}
+
+      /* ---------- Kisi-kisi ---------- */
+      .kisi-title{text-align:center;font-weight:900;font-size:clamp(18px,4.4vw,23px);line-height:1.35;margin:6px 0 14px}
+      .kisi-meta{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);margin:0 0 16px}
+      .kisi-meta table{border-collapse:collapse}
+      .kisi-meta td{padding:3.5px 14px 3.5px 0;font-size:16px;vertical-align:top}
+      .kisi-meta td:first-child{font-weight:800;white-space:nowrap}
+      table.kisi{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+      table.kisi th,table.kisi td{border:1.5px solid var(--line);padding:8px 11px;text-align:left;font-size:15.5px;vertical-align:top}
+      table.kisi thead th{background:var(--primary);color:#fff;font-size:15px}
+      table.kisi td.c{text-align:center;white-space:nowrap;font-weight:700}
+      table.kisi tr.kisi-bab td{background:var(--chip);font-weight:900;font-size:16.5px;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){table.kisi tr.kisi-bab td{color:#a8d8ff}}
+      table.kisi tr.kisi-total td{background:var(--warn-bg);font-weight:800}
+      @media (max-width:640px){
+        table.kisi thead{display:none}
+        table.kisi,table.kisi tbody,table.kisi tr,table.kisi td{display:block;width:100%}
+        table.kisi tr{border-bottom:2.5px solid var(--line)}
+        table.kisi td{border:none;padding:4px 13px}
+        table.kisi td.c{text-align:left}
+        table.kisi td[data-l]::before{content:attr(data-l)": ";font-weight:800;color:var(--muted2)}
+        table.kisi tr.kisi-bab td,table.kisi tr.kisi-total td{padding:9px 13px}
+        .kisi-meta td:first-child{white-space:normal}
+      }
+
+      /* ---------- Simulasi ---------- */
+      .simbar{position:sticky;top:70px;z-index:40;background:var(--card);border:2px solid var(--line);border-radius:16px;
+        box-shadow:var(--shadow);padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}
+      .timer{font-size:22px;font-weight:900;background:var(--chip);border:2px solid var(--line);border-radius:12px;padding:4px 14px;font-variant-numeric:tabular-nums}
+      .timer.kritis{color:#fff;background:var(--bad);border-color:var(--bad)}
+      .prog{flex:1 1 140px}
+      .progbar{height:12px;background:var(--chip);border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+      .progbar i{display:block;height:100%;background:var(--primary);width:0%}
+      .palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:7px;margin:14px 0}
+      .pal{min-height:46px;border-radius:11px;border:2px solid var(--line);background:var(--card);color:var(--ink);font-weight:800;font-size:16px;padding:4px}
+      .pal.terjawab{background:var(--good);border-color:var(--good);color:#fff}
+      .pal.ragu{background:var(--warn);border-color:var(--warn);color:#4a2f00}
+      .pal.terjawab.ragu{background:linear-gradient(135deg,var(--good) 55%,var(--warn) 55%)}
+      .pal.kini{outline:3.5px solid var(--primary);outline-offset:1px}
+      .simnav{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+      .simnav .btn{flex:1 1 auto}
+      .btn.ragu-on{background:var(--warn);color:#4a2f00}
+      .legenda{display:flex;gap:14px;flex-wrap:wrap;font-size:14.5px;color:var(--muted2);font-weight:600;margin:6px 0}
+      .legenda .kotak{display:inline-block;width:15px;height:15px;border-radius:4px;vertical-align:-2px;margin-right:5px;border:1.5px solid var(--line)}
+
+      /* ---------- Hasil ---------- */
+      .scoregrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin:16px 0}
+      .scorecard{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:15px;text-align:center;box-shadow:var(--shadow)}
+      .scorecard .angka{font-size:30px;font-weight:900;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.scorecard .angka{color:#a8d8ff}}
+      .scorecard .ket{font-weight:700;color:var(--muted2);font-size:15px}
+      .nilai-besar{background:var(--primary);color:#fff;border-radius:20px;text-align:center;padding:22px;margin:16px 0;box-shadow:var(--shadow)}
+      .nilai-besar .n{font-size:56px;font-weight:900;line-height:1}
+      .nilai-besar .p{font-size:21px;font-weight:800;margin-top:6px}
+      .selfscore{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+      .selfscore .ss{min-height:48px;min-width:52px;border-radius:12px;border:2px solid var(--line);background:var(--card);
+        color:var(--ink);font-size:18px;font-weight:900}
+      .selfscore .ss.pick{background:var(--primary);border-color:var(--primary);color:#fff}
+      .jawaban-siswa{background:var(--chip);border-radius:10px;padding:10px 14px;margin:8px 0;white-space:pre-wrap;font-size:16px}
+      table.rekap{width:100%;border-collapse:collapse;margin:10px 0;background:var(--card);border-radius:14px;overflow:hidden}
+      table.rekap th,table.rekap td{border:1.5px solid var(--line);padding:9px 12px;text-align:left;font-size:16px}
+      table.rekap th{background:var(--chip)}
+
+      /* ---------- Modal ---------- */
+      .modal{display:none;position:fixed;inset:0;background:rgba(10,35,55,.55);z-index:100;align-items:center;justify-content:center;padding:18px}
+      .modal.show{display:flex}
+      .modal .box{background:var(--card);color:var(--ink);border-radius:20px;max-width:440px;width:100%;padding:24px;box-shadow:var(--shadow)}
+      .modal h3{margin:0 0 8px;font-size:22px}
+      .modal .row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+      .modal .row .btn{flex:1}
+
+      @media (max-width:760px){ .simbar{top:128px} }
+      footer{text-align:center;color:var(--muted2);font-weight:700;padding:26px 16px 34px;font-size:15.5px}
+      .hidden{display:none!important}
+
+      /* ---------- Layar Kunci Nama ---------- */
+      .gate{position:fixed;inset:0;z-index:300;background:linear-gradient(180deg,var(--bg),var(--bg2));display:flex;align-items:center;justify-content:center;padding:20px 16px;overflow-y:auto}
+      .gate.hidden{display:none!important}
+      .gate-card{background:var(--card);border:2px solid var(--line);border-radius:22px;box-shadow:var(--shadow);max-width:480px;width:100%;padding:28px 24px;text-align:center}
+      .gate-card .badge{display:inline-block;background:var(--accent);color:#4a2f00;font-weight:800;padding:6px 16px;border-radius:999px;font-size:14px;letter-spacing:.3px}
+      .gate-card h1{font-size:clamp(24px,5.5vw,32px);margin:14px 0 8px;line-height:1.25;color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.gate-card h1{color:#a8d8ff}}
+      .gate-card .gate-sub{font-size:17px;font-weight:600;margin:6px 0 4px}
+      .gate-card .gate-note{font-size:15px;color:var(--muted2);font-weight:600;margin:0 0 20px}
+      .gate-field{text-align:left;margin:0 0 6px}
+      .gate-field label{display:block;font-weight:800;font-size:16px;margin-bottom:7px}
+      .gate-field input{width:100%;min-height:54px;font-size:18px;padding:12px 15px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
+      .gate-field input:focus{outline:3px solid var(--primary);outline-offset:1px;border-color:var(--primary)}
+      .gate-error{display:none;text-align:left;color:var(--bad);background:var(--bad-bg);border:1.5px solid var(--bad);border-radius:12px;padding:10px 13px;font-weight:700;font-size:15.5px;margin:10px 0 0}
+      .gate-error.show{display:block}
+      .gate-card .btn{width:100%;margin-top:16px}
+      body.locked{overflow:hidden}
+
+      /* ---------- Bar Pemilik Paket ---------- */
+      .owner-bar{max-width:880px;margin:0 auto;padding:10px 16px 0}
+      .owner-bar .in{background:var(--card);border:2px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+      .owner-bar .milik{font-weight:700;font-size:16px;flex:1 1 180px;min-width:0;overflow-wrap:break-word}
+      .owner-bar .milik b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.owner-bar .milik b{color:#a8d8ff}}
+      .btn-ganti{min-height:44px;border:2px solid var(--primary);background:var(--card);color:var(--primary-d);border-radius:11px;font-size:15px;font-weight:800;padding:8px 16px}
+      .hasil-nama{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 16px;font-weight:700;font-size:17px;margin:14px 0 0;box-shadow:var(--shadow)}
+      .hasil-nama b{color:var(--primary-d)}
+      @media (prefers-color-scheme: dark){.hasil-nama b{color:#a8d8ff}}
+      .gate-system-msg{display:none;background:var(--warn-bg);border:1.5px solid var(--warn);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15.5px;margin:0 0 14px;text-align:left}
+      .gate-system-msg.show{display:block}
+      .btn-admin-footer{min-height:52px;border:2.5px solid var(--primary-d);background:var(--primary-d);color:#fff;border-radius:999px;font-size:16.5px;font-weight:800;padding:12px 30px;margin-top:12px;box-shadow:var(--shadow)}
+      @media (prefers-color-scheme: dark){.btn-admin-footer{color:#0c2233}}
+      .btn-admin-footer:hover{opacity:.88}
+      .btn-admin-gate{width:100%;min-height:54px;border:2.5px solid var(--primary-d);background:var(--primary-d);color:#fff;border-radius:16px;font-size:18px;font-weight:800;padding:12px 20px;margin-top:12px;box-shadow:var(--shadow)}
+      @media (prefers-color-scheme: dark){.btn-admin-gate{color:#0c2233}}
+      .btn-admin-gate:hover{opacity:.88}
+      .gate-admin-note{font-size:14px;color:var(--muted2);font-weight:600;margin:8px 0 0}
+      #modal-admin{z-index:400}
+      .admin-modal .box{max-width:560px;max-height:88vh;overflow-y:auto}
+      .admin-field{margin:12px 0;text-align:left}
+      .admin-field label{display:block;font-weight:800;font-size:15px;margin-bottom:6px}
+      .admin-field input,.admin-field select{width:100%;min-height:50px;font-size:16px;padding:10px 13px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+      .admin-msg{display:none;border-radius:11px;padding:10px 13px;font-weight:700;font-size:15px;margin:12px 0 0;text-align:left}
+      .admin-msg.show{display:block}
+      .admin-msg.err{color:var(--bad);background:var(--bad-bg);border:1.5px solid var(--bad)}
+      .admin-msg.ok{color:var(--good);background:var(--good-bg);border:1.5px solid var(--good)}
+      .admin-msg.info{background:var(--chip);border:1.5px solid var(--line)}
+      .admin-list{margin:14px 0 0;display:grid;gap:9px}
+      .admin-row{display:flex;gap:10px;align-items:flex-start;background:var(--chip);border:1.5px solid var(--line);border-radius:13px;padding:11px 13px;text-align:left}
+      .admin-row .info{flex:1;min-width:0;overflow-wrap:break-word}
+      .admin-row .info b{display:block;font-size:16px}
+      .admin-row .info span{display:block;font-size:13.5px;color:var(--muted2);font-weight:600}
+      .btn-hapus{min-height:40px;border:1.5px solid var(--bad);background:var(--card);color:var(--bad);border-radius:10px;font-size:14px;font-weight:800;padding:6px 12px;white-space:nowrap}
+      .admin-empty{font-weight:600;color:var(--muted2);background:var(--chip);border:1.5px dashed var(--line);border-radius:12px;padding:14px;text-align:center}
+      .ringkasan-print-nama{display:none}
+
+      /* ---------- Area Cetak Soal & Kunci (hanya tampil saat print) ---------- */
+      .print-area{display:none}
+      .print-area .p-head{text-align:center;border-bottom:3px double #000;padding-bottom:12px;margin-bottom:14px}
+      .print-area .p-head h1{font-size:20px;margin:0 0 4px;line-height:1.25}
+      .print-area .p-head p{margin:2px 0;font-size:13.5px}
+      .print-area .p-ident{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 18px;font-size:14px;font-weight:700}
+      .print-area .p-ident span{flex:1 1 180px;border-bottom:1.5px dotted #000;padding-bottom:6px;white-space:nowrap}
+      .print-area .p-petunjuk{border:1.5px solid #000;border-radius:8px;padding:10px 14px;font-size:13.5px;margin-bottom:16px}
+      .print-area .p-bab{font-size:16px;font-weight:900;margin:20px 0 8px;border-bottom:2px solid #000;padding-bottom:4px}
+      .print-area .pq{break-inside:avoid;margin:0 0 16px}
+      .print-area .pq-no{font-weight:900}
+      .print-area .pq-stim{border:1.5px solid #888;border-left:6px solid #888;padding:8px 12px;margin:6px 0;font-size:13.5px;background:#f7f7f7}
+      .print-area .pq-opts{margin:6px 0 0 18px;padding:0;list-style:none}
+      .print-area .pq-opts li{margin:4px 0;font-size:14px}
+      .print-area .pq-blank{border-bottom:1.5px solid #000;height:28px;margin:8px 0 2px}
+      .print-area .pq-lines{margin-top:8px}
+      .print-area .pq-lines i{display:block;height:26px;border-bottom:1.5px solid #999}
+      .print-area .pk-item{break-inside:avoid;border:1.5px solid #888;border-radius:8px;padding:10px 14px;margin:0 0 12px}
+      .print-area .pk-item h4{margin:0 0 6px;font-size:14.5px}
+      .print-area .pk-ans{background:#f2f2f2;border:1px solid #bbb;padding:8px 10px;border-radius:6px;font-weight:700;margin:6px 0}
+      .print-area .pk-exp{font-size:13.5px;margin:4px 0}
+      .print-area .pk-model{white-space:pre-wrap;font-size:13.5px;background:#fafafa;border:1px solid #ddd;padding:8px 10px;border-radius:6px;margin:6px 0}
+
+      @media print{
+        nav.topnav,footer,.no-print,.modal,.gate,.owner-bar{display:none!important}
+        .ringkasan-print-nama{display:block!important;font-size:14px;font-weight:700;border:1.5px solid #000;border-radius:8px;padding:10px 14px;margin:0 0 14px}
+        body{background:#fff!important;color:#000!important;font-size:13.5px}
+        .wrap{max-width:none;padding:0}
+        .babsec{box-shadow:none;border:1.5px solid #888;border-left:8px solid #888;break-inside:avoid;margin:10px 0;padding:12px 16px}
+        .contoh{background:#f2f2f2!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+        .print-area .pq-stim,.print-area .pk-ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+        body:not([data-print]) #view-home,body:not([data-print]) #view-latihan,body:not([data-print]) #view-kisi,body:not([data-print]) #view-simulasi,body:not([data-print]) #view-hasil,
+        body[data-print="ringkasan"] #view-home,body[data-print="ringkasan"] #view-latihan,body[data-print="ringkasan"] #view-kisi,body[data-print="ringkasan"] #view-simulasi,body[data-print="ringkasan"] #view-hasil{display:none!important}
+        body:not([data-print]) #view-ringkasan,body[data-print="ringkasan"] #view-ringkasan{display:block!important}
+        body:not([data-print]) .print-area,body[data-print="ringkasan"] .print-area{display:none!important}
+        body[data-print="soal"] .wrap{display:none!important}
+        body[data-print="soal"] #print-soal{display:block!important}
+        body[data-print="soal"] #print-kunci{display:none!important}
+        body[data-print="kunci"] .wrap{display:none!important}
+        body[data-print="kunci"] #print-kunci{display:block!important}
+        body[data-print="kunci"] #print-soal{display:none!important}
+        @page{margin:16mm 14mm}
+      }
+    </style>
+  </head>
+  <body class="locked">
+    <!-- ================= LAYAR KUNCI NAMA ================= -->
+    <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+      <div class="gate-card">
+        <span class="badge">PAKET BELAJAR ASAS</span>
+        <h1 id="gate-title">Paket ASAS IPAS Kelas V — SD Negeri Ungaran 01</h1>
+        <p class="gate-sub">Masukkan nama lengkap Anda untuk membuka paket ini.</p>
+        <p class="gate-note">Hanya nama pembeli yang terdaftar yang dapat membuka paket. Nama ini tercantum di paket dan hasil latihan Anda.</p>
+        <p class="gate-system-msg" id="gate-system-msg" role="alert"></p>
+        <form id="gate-form" novalidate>
+          <div class="gate-field">
+            <label for="gate-nama">Nama Lengkap</label>
+            <input type="text" id="gate-nama" placeholder="Tulis nama lengkap di sini…" autocomplete="name" maxlength="80" style="text-transform:uppercase">
+          </div>
+          <p class="gate-error" id="gate-error" role="alert"></p>
+          <button type="submit" class="btn" id="btn-buka-paket">🔓 Buka Paket</button>
+        </form>
+        <button type="button" class="btn-admin-gate" id="btn-admin-open-gate">🔐 Admin</button>
+      </div>
+    </div>
+
+    <nav class="topnav no-print">
+      <div class="in">
+        <button class="navbtn active" data-nav="home">🏠 Beranda</button>
+        <button class="navbtn" data-nav="ringkasan">📖 Ringkasan</button>
+        <button class="navbtn" data-nav="kisi">🗂️ Kisi-kisi</button>
+        <button class="navbtn" data-nav="latihan">✏️ Latihan Soal</button>
+        <button class="navbtn" data-nav="simulasi">📝 Simulasi ASAS</button>
+      </div>
+    </nav>
+
+    <div class="owner-bar hidden no-print" id="owner-bar">
+      <div class="in">
+        <span class="milik">👤 Paket milik: <b id="owner-name">—</b></span>
+        <button type="button" class="btn-ganti" id="btn-ganti-nama">Ganti Nama</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <!-- ================= BERANDA ================= -->
+      <section id="view-home" class="view active">
+        <div class="hero">
+          <span class="badge">PAKET BELAJAR ASAS</span>
+          <h1>Paket ASAS IPAS Kelas V</h1>
+          <p class="sub">Semester 1 (Ganjil) • Kurikulum Merdeka • 40 Soal</p>
+          <p class="sub" style="font-weight:500">Tahun Ajaran 2026/2027</p>
+          <div class="disclaimer">⚠️ Soal latihan berdasarkan kisi-kisi — bukan soal ujian asli.</div>
+        </div>
+
+        <div class="cards">
+          <div class="stat"><div class="big">4</div><div class="lbl">Bab Ringkasan Materi</div></div>
+          <div class="stat"><div class="big">40</div><div class="lbl">Soal Latihan &amp; Simulasi</div></div>
+          <div class="stat"><div class="big">60</div><div class="lbl">Total Skor Maksimal</div></div>
+          <div class="stat"><div class="big">90</div><div class="lbl">Menit Waktu Simulasi</div></div>
+        </div>
+
+        <div class="babgrid">
+          <div class="babcard b1"><h3>Bab 1 • Indonesia Negaraku</h3><p>Letak geografis di antara dua benua dan dua samudera, julukan Zamrud di Khatulistiwa, serta potensi maritim dan agraris Indonesia.</p></div>
+          <div class="babcard b2"><h3>Bab 2 • Kegiatan Ekonomi</h3><p>Kebutuhan primer, skala prioritas, dan kegiatan produksi, distribusi, serta konsumsi dalam kehidupan sehari-hari.</p></div>
+          <div class="babcard b3"><h3>Bab 3 • Harmoni Ekosistem</h3><p>Komponen biotik dan abiotik, rantai makanan di sawah, peran pengurai, dan menjaga keseimbangan ekosistem.</p></div>
+          <div class="babcard b4"><h3>Bab 4 • Air Sumber Kehidupan</h3><p>Siklus air (evaporasi, kondensasi, infiltrasi), PLTA, syarat air bersih, dan perilaku hemat air.</p></div>
+        </div>
+
+        <table class="rekap">
+          <tr><th>Bentuk Soal</th><th>Jumlah</th><th>Skor per Soal</th><th>Total Skor</th></tr>
+          <tr><td>Pilihan Ganda (PG)</td><td>25 soal (No. 1–25)</td><td>1</td><td>25</td></tr>
+          <tr><td>Isian</td><td>10 soal (No. 26–35)</td><td>2</td><td>20</td></tr>
+          <tr><td>Uraian</td><td>5 soal (No. 36–40)</td><td>3</td><td>15</td></tr>
+          <tr><th colspan="3">Nilai Akhir = Total Skor ÷ 60 × 100</th><th>60 → 100</th></tr>
+        </table>
+
+        <div class="cta">
+          <button class="btn" data-go="ringkasan">📖 Mulai Belajar</button>
+          <button class="btn ghost" data-go="kisi">🗂️ Kisi-kisi</button>
+          <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
+        </div>
+
+        <div class="howto">
+          <h2>Cara Menggunakan Paket Ini</h2>
+          <ol>
+            <li><b>Ringkasan</b> — Baca ringkasan materi 4 bab terlebih dahulu. Ada tombol <b>Cetak Ringkasan</b> bila ingin mencetaknya.</li>
+            <li><b>Kisi-kisi</b> — Lihat kisi-kisi penulisan soal ASAS selengkapnya, supaya bisa dibandingkan dengan kisi-kisi dari gurumu di sekolah.</li>
+            <li><b>Latihan Soal</b> — Kerjakan 40 soal yang dikelompokkan per bab. Kunci dan pembahasan langsung muncul setelah kamu menjawab. Di bagian ini juga ada tombol <b>Cetak Soal</b> (lembar kerja siswa tanpa kunci) dan <b>Cetak Kunci &amp; Pembahasan</b> (untuk guru/orang tua).</li>
+            <li><b>Simulasi ASAS</b> — Uji kemampuanmu seperti ujian sungguhan: 40 soal, waktu 90 menit, ada palet nomor dan tombol ragu-ragu. Setelah selesai, kamu bisa memilih mapel lain lewat tombol <b>Pilih Mapel</b> di layar hasil.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= RINGKASAN ================= -->
+      <section id="view-ringkasan" class="view">
+        <div class="ringkasan-print-nama" id="ringkasan-print-nama">Nama: —</div>
+        <div class="sec-head">
+          <h2>📖 Ringkasan Materi</h2>
+          <button class="btn small no-print" id="btn-print">🖨️ Cetak Ringkasan</button>
+        </div>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 6px">Baca baik-baik ya! Satu baris = satu konsep penting, lengkap dengan contohnya.</p>
+
+        <div class="babsec b1">
+          <h3>Bab 1 • Indonesia Negaraku</h3>
+          <p class="tema">Letak geografis, julukan, dan potensi wilayah Indonesia</p>
+          <ul class="konsep">
+            <li><b>Letak geografis Indonesia:</b> di antara dua benua, yaitu Benua Asia dan Benua Australia, serta di antara dua samudera, yaitu Samudera Hindia dan Samudera Pasifik. Letak seperti ini disebut <b>posisi silang</b>.</li>
+            <li><b>Keuntungan posisi silang:</b> Indonesia menjadi jalur perdagangan dunia yang ramai. Kapal-kapal dagang dari berbagai negara melintas dan singgah, sehingga perdagangan berkembang dan pendapatan masyarakat serta negara meningkat. Indonesia juga mengenal beragam budaya dari bangsa lain.</li>
+            <li><b>Potensi maritim:</b> sebagian besar wilayah Indonesia berupa lautan, sehingga Indonesia kaya hasil laut.<span class="contoh">Ikan, udang, cumi-cumi, rumput laut, dan garam; selain itu laut menjadi jalur pelayaran dan tempat wisata bahari.</span></li>
+            <li><b>Julukan "Zamrud di Khatulistiwa":</b> diberikan karena Indonesia terletak tepat di garis khatulistiwa dengan alam tropis yang hijau dan subur sepanjang tahun, tampak indah seperti batu zamrud.</li>
+            <li><b>Negara maritim</b> adalah negara yang wilayahnya sebagian besar berupa lautan dan kehidupan penduduknya banyak bergantung pada laut.<span class="contoh">Hasil alamnya: ikan, udang, dan garam.</span></li>
+            <li><b>Negara agraris</b> adalah negara yang sebagian besar penduduknya bekerja di bidang pertanian.<span class="contoh">Hasil alamnya: padi, jagung, sayur-mayur, dan buah-buahan.</span> Indonesia adalah negara maritim sekaligus agraris.</li>
+            <li><b>Mata pencaharian dipengaruhi kondisi geografis:</b> penduduk pantai umumnya menjadi nelayan, penduduk dataran rendah yang subur menjadi petani padi, penduduk pegunungan menjadi petani sayur dan pekerja perkebunan, sedangkan penduduk kota banyak bekerja sebagai pedagang, karyawan, dan pemberi jasa.</li>
+            <li><b>Memanfaatkan potensi maritim secara berkelanjutan:</b> menangkap ikan dengan alat yang ramah lingkungan (bukan bom atau racun), tidak merusak terumbu karang, dan tidak membuang sampah ke laut, agar kekayaan laut tetap lestari.</li>
+          </ul>
+        </div>
+
+        <div class="babsec b2">
+          <h3>Bab 2 • Kegiatan Ekonomi</h3>
+          <p class="tema">Kebutuhan, skala prioritas, dan kegiatan produksi, distribusi, konsumsi</p>
+          <ul class="konsep">
+            <li><b>Kebutuhan primer</b> adalah kebutuhan dasar yang harus dipenuhi agar manusia dapat hidup, yaitu <b>pangan</b> (makanan), <b>sandang</b> (pakaian), dan <b>papan</b> (tempat tinggal). Di atas kebutuhan primer ada kebutuhan sekunder (pelengkap) dan tersier (kemewahan).</li>
+            <li><b>Skala prioritas</b> adalah urutan kebutuhan dari yang paling penting dan mendesak. Kebutuhan penting (misalnya buku dan alat tulis untuk sekolah) harus didahulukan daripada keinginan (misalnya mainan yang sedang tren).</li>
+            <li><b>Produksi</b> adalah kegiatan menghasilkan atau mengolah barang/jasa. Pelakunya disebut <b>produsen</b>.<span class="contoh">Petani menanam padi, pengrajin mengolah kedelai menjadi tempe, penjahit membuat pakaian.</span></li>
+            <li><b>Distribusi</b> adalah kegiatan menyalurkan barang dari produsen kepada konsumen. Pelakunya disebut <b>distributor</b>.<span class="contoh">Pedagang besar, pedagang eceran di pasar, agen, dan koperasi yang menyalurkan hasil panen.</span></li>
+            <li><b>Konsumsi</b> adalah kegiatan menggunakan atau menghabiskan barang/jasa untuk memenuhi kebutuhan. Pelakunya disebut <b>konsumen</b>.<span class="contoh">Makan nasi, memakai pakaian, dan naik kendaraan umum.</span></li>
+            <li><b>Dampak kerusakan sarana transportasi:</b> distribusi barang terhambat, barang menjadi langka di pasar, dan harga barang naik. Barang dari desa juga dapat membusuk karena tidak segera terjual.</li>
+            <li><b>Perilaku ekonomi bijak</b> adalah membeli barang sesuai kebutuhan, tidak boros, dan menyisihkan uang untuk ditabung. Lawannya adalah perilaku <b>konsumtif</b>, yaitu membeli barang karena keinginan dan mengikuti tren, bukan karena kebutuhan.</li>
+            <li><b>Menjaga fasilitas dan barang modal sekolah:</b> merawat buku perpustakaan, menggunakan bangku dan alat belajar dengan hati-hati, agar fasilitas awet dan dapat dimanfaatkan bersama dalam waktu lama.</li>
+          </ul>
+        </div>
+
+        <div class="babsec b3">
+          <h3>Bab 3 • Harmoni Ekosistem</h3>
+          <p class="tema">Komponen ekosistem, rantai makanan, dan keseimbangan alam</p>
+          <ul class="konsep">
+            <li><b>Ekosistem</b> adalah hubungan timbal balik antara makhluk hidup dan lingkungannya di suatu tempat, misalnya ekosistem sawah, kebun, dan sungai.</li>
+            <li><b>Komponen biotik</b> adalah komponen ekosistem berupa makhluk hidup.<span class="contoh">Tumbuhan, hewan, manusia, jamur, dan bakteri.</span></li>
+            <li><b>Komponen abiotik</b> adalah komponen ekosistem yang bukan makhluk hidup.<span class="contoh">Air, tanah, udara, cahaya matahari, batu, dan suhu.</span></li>
+            <li><b>Rantai makanan</b> adalah peristiwa makan dan dimakan antar makhluk hidup dengan urutan tertentu.<span class="contoh">Di sawah: padi → belalang → katak → ular → elang. Padi = produsen, belalang = Konsumen I, katak = Konsumen II, ular = Konsumen III, elang = konsumen puncak.</span></li>
+            <li><b>Produsen</b> adalah makhluk hidup yang mampu membuat makanannya sendiri melalui fotosintesis, yaitu tumbuhan hijau seperti padi.</li>
+            <li><b>Pengurai (dekomposer)</b> adalah makhluk hidup yang menguraikan sisa makhluk hidup yang mati menjadi zat hara bagi tanah, yaitu jamur dan bakteri.</li>
+            <li><b>Keseimbangan rantai makanan:</b> jika satu populasi hilang, populasi lain terganggu.<span class="contoh">Ular sawah berkurang → tikus bertambah → tanaman padi rusak → panen menurun. Katak punah → belalang bertambah dan ular kehilangan makanan.</span></li>
+            <li><b>Dampak pestisida kimia berlebihan:</b> mencemari tanah dan air, membunuh hewan bermanfaat seperti cacing tanah dan lebah, serta mengganggu keseimbangan ekosistem.</li>
+            <li><b>Menjaga ekosistem sungai:</b> membersihkan sampah di bantaran sungai dan melakukan reboisasi (penanaman kembali pohon) menjaga aliran air tetap lancar, mencegah banjir dan longsor, serta melindungi tempat hidup hewan dan tumbuhan.</li>
+          </ul>
+        </div>
+
+        <div class="babsec b4">
+          <h3>Bab 4 • Air Sumber Kehidupan</h3>
+          <p class="tema">Siklus air, manfaat air, air bersih, dan hemat air</p>
+          <ul class="konsep">
+            <li><b>Sifat air</b> antara lain mengalir dari tempat tinggi ke tempat rendah dan permukaannya selalu datar. Sifat mengalir ini dimanfaatkan pada <b>PLTA</b>: aliran air yang deras memutar turbin, lalu turbin menggerakkan generator untuk menghasilkan listrik.</li>
+            <li><b>Siklus air</b> adalah perputaran air yang terjadi terus-menerus: air menguap, membentuk awan, turun sebagai hujan, lalu meresap ke tanah dan mengalir kembali ke laut/sungai.</li>
+            <li><b>Evaporasi</b> adalah proses penguapan air laut, sungai, dan danau menjadi uap air karena panas matahari.</li>
+            <li><b>Kondensasi</b> adalah proses pengembunan, yaitu berubahnya uap air menjadi titik-titik air yang membentuk awan.</li>
+            <li><b>Infiltrasi</b> adalah proses meresapnya air hujan ke dalam lapisan tanah. Air hasil infiltrasi tersimpan sebagai cadangan air tanah.</li>
+            <li><b>Peran akar pohon dalam infiltrasi:</b> akar membuat tanah gembur dan bercelah sehingga air hujan mudah meresap dan tersimpan sebagai air tanah; akar juga menahan tanah agar tidak longsor.</li>
+            <li><b>Syarat fisik air bersih</b> yang aman dikonsumsi: jernih (tidak berwarna), tidak berbau, dan tidak berasa.</li>
+            <li><b>Dampak air tercemar limbah:</b> mengandung kuman dan zat berbahaya, sehingga dapat menyebabkan diare, muntaber, tifus, dan penyakit kulit.</li>
+            <li><b>Bahaya sampah di sungai:</b> tumpukan sampah menyumbat aliran air, sehingga saat hujan deras air meluap dan menimbulkan banjir.</li>
+            <li><b>Dampak kemarau panjang:</b> sungai dan saluran irigasi mengering, sawah kekurangan air, tanaman mengering, dan hasil panen menurun bahkan gagal panen.</li>
+            <li><b>Dampak tanah ditutup semen/aspal:</b> air hujan tidak dapat meresap (infiltrasi terhambat), cadangan air tanah berkurang, dan air menggenang di permukaan sehingga mudah terjadi banjir.</li>
+            <li><b>Cara menghemat air di sekolah:</b> mematikan keran setelah digunakan, memakai air secukupnya saat wudu dan mencuci tangan, segera melaporkan keran bocor, dan menampung air hujan untuk menyiram tanaman.</li>
+          </ul>
+        </div>
+        <div class="cta no-print">
+          <button class="btn" data-go="latihan">✏️ Lanjut ke Latihan Soal</button>
+        </div>
+      </section>
+
+      <!-- ================= LATIHAN SOAL ================= -->
+      <section id="view-latihan" class="view">
+        <div class="sec-head">
+          <h2>✏️ Latihan Soal</h2>
+          <div style="display:flex;gap:8px;flex-wrap:wrap" class="no-print">
+            <button class="btn small" id="btn-print-soal">🖨️ Cetak Soal</button>
+            <button class="btn small ghost" id="btn-print-kunci">🖨️ Cetak Kunci &amp; Pembahasan</button>
+          </div>
+        </div>
+        <p style="color:var(--muted2);font-weight:600;margin:0">40 soal dikelompokkan per bab. Jawab dulu, kunci dan pembahasan akan langsung muncul. Semangat! Tombol <b>Cetak Soal</b> untuk lembar kerja siswa (tanpa kunci), tombol <b>Cetak Kunci &amp; Pembahasan</b> untuk pegangan guru/orang tua.</p>
+        <div id="latihan-list"></div>
+        <div class="cta">
+          <a class="btn ghost" href="../">← Pilih Mapel</a>
+          <button class="btn orange" data-go="simulasi">📝 Siap? Coba Simulasi ASAS</button>
+        </div>
+      </section>
+
+      <!-- ================= KISI-KISI ================= -->
+      <section id="view-kisi" class="view">
+        <div class="sec-head"><h2>🗂️ Kisi-kisi ASAS</h2></div>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 10px">Kisi-kisi di bawah ini ditampilkan apa adanya, agar dapat dibandingkan dengan kisi-kisi yang diberikan guru di sekolah — sama atau tidak.</p>
+        <div class="kisi-title">KISI-KISI PENULISAN SOAL<br>ASESMEN SUMATIF AKHIR SEMESTER GANJIL<br>TAHUN PELAJARAN 2026/2027</div>
+        <div class="kisi-meta">
+          <table>
+            <tr><td>Jenis Sekolah</td><td>: SD</td></tr>
+            <tr><td>Muatan Pelajaran</td><td>: IPAS</td></tr>
+            <tr><td>Kurikulum</td><td>: Kurikulum Merdeka</td></tr>
+            <tr><td>Jumlah Soal</td><td>: 40</td></tr>
+            <tr><td>Bentuk Soal</td><td>: 1) Pilihan ganda = 25; 2) Isian = 10; 3) Uraian = 5</td></tr>
+            <tr><td>Kelas</td><td>: V (Lima)</td></tr>
+            <tr><td>Semester</td><td>: 1 (Ganjil)</td></tr>
+            <tr><td>Tahun Ajaran</td><td>: 2026/2027</td></tr>
+            <tr><td>Bank Soal</td><td>: SD Negeri Ungaran 01</td></tr>
+          </table>
+        </div>
+        <div id="kisi-table"></div>
+        <div class="cta">
+          <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
+        </div>
+      </section>
+
+      <!-- ================= SIMULASI ASAS ================= -->
+      <section id="view-simulasi" class="view">
+        <div id="sim-start">
+          <div class="sec-head"><h2>📝 Simulasi ASAS</h2></div>
+          <div class="qcard">
+            <h3 style="margin-top:0">Petunjuk Pengerjaan</h3>
+            <ul style="margin:0;padding-left:22px">
+              <li>Jumlah soal <b>40</b>: PG No. 1–25, Isian No. 26–35, Uraian No. 36–40.</li>
+              <li>Waktu pengerjaan <b>90 menit</b>. Jika waktu habis, simulasi otomatis selesai.</li>
+              <li>Gunakan <b>palet nomor</b> untuk berpindah soal. Hijau = sudah dijawab, kuning = ragu-ragu.</li>
+              <li>Tombol <b>Ragu-ragu</b> menandai soal yang belum yakin jawabannya.</li>
+              <li>PG dan Isian dinilai otomatis. Uraian dinilai olehmu sendiri (0–3) di layar hasil dengan membandingkan jawabanmu dengan jawaban model.</li>
+              <li>Total skor maksimal 60. Nilai = total skor ÷ 60 × 100.</li>
+            </ul>
+            <div class="cta" style="justify-content:flex-start">
+              <button class="btn" id="btn-start-sim">▶️ Mulai Simulasi</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="sim-quiz" class="hidden">
+          <div class="simbar">
+            <div class="timer" id="sim-timer">⏱️ 90:00</div>
+            <div class="prog">
+              <div style="font-weight:800;font-size:15px;margin-bottom:3px"><span id="sim-prog-text">Soal 1 dari 40</span> • Terjawab: <span id="sim-answered">0</span>/40</div>
+              <div class="progbar"><i id="sim-prog-bar"></i></div>
+            </div>
+            <button class="btn small" id="btn-finish-top" style="background:var(--bad)">✔ Selesai</button>
+          </div>
+          <div class="palette" id="sim-palette"></div>
+          <div class="legenda">
+            <span><span class="kotak" style="background:var(--good)"></span>Sudah dijawab</span>
+            <span><span class="kotak" style="background:var(--warn)"></span>Ragu-ragu</span>
+            <span><span class="kotak" style="background:var(--card)"></span>Belum dijawab</span>
+          </div>
+          <div id="sim-question"></div>
+          <div class="simnav">
+            <button class="btn ghost" id="btn-prev">⬅️ Sebelumnya</button>
+            <button class="btn ghost" id="btn-flag">🚩 Ragu-ragu</button>
+            <button class="btn" id="btn-next">Berikutnya ➡️</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= HASIL ================= -->
+      <section id="view-hasil" class="view">
+        <div class="sec-head"><h2>🏆 Hasil Simulasi ASAS</h2></div>
+        <div class="hasil-nama" id="hasil-nama">👤 Nama: <b id="hasil-nama-val">—</b></div>
+        <div class="nilai-besar">
+          <div style="font-weight:800;font-size:18px">Nilai Akhir</div>
+          <div class="n" id="hasil-nilai">0</div>
+          <div class="p" id="hasil-predikat">—</div>
+          <div style="font-weight:700;opacity:.92">Total Skor: <span id="hasil-total">0</span> / 60</div>
+        </div>
+        <div class="scoregrid">
+          <div class="scorecard"><div class="angka"><span id="skor-pg">0</span>/25</div><div class="ket">Pilihan Ganda (25 soal × 1)</div></div>
+          <div class="scorecard"><div class="angka"><span id="skor-isian">0</span>/20</div><div class="ket">Isian (10 soal × 2)</div></div>
+          <div class="scorecard"><div class="angka"><span id="skor-uraian">0</span>/15</div><div class="ket">Uraian (5 soal × 3, nilai sendiri)</div></div>
+        </div>
+        <div id="uraian-self"></div>
+        <h3 style="margin:24px 0 4px;font-size:22px">📚 Pembahasan Semua Soal</h3>
+        <p style="color:var(--muted2);font-weight:600;margin:0 0 6px">Pelajari pembahasan tiap soal ya, supaya makin paham!</p>
+        <div id="hasil-review"></div>
+        <div class="cta">
+          <button class="btn" id="btn-retry">🔁 Ulangi Simulasi</button>
+          <a class="btn ghost" href="../">← Pilih Mapel</a>
+          <button class="btn ghost" data-go="ringkasan">📖 Baca Ringkasan Lagi</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== AREA CETAK: LEMBAR SOAL (tanpa kunci) ===== -->
+    <div id="print-soal" class="print-area" aria-hidden="true"></div>
+    <!-- ===== AREA CETAK: KUNCI & PEMBAHASAN ===== -->
+    <div id="print-kunci" class="print-area" aria-hidden="true"></div>
+
+    <footer>Dikembangkan oleh Abid Khoirul Ismail, S.Pd<br><button type="button" class="btn-admin-footer" id="btn-admin-open">🔐 Admin</button></footer>
+
+    <!-- Modal Admin -->
+    <div class="modal admin-modal" id="modal-admin" role="dialog" aria-modal="true" aria-labelledby="admin-title">
+      <div class="box">
+        <h3 id="admin-title">Panel Admin</h3>
+        <p style="margin:0;font-size:15.5px;color:var(--muted2);font-weight:600">Kelola daftar nama pembeli yang dapat membuka paket ini.</p>
+        <p class="admin-msg" id="admin-system-msg" role="alert"></p>
+        <div id="admin-login">
+          <div class="admin-field">
+            <label for="admin-pin">PIN Admin</label>
+            <input type="password" id="admin-pin" placeholder="Masukkan PIN" autocomplete="current-password">
+          </div>
+          <p class="admin-msg" id="admin-login-msg" role="alert"></p>
+          <div class="row">
+            <button type="button" class="btn ghost" id="btn-admin-close">Tutup</button>
+            <button type="button" class="btn" id="btn-admin-login">Masuk</button>
+          </div>
+        </div>
+        <div id="admin-content" class="hidden">
+          <p class="admin-msg" id="admin-msg" role="alert"></p>
+          <div class="admin-field">
+            <label for="admin-new-nama">Nama pembeli baru</label>
+            <input type="text" id="admin-new-nama" placeholder="Tulis nama lengkap pembeli…" autocomplete="off" maxlength="80" style="text-transform:uppercase">
+          </div>
+          <div class="admin-field">
+            <label for="admin-new-mapel">Mapel</label>
+            <select id="admin-new-mapel">
+              <option value="sd-kelas-5-ipas" selected>IPAS Kelas V (SD)</option>
+              <option value="semua">Semua Mapel</option>
+            </select>
+          </div>
+          <div class="admin-field">
+            <label for="admin-new-ket">Keterangan (opsional)</label>
+            <input type="text" id="admin-new-ket" placeholder="Contoh: WA, Kelas V A, dsb." autocomplete="off" maxlength="120">
+          </div>
+          <button type="button" class="btn" id="btn-admin-add" style="width:100%">＋ Tambah</button>
+          <h4 style="margin:20px 0 4px;font-size:17px">Daftar Nama Pembeli</h4>
+          <div class="admin-list" id="admin-list"></div>
+          <div class="row">
+            <button type="button" class="btn ghost" id="btn-admin-refresh">↻ Muat Ulang Daftar</button>
+            <button type="button" class="btn ghost" id="btn-admin-done">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal konfirmasi selesai -->
+    <div class="modal" id="modal-finish">
+      <div class="box">
+        <h3>Selesaikan Simulasi?</h3>
+        <p id="modal-finish-text" style="margin:0;font-size:16.5px"></p>
+        <div class="row">
+          <button class="btn ghost" id="btn-modal-back">Kembali Mengerjakan</button>
+          <button class="btn" id="btn-modal-yes" style="background:var(--bad)">Ya, Selesai ✔</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    "use strict";
+    /* ============================================================
+       URL /exec APPS SCRIPT (gerbang nama pembeli + panel Admin)
+       ============================================================ */
+    var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRi3IkD-9nmjKvU_luHZ1QqGcWijJ5NgDYAiBUJTK8Tss_EnQ4oqRYFQGLtDix2XLDGg/exec";
+    /* Identitas mapel paket ini — setiap mapel dibeli terpisah,
+       jadi pemeriksaan nama dan daftar pembeli selalu per mapel. */
+    var MAPEL_ID = "sd-kelas-5-ipas";
+    var MAPEL_LABEL = "IPAS Kelas V (SD)";
+          + '<rect x="0" y="0" width="150" height="130" fill="#eaf7ea"/>'
+      + '<polygon points="75,18 132,112 18,112" fill="#8d6e63" stroke="#5d4037" stroke-width="3"/>'
+      + '<polygon points="75,18 90,44 82,38 75,48 66,38 60,44" fill="#ffffff"/>'
+      + '</svg><div style="font-weight:700;color:var(--muted2)">Simbol pada peta</div></div>';
+
+    /* =============== BANK SOAL (sesuai nomor kisi-kisi) =============== */
+    var QUESTIONS = [
+    /* ---------- BAB 1 : PG 1-6 ---------- */
+    {no:1,bab:1,type:"pg",q:"Indonesia terletak di antara dua benua, yaitu Benua Asia dan Benua Australia, serta di antara dua samudera, yaitu Samudera Hindia dan Samudera Pasifik. Keuntungan utama dari letak geografis tersebut adalah …",
+      options:["Indonesia menjadi jalur perdagangan dunia yang ramai dilalui kapal-kapal dagang dari berbagai negara","Indonesia sama sekali tidak terpengaruh oleh budaya dari negara lain","Indonesia hanya memiliki satu musim sepanjang tahun","Indonesia tidak pernah dilalui kapal dari negara lain"],answer:0,
+      explain:"Letak Indonesia yang diapit dua benua dan dua samudera membuat Indonesia berada di jalur perdagangan dunia. Kapal-kapal dagang dari berbagai negara melintasi dan singgah di Indonesia, sehingga perdagangan dan perekonomian berkembang."},
+    {no:2,bab:1,type:"pg",q:"Wilayah Indonesia sebagian besar berupa lautan. Keuntungan potensi wilayah lautan Indonesia bagi masyarakat adalah …",
+      options:["daratan menjadi semakin sempit dan tandus","masyarakat dapat memanfaatkan hasil laut, seperti ikan, udang, dan garam, untuk memenuhi kebutuhan dan mata pencaharian","laut menghalangi hubungan antar pulau di Indonesia","hasil laut hanya boleh dinikmati oleh negara lain"],answer:1,
+      explain:"Lautan Indonesia yang luas menyimpan kekayaan hasil laut, seperti ikan, udang, cumi-cumi, rumput laut, dan garam. Hasil laut ini menjadi sumber makanan dan mata pencaharian, misalnya bagi para nelayan."},
+    {no:3,bab:1,type:"pg",q:"Indonesia mendapat julukan 'Zamrud di Khatulistiwa'. Alasan utama pemberian julukan tersebut adalah …",
+      options:["Indonesia memiliki banyak tambang batu zamrud","Indonesia terletak di garis khatulistiwa dan memiliki banyak gunung berapi","Indonesia terletak di garis khatulistiwa dengan alam tropis yang hijau dan subur, tampak indah seperti batu zamrud","Indonesia merupakan negara penghasil zamrud terbesar di dunia"],answer:2,
+      explain:"Indonesia terletak tepat di garis khatulistiwa, sehingga beriklim tropis, hijau, dan subur sepanjang tahun. Keindahan alamnya yang hijau itu diibaratkan batu zamrud, sehingga Indonesia dijuluki 'Zamrud di Khatulistiwa'."},
+    {no:4,bab:1,type:"pg",q:"Posisi silang geografis Indonesia membuat wilayahnya menjadi tempat persinggahan jalur perdagangan internasional. Dampak positif keadaan tersebut bagi perekonomian Indonesia adalah …",
+      options:["barang dari luar negeri dilarang masuk ke Indonesia","kegiatan perdagangan berkembang, banyak kapal singgah, dan pendapatan masyarakat serta negara meningkat","masyarakat Indonesia tidak perlu lagi bekerja","harga semua barang menjadi semakin mahal"],answer:1,
+      explain:"Karena menjadi persinggahan jalur perdagangan dunia, kegiatan jual beli di Indonesia berkembang. Kapal-kapal yang singgah membutuhkan berbagai keperluan, pelabuhan menjadi ramai, dan pendapatan masyarakat serta negara meningkat."},
+    {no:5,bab:1,type:"pg",q:"Kondisi geografis suatu daerah memengaruhi mata pencaharian penduduknya. Pasangan kondisi geografis dan mata pencaharian yang tepat adalah …",
+      options:["daerah pantai — petani sayur di pegunungan","daerah pegunungan — nelayan penangkap ikan di laut","dataran rendah yang kering — nelayan","daerah pantai — nelayan yang menangkap ikan di laut"],answer:3,
+      explain:"Penduduk yang tinggal di daerah pantai memanfaatkan laut, sehingga banyak yang bekerja sebagai nelayan. Petani padi umumnya tinggal di dataran rendah yang subur, sedangkan petani sayur banyak tinggal di daerah pegunungan yang sejuk."},
+    {no:6,bab:1,type:"pg",q:"Tindakan berikut yang mencerminkan pemanfaatan potensi maritim (kelautan) secara berkelanjutan adalah …",
+      options:["menangkap ikan dengan jaring yang ramah lingkungan dan menjaga kebersihan laut","menangkap ikan menggunakan bom agar mendapat ikan yang banyak","membuang sampah plastik ke laut agar pantai bersih","merusak terumbu karang untuk dijadikan hiasan"],answer:0,
+      explain:"Pemanfaatan potensi maritim secara berkelanjutan artinya memanfaatkan hasil laut tanpa merusaknya, misalnya menangkap ikan dengan jaring ramah lingkungan dan menjaga kebersihan laut, agar kekayaan laut tetap tersedia untuk generasi mendatang."},
+    /* ---------- BAB 2 : PG 7-12 ---------- */
+    {no:7,bab:2,type:"pg",
+      stimulus:"Ibu Sari berbelanja di pasar. Ia membeli beras, minyak goreng, sayur-mayur, dan lauk-pauk untuk kebutuhan makan keluarganya. Ia juga membeli sabun dan sampo.",
+      q:"Berdasarkan ilustrasi di atas, barang belanjaan Ibu Sari yang termasuk kebutuhan primer adalah …",
+      options:["sabun dan sampo","perhiasan dan tas baru","beras, sayur-mayur, dan lauk-pauk","mainan dan permen yang banyak"],answer:2,
+      explain:"Kebutuhan primer adalah kebutuhan dasar yang harus dipenuhi agar manusia dapat hidup, yaitu pangan (makanan), sandang (pakaian), dan papan (tempat tinggal). Beras, sayur-mayur, dan lauk-pauk termasuk kebutuhan pangan."},
+    {no:8,bab:2,type:"pg",q:"Rafi mendapat uang saku Rp20.000,00. Ia ingin membeli mainan, tetapi buku tulis dan pensilnya sudah habis. Tindakan Rafi yang paling bijak berdasarkan skala prioritas adalah …",
+      options:["membeli mainan terlebih dahulu, buku dibeli kapan-kapan","meminjam uang teman untuk membeli mainan dan buku sekaligus","menghabiskan semua uang untuk jajan bersama teman","membeli buku tulis dan pensil terlebih dahulu karena lebih penting dan mendesak"],answer:3,
+      explain:"Skala prioritas artinya mendahulukan kebutuhan yang paling penting dan mendesak. Buku tulis dan pensil adalah keperluan sekolah yang penting, sedangkan mainan hanya keinginan, sehingga kebutuhan sekolah harus didahulukan."},
+    {no:9,bab:2,type:"pg",
+      stimulus:"Perhatikan alur kegiatan ekonomi berikut!\nPetani padi → Pedagang besar → Pedagang eceran di pasar → Keluarga pembeli",
+      q:"Pada alur di atas, kegiatan menyalurkan beras dari petani sampai ke keluarga pembeli disebut kegiatan …",
+      options:["produksi","distribusi","konsumsi","tabungan"],answer:1,
+      explain:"Kegiatan menyalurkan barang dari produsen (pembuat/penghasil barang) kepada konsumen (pemakai barang) disebut distribusi. Pedagang besar dan pedagang eceran adalah distributor yang menyalurkan barang."},
+    {no:10,bab:2,type:"pg",q:"Jembatan penghubung antardaerah rusak parah sehingga truk pengangkut sayur dari desa tidak dapat mencapai pasar di kota. Dampak yang paling mungkin terjadi adalah …",
+      options:["sayur menjadi langka di pasar kota dan harganya naik","harga sayur di pasar kota menjadi sangat murah","sayur di desa dan di kota semakin melimpah","pedagang mendapat keuntungan yang sangat besar"],answer:0,
+      explain:"Sarana transportasi yang rusak menghambat distribusi barang. Sayur tidak sampai ke pasar kota sehingga jumlahnya sedikit (langka). Barang yang langka membuat harganya naik, dan sayur di desa pun dapat membusuk karena tidak terjual."},
+    {no:11,bab:2,type:"pg",
+      stimulus:"Perhatikan pola pengeluaran dua siswa berikut!\n• Dina: membeli alat tulis yang dibutuhkan, membawa bekal dari rumah, dan menabung sisa uang sakunya.\n• Raka: membeli mainan yang sedang tren setiap minggu, sering jajan berlebihan, dan uang sakunya selalu habis sebelum akhir minggu.",
+      q:"Berdasarkan keterangan di atas, perilaku ekonomi yang bijak ditunjukkan oleh …",
+      options:["Raka, karena selalu mengikuti tren","Raka, karena uang sakunya selalu habis","Dina, karena membeli sesuai kebutuhan dan menabung","keduanya sama-sama bijak"],answer:2,
+      explain:"Perilaku ekonomi yang bijak adalah menggunakan uang sesuai kebutuhan dan menyisihkan sebagian untuk ditabung, seperti yang dilakukan Dina. Perilaku Raka disebut konsumtif, yaitu membeli barang karena keinginan dan tren, bukan karena kebutuhan."},
+    {no:12,bab:2,type:"pg",q:"Contoh tindakan bijak siswa dalam menjaga fasilitas dan barang modal sekolah adalah …",
+      options:["mencoret-coret meja dan bangku kelas","membiarkan buku perpustakaan rusak dan kotor","menggunakan proyektor kelas tanpa izin untuk bermain","merawat buku perpustakaan dan menggunakan bangku kelas dengan hati-hati"],answer:3,
+      explain:"Fasilitas dan barang modal sekolah, seperti buku perpustakaan, bangku, dan proyektor, dibeli dengan biaya dan dipakai bersama. Merawat dan menggunakannya dengan hati-hati adalah tindakan bijak agar fasilitas awet dan dapat terus dimanfaatkan."},
+    /* ---------- BAB 3 : PG 13-17 ---------- */
+    {no:13,bab:3,type:"pg",
+      stimulus:"Perhatikan daftar komponen ekosistem kebun berikut!\n(1) Cacing tanah\n(2) Air\n(3) Tanaman cabai\n(4) Cahaya matahari\n(5) Tanah\n(6) Kupu-kupu",
+      q:"Komponen abiotik dalam ekosistem kebun ditunjukkan oleh nomor …",
+      options:["(1), (3), dan (6)","(2), (4), dan (5)","(1), (2), dan (4)","(3), (5), dan (6)"],answer:1,
+      explain:"Komponen abiotik adalah komponen ekosistem yang bukan makhluk hidup, yaitu air (2), cahaya matahari (4), dan tanah (5). Cacing tanah, tanaman cabai, dan kupu-kupu adalah makhluk hidup, sehingga termasuk komponen biotik."},
+    {no:14,bab:3,type:"pg",
+      stimulus:"Perhatikan rantai makanan di sawah berikut!\nPadi → Belalang → Katak → Ular → Elang",
+      q:"Organisme yang berkedudukan sebagai Konsumen II pada rantai makanan di atas adalah …",
+      options:["katak","belalang","ular","elang"],answer:0,
+      explain:"Padi adalah produsen. Belalang memakan padi sehingga menjadi Konsumen I. Katak memakan belalang (Konsumen I), sehingga katak berkedudukan sebagai Konsumen II. Ular adalah Konsumen III dan elang adalah konsumen puncak."},
+    {no:15,bab:3,type:"pg",q:"Akhir-akhir ini populasi ular di sawah berkurang karena banyak diburu manusia. Dampak berkurangnya populasi ular terhadap keseimbangan rantai makanan di sawah adalah …",
+      options:["populasi tikus menurun dan panen padi meningkat","tanaman padi tumbuh semakin subur","populasi tikus bertambah banyak sehingga tanaman padi rusak dan hasil panen menurun","elang menjadi semakin banyak"],answer:2,
+      explain:"Ular adalah pemangsa tikus. Jika ular berkurang, tikus tidak terkendali dan jumlahnya bertambah banyak. Tikus memakan dan merusak tanaman padi, sehingga hasil panen petani menurun."},
+    {no:16,bab:3,type:"pg",q:"Penggunaan pestisida kimia secara berlebihan untuk membasmi hama dapat berdampak buruk bagi lingkungan, yaitu …",
+      options:["tanah dan air menjadi semakin subur","semua hewan di sawah menjadi sehat","hama tidak akan pernah muncul lagi","mencemari tanah dan air serta membunuh hewan lain yang bermanfaat, seperti cacing tanah dan lebah"],answer:3,
+      explain:"Pestisida kimia yang berlebihan mencemari tanah dan air. Racunnya juga membunuh hewan bermanfaat, seperti cacing tanah yang menyuburkan tanah dan lebah yang membantu penyerbukan, sehingga keseimbangan ekosistem terganggu."},
+    {no:17,bab:3,type:"pg",q:"Warga desa bersama siswa mengadakan kegiatan membersihkan sampah di bantaran sungai dan menanam pohon (reboisasi) di tepi sungai. Tujuan utama kegiatan tersebut adalah …",
+      options:["agar sungai menjadi tempat pembuangan sampah yang rapi","menjaga kebersihan dan kelestarian lingkungan sungai serta mencegah banjir dan longsor","agar pohon di tepi sungai dapat segera ditebang","membuat bantaran sungai menjadi tempat bermain"],answer:1,
+      explain:"Membersihkan sampah menjaga aliran sungai tetap lancar, sedangkan pohon yang ditanam akarnya menahan tanah dan menyerap air. Kegiatan ini menjaga kelestarian lingkungan serta mencegah banjir dan longsor di bantaran sungai."},
+    /* ---------- BAB 4 : PG 18-25 ---------- */
+    {no:18,bab:4,type:"pg",q:"Pembangkit Listrik Tenaga Air (PLTA) memanfaatkan sifat air yang mengalir dari tempat tinggi ke tempat rendah. Cara kerja PLTA secara sederhana adalah …",
+      options:["aliran air yang deras memutar turbin, lalu turbin menggerakkan generator untuk menghasilkan listrik","air dipanaskan matahari hingga menjadi uap untuk memasak","air disimpan di bak penampungan untuk diminum","air dialirkan ke sawah untuk mengairi tanaman"],answer:0,
+      explain:"Pada PLTA, air yang mengalir deras dari bendungan memutar turbin. Putaran turbin menggerakkan generator sehingga menghasilkan energi listrik yang kemudian disalurkan ke rumah-rumah."},
+    {no:19,bab:4,type:"pg",q:"Di sebuah kampung, warga sering membuang sampah ke sungai hingga menumpuk dan menyumbat aliran air. Bencana yang paling mungkin terjadi saat hujan deras adalah …",
+      options:["kekeringan panjang","gempa bumi","banjir, karena air sungai meluap akibat alirannya tersumbat sampah","kebakaran hutan"],answer:2,
+      explain:"Sampah yang menumpuk menyumbat aliran sungai. Saat hujan deras, air tidak dapat mengalir dengan lancar sehingga meluap ke permukiman dan menyebabkan banjir."},
+    {no:20,bab:4,type:"pg",
+      stimulus:"Perhatikan tahapan siklus air berikut!\n(1) Air laut dan sungai menguap karena panas matahari.\n(2) Uap air naik dan berubah menjadi titik-titik air yang membentuk awan.\n(3) Titik-titik air jatuh sebagai hujan.\n(4) Air hujan meresap ke dalam tanah.",
+      q:"Tahapan pengembunan uap air (kondensasi) pada siklus air ditunjukkan oleh nomor …",
+      options:["(1)","(2)","(3)","(4)"],answer:1,
+      explain:"Kondensasi adalah proses pengembunan, yaitu berubahnya uap air menjadi titik-titik air. Uap air yang naik ke udara yang dingin akan mengembun dan membentuk awan, seperti pada tahap (2)."},
+    {no:21,bab:4,type:"pg",q:"Peran akar pohon dalam proses penyerapan air hujan (infiltrasi) adalah …",
+      options:["menghalangi air hujan masuk ke dalam tanah","membantu air hujan meresap ke dalam tanah melalui celah-celah akar dan menyimpan cadangan air tanah","membuat tanah menjadi keras dan tandus","mengalirkan semua air hujan langsung ke sungai"],answer:1,
+      explain:"Akar pohon membuat tanah menjadi gembur dan bercelah, sehingga air hujan mudah meresap ke dalam tanah (infiltrasi) dan tersimpan sebagai cadangan air tanah. Akar juga menahan tanah agar tidak mudah longsor."},
+    {no:22,bab:4,type:"pg",q:"Berikut ini beberapa sampel air:\n• Air A: jernih, tidak berbau, dan tidak berasa.\n• Air B: keruh dan berbau busuk.\n• Air C: berwarna kekuningan dan berasa aneh.\n• Air D: jernih, tetapi berbau seperti limbah.\nSampel air yang paling aman dan memenuhi syarat fisik air bersih adalah …",
+      options:["Air A","Air B","Air C","Air D"],answer:0,
+      explain:"Syarat fisik air bersih adalah jernih (tidak berwarna), tidak berbau, dan tidak berasa. Air A memenuhi ketiga syarat tersebut, sedangkan air B, C, dan D tidak memenuhi syarat karena keruh, berwarna, berbau, atau berasa aneh."},
+    {no:23,bab:4,type:"pg",q:"Dampak mengonsumsi air yang tercemar limbah terhadap kesehatan tubuh adalah …",
+      options:["tubuh menjadi semakin kuat dan sehat","gigi menjadi semakin kuat","menimbulkan penyakit, seperti diare, muntaber, dan penyakit kulit","tidak ada dampak apa pun bagi tubuh"],answer:2,
+      explain:"Air yang tercemar limbah mengandung kuman penyakit dan zat berbahaya. Jika diminum atau digunakan sehari-hari, air tersebut dapat menyebabkan diare, muntaber, tifus, dan penyakit kulit."},
+    {no:24,bab:4,type:"pg",q:"Contoh perilaku hemat air bersih di lingkungan sekolah adalah …",
+      options:["membiarkan keran air terus mengalir setelah mencuci tangan","bermain air dengan selang di halaman sekolah","menggunakan air sebanyak-banyaknya untuk menyiram lantai","mematikan keran setelah selesai digunakan dan segera melaporkan keran yang bocor"],answer:3,
+      explain:"Menghemat air di sekolah dapat dilakukan dengan mematikan keran setelah digunakan, menggunakan air secukupnya saat wudu dan mencuci tangan, serta melaporkan keran yang bocor agar segera diperbaiki."},
+    {no:25,bab:4,type:"pg",q:"Musim kemarau yang panjang menyebabkan sungai dan saluran irigasi mengering. Dampak kemarau panjang tersebut terhadap pertanian adalah …",
+      options:["hasil panen meningkat karena cuaca panas","sawah kekurangan air sehingga tanaman padi mengering dan hasil panen menurun, bahkan gagal panen","petani tidak perlu lagi mengairi sawahnya","tanah sawah menjadi semakin subur"],answer:1,
+      explain:"Tanaman padi membutuhkan banyak air. Saat kemarau panjang, saluran irigasi kering dan sawah kekurangan air, sehingga tanaman mengering, hasil panen menurun, bahkan dapat terjadi gagal panen."},
+    /* ---------- ISIAN 26-35 ---------- */
+    {no:26,bab:1,type:"isian",q:"Julukan bagi Indonesia karena keindahan alam tropisnya yang hijau dan subur di garis khatulistiwa adalah …",
+      accept:["zamrud di khatulistiwa","zamrud khatulistiwa"],model:"Zamrud di Khatulistiwa",
+      explain:"Indonesia dijuluki 'Zamrud di Khatulistiwa' karena terletak di garis khatulistiwa dengan alam tropis yang hijau dan subur, tampak indah seperti batu zamrud."},
+    {no:27,bab:1,type:"isian",q:"Negara yang mayoritas penduduknya bekerja di bidang pertanian disebut negara …",
+      accept:["agraris","negara agraris"],model:"agraris",
+      explain:"Negara agraris adalah negara yang sebagian besar penduduknya bekerja di bidang pertanian, misalnya menanam padi, jagung, sayur-mayur, dan buah-buahan. Indonesia termasuk negara agraris."},
+    {no:28,bab:2,type:"isian",q:"Kebutuhan dasar manusia yang harus dipenuhi agar dapat hidup, yaitu pangan, sandang, dan papan, disebut kebutuhan …",
+      accept:["primer","kebutuhan primer","pokok","kebutuhan pokok"],model:"primer",
+      explain:"Kebutuhan primer adalah kebutuhan dasar/pokok manusia, yaitu pangan (makanan), sandang (pakaian), dan papan (tempat tinggal). Kebutuhan ini harus dipenuhi terlebih dahulu sebelum kebutuhan lainnya."},
+    {no:29,bab:2,type:"isian",q:"Pak Tani membawa hasil panen padinya dan menyalurkannya kepada pedagang di pasar untuk dijual kepada pembeli. Kegiatan ekonomi yang dilakukan Pak Tani tersebut adalah …",
+      accept:["distribusi"],model:"distribusi",
+      explain:"Distribusi adalah kegiatan menyalurkan barang dari produsen kepada konsumen. Menyalurkan hasil panen dari petani ke pedagang dan pembeli termasuk kegiatan distribusi."},
+    {no:30,bab:3,type:"isian",q:"Dalam rantai makanan, tanaman padi berperan sebagai … karena mampu memproduksi (membuat) makanannya sendiri melalui fotosintesis.",
+      accept:["produsen"],model:"produsen",
+      explain:"Produsen adalah makhluk hidup yang dapat membuat makanannya sendiri, yaitu tumbuhan hijau seperti padi, melalui fotosintesis. Produsen menjadi sumber makanan bagi konsumen."},
+    {no:31,bab:3,type:"isian",q:"Jamur dan bakteri berperan sebagai … karena menguraikan sisa-sisa makhluk hidup yang telah mati menjadi zat hara bagi tanah.",
+      accept:["pengurai","dekomposer"],model:"pengurai",
+      explain:"Pengurai (dekomposer), seperti jamur dan bakteri, menguraikan bangkai dan sisa makhluk hidup yang mati. Hasil uraiannya menjadi zat hara yang menyuburkan tanah dan dimanfaatkan tumbuhan."},
+    {no:32,bab:4,type:"isian",q:"Proses penguapan air laut, sungai, dan danau menjadi uap air karena panas matahari dalam siklus air disebut …",
+      accept:["evaporasi","penguapan"],model:"evaporasi",
+      explain:"Evaporasi adalah penguapan air dari laut, sungai, dan danau menjadi uap air karena panas matahari. Uap air naik, lalu mengembun (kondensasi) membentuk awan."},
+    {no:33,bab:4,type:"isian",q:"Proses meresapnya air hujan ke dalam lapisan tanah dalam siklus air disebut …",
+      accept:["infiltrasi","peresapan"],model:"infiltrasi",
+      explain:"Infiltrasi adalah proses meresapnya air hujan ke dalam pori-pori tanah. Air hasil infiltrasi tersimpan sebagai air tanah yang menjadi sumber air sumur."},
+    {no:34,bab:4,type:"isian",q:"Sebutkan salah satu syarat fisik air bersih yang aman dikonsumsi! Air bersih harus …",
+      accept:["jernih","tidak berwarna","tidak berbau","tidak berasa","tidak keruh","bening","tawar"],model:"jernih (tidak berwarna, tidak berbau, dan tidak berasa)",
+      explain:"Syarat fisik air bersih yang aman dikonsumsi antara lain: jernih/tidak berwarna, tidak berbau, dan tidak berasa. Jawaban salah satu syarat saja sudah benar."},
+    {no:35,bab:2,type:"isian",q:"Kegiatan menggunakan atau menghabiskan barang dan jasa untuk memenuhi kebutuhan disebut kegiatan …",
+      accept:["konsumsi"],model:"konsumsi",
+      explain:"Konsumsi adalah kegiatan menggunakan atau menghabiskan barang/jasa untuk memenuhi kebutuhan, misalnya makan nasi, memakai pakaian, dan menggunakan jasa ojek. Pelakunya disebut konsumen."},
+    /* ---------- URAIAN 36-40 ---------- */
+    {no:36,bab:1,type:"uraian",q:"Jelaskan perbedaan antara negara maritim dan negara agraris! Sebutkan pula contoh hasil alam dari masing-masing negara!",
+      model:"Perbedaan negara maritim dan negara agraris:\n• Negara maritim adalah negara yang wilayahnya sebagian besar berupa lautan dan kehidupan penduduknya banyak bergantung pada laut. Contoh hasil alamnya: ikan, udang, cumi-cumi, rumput laut, dan garam.\n• Negara agraris adalah negara yang sebagian besar penduduknya bekerja di bidang pertanian. Contoh hasil alamnya: padi, jagung, sayur-mayur, buah-buahan, dan hasil perkebunan.\nIndonesia termasuk negara maritim sekaligus agraris karena memiliki laut yang luas dan lahan pertanian yang subur.",
+      rubrik:"Skor 3: menjelaskan perbedaan negara maritim dan agraris dengan benar serta menyebutkan contoh hasil alam keduanya. Skor 2: perbedaan dijelaskan dengan benar, tetapi contoh hasil alam hanya salah satu atau kurang tepat. Skor 1: hanya menjelaskan salah satu negara dengan benar. Skor 0: jawaban salah atau kosong.",
+      explain:"Negara maritim berkaitan dengan kelautan (wilayah laut luas, penduduk memanfaatkan laut), sedangkan negara agraris berkaitan dengan pertanian (penduduk sebagian besar bertani)."},
+    {no:37,bab:2,type:"uraian",
+      stimulus:"Bacalah cerita berikut!\nPak Budi membeli kedelai dari petani, lalu mengolah kedelai tersebut menjadi tempe di rumah produksinya. Tempe buatan Pak Budi kemudian diantar dan dijual kepada pedagang di pasar. Ibu Sari membeli tempe di pasar, lalu memasaknya untuk dimakan bersama keluarganya.",
+      q:"Berdasarkan cerita di atas, tunjukkan contoh kegiatan produksi, distribusi, dan konsumsi! Jelaskan alasanmu!",
+      model:"Contoh kegiatan ekonomi dari cerita di atas:\n1. Produksi: Pak Budi mengolah kedelai menjadi tempe. Kegiatan menghasilkan barang (membuat tempe dari kedelai) disebut produksi, dan Pak Budi adalah produsen.\n2. Distribusi: Tempe diantar dan dijual kepada pedagang di pasar, lalu disalurkan kepada pembeli. Kegiatan menyalurkan barang dari produsen ke konsumen disebut distribusi.\n3. Konsumsi: Ibu Sari membeli tempe, memasaknya, dan memakannya bersama keluarga. Kegiatan menggunakan/menghabiskan barang untuk memenuhi kebutuhan disebut konsumsi, dan Ibu Sari adalah konsumen.",
+      rubrik:"Skor 3: menunjukkan contoh produksi, distribusi, dan konsumsi dengan benar disertai penjelasan. Skor 2: menunjukkan ketiga contoh dengan benar, tetapi penjelasan kurang lengkap. Skor 1: hanya menunjukkan satu atau dua contoh yang benar. Skor 0: jawaban salah atau kosong.",
+      explain:"Produksi = menghasilkan barang, distribusi = menyalurkan barang, konsumsi = menggunakan/menghabiskan barang untuk memenuhi kebutuhan."},
+    {no:38,bab:3,type:"uraian",q:"Petani menyemprotkan pestisida secara berlebihan sehingga katak-katak di sawah banyak yang mati, bahkan hampir punah. Analisislah dampak kepunahan katak tersebut terhadap populasi belalang dan ular di sawah!",
+      model:"Dampak kepunahan katak terhadap rantai makanan di sawah (padi → belalang → katak → ular):\n1. Populasi belalang bertambah banyak, karena pemangsanya, yaitu katak, hilang. Belalang yang terlalu banyak akan memakan dan merusak tanaman padi.\n2. Populasi ular berkurang, karena ular kehilangan sumber makanannya, yaitu katak. Ular yang kelaparan akan mati atau pindah ke tempat lain.\nAkibatnya, keseimbangan ekosistem sawah terganggu dan hasil panen padi dapat menurun.",
+      rubrik:"Skor 3: menjelaskan dampak terhadap populasi belalang (bertambah) dan ular (berkurang) dengan benar beserta alasannya. Skor 2: menjelaskan dampak terhadap salah satu populasi dengan benar dan lengkap, yang lain kurang tepat. Skor 1: hanya menjelaskan dampak terhadap satu populasi secara singkat. Skor 0: jawaban salah atau kosong.",
+      explain:"Dalam rantai makanan, hilangnya satu organisme memengaruhi organisme lain: mangsa katak (belalang) bertambah karena tidak ada pemangsa, sedangkan pemangsa katak (ular) berkurang karena kehilangan makanan."},
+    {no:39,bab:4,type:"uraian",q:"Di daerah perkotaan, banyak tanah kosong dan halaman rumah yang ditutup dengan semen atau aspal. Jelaskan dampak penutupan tanah tersebut terhadap proses infiltrasi dan terjadinya banjir!",
+      model:"Dampak penutupan tanah oleh semen/aspal:\n1. Terhadap infiltrasi: Air hujan tidak dapat meresap ke dalam tanah (infiltrasi terhambat) karena permukaan tanah tertutup semen/aspal yang kedap air. Akibatnya, cadangan air tanah berkurang dan sumur dapat mengering.\n2. Terhadap banjir: Air hujan yang tidak meresap akan mengalir dan menggenang di permukaan. Jika hujan deras dan saluran air tidak mampu menampungnya, terjadilah banjir/genangan.\nOleh karena itu, perlu disediakan lahan terbuka dan lubang resapan agar air hujan dapat meresap ke dalam tanah.",
+      rubrik:"Skor 3: menjelaskan dampak terhadap infiltrasi (air tidak meresap, cadangan air tanah berkurang) dan banjir (air menggenang/meluap) dengan benar. Skor 2: menjelaskan salah satu dampak dengan benar dan lengkap, yang lain kurang tepat. Skor 1: penjelasan hanya benar sebagian kecil. Skor 0: jawaban salah atau kosong.",
+      explain:"Tanah yang terbuka dan ditumbuhi tanaman memudahkan infiltrasi. Tanah yang tertutup semen/aspal kedap air, sehingga air hujan menggenang di permukaan dan berpotensi menimbulkan banjir."},
+    {no:40,bab:4,type:"uraian",q:"Saat musim kemarau, kita dilarang membuang-buang air. Jelaskan alasan larangan tersebut! Sebutkan pula tiga cara menghemat air di sekolah!",
+      model:"Alasan tidak boleh membuang-buang air saat kemarau: Pada musim kemarau, curah hujan sangat sedikit sehingga sumber air, seperti sungai, sumur, dan waduk, menyusut bahkan mengering. Jika air dibuang-buang, persediaan air bersih akan cepat habis dan banyak orang kesulitan memperoleh air untuk minum, memasak, dan mandi.\nTiga cara menghemat air di sekolah, misalnya:\n1. Mematikan keran setelah selesai mencuci tangan atau berwudu.\n2. Menggunakan air secukupnya, tidak bermain-main dengan air.\n3. Segera melaporkan keran atau pipa yang bocor kepada guru/petugas sekolah.\n(Cara lain yang benar: menampung air hujan untuk menyiram tanaman, menyiram tanaman dengan air bekas yang masih bersih.)",
+      rubrik:"Skor 3: menjelaskan alasan larangan membuang-buang air saat kemarau dengan benar dan menyebutkan tiga cara menghemat air di sekolah. Skor 2: alasan benar, tetapi cara menghemat air yang disebutkan kurang dari tiga. Skor 1: hanya alasan atau hanya cara menghemat air yang benar sebagian. Skor 0: jawaban salah atau kosong.",
+      explain:"Air bersih adalah kebutuhan pokok. Saat kemarau persediaannya terbatas, sehingga setiap orang wajib menghemat air, termasuk di lingkungan sekolah."}
+    ];
+    var BAB_NAMES = {1:"Bab 1 • Indonesia Negaraku",2:"Bab 2 • Kegiatan Ekonomi",3:"Bab 3 • Harmoni Ekosistem",4:"Bab 4 • Air Sumber Kehidupan"};
+    var TYPE_NAMES = {pg:"Pilihan Ganda",isian:"Isian",uraian:"Uraian"};
+    var TYPE_SCORE = {pg:1,isian:2,uraian:3};
+    function byNo(n){ for(var i=0;i<QUESTIONS.length;i++){ if(QUESTIONS[i].no===n) return QUESTIONS[i]; } return null; }
+    function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+    function nl2br(s){ return esc(s).replace(/\n/g,"<br>"); }
+    function norm(s){ return String(s==null?"":s).toLowerCase().trim().replace(/\s+/g," ").replace(/[.?!]+$/,""); }
+
+    /* =============== NAMA PEMILIK PAKET (gerbang akses) =============== */
+    var OWNER_KEY = "paket-asas-ipas5-nama";
+    var ownerName = "";
+    try{ ownerName = String(sessionStorage.getItem(OWNER_KEY) || "").trim(); }catch(e){ ownerName = ""; }
+    function saveOwnerName(n){ ownerName = n; try{ sessionStorage.setItem(OWNER_KEY, n); }catch(e){} }
+    function refreshOwnerUI(){
+      var on = document.getElementById("owner-name"); if(on) on.textContent = ownerName || "—";
+      var hv = document.getElementById("hasil-nama-val"); if(hv) hv.textContent = ownerName || "—";
+      var rp = document.getElementById("ringkasan-print-nama"); if(rp) rp.textContent = "Nama: " + (ownerName || "—") + "  •  Paket ASAS IPAS Kelas V — Ringkasan Materi";
+    }
+    function isianBenar(q,val){ var v=norm(val); if(!v) return false; for(var i=0;i<q.accept.length;i++){ if(norm(q.accept[i])===v) return true; } return false; }
+
+    /* =============== HURUF KAPITAL OTOMATIS UNTUK ISIAN NAMA =============== */
+    /* Semua kolom isian nama (gerbang pembeli & panel Admin) dipaksa
+       huruf KAPITAL semua pada NILAI sebenarnya saat diketik, agar tidak
+       ada kesalahan penulisan nama saat membuka paket. */
+    function forceUpper(input){
+      if(!input) return;
+      var start = null, end = null;
+      try{ start = input.selectionStart; end = input.selectionEnd; }catch(e){}
+      var up = input.value.toUpperCase();
+      if(input.value !== up){ input.value = up; }
+      if(start !== null){ try{ input.setSelectionRange(start, end); }catch(e){} }
+    }
+    function bindUpper(id){
+      var el = document.getElementById(id);
+      if(el){ el.addEventListener("input", function(){ forceUpper(el); }); }
+    }
+    bindUpper("gate-nama");
+    bindUpper("admin-new-nama");
+    bindUpper("admin-new-ket");
+    function upperName(s){ return String(s == null ? "" : s).toUpperCase().trim().replace(/\s+/g, " "); }
+
+    /* =============== NAVIGASI =============== */
+    var VIEWS = ["home","ringkasan","kisi","latihan","simulasi","hasil"];
+    function showView(name){
+      for(var i=0;i<VIEWS.length;i++){
+        document.getElementById("view-"+VIEWS[i]).classList.toggle("active", VIEWS[i]===name);
+      }
+      var btns = document.querySelectorAll(".navbtn");
+      for(var j=0;j<btns.length;j++){ btns[j].classList.toggle("active", btns[j].getAttribute("data-nav")===name); }
+      window.scrollTo(0,0);
+    }
+    var navBtns = document.querySelectorAll("[data-nav]");
+    for(var nb=0; nb<navBtns.length; nb++){ navBtns[nb].addEventListener("click", function(){ showView(this.getAttribute("data-nav")); }); }
+    var goBtns = document.querySelectorAll("[data-go]");
+    for(var gb=0; gb<goBtns.length; gb++){ goBtns[gb].addEventListener("click", function(){ showView(this.getAttribute("data-go")); }); }
+    function printWithMode(mode){
+      if(typeof renderPrintAreas === "function"){ renderPrintAreas(); }
+      refreshOwnerUI();
+      document.body.setAttribute("data-print", mode);
+      setTimeout(function(){ window.print(); }, 60);
+    }
+    window.addEventListener("afterprint", function(){ document.body.removeAttribute("data-print"); });
+    document.getElementById("btn-print").addEventListener("click", function(){ printWithMode("ringkasan"); });
+
+    function renderPrintAreas(){
+      /* --- Lembar Soal (tanpa kunci & tanpa pembahasan) --- */
+      var sh = '<div class="p-head"><h1>Paket ASAS IPAS Kelas V — Latihan Soal</h1>'
+        + '<p>Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>'
+        + '<p>Jumlah soal: 40 (PG No. 1–25 • Isian No. 26–35 • Uraian No. 36–40) • Skor maksimal: 60</p></div>'
+        + '<div class="p-ident"><span>Nama: '+esc(ownerName)+'</span><span>Kelas: </span><span>Tanggal: </span></div>'
+        + '<div class="p-petunjuk"><b>Petunjuk:</b> Bacalah setiap soal dengan teliti. Untuk Pilihan Ganda, beri tanda silang (×) pada huruf jawaban yang paling tepat. Untuk Isian, tulislah jawaban pada garis yang tersedia. Untuk Uraian, tulislah jawaban dengan lengkap pada ruang yang disediakan.</div>';
+      var lastBabS = 0;
+      var sortedS = QUESTIONS.slice().sort(function(a,b){ return a.no-b.no; });
+      sortedS.forEach(function(q){
+        if(q.bab!==lastBabS){ lastBabS=q.bab; sh += '<div class="p-bab">'+esc(BAB_NAMES[q.bab])+'</div>'; }
+        sh += '<div class="pq">';
+        if(q.stimulus){ sh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="pq-stim">'+nl2br(q.stimulus)+'</div>'; }
+        sh += '<span class="pq-no">'+q.no+'. </span><span style="font-weight:600">'+esc(q.q)+'</span>';
+        if(q.type==="pg"){
+          sh += '<ul class="pq-opts">';
+          q.options.forEach(function(op,i){ sh += '<li><b>'+"ABCD"[i]+'.</b> '+esc(op)+'</li>'; });
+          sh += '</ul>';
+        } else if(q.type==="isian"){
+          sh += '<div class="pq-blank"></div>';
+        } else {
+          sh += '<div class="pq-lines"><i></i><i></i><i></i><i></i><i></i></div>';
+        }
+        sh += '</div>';
+      });
+      sh += '<p style="text-align:center;font-weight:700;margin-top:20px">— Selamat mengerjakan, semoga berhasil! —</p>';
+      document.getElementById("print-soal").innerHTML = sh;
+
+      /* --- Kunci & Pembahasan (untuk guru / orang tua) --- */
+      var kh = '<div class="p-head"><h1>Paket ASAS IPAS Kelas V — Kunci &amp; Pembahasan</h1>'
+        + '<p>Semester 1 (Ganjil) • Kurikulum Merdeka • Tahun Ajaran 2026/2027</p>'
+        + '<p>Pegangan guru / orang tua — kunci jawaban dan pembahasan 40 soal latihan</p></div>'
+        + '<div class="p-ident"><span>Nama: '+esc(ownerName)+'</span><span>Kelas: </span><span>Tanggal: </span></div>';
+      var lastBabK = 0;
+      sortedS.forEach(function(q){
+        if(q.bab!==lastBabK){ lastBabK=q.bab; kh += '<div class="p-bab">'+esc(BAB_NAMES[q.bab])+'</div>'; }
+        kh += '<div class="pk-item"><h4>No. '+q.no+' • '+TYPE_NAMES[q.type]+' • Skor '+TYPE_SCORE[q.type]+'</h4>';
+        if(q.stimulus){ kh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="pq-stim">'+nl2br(q.stimulus)+'</div>'; }
+        kh += '<div style="font-weight:600">'+esc(q.q)+'</div>';
+        if(q.type==="pg"){
+          kh += '<div class="pk-ans">Kunci Jawaban: '+"ABCD"[q.answer]+'. '+esc(q.options[q.answer])+'</div>';
+        } else if(q.type==="isian"){
+          kh += '<div class="pk-ans">Kunci Jawaban: '+esc(q.model)+'</div>';
+        } else {
+          kh += '<div class="pk-ans">Jawaban Model:</div><div class="pk-model">'+esc(q.model)+'</div>'
+            + '<p class="pk-exp"><b>Aturan Skor:</b> '+esc(q.rubrik||"")+'</p>';
+        }
+        kh += '<p class="pk-exp"><b>Pembahasan:</b> '+esc(q.explain)+'</p></div>';
+      });
+      document.getElementById("print-kunci").innerHTML = kh;
+    }
+    renderPrintAreas();
+
+    /* =============== GERBANG NAMA TERVERIFIKASI =============== */
+    function isBackendReady(){ return !!(APPS_SCRIPT_URL && String(APPS_SCRIPT_URL).trim() !== ""); }
+    function normalizeName(s){ return String(s == null ? "" : s).toLowerCase().trim().replace(/\s+/g, " "); }
+    function showGateError(msg){
+      var err = document.getElementById("gate-error");
+      err.textContent = msg; err.classList.add("show");
+    }
+    function hideGateError(){ document.getElementById("gate-error").classList.remove("show"); }
+    function refreshGateSystemMsg(){
+      var el = document.getElementById("gate-system-msg");
+      var btn = document.getElementById("btn-buka-paket");
+      if(!isBackendReady()){
+        el.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.";
+        el.classList.add("show");
+        if(btn){ btn.disabled = true; }
+      } else {
+        el.textContent = ""; el.classList.remove("show");
+        if(btn){ btn.disabled = false; }
+      }
+    }
+    function unlockPackage(){
+      document.getElementById("gate").classList.add("hidden");
+      document.body.classList.remove("locked");
+      document.getElementById("owner-bar").classList.remove("hidden");
+      refreshOwnerUI();
+      renderPrintAreas();
+    }
+    function lockPackage(){
+      var inp = document.getElementById("gate-nama");
+      inp.value = ownerName || "";
+      hideGateError();
+      refreshGateSystemMsg();
+      document.getElementById("gate").classList.remove("hidden");
+      document.body.classList.add("locked");
+      setTimeout(function(){ inp.focus(); inp.select(); }, 60);
+      window.scrollTo(0,0);
+    }
+    document.getElementById("gate-form").addEventListener("submit", function(ev){
+      ev.preventDefault();
+      var inp = document.getElementById("gate-nama");
+      forceUpper(inp);
+      /* Nama disimpan & ditampilkan dalam huruf KAPITAL semua */
+      var displayName = upperName(inp.value);
+      inp.value = displayName;
+      if(!isBackendReady()){
+        showGateError("Sistem pemeriksaan nama belum dipasang. Hubungi penjual.");
+        var sm = document.getElementById("gate-system-msg");
+        sm.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual."; sm.classList.add("show");
+        return;
+      }
+      if(!displayName){
+        showGateError("Nama lengkap wajib diisi.");
+        inp.focus();
+        return;
+      }
+      if(displayName.length < 3){
+        showGateError("Nama lengkap minimal 3 huruf.");
+        inp.focus();
+        return;
+      }
+      hideGateError();
+      var btn = document.getElementById("btn-buka-paket");
+      var labelAsli = btn.textContent;
+      btn.disabled = true; btn.textContent = "⏳ Memeriksa nama…";
+      var namaNorm = normalizeName(displayName);
+      var url = APPS_SCRIPT_URL + "?action=check&nama=" + encodeURIComponent(namaNorm) + "&mapel=" + encodeURIComponent(MAPEL_ID);
+      fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = labelAsli;
+          if(data && data.allowed){
+            saveOwnerName(displayName);
+            unlockPackage();
+          } else {
+            showGateError("Nama belum terdaftar. Silakan hubungi penjual.");
+            inp.focus();
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = labelAsli;
+          showGateError("Tidak bisa memeriksa nama. Periksa internet Anda lalu coba lagi.");
+        });
+    });
+    document.getElementById("gate-nama").addEventListener("input", function(){
+      hideGateError();
+    });
+    document.getElementById("btn-ganti-nama").addEventListener("click", lockPackage);
+    refreshGateSystemMsg();
+    if(isBackendReady() && ownerName && ownerName.length >= 3){ saveOwnerName(upperName(ownerName)); unlockPackage(); } else { refreshOwnerUI(); if(!isBackendReady()){ refreshGateSystemMsg(); } }
+
+    /* =============== PANEL ADMIN =============== */
+    var adminPin = "";
+    function setAdminMsg(id, msg, kind){
+      var el = document.getElementById(id);
+      if(!el) return;
+      if(!msg){ el.textContent = ""; el.className = "admin-msg"; return; }
+      el.textContent = msg; el.className = "admin-msg show " + (kind || "info");
+    }
+    function renderAdminList(rows){
+      var host = document.getElementById("admin-list");
+      if(!rows || rows.length === 0){
+        host.innerHTML = '<div class="admin-empty">Belum ada nama pembeli terdaftar.</div>';
+        return;
+      }
+      var html = "";
+      rows.forEach(function(r){
+        var meta = [];
+        if(r.mapel) meta.push("Mapel: " + (r.mapel === "semua" ? "Semua Mapel" : (r.mapel === MAPEL_ID ? MAPEL_LABEL : esc(r.mapel))));
+        if(r.tanggal) meta.push(esc(r.tanggal));
+        if(r.ket) meta.push(esc(r.ket));
+        html += '<div class="admin-row"><div class="info"><b>' + esc(upperName(r.nama || "")) + '</b>'
+          + (meta.length ? '<span>' + meta.join(" • ") + '</span>' : '')
+          + '</div><button type="button" class="btn-hapus" data-admin-remove="' + esc(String(r.row)) + '">Hapus</button></div>';
+      });
+      host.innerHTML = html;
+      host.querySelectorAll("[data-admin-remove]").forEach(function(b){
+        b.addEventListener("click", function(){
+          var row = b.getAttribute("data-admin-remove");
+          removeBuyer(row, b);
+        });
+      });
+    }
+    function loadAdminList(){
+      if(!isBackendReady()){ setAdminMsg("admin-msg", "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.", "err"); return Promise.resolve(); }
+      var url = APPS_SCRIPT_URL + "?action=list&pin=" + encodeURIComponent(adminPin);
+      return fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          if(!data || !data.ok){ throw new Error("pin"); }
+          renderAdminList(data.rows || []);
+        });
+    }
+    function postAdmin(payload){
+      return fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(payload)
+      }).then(function(r){ return r.json(); });
+    }
+    function addBuyer(){
+      var namaEl = document.getElementById("admin-new-nama");
+      var ketEl = document.getElementById("admin-new-ket");
+      var mapelEl = document.getElementById("admin-new-mapel");
+      forceUpper(namaEl);
+      /* Nama pembeli disimpan dalam huruf KAPITAL semua */
+      var nama = upperName(namaEl.value);
+      namaEl.value = nama;
+      var ket = ketEl.value.trim();
+      var mapel = mapelEl ? mapelEl.value : MAPEL_ID;
+      if(!nama){ setAdminMsg("admin-msg", "Nama pembeli baru wajib diisi.", "err"); namaEl.focus(); return; }
+      var btn = document.getElementById("btn-admin-add");
+      btn.disabled = true; btn.textContent = "⏳ Menyimpan…";
+      postAdmin({ action: "add", pin: adminPin, nama: nama, ket: ket, mapel: mapel })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = "＋ Tambah";
+          if(data && data.ok){
+            setAdminMsg("admin-msg", "Nama berhasil ditambahkan.", "ok");
+            namaEl.value = ""; ketEl.value = "";
+            if(mapelEl) mapelEl.value = MAPEL_ID;
+            return loadAdminList();
+          } else {
+            setAdminMsg("admin-msg", (data && data.error) ? data.error : "Gagal menambahkan nama. Coba lagi.", "err");
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "＋ Tambah";
+          setAdminMsg("admin-msg", "Tidak bisa menghubungi server. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    }
+    function removeBuyer(row, btnEl){
+      if(btnEl){ btnEl.disabled = true; btnEl.textContent = "…"; }
+      postAdmin({ action: "remove", pin: adminPin, row: isNaN(+row) ? row : +row })
+        .then(function(data){
+          if(data && data.ok){
+            setAdminMsg("admin-msg", "Nama berhasil dihapus.", "ok");
+            return loadAdminList();
+          } else {
+            if(btnEl){ btnEl.disabled = false; btnEl.textContent = "Hapus"; }
+            setAdminMsg("admin-msg", (data && data.error) ? data.error : "Gagal menghapus nama. Coba lagi.", "err");
+          }
+        })
+        .catch(function(){
+          if(btnEl){ btnEl.disabled = false; btnEl.textContent = "Hapus"; }
+          setAdminMsg("admin-msg", "Tidak bisa menghubungi server. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    }
+    function openAdmin(){
+      var modal = document.getElementById("modal-admin");
+      modal.classList.add("show");
+      setAdminMsg("admin-login-msg", "", "");
+      setAdminMsg("admin-msg", "", "");
+      var sys = document.getElementById("admin-system-msg");
+      if(!isBackendReady()){
+        sys.textContent = "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.";
+        sys.className = "admin-msg show err";
+        document.getElementById("admin-login").classList.add("hidden");
+        document.getElementById("admin-content").classList.add("hidden");
+        return;
+      }
+      sys.textContent = ""; sys.className = "admin-msg";
+      if(adminPin){
+        document.getElementById("admin-login").classList.add("hidden");
+        document.getElementById("admin-content").classList.remove("hidden");
+        loadAdminList().catch(function(){ setAdminMsg("admin-msg", "Tidak bisa memuat daftar. Periksa internet Anda lalu coba lagi.", "err"); });
+      } else {
+        document.getElementById("admin-login").classList.remove("hidden");
+        document.getElementById("admin-content").classList.add("hidden");
+        setTimeout(function(){ document.getElementById("admin-pin").focus(); }, 60);
+      }
+    }
+    function closeAdmin(){ document.getElementById("modal-admin").classList.remove("show"); }
+    document.getElementById("btn-admin-open").addEventListener("click", openAdmin);
+    document.getElementById("btn-admin-open-gate").addEventListener("click", openAdmin);
+    document.getElementById("btn-admin-close").addEventListener("click", closeAdmin);
+    document.getElementById("btn-admin-done").addEventListener("click", closeAdmin);
+    document.getElementById("btn-admin-login").addEventListener("click", function(){
+      var pin = document.getElementById("admin-pin").value;
+      if(!isBackendReady()){ setAdminMsg("admin-login-msg", "Sistem pemeriksaan nama belum dipasang. Hubungi penjual.", "err"); return; }
+      if(!pin){ setAdminMsg("admin-login-msg", "PIN wajib diisi.", "err"); return; }
+      var btn = document.getElementById("btn-admin-login");
+      btn.disabled = true; btn.textContent = "⏳ Memeriksa…";
+      setAdminMsg("admin-login-msg", "", "");
+      var url = APPS_SCRIPT_URL + "?action=list&pin=" + encodeURIComponent(pin);
+      fetch(url, { method: "GET" })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          btn.disabled = false; btn.textContent = "Masuk";
+          if(data && data.ok){
+            adminPin = pin;
+            document.getElementById("admin-pin").value = "";
+            document.getElementById("admin-login").classList.add("hidden");
+            document.getElementById("admin-content").classList.remove("hidden");
+            setAdminMsg("admin-msg", "", "");
+            renderAdminList(data.rows || []);
+          } else {
+            setAdminMsg("admin-login-msg", "PIN salah.", "err");
+          }
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = "Masuk";
+          setAdminMsg("admin-login-msg", "Tidak bisa memeriksa PIN. Periksa internet Anda lalu coba lagi.", "err");
+        });
+    });
+    document.getElementById("admin-pin").addEventListener("keydown", function(ev){
+      if(ev.key === "Enter"){ ev.preventDefault(); document.getElementById("btn-admin-login").click(); }
+    });
+    document.getElementById("btn-admin-add").addEventListener("click", addBuyer);
+    document.getElementById("btn-admin-refresh").addEventListener("click", function(){
+      setAdminMsg("admin-msg", "", "");
+      loadAdminList().catch(function(){ setAdminMsg("admin-msg", "Tidak bisa memuat daftar. Periksa internet Anda lalu coba lagi.", "err"); });
+    });
+
+    var btnPS = document.getElementById("btn-print-soal");
+    if(btnPS){ btnPS.addEventListener("click", function(){ printWithMode("soal"); }); }
+    var btnPK = document.getElementById("btn-print-kunci");
+    if(btnPK){ btnPK.addEventListener("click", function(){ printWithMode("kunci"); }); }
+
+    function qHeadHtml(q){
+      return '<div class="qhead"><span class="qno">No. '+q.no+'</span>'
+        +'<span class="qtype '+q.type+'">'+TYPE_NAMES[q.type]+'</span>'
+        +'<span class="qtype">'+BAB_NAMES[q.bab]+'</span>'
+        +'<span class="qskor">Skor: '+TYPE_SCORE[q.type]+'</span></div>';
+    }
+
+    /* =============== LATIHAN SOAL =============== */
+    function renderLatihan(){
+      var host = document.getElementById("latihan-list");
+      var html = "", lastBab = 0;
+      var order = [];
+      QUESTIONS.forEach(function(q){ order.push(q); });
+      order.sort(function(a,b){ if(a.bab!==b.bab) return a.bab-b.bab; return a.no-b.no; });
+      order.forEach(function(q){
+        if(q.bab!==lastBab){ lastBab=q.bab; html += '<h3 style="margin:26px 0 4px;font-size:22px">'+BAB_NAMES[q.bab]+'</h3>'; }
+        html += '<div class="qcard" id="lat-'+q.no+'">'+qHeadHtml(q);
+        if(q.stimulus){ html += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+nl2br(q.stimulus)+'</div>'; }
+        html += '<div class="qtext">'+esc(q.q)+'</div>';
+        if(q.type==="pg"){
+          html += '<div class="opts">';
+          q.options.forEach(function(op,i){
+            html += '<button class="opt" data-lat-pg="'+q.no+'" data-idx="'+i+'"><span class="huruf">'+"ABCD"[i]+'</span>'+esc(op)+'</button>';
+          });
+          html += '</div><div class="explain" id="lat-ex-'+q.no+'"></div>';
+        } else if(q.type==="isian"){
+          html += '<div class="fillin"><input type="text" id="lat-in-'+q.no+'" placeholder="Tulis jawabanmu di sini…" autocomplete="off">'
+            +'<button class="btn small" data-lat-check="'+q.no+'">✔ Periksa</button></div>'
+            +'<div class="explain" id="lat-ex-'+q.no+'"></div>';
+        } else {
+          html += '<textarea class="essay" placeholder="Tulis jawabanmu di sini…"></textarea>'
+            +'<div style="margin-top:10px"><button class="btn small ghost" data-lat-model="'+q.no+'">👀 Lihat Contoh Jawaban</button></div>'
+            +'<div class="modelans" id="lat-model-'+q.no+'"><h4>Contoh Jawaban:</h4>'+nl2br(q.model)
+            +'<h4 style="margin-top:10px">Aturan Skor:</h4>'+esc(q.rubrik)
+            +'<h4 style="margin-top:10px">Pembahasan:</h4>'+esc(q.explain)+'</div>';
+        }
+        html += '</div>';
+      });
+      host.innerHTML = html;
+
+      var pgBtns = host.querySelectorAll("[data-lat-pg]");
+      pgBtns.forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-pg"), idx = +btn.getAttribute("data-idx"), q = byNo(no);
+          var card = document.getElementById("lat-"+no);
+          var opts = card.querySelectorAll(".opt");
+          opts.forEach(function(o,i){ o.disabled = true; o.classList.toggle("benar", i===q.answer); o.classList.remove("sel"); });
+          if(idx!==q.answer){ btn.classList.add("salah"); }
+          var ex = document.getElementById("lat-ex-"+no);
+          ex.className = "explain show " + (idx===q.answer ? "ok" : "no");
+          ex.innerHTML = '<span class="verdict">'+(idx===q.answer ? "🎉 Benar! Kerja bagus." : "Belum tepat. Jawaban yang benar: "+"ABCD"[q.answer]+".")+'</span><br>'+esc(q.explain);
+        });
+      });
+      var chkBtns = host.querySelectorAll("[data-lat-check]");
+      chkBtns.forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-check"), q = byNo(no);
+          var val = document.getElementById("lat-in-"+no).value;
+          var ex = document.getElementById("lat-ex-"+no);
+          if(!norm(val)){ ex.className="explain show info"; ex.innerHTML='<span class="verdict">Isi dulu jawabanmu ya!</span>'; return; }
+          var ok = isianBenar(q,val);
+          ex.className = "explain show " + (ok ? "ok" : "no");
+          ex.innerHTML = '<span class="verdict">'+(ok ? "🎉 Benar! Hebat." : "Belum tepat. Jawaban yang benar: <b>"+esc(q.model)+"</b>.")+'</span><br>'+esc(q.explain);
+        });
+      });
+      var mdlBtns = host.querySelectorAll("[data-lat-model]");
+      mdlBtns.forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var no = +btn.getAttribute("data-lat-model");
+          var box = document.getElementById("lat-model-"+no);
+          var show = box.classList.toggle("show");
+          btn.textContent = show ? "🙈 Sembunyikan Contoh Jawaban" : "👀 Lihat Contoh Jawaban";
+        });
+      });
+    }
+    renderLatihan();
+
+    /* =============== KISI-KISI (sesuai berkas kisi-kisi ASAS IPAS) =============== */
+    var KISI = [
+      {bab:1, rows:[
+        ["Indonesia Negaraku","Menganalisis keuntungan letak geografis Indonesia di antara dua benua dan dua samudera.","PG","1",1],
+        ["Indonesia Negaraku","Menjelaskan keuntungan potensi wilayah lautan Indonesia bagi masyarakat.","PG","2",1],
+        ["Indonesia Negaraku","Menjelaskan alasan utama pemberian julukan 'Zamrud di Khatulistiwa' bagi Indonesia.","PG","3",1],
+        ["Indonesia Negaraku","Menganalisis dampak posisi silang geografis terhadap jalur perdagangan dan ekonomi.","PG","4",1],
+        ["Indonesia Negaraku","Menganalisis hubungan antara kondisi geografis dengan mata pencaharian penduduk.","PG","5",1],
+        ["Indonesia Negaraku","Menentukan tindakan yang mencerminkan pemanfaatan potensi maritim secara berkelanjutan.","PG","6",1],
+        ["Indonesia Negaraku","Menyebutkan julukan bagi keindahan alam tropis Indonesia di garis khatulistiwa.","Isian","26",2],
+        ["Indonesia Negaraku","Menyebutkan istilah bagi negara yang mayoritas penduduknya bekerja di bidang pertanian.","Isian","27",2],
+        ["Indonesia Negaraku","Menjelaskan perbedaan negara maritim dan agraris serta menyebutkan contoh hasil alamnya.","Uraian","36",3]
+      ]},
+      {bab:2, rows:[
+        ["Kegiatan Ekonomi","Mengidentifikasi jenis kebutuhan primer berdasarkan ilustrasi belanja harian keluarga.","PG","7",1],
+        ["Kegiatan Ekonomi","Menentukan penyusunan skala prioritas penggunaan uang saku secara bijak.","PG","8",1],
+        ["Kegiatan Ekonomi","Mengidentifikasi tahapan distribusi dalam diagram alur kegiatan ekonomi.","PG","9",1],
+        ["Kegiatan Ekonomi","Menganalisis dampak kerusakan sarana transportasi terhadap alur barang dan harga pasar.","PG","10",1],
+        ["Kegiatan Ekonomi","Membandingkan perilaku ekonomi bijak dan konsumtif berdasarkan tabel pola pengeluaran.","PG","11",1],
+        ["Kegiatan Ekonomi","Menentukan contoh tindakan bijak siswa dalam menjaga fasilitas dan barang modal sekolah.","PG","12",1],
+        ["Kegiatan Ekonomi","Menyebutkan istilah bagi kebutuhan dasar manusia (pangan, sandang, papan).","Isian","28",2],
+        ["Kegiatan Ekonomi","Menentukan jenis kegiatan ekonomi saat menyalurkan hasil panen ke pedagang.","Isian","29",2],
+        ["Kegiatan Ekonomi","Menyebutkan istilah kegiatan menggunakan barang/jasa untuk memenuhi kebutuhan.","Isian","35",2],
+        ["Kegiatan Ekonomi","Mengidentifikasi contoh kegiatan produksi, distribusi, dan konsumsi dari cerita pembuat tempe.","Uraian","37",3]
+      ]},
+      {bab:3, rows:[
+        ["Harmoni Ekosistem","Mengelompokkan komponen abiotik dalam ekosistem kebun berdasarkan daftar angka.","PG","13",1],
+        ["Harmoni Ekosistem","Menentukan kedudukan organisme sebagai Konsumen II dalam rantai makanan sawah.","PG","14",1],
+        ["Harmoni Ekosistem","Menganalisis dampak berkurangnya populasi ular sawah terhadap keseimbangan rantai makanan.","PG","15",1],
+        ["Harmoni Ekosistem","Menjelaskan dampak buruk penggunaan pestisida kimia berlebihan terhadap lingkungan.","PG","16",1],
+        ["Harmoni Ekosistem","Menentukan tujuan kegiatan pembersihan sampah dan reboisasi di bantaran sungai.","PG","17",1],
+        ["Harmoni Ekosistem","Menyebutkan peran tanaman padi yang mampu memproduksi makanan sendiri.","Isian","30",2],
+        ["Harmoni Ekosistem","Menyebutkan peran jamur dan bakteri dalam menguraikan bahan organik mati.","Isian","31",2],
+        ["Harmoni Ekosistem","Menganalisis dampak kepunahan katak akibat pestisida terhadap populasi belalang dan ular.","Uraian","38",3]
+      ]},
+      {bab:4, rows:[
+        ["Air Sumber Kehidupan","Menjelaskan pemanfaatan sifat air yang mengalir untuk pembangkit listrik (PLTA).","PG","18",1],
+        ["Air Sumber Kehidupan","Menganalisis potensi bencana akibat tumpukan sampah yang menyumbat aliran sungai.","PG","19",1],
+        ["Air Sumber Kehidupan","Mengidentifikasi tahapan pengembunan uap air (kondensasi) dalam diagram siklus air.","PG","20",1],
+        ["Air Sumber Kehidupan","Menjelaskan peran akar pohon dalam proses penyerapan air hujan (infiltrasi).","PG","21",1],
+        ["Air Sumber Kehidupan","Menentukan sampel air yang paling aman dan memenuhi syarat fisik air bersih.","PG","22",1],
+        ["Air Sumber Kehidupan","Menjelaskan dampak mengonsumsi air yang tercemar limbah terhadap kesehatan tubuh.","PG","23",1],
+        ["Air Sumber Kehidupan","Menentukan contoh perilaku hemat air bersih di lingkungan sekolah.","PG","24",1],
+        ["Air Sumber Kehidupan","Menganalisis dampak kemarau panjang terhadap krisis irigasi dan hasil pertanian.","PG","25",1],
+        ["Air Sumber Kehidupan","Menyebutkan istilah proses penguapan air laut/sungai menjadi uap air.","Isian","32",2],
+        ["Air Sumber Kehidupan","Menyebutkan istilah proses meresapnya air hujan ke dalam lapisan tanah.","Isian","33",2],
+        ["Air Sumber Kehidupan","Menyebutkan salah satu syarat fisik air bersih yang aman dikonsumsi.","Isian","34",2],
+        ["Air Sumber Kehidupan","Menjelaskan dampak penutupan tanah oleh semen/aspal terhadap infiltrasi dan banjir.","Uraian","39",3],
+        ["Air Sumber Kehidupan","Menjelaskan alasan larangan membuang-buang air saat kemarau dan 3 cara menghemat air di sekolah.","Uraian","40",3]
+      ]}
+    ];
+    function renderKisi(){
+      var html = '<table class="kisi"><thead><tr><th>Materi Pokok</th><th>Indikator Soal</th><th>Bentuk Soal</th><th>No. Soal</th><th>Skor</th></tr></thead><tbody>';
+      KISI.forEach(function(g){
+        html += '<tr class="kisi-bab"><td colspan="5">'+esc(BAB_NAMES[g.bab])+'</td></tr>';
+        g.rows.forEach(function(r){
+          html += '<tr><td data-l="Materi Pokok">'+esc(r[0])+'</td>'
+            + '<td data-l="Indikator Soal">'+esc(r[1])+'</td>'
+            + '<td class="c" data-l="Bentuk Soal">'+esc(r[2])+'</td>'
+            + '<td class="c" data-l="No. Soal">'+esc(r[3])+'</td>'
+            + '<td class="c" data-l="Skor">'+r[4]+'</td></tr>';
+        });
+      });
+      html += '<tr class="kisi-total"><td colspan="2">Total Skor: PG 25 × 1 + Isian 10 × 2 + Uraian 5 × 3</td><td class="c" colspan="2">40 soal</td><td class="c">60</td></tr>';
+      html += '</tbody></table>';
+      document.getElementById("kisi-table").innerHTML = html;
+    }
+    renderKisi();
+
+    /* =============== SIMULASI ASAS =============== */
+    var sim = { aktif:false, idx:0, answers:{}, flags:{}, sisa:90*60, timerId:null, selesai:false, selfScore:{} };
+
+    function renderPalette(){
+      var host = document.getElementById("sim-palette");
+      var html = "";
+      QUESTIONS.forEach(function(q,i){
+        var cls = "pal";
+        if(sim.answers[q.no] !== undefined && sim.answers[q.no] !== null && String(sim.answers[q.no]).trim()!=="") cls += " terjawab";
+        if(sim.flags[q.no]) cls += " ragu";
+        if(i===sim.idx) cls += " kini";
+        html += '<button class="'+cls+'" data-pal="'+i+'">'+q.no+'</button>';
+      });
+      host.innerHTML = html;
+      host.querySelectorAll("[data-pal]").forEach(function(b){
+        b.addEventListener("click", function(){ sim.idx = +b.getAttribute("data-pal"); renderSimQuestion(); });
+      });
+      var terjawab = 0;
+      QUESTIONS.forEach(function(q){ if(sim.answers[q.no] !== undefined && String(sim.answers[q.no]).trim()!=="") terjawab++; });
+      document.getElementById("sim-answered").textContent = terjawab;
+      document.getElementById("sim-prog-bar").style.width = (terjawab/QUESTIONS.length*100)+"%";
+    }
+
+    function renderSimQuestion(){
+      var q = QUESTIONS[sim.idx];
+      document.getElementById("sim-prog-text").textContent = "Soal "+(sim.idx+1)+" dari 40";
+      var host = document.getElementById("sim-question");
+      var html = '<div class="qcard">'+qHeadHtml(q);
+      if(q.stimulus){ html += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+nl2br(q.stimulus)+'</div>'; }
+      html += '<div class="qtext">'+esc(q.q)+'</div>';
+      if(q.type==="pg"){
+        html += '<div class="opts">';
+        q.options.forEach(function(op,i){
+          var sel = sim.answers[q.no]===i ? " sel" : "";
+          html += '<button class="opt'+sel+'" data-sim-pg="'+i+'"><span class="huruf">'+"ABCD"[i]+'</span>'+esc(op)+'</button>';
+        });
+        html += '</div>';
+      } else if(q.type==="isian"){
+        html += '<div class="fillin"><input type="text" id="sim-in" placeholder="Tulis jawabanmu di sini…" autocomplete="off" value="'+esc(sim.answers[q.no]||"")+'"></div>';
+      } else {
+        html += '<textarea class="essay" id="sim-in" placeholder="Tulis jawabanmu dengan lengkap di sini…">'+esc(sim.answers[q.no]||"")+'</textarea>';
+      }
+      html += '</div>';
+      host.innerHTML = html;
+
+      host.querySelectorAll("[data-sim-pg]").forEach(function(b){
+        b.addEventListener("click", function(){
+          sim.answers[q.no] = +b.getAttribute("data-sim-pg");
+          renderSimQuestion();
+        });
+      });
+      var inp = document.getElementById("sim-in");
+      if(inp){
+        inp.addEventListener("input", function(){ sim.answers[q.no] = inp.value; renderPaletteSoft(); });
+      }
+      var flagBtn = document.getElementById("btn-flag");
+      flagBtn.classList.toggle("ragu-on", !!sim.flags[q.no]);
+      flagBtn.textContent = sim.flags[q.no] ? "🚩 Ragu-ragu (Aktif)" : "🚩 Ragu-ragu";
+      document.getElementById("btn-prev").disabled = sim.idx===0;
+      document.getElementById("btn-next").disabled = sim.idx===QUESTIONS.length-1;
+      renderPalette();
+    }
+    function renderPaletteSoft(){ renderPalette(); }
+
+    function fmtTime(s){ var m=Math.floor(s/60), d=s%60; return (m<10?"0":"")+m+":"+(d<10?"0":"")+d; }
+    function tickTimer(){
+      sim.sisa--;
+      var el = document.getElementById("sim-timer");
+      el.textContent = "⏱️ " + fmtTime(Math.max(sim.sisa,0));
+      el.classList.toggle("kritis", sim.sisa<=300);
+      if(sim.sisa<=0){ finishSim(true); }
+    }
+    function startSim(){
+      sim.aktif = true; sim.selesai = false; sim.idx = 0; sim.answers = {}; sim.flags = {}; sim.selfScore = {}; sim.sisa = 90*60;
+      document.getElementById("sim-start").classList.add("hidden");
+      document.getElementById("sim-quiz").classList.remove("hidden");
+      document.getElementById("sim-timer").textContent = "⏱️ 90:00";
+      document.getElementById("sim-timer").classList.remove("kritis");
+      if(sim.timerId) clearInterval(sim.timerId);
+      sim.timerId = setInterval(tickTimer, 1000);
+      renderSimQuestion();
+      window.scrollTo(0,0);
+    }
+    document.getElementById("btn-start-sim").addEventListener("click", startSim);
+    document.getElementById("btn-prev").addEventListener("click", function(){ if(sim.idx>0){ sim.idx--; renderSimQuestion(); } });
+    document.getElementById("btn-next").addEventListener("click", function(){ if(sim.idx<QUESTIONS.length-1){ sim.idx++; renderSimQuestion(); } });
+    document.getElementById("btn-flag").addEventListener("click", function(){
+      var q = QUESTIONS[sim.idx]; sim.flags[q.no] = !sim.flags[q.no]; renderSimQuestion();
+    });
+    function askFinish(){
+      var terjawab=0, ragu=0;
+      QUESTIONS.forEach(function(q){
+        if(sim.answers[q.no]!==undefined && String(sim.answers[q.no]).trim()!=="") terjawab++;
+        if(sim.flags[q.no]) ragu++;
+      });
+      document.getElementById("modal-finish-text").innerHTML =
+        "Kamu sudah menjawab <b>"+terjawab+"</b> dari 40 soal. Belum dijawab: <b>"+(40-terjawab)+"</b> soal. Ditandai ragu-ragu: <b>"+ragu+"</b> soal.<br><br>Setelah selesai, kamu tidak dapat mengubah jawaban PG dan Isian. Soal uraian akan kamu nilai sendiri di layar hasil.";
+      document.getElementById("modal-finish").classList.add("show");
+    }
+    document.getElementById("btn-finish-top").addEventListener("click", askFinish);
+    document.getElementById("btn-modal-back").addEventListener("click", function(){ document.getElementById("modal-finish").classList.remove("show"); });
+    document.getElementById("btn-modal-yes").addEventListener("click", function(){
+      document.getElementById("modal-finish").classList.remove("show"); finishSim(false);
+    });
+
+    function hitungSkor(){
+      var pg=0, isian=0, uraian=0;
+      QUESTIONS.forEach(function(q){
+        if(q.type==="pg"){ if(sim.answers[q.no]===q.answer) pg += 1; }
+        else if(q.type==="isian"){ if(isianBenar(q, sim.answers[q.no])) isian += 2; }
+        else { uraian += (sim.selfScore[q.no]||0); }
+      });
+      return {pg:pg, isian:isian, uraian:uraian, total:pg+isian+uraian};
+    }
+    function updateHasil(){
+      var s = hitungSkor();
+      var nilai = Math.round(s.total/60*100);
+      document.getElementById("skor-pg").textContent = s.pg;
+      document.getElementById("skor-isian").textContent = s.isian;
+      document.getElementById("skor-uraian").textContent = s.uraian;
+      document.getElementById("hasil-total").textContent = s.total;
+      document.getElementById("hasil-nilai").textContent = nilai;
+      var predikat;
+      if(nilai>=90){ predikat="🌟 Sangat Baik — Luar Biasa!"; }
+      else if(nilai>=75){ predikat="👍 Baik — Hebat!"; }
+      else if(nilai>=60){ predikat="🙂 Cukup — Terus Berlatih!"; }
+      else { predikat="💪 Perlu Berlatih Lagi — Kamu Pasti Bisa!"; }
+      document.getElementById("hasil-predikat").textContent = predikat;
+    }
+    function finishSim(karenaWaktu){
+      if(sim.selesai) return;
+      sim.selesai = true; sim.aktif = false;
+      if(sim.timerId) clearInterval(sim.timerId);
+      document.getElementById("sim-quiz").classList.add("hidden");
+      document.getElementById("sim-start").classList.remove("hidden");
+      renderHasil(karenaWaktu);
+      showView("hasil");
+    }
+    function renderHasil(karenaWaktu){
+      /* --- Penilaian uraian oleh siswa --- */
+      var uh = "";
+      if(karenaWaktu){ uh += '<div class="disclaimer" style="margin:0 0 14px">⏰ Waktu habis! Simulasi otomatis diselesaikan.</div>'; }
+      uh += '<div class="qcard"><h3 style="margin-top:0">✍️ Nilai Sendiri Soal Uraianmu</h3>'
+        +'<p style="margin:0 0 6px">Bandingkan jawabanmu dengan <b>jawaban model</b>, lalu pilih skor untuk tiap soal uraian sesuai aturan skor:</p>'
+        +'<ul style="margin:0;padding-left:22px"><li><b>Skor 3</b> = jawaban lengkap dan tepat.</li><li><b>Skor 2</b> = jawaban benar tetapi kurang lengkap.</li><li><b>Skor 1</b> = jawaban hanya benar sebagian.</li><li><b>Skor 0</b> = jawaban salah atau kosong.</li></ul>'
+        +'<p style="margin:6px 0 0">Jujur ya saat menilai, supaya hasil belajarmu benar-benar terlihat!</p></div>';
+      QUESTIONS.forEach(function(q){
+        if(q.type!=="uraian") return;
+        var jawab = sim.answers[q.no];
+        uh += '<div class="qcard">'+qHeadHtml(q)
+          +'<div class="qtext">'+esc(q.q)+'</div>'
+          +'<div style="font-weight:800;margin-top:8px">Jawabanmu:</div>'
+          +'<div class="jawaban-siswa">'+(jawab && String(jawab).trim() ? esc(jawab) : "(tidak dijawab)")+'</div>'
+          +'<div class="modelans show"><h4>Jawaban Model:</h4>'+nl2br(q.model)
+          +'<h4 style="margin-top:10px">Aturan Skor:</h4>'+esc(q.rubrik)+'</div>'
+          +'<div class="selfscore"><span style="font-weight:800">Skor saya:</span>';
+        for(var s=0;s<=3;s++){ uh += '<button class="ss'+((sim.selfScore[q.no]||0)===s?" pick":"")+'" data-ss="'+q.no+'" data-val="'+s+'">'+s+'</button>'; }
+        uh += '</div></div>';
+      });
+      document.getElementById("uraian-self").innerHTML = uh;
+      document.querySelectorAll("[data-ss]").forEach(function(b){
+        b.addEventListener("click", function(){
+          sim.selfScore[+b.getAttribute("data-ss")] = +b.getAttribute("data-val");
+          var grup = b.parentElement.querySelectorAll(".ss");
+          grup.forEach(function(x){ x.classList.toggle("pick", x===b); });
+          updateHasil();
+        });
+      });
+
+      /* --- Pembahasan semua soal --- */
+      var rh = "";
+      QUESTIONS.forEach(function(q){
+        rh += '<div class="qcard">'+qHeadHtml(q);
+        if(q.stimulus){ rh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="stimulus">'+nl2br(q.stimulus)+'</div>'; }
+        rh += '<div class="qtext">'+esc(q.q)+'</div>';
+        if(q.type==="pg"){
+          var pilih = sim.answers[q.no];
+          rh += '<div class="opts">';
+          q.options.forEach(function(op,i){
+            var cls = "opt";
+            if(i===q.answer) cls += " benar";
+            else if(pilih===i) cls += " salah";
+            rh += '<button class="'+cls+'" disabled><span class="huruf">'+"ABCD"[i]+'</span>'+esc(op)+(pilih===i ? ' <b>(jawabanmu)</b>' : '')+'</button>';
+          });
+          rh += '</div>';
+          var ok = pilih===q.answer;
+          rh += '<div class="explain show '+(ok?"ok":"no")+'"><span class="verdict">'+(ok?"🎉 Benar!":"Jawabanmu belum tepat. Kunci jawaban: "+"ABCD"[q.answer]+".")+'</span><br>'+esc(q.explain)+'</div>';
+        } else if(q.type==="isian"){
+          var val = sim.answers[q.no];
+          var ok2 = isianBenar(q, val);
+          rh += '<div class="jawaban-siswa">Jawabanmu: <b>'+(val && String(val).trim() ? esc(val) : "(tidak dijawab)")+'</b></div>';
+          rh += '<div class="explain show '+(ok2?"ok":"no")+'"><span class="verdict">'+(ok2?"🎉 Benar!":"Jawaban yang benar: "+esc(q.model)+".")+'</span><br>'+esc(q.explain)+'</div>';
+        } else {
+          rh += '<div class="modelans show"><h4>Jawaban Model:</h4>'+nl2br(q.model)+'<h4 style="margin-top:10px">Pembahasan:</h4>'+esc(q.explain)+'</div>';
+          rh += '<div class="explain show info">Skor uraian yang kamu berikan untuk soal ini: <b>'+(sim.selfScore[q.no]||0)+'</b> dari 3.</div>';
+        }
+        rh += '</div>';
+      });
+      document.getElementById("hasil-review").innerHTML = rh;
+      updateHasil();
+    }
+    document.getElementById("btn-retry").addEventListener("click", function(){
+      showView("simulasi"); startSim();
+    });
+    </script>
+  </body>
+</html>

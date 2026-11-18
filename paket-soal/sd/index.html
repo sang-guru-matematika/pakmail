@@ -300,6 +300,7 @@
       }
       .sekolah-picker .hint { margin: 8px 0 0; color: var(--ink-soft); font-size: 0.95rem; }
       .bank-info { margin: 0 0 16px; font-weight: 700; color: var(--blue-dark); }
+      .pilih-card.nonaktif { opacity: .55; pointer-events: none; }
 
     </style>
   </head>
@@ -333,32 +334,32 @@
         <p class="bank-info" id="bank-info" hidden>Menampilkan bank soal: <span id="nama-sekolah"></span></p>
         <p id="kelas-hint" class="menyusul">Pilih sekolah dulu untuk melihat kelas.</p>
         <div class="grid grid-3" id="grid-kelas" hidden>
-        <a class="pilih-card" href="kelas-1/">
+        <a class="pilih-card" href="kelas-1/" data-href="kelas-1/" data-badge="Menyusul" data-desc="Paket untuk kelas ini menyusul.">
           <h3>Kelas 1</h3>
           <p>Paket untuk kelas ini menyusul.</p>
           <span class="badge menyusul">Menyusul</span>
         </a>
-        <a class="pilih-card" href="kelas-2/">
+        <a class="pilih-card" href="kelas-2/" data-href="kelas-2/" data-sekolah="SD Negeri Ungaran 05" data-badge="7 paket tersedia" data-desc="7 paket tersedia.">
           <h3>Kelas 2</h3>
           <p>7 paket tersedia.</p>
           <span class="badge">7 paket tersedia</span>
         </a>
-        <a class="pilih-card" href="kelas-3/">
+        <a class="pilih-card" href="kelas-3/" data-href="kelas-3/" data-badge="Menyusul" data-desc="Paket untuk kelas ini menyusul.">
           <h3>Kelas 3</h3>
           <p>Paket untuk kelas ini menyusul.</p>
           <span class="badge menyusul">Menyusul</span>
         </a>
-        <a class="pilih-card" href="kelas-4/">
+        <a class="pilih-card" href="kelas-4/" data-href="kelas-4/" data-sekolah="SD Negeri Ungaran 01" data-badge="8 paket tersedia" data-desc="8 paket tersedia.">
           <h3>Kelas 4</h3>
           <p>8 paket tersedia.</p>
           <span class="badge">8 paket tersedia</span>
         </a>
-        <a class="pilih-card" href="kelas-5/">
+        <a class="pilih-card" href="kelas-5/" data-href="kelas-5/" data-sekolah="SD Negeri Ungaran 01" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
           <h3>Kelas 5</h3>
-          <p>Paket untuk kelas ini menyusul.</p>
-          <span class="badge menyusul">Menyusul</span>
+          <p>9 paket tersedia.</p>
+          <span class="badge">9 paket tersedia</span>
         </a>
-        <a class="pilih-card" href="kelas-6/">
+        <a class="pilih-card" href="kelas-6/" data-href="kelas-6/" data-badge="Menyusul" data-desc="Paket untuk kelas ini menyusul.">
           <h3>Kelas 6</h3>
           <p>Paket untuk kelas ini menyusul.</p>
           <span class="badge menyusul">Menyusul</span>
@@ -385,6 +386,28 @@
             hint.hidden = false;
             info.hidden = true;
           }
+          grid.querySelectorAll('.pilih-card').forEach(function (c) {
+            var s = c.getAttribute('data-sekolah') || '';
+            var milik = !s || s.split(',').indexOf(v) !== -1;
+            var badge = c.querySelector('.badge');
+            var p = c.querySelector('p');
+            if (v && !milik) {
+              c.classList.add('nonaktif');
+              c.removeAttribute('href');
+              if (badge) { badge.textContent = 'Menyusul'; badge.classList.add('menyusul'); }
+              if (p) { p.textContent = 'Belum tersedia untuk sekolah ini.'; }
+            } else {
+              c.classList.remove('nonaktif');
+              var h = c.getAttribute('data-href');
+              if (h) { c.setAttribute('href', h); }
+              if (badge) {
+                badge.textContent = c.getAttribute('data-badge');
+                if (s) { badge.classList.remove('menyusul'); }
+                else { badge.classList.add('menyusul'); }
+              }
+              if (p) { p.textContent = c.getAttribute('data-desc'); }
+            }
+          });
         });
       })();
     </script>

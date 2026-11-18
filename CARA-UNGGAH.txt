@@ -1,58 +1,61 @@
-CARA UNGGAH — Portal Pak Mail v7 (Kelas 2 SD Negeri Ungaran 05)
-=============================================================
-Tanggal: 18 November 2026
-Repo GitHub: sang-guru-matematika/pakmail (branch main)
+CARA UNGGAH — Portal Pak Mail v9 (Kelas 5 SD Negeri Ungaran 01)
+=====================================================================
+Diperbarui: 18 November 2026
 
-ISI PAKET (16 berkas)
----------------------
-A. Pemilih jenjang (1 berkas) — badge SD kini "15 paket tersedia":
-   paket-soal/index.html
+PENTING: v9 ini MENGGANTIKAN v8. ZIP v8 (perbaikan filter per-sekolah di
+paket-soal/sd/index.html) TIDAK PERLU diunggah lagi — perbaikannya sudah
+termasuk di dalam sd/index.html pada ZIP v9 ini.
 
-B. Halaman SD (7 berkas) — dropdown sekolah kini Ungaran 01 + Ungaran 05:
-   paket-soal/sd/index.html
-   paket-soal/sd/kelas-1/index.html
-   paket-soal/sd/kelas-2/index.html   (BARU: 7 kartu paket Kelas 2)
-   paket-soal/sd/kelas-3/index.html
-   paket-soal/sd/kelas-4/index.html   (tetap 8 paket, tidak berubah)
-   paket-soal/sd/kelas-5/index.html
-   paket-soal/sd/kelas-6/index.html
+ISI PAKET INI
+-------------
+paket-soal/index.html                     Toko: pemilih jenjang SD / SMP / SMA
+                                          (badge SD kini "24 paket tersedia")
+paket-soal/sd/index.html                  SD: pemilih Kelas 1-6
+                                          (filter per-sekolah: Ungaran 01 → Kelas 4 & 5;
+                                          Ungaran 05 → Kelas 2 saja)
+paket-soal/sd/kelas-5/index.html          Katalog 9 paket Kelas 5 (SD Negeri Ungaran 01)
+paket-soal/sd/kelas-5/bahasa-indonesia/index.html
+                                          Paket ASAS B. Indonesia Kelas V (40 soal, total 60)
+paket-soal/sd/kelas-5/matematika/index.html
+                                          Paket ASAS Matematika Kelas V (35 soal, total 55)
+paket-soal/sd/kelas-5/ipas/index.html
+                                          Paket ASAS IPAS Kelas V (40 soal, total 60)
+paket-soal/sd/kelas-5/pendidikan-pancasila/index.html
+                                          Paket ASAS Pendidikan Pancasila Kelas V (40 soal, total 60)
+paket-soal/sd/kelas-5/pai/index.html
+                                          Paket ASAS PAI Kelas V (40 soal, total 60)
+paket-soal/sd/kelas-5/btq/index.html
+                                          Paket ASAS BTQ Kelas V (35 soal, total 50)
+paket-soal/sd/kelas-5/basa-jawa/index.html
+                                          Paket ASAS Basa Jawa Kelas V (40 soal, total 60)
+paket-soal/sd/kelas-5/bahasa-inggris/index.html
+                                          Paket ASAS Bahasa Inggris Kelas V (40 soal, total 60)
+paket-soal/sd/kelas-5/seni-rupa/index.html
+                                          Paket ASAS Seni Rupa Kelas V (40 soal, total 60)
 
-C. Paket Kelas 2 SD Negeri Ungaran 05 (7 berkas):
-   paket-soal/sd/kelas-2/bahasa-indonesia/index.html   (30 soal, total 43)
-   paket-soal/sd/kelas-2/matematika/index.html         (30 soal, total 45)
-   paket-soal/sd/kelas-2/pendidikan-pancasila/index.html (30 soal, total 45)
-   paket-soal/sd/kelas-2/pai/index.html               (30 soal, total 45)
-   paket-soal/sd/kelas-2/btq/index.html               (25 soal, total 100)
-   paket-soal/sd/kelas-2/basa-jawa/index.html         (25 soal, total 40)
-   paket-soal/sd/kelas-2/seni-rupa/index.html         (30 soal, total 45)
+LANGKAH UNGGAH (GitHub web — sama seperti v7)
+----------------------------------------------
+1. Ekstrak ZIP ini di komputer.
+2. Buka repo sang-guru-matematika/pakmail di GitHub.
+3. Klik "Add file" → "Upload files" (atau tautan "uploading an existing file").
+4. Buka folder hasil ekstrak, MASUK ke dalamnya, pilih SEMUA isi (Ctrl+A),
+   seret ke halaman upload. Jangan seret foldernya — seret isinya.
+5. Klik "Commit changes".
+6. Tunggu 1–3 menit (GitHub Pages kadang masih menampilkan versi lama
+   sesaat setelah commit — itu normal).
 
-CARA UNGGAH (GitHub web)
-------------------------
-1. Buka repo sang-guru-matematika/pakmail di github.com.
-2. Untuk tiap berkas: masuk ke folder tujuannya, klik "Add file" → "Upload files",
-   pilih berkas index.html yang sesuai, lalu Commit langsung ke main.
-   Pesan commit yang disarankan: "Paket ASAS v7: Kelas 2 SD Negeri Ungaran 05 (7 paket)".
-3. Tunggu 1–3 menit agar GitHub Pages menayangkan versi baru.
-4. Cek: https://pakmail.web.id/paket-soal/sd/kelas-2/
-   — harus menampilkan 7 kartu paket Kelas 2 dengan bank soal SD Negeri Ungaran 05.
-
-LANGKAH WAJIB SETELAH UNGGAH — Apps Script Daftar Pembeli
----------------------------------------------------------
-Gerbang nama 7 paket baru TIDAK AKAN jalan sebelum daftar mapel diperbarui:
-1. Buka Apps Script Daftar Pembeli (yang sudah dipakai untuk Kelas 4).
-2. Ganti blok MAPEL_LIST dengan isi berkas
-   "Kode-Apps-Script-Daftar-Pembeli.gs" yang baru (sudah berisi 7 mapel Kelas 2
-   + 8 mapel Kelas 4 + "semua"). PIN TIDAK BOLEH diubah.
-3. Simpan, lalu Deploy → Manage deployments → pensil → New version → Deploy.
-4. Uji: buka satu paket Kelas 2, daftarkan nama sendiri lewat Panel Admin,
-   lalu buka paket dengan nama itu — paket harus terbuka.
+CEK SETELAH UNGGAH
+-------------------
+- https://pakmail.web.id/paket-soal/ → badge SD "24 paket tersedia"
+- https://pakmail.web.id/paket-soal/sd/ → pilih "SD Negeri Ungaran 01":
+  hanya Kelas 4 dan Kelas 5 yang aktif; pilih "SD Negeri Ungaran 05":
+  hanya Kelas 2 yang aktif.
+- https://pakmail.web.id/paket-soal/sd/kelas-5/ → 9 kartu paket
+- Buka salah satu paket → gerbang nama muncul.
 
 CATATAN
 -------
-- Semua paket sudah dicek: gerbang nama + Admin jalan, tanpa "Menu Soal",
-  tombol "← Pilih Mapel" ada di akhir Latihan dan Hasil Simulasi.
-- Skor: B. Indonesia total 43 (21 PG + 5 Isian + 4 Uraian); BTQ total 100
-  (tiap soal 4 poin, sesuai pedoman penilaian sumber); lainnya total 45
-  (PG 1, Isian 2, Uraian 3) atau Basa Jawa total 40.
-- Penomoran B. Indonesia mengikuti sumber persis (PG 1–20 dan 26,
-  Isian 21–25, Uraian 27–30). Seni Rupa mengikuti sumber (Bab 1, 2, 4).
+- 9 mapel Kelas 5 HARUS ditambahkan dulu ke MAPEL_LIST di Apps Script
+  Daftar Pembeli (berkas lokal sudah diperbarui) lalu Deploy New version,
+  kalau tidak gerbang paket Kelas 5 akan menolak semua nama.
+- Enforce HTTPS di Settings → Pages dicentang begitu kotaknya bisa dicentang.
