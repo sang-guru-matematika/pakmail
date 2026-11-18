@@ -73,6 +73,7 @@
       .btn.ghost{background:var(--card);color:var(--primary-d);border:2px solid var(--primary)}
       .btn.small{min-height:48px;font-size:16px;padding:10px 18px;border-radius:13px}
       .btn:disabled{opacity:.45;cursor:not-allowed}
+      a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
       .howto{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px 20px;margin-top:22px;box-shadow:var(--shadow)}
       .howto h2{margin:0 0 8px;font-size:21px}
       .howto li{margin:5px 0}
@@ -141,15 +142,6 @@
       .svgbox{text-align:center;margin:10px 0}
       .svgbox svg{max-width:100%;height:auto}
       .qcard{scroll-margin-top:150px}
-
-      /* ---------- Menu Soal ---------- */
-      .menu-list{display:grid;gap:9px;margin:10px 0 4px}
-      .menu-item{display:flex;gap:11px;align-items:center;width:100%;text-align:left;background:var(--card);
-        border:2px solid var(--line);border-radius:14px;padding:11px 14px;box-shadow:var(--shadow);color:var(--ink)}
-      .menu-item:hover{border-color:var(--primary)}
-      .menu-item .mno{background:var(--primary);color:#fff;font-weight:900;border-radius:10px;padding:3px 11px;font-size:16px;flex:0 0 auto}
-      .menu-item .mtxt{flex:1 1 auto;font-weight:600;font-size:16px;min-width:0}
-      .menu-item .mskor{font-weight:700;color:var(--muted2);font-size:14px;flex:0 0 auto;white-space:nowrap}
 
       /* ---------- Kisi-kisi ---------- */
       .kisi-title{text-align:center;font-weight:900;font-size:clamp(18px,4.4vw,23px);line-height:1.35;margin:6px 0 14px}
@@ -311,8 +303,8 @@
         .babsec{box-shadow:none;border:1.5px solid #888;border-left:8px solid #888;break-inside:avoid;margin:10px 0;padding:12px 16px}
         .contoh{background:#f2f2f2!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
         .print-area .pq-stim,.print-area .pk-ans{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-        body:not([data-print]) #view-home,body:not([data-print]) #view-latihan,body:not([data-print]) #view-menu,body:not([data-print]) #view-kisi,body:not([data-print]) #view-simulasi,body:not([data-print]) #view-hasil,
-        body[data-print="ringkasan"] #view-home,body[data-print="ringkasan"] #view-latihan,body[data-print="ringkasan"] #view-menu,body[data-print="ringkasan"] #view-kisi,body[data-print="ringkasan"] #view-simulasi,body[data-print="ringkasan"] #view-hasil{display:none!important}
+        body:not([data-print]) #view-home,body:not([data-print]) #view-latihan,body:not([data-print]) #view-kisi,body:not([data-print]) #view-simulasi,body:not([data-print]) #view-hasil,
+        body[data-print="ringkasan"] #view-home,body[data-print="ringkasan"] #view-latihan,body[data-print="ringkasan"] #view-kisi,body[data-print="ringkasan"] #view-simulasi,body[data-print="ringkasan"] #view-hasil{display:none!important}
         body:not([data-print]) #view-ringkasan,body[data-print="ringkasan"] #view-ringkasan{display:block!important}
         body:not([data-print]) .print-area,body[data-print="ringkasan"] .print-area{display:none!important}
         body[data-print="soal"] .wrap{display:none!important}
@@ -350,7 +342,6 @@
       <div class="in">
         <button class="navbtn active" data-nav="home">🏠 Beranda</button>
         <button class="navbtn" data-nav="ringkasan">📖 Ringkasan</button>
-        <button class="navbtn" data-nav="menu">📋 Menu Soal</button>
         <button class="navbtn" data-nav="kisi">🗂️ Kisi-kisi</button>
         <button class="navbtn" data-nav="latihan">✏️ Latihan Soal</button>
         <button class="navbtn" data-nav="simulasi">📝 Simulasi ASAS</button>
@@ -400,7 +391,6 @@
 
         <div class="cta">
           <button class="btn" data-go="ringkasan">📖 Mulai Belajar</button>
-          <button class="btn ghost" data-go="menu">📋 Menu Soal</button>
           <button class="btn ghost" data-go="kisi">🗂️ Kisi-kisi</button>
           <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
         </div>
@@ -409,10 +399,9 @@
           <h2>Cara Menggunakan Paket Ini</h2>
           <ol>
             <li><b>Ringkasan</b> — Baca ringkasan 5 materi terlebih dahulu. Ada tombol <b>Cetak Ringkasan</b> bila ingin mencetaknya.</li>
-            <li><b>Menu Soal</b> — Lihat daftar semua 40 soal per materi. Ketuk salah satu soal untuk langsung melompat ke soal itu di Latihan Soal.</li>
             <li><b>Kisi-kisi</b> — Lihat kisi-kisi penulisan naskah ASAS selengkapnya, supaya bisa dibandingkan dengan kisi-kisi dari gurumu di sekolah.</li>
             <li><b>Latihan Soal</b> — Kerjakan 40 soal per materi. Kunci dan pembahasan langsung muncul setelah kamu menjawab. Di bagian ini juga ada tombol <b>Cetak Soal</b> (lembar kerja siswa tanpa kunci) dan <b>Cetak Kunci &amp; Pembahasan</b> (untuk guru/orang tua).</li>
-            <li><b>Simulasi ASAS</b> — Uji kemampuanmu seperti ujian sungguhan: 40 soal, waktu 90 menit, ada palet nomor dan tombol ragu-ragu. Setelah selesai, kamu bisa kembali ke <b>Menu Soal</b> dari layar hasil.</li>
+            <li><b>Simulasi ASAS</b> — Uji kemampuanmu seperti ujian sungguhan: 40 soal, waktu 90 menit, ada palet nomor dan tombol ragu-ragu. Setelah selesai, kamu bisa kembali ke <b>pilihan mata pelajaran</b> dari layar hasil.</li>
           </ol>
         </div>
       </section>
@@ -509,22 +498,8 @@
         <p style="color:var(--muted2);font-weight:600;margin:0">40 soal dikelompokkan per materi. Jawab dulu, kunci dan pembahasan akan langsung muncul. Semangat! Tombol <b>Cetak Soal</b> untuk lembar kerja siswa (tanpa kunci), tombol <b>Cetak Kunci &amp; Pembahasan</b> untuk pegangan guru/orang tua.</p>
         <div id="latihan-list"></div>
         <div class="cta">
-          <button class="btn ghost" data-go="menu">📋 Kembali ke Menu Soal</button>
+          <a class="btn ghost" href="../">← Pilih Mapel</a>
           <button class="btn orange" data-go="simulasi">📝 Siap? Coba Simulasi ASAS</button>
-        </div>
-      </section>
-
-      <!-- ================= MENU SOAL ================= -->
-      <section id="view-menu" class="view">
-        <div class="sec-head">
-          <h2>📋 Menu Soal</h2>
-          <button class="btn small no-print" data-go="kisi">🗂️ Lihat Kisi-kisi</button>
-        </div>
-        <p style="color:var(--muted2);font-weight:600;margin:0">Daftar lengkap 40 soal paket ini, dikelompokkan per materi. Ketuk salah satu soal untuk langsung melompat ke soal itu di Latihan Soal.</p>
-        <div id="menu-list"></div>
-        <div class="cta">
-          <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
-          <button class="btn orange" data-go="simulasi">📝 Simulasi ASAS</button>
         </div>
       </section>
 
@@ -547,7 +522,6 @@
         </div>
         <div id="kisi-table"></div>
         <div class="cta">
-          <button class="btn ghost" data-go="menu">📋 Ke Menu Soal</button>
           <button class="btn" data-go="latihan">✏️ Ke Latihan Soal</button>
         </div>
       </section>
@@ -617,7 +591,7 @@
         <div id="hasil-review"></div>
         <div class="cta">
           <button class="btn" id="btn-retry">🔁 Ulangi Simulasi</button>
-          <button class="btn ghost" data-go="menu">📋 Kembali ke Menu Soal</button>
+          <a class="btn ghost" href="../">← Pilih Mapel</a>
           <button class="btn ghost" data-go="ringkasan">📖 Baca Ringkasan Lagi</button>
         </div>
       </section>
@@ -898,7 +872,7 @@
     }
 
     /* =============== NAVIGASI =============== */
-    var VIEWS = ["home","ringkasan","menu","kisi","latihan","simulasi","hasil"];
+    var VIEWS = ["home","ringkasan","kisi","latihan","simulasi","hasil"];
     function showView(name){
       for(var i=0;i<VIEWS.length;i++){
         document.getElementById("view-"+VIEWS[i]).classList.toggle("active", VIEWS[i]===name);
@@ -1327,45 +1301,6 @@
       });
     }
     renderLatihan();
-
-    /* =============== MENU SOAL =============== */
-    function menuPreview(q){
-      if(q.type==="jodoh") return "Pasangkan: " + q.term;
-      var t = String(q.q || "").replace(/\s+/g, " ").trim();
-      if(t.length > 95) t = t.slice(0, 95).trim() + "…";
-      return t;
-    }
-    function renderMenuSoal(){
-      var host = document.getElementById("menu-list");
-      var html = "", lastBab = 0;
-      var order = QUESTIONS.slice().sort(function(a,b){ if(a.bab!==b.bab) return a.bab-b.bab; return a.no-b.no; });
-      order.forEach(function(q){
-        if(q.bab!==lastBab){
-          if(lastBab!==0) html += '</div>';
-          lastBab = q.bab;
-          html += '<h3 style="margin:26px 0 4px;font-size:22px">'+BAB_NAMES[q.bab]+'</h3><div class="menu-list">';
-        }
-        html += '<button class="menu-item" data-menu-no="'+q.no+'">'
-          + '<span class="mno">'+q.no+'</span>'
-          + '<span class="qtype '+q.type+'">'+TYPE_NAMES[q.type]+'</span>'
-          + '<span class="mtxt">'+esc(menuPreview(q))+'</span>'
-          + '<span class="mskor">Skor '+TYPE_SCORE[q.type]+'</span>'
-          + '</button>';
-      });
-      if(lastBab!==0) html += '</div>';
-      host.innerHTML = html;
-      host.querySelectorAll("[data-menu-no]").forEach(function(b){
-        b.addEventListener("click", function(){
-          var no = b.getAttribute("data-menu-no");
-          showView("latihan");
-          setTimeout(function(){
-            var el = document.getElementById("lat-"+no);
-            if(el) el.scrollIntoView({ behavior:"smooth", block:"start" });
-          }, 80);
-        });
-      });
-    }
-    renderMenuSoal();
 
     /* =============== KISI-KISI (sesuai berkas kisi-kisi ASAS) =============== */
     var KISI = [
