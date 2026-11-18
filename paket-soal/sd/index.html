@@ -335,8 +335,9 @@
             <option value="">— Pilih Sekolah —</option>
             <option value="SD Negeri Ungaran 01">SD Negeri Ungaran 01</option>
             <option value="SD Negeri Ungaran 05">SD Negeri Ungaran 05</option>
+            <option value="Sekolah Lain">Sekolah Lain</option>
           </select>
-          <p class="hint">Hanya sekolah yang sudah punya bank soal yang muncul di daftar ini.</p>
+          <p class="hint">Kalau sekolahmu belum ada di daftar, pilih Sekolah Lain — isinya sama dengan paket SD Negeri Ungaran 01.</p>
         </div>
         <p class="bank-info" id="bank-info" hidden>Menampilkan bank soal: <span id="nama-sekolah"></span></p>
         <p id="kelas-hint" class="menyusul">Pilih sekolah dulu untuk melihat kelas.</p>
@@ -346,27 +347,27 @@
           <p>Paket untuk kelas ini menyusul.</p>
           <span class="badge menyusul">Menyusul</span>
         </a>
-        <a class="pilih-card" href="kelas-2/" data-href="kelas-2/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
+        <a class="pilih-card" href="kelas-2/" data-href="kelas-2/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05,Sekolah Lain" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
           <h3>Kelas 2</h3>
           <p>9 paket tersedia.</p>
           <span class="badge">9 paket tersedia</span>
         </a>
-        <a class="pilih-card" href="kelas-3/" data-href="kelas-3/" data-badge="Menyusul" data-desc="Paket untuk kelas ini menyusul.">
+        <a class="pilih-card" href="kelas-3/" data-href="kelas-3/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05,Sekolah Lain" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
           <h3>Kelas 3</h3>
-          <p>Paket untuk kelas ini menyusul.</p>
-          <span class="badge menyusul">Menyusul</span>
+          <p>9 paket tersedia.</p>
+          <span class="badge">9 paket tersedia</span>
         </a>
-        <a class="pilih-card" href="kelas-4/" data-href="kelas-4/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05" data-badge="8 paket tersedia" data-desc="8 paket tersedia.">
+        <a class="pilih-card" href="kelas-4/" data-href="kelas-4/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05,Sekolah Lain" data-badge="8 paket tersedia" data-desc="8 paket tersedia.">
           <h3>Kelas 4</h3>
           <p>8 paket tersedia.</p>
           <span class="badge">8 paket tersedia</span>
         </a>
-        <a class="pilih-card" href="kelas-5/" data-href="kelas-5/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
+        <a class="pilih-card" href="kelas-5/" data-href="kelas-5/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05,Sekolah Lain" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
           <h3>Kelas 5</h3>
           <p>9 paket tersedia.</p>
           <span class="badge">9 paket tersedia</span>
         </a>
-        <a class="pilih-card" href="kelas-6/" data-href="kelas-6/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
+        <a class="pilih-card" href="kelas-6/" data-href="kelas-6/" data-sekolah="SD Negeri Ungaran 01,SD Negeri Ungaran 05,Sekolah Lain" data-badge="9 paket tersedia" data-desc="9 paket tersedia.">
           <h3>Kelas 6</h3>
           <p>9 paket tersedia.</p>
           <span class="badge">9 paket tersedia</span>
@@ -387,7 +388,7 @@
             grid.hidden = false;
             hint.hidden = true;
             info.hidden = false;
-            nama.textContent = v;
+            nama.textContent = v === 'Sekolah Lain' ? 'Sekolah Lain (isi paket sama dengan SD Negeri Ungaran 01)' : v;
           } else {
             grid.hidden = true;
             hint.hidden = false;
