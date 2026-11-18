@@ -1,47 +1,21 @@
-CARA UNGGAH — ZIP v12 (Paket ASAS Kelas 3, 9 paket baru)
-===========================================================
-Isi ZIP: 9 paket Kelas 3 + paket-soal/index.html (badge "44 paket
-tersedia") + paket-soal/sd/index.html (Kelas 3 aktif untuk kedua
-sekolah) + paket-soal/sd/kelas-3/index.html (katalog Kelas 3:
-9 kartu + 1 Menyusul Seni Rupa).
+CARA UNGGAH — Perbaikan Skor B. Indonesia Kelas 2
+===================================================
+Isi ZIP ini (1 berkas paket):
+- paket-soal/sd/kelas-2/bahasa-indonesia/index.html
+  (menimpa berkas lama di lokasi yang sama)
 
-LANGKAH UNGGAH (di GitHub repo sang-guru-matematika/pakmail):
-1. Buka repo di github.com → folder paket-soal.
-2. Klik "Add file" → "Upload files" → seret SEMUA isi ZIP ini
-   (bukan ZIP-nya; ekstrak dulu). PENTING: pastikan folder
-   paket-soal/sd/kelas-3/ ikut terunggah lengkap dengan 9 subfolder.
-3. Klik "Commit changes" (TANPA klik ini, unggahan tidak ada!).
-   Tunggu sampai muncul commit baru di riwayat repo.
-4. Tunggu 2–3 menit (GitHub Pages kadang masih menampilkan versi
-   lama di pengecekan pertama), lalu buka pakmail.web.id dan cek:
-   - Badge "44 paket tersedia".
-   - Pilih sekolah Ungaran 01 → Kelas 3 aktif (9 paket tersedia).
-   - Pilih sekolah Ungaran 05 → hasil sama.
-   - Buka katalog Kelas 3 → 9 kartu paket + 1 Menyusul (Seni Rupa).
+Perbaikan:
+- Soal No. 26 pindah dari Pilihan Ganda ke Uraian (tentang macam-macam
+  perasaan: senang dan marah, lengkap dengan jawaban model + rubrik 0-4).
+- Struktur akhir: 20 PG (No. 1-20, bobot 1) + 5 Isian (No. 21-25, bobot 2)
+  + 5 Uraian (No. 26-30, bobot 4) = 30 soal, total skor 50.
+  Nilai = skor / 50 x 100.
+- Kunci jawaban soal lain TIDAK berubah.
 
-SETELAH UNGGAH — MAPEL_LIST (WAJIB, kalau tidak gerbang paket baru
-menolak semua nama):
-- Buka script.google.com → proyek Daftar Pembeli.
-- Tempel 9 baris Kelas 3 di atas baris "semua" (PIN JANGAN disentuh),
-  simpan, lalu Deploy → Manage deployments → pensil → New version
-  → Deploy. (Dipandu satu langkah demi satu langkah oleh Mail.)
-
-CATATAN PENTING:
-- Matematika Kelas 3: satu bagian sumber menulis "19 soal pilihan
-  ganda", padahal tabel kisi-kisi dan total skor 70 cocoknya dengan
-  20 PG (19×1+10×2+5×6=69, bukan 70). Paket memakai 20 PG.
-  Uraian berbobot 6 per soal sesuai sumber (rubrik 2+2+2), jadi
-  tombol nilai-sendiri uraian 0–6 (bukan 0–3 seperti paket lain).
-  Total skor 70.
-- B. Inggris Kelas 3: total skor 52 (21 PG + 2 MCMA + 2 Benar/Salah
-  + 5 Isian + 5 Uraian); MCMA 2/soal, B/S 1/soal.
-- IPAS Kelas 3: total skor 50 (PG 1 / Isian 1 / Uraian 3, sesuai
-  sumber). Sampul vs tabel konsisten (40 soal) — tidak ada konflik.
-- Kelas 1 masih belum punya paket — bundel Paket Komplit Kelas 1–3
-  baru berlaku penuh bila Kelas 1 dibuat.
-- Enforce HTTPS: centang begitu kotaknya bisa dicentang.
-
-- TAMBAHAN 2026-11-18 18:31 (permintaan Bapak): dropdown Pilih Sekolah di
-  paket-soal/sd/index.html kini punya pilihan ketiga "Sekolah Lain" — isinya
-  sama dengan paket SD Negeri Ungaran 01 (Kelas 2, 3, 4, 5, 6 aktif; Kelas 1
-  Menyusul). Sudah dicek: ketiga pilihan sekolah menampilkan kelas yang benar.
+Langkah unggah (GitHub web):
+1. Buka repo sang-guru-matematika/pakmail.
+2. Masuk ke folder paket-soal/sd/kelas-2/bahasa-indonesia/.
+3. Klik "Add file" > "Upload files", pilih index.html dari ZIP ini.
+4. Klik "Commit changes".
+5. Tunggu 2-3 menit, lalu cek live: buka paket B. Indonesia Kelas 2,
+   lihat total skor 50 di layar hasil simulasi.
