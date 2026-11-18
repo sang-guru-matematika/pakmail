@@ -1,61 +1,38 @@
-CARA UNGGAH — Portal Pak Mail v9 (Kelas 5 SD Negeri Ungaran 01)
-=====================================================================
-Diperbarui: 18 November 2026
+CARA UNGGAH — ZIP v10 (Perbaikan format tebal/miring)
+=====================================================
+Isi ZIP ini: 5 berkas paket yang diperbaiki (kata yang seharusnya
+tebal/miring kini tampil tebal/miring) + berkas ini. HANYA 5 berkas
+ini yang perlu diunggah — masing-masing MENIMPA (overwrite) berkas
+index.html yang sudah ada di folder yang sama di repo pakmail.
 
-PENTING: v9 ini MENGGANTIKAN v8. ZIP v8 (perbaikan filter per-sekolah di
-paket-soal/sd/index.html) TIDAK PERLU diunggah lagi — perbaikannya sudah
-termasuk di dalam sd/index.html pada ZIP v9 ini.
+Daftar berkas (jalur di repo):
+1. paket-soal/sd/kelas-2/basa-jawa/index.html
+   (Basa Jawa Kelas II — "ORA" tebal, judul "Kancil lan Semut" miring, dll.)
+2. paket-soal/sd/kelas-4/matematika/index.html
+   (Matematika Kelas IV — kata kerja indikator tebal: Urutan, diubah, Ubahlah, dll.)
+3. paket-soal/sd/kelas-4/btq/index.html
+   (BTQ Kelas IV — "BUKAN" miring soal 16, nama huruf ba/dzal/kaf/fa miring)
+4. paket-soal/sd/kelas-5/pai/index.html
+   (PAI Kelas V — istilah Arab/konsep miring: Al-Qayyum, tawakal, Zakat fitrah, dll.)
+5. paket-soal/sd/kelas-5/basa-jawa/index.html
+   (Basa Jawa Kelas V — pasangan, Sandhangan, Ukara, Dasanama tebal)
 
-ISI PAKET INI
--------------
-paket-soal/index.html                     Toko: pemilih jenjang SD / SMP / SMA
-                                          (badge SD kini "24 paket tersedia")
-paket-soal/sd/index.html                  SD: pemilih Kelas 1-6
-                                          (filter per-sekolah: Ungaran 01 → Kelas 4 & 5;
-                                          Ungaran 05 → Kelas 2 saja)
-paket-soal/sd/kelas-5/index.html          Katalog 9 paket Kelas 5 (SD Negeri Ungaran 01)
-paket-soal/sd/kelas-5/bahasa-indonesia/index.html
-                                          Paket ASAS B. Indonesia Kelas V (40 soal, total 60)
-paket-soal/sd/kelas-5/matematika/index.html
-                                          Paket ASAS Matematika Kelas V (35 soal, total 55)
-paket-soal/sd/kelas-5/ipas/index.html
-                                          Paket ASAS IPAS Kelas V (40 soal, total 60)
-paket-soal/sd/kelas-5/pendidikan-pancasila/index.html
-                                          Paket ASAS Pendidikan Pancasila Kelas V (40 soal, total 60)
-paket-soal/sd/kelas-5/pai/index.html
-                                          Paket ASAS PAI Kelas V (40 soal, total 60)
-paket-soal/sd/kelas-5/btq/index.html
-                                          Paket ASAS BTQ Kelas V (35 soal, total 50)
-paket-soal/sd/kelas-5/basa-jawa/index.html
-                                          Paket ASAS Basa Jawa Kelas V (40 soal, total 60)
-paket-soal/sd/kelas-5/bahasa-inggris/index.html
-                                          Paket ASAS Bahasa Inggris Kelas V (40 soal, total 60)
-paket-soal/sd/kelas-5/seni-rupa/index.html
-                                          Paket ASAS Seni Rupa Kelas V (40 soal, total 60)
+LANGKAH UNGGAH (GitHub web UI, satu folder demi satu folder):
+1. Ekstrak dulu ZIP ini di komputer (klik kanan > Extract All),
+   sampai muncul folder pakmail-web-id-upload-v10.
+2. Buka github.com/sang-guru-matematika/pakmail di browser.
+3. Untuk tiap berkas di atas, satu per satu:
+   a. Klik folder demi folder sampai masuk ke folder tujuannya
+      (mis. paket-soal > sd > kelas-2 > basa-jawa).
+   b. Klik tombol "Add file" (kanan atas) > "Upload files".
+   c. Pilih berkas index.html dari folder hasil ekstrak yang sesuai
+      (mis. dari pakmail-web-id-upload-v10/paket-soal/sd/kelas-2/basa-jawa/).
+   d. Gulir ke bawah, klik tombol hijau "Commit changes".
+   e. Tunggu sampai halaman kembali ke folder — berkas lama tertimpa.
+4. Ulangi langkah 3 untuk keempat berkas lainnya.
+5. Setelah semua 5 berkas terunggah, tunggu 1-3 menit (GitHub Pages
+   perlu waktu memperbarui situs), lalu buka pakmail.web.id dan
+   periksa satu soal yang diperbaiki di tiap paket.
 
-LANGKAH UNGGAH (GitHub web — sama seperti v7)
-----------------------------------------------
-1. Ekstrak ZIP ini di komputer.
-2. Buka repo sang-guru-matematika/pakmail di GitHub.
-3. Klik "Add file" → "Upload files" (atau tautan "uploading an existing file").
-4. Buka folder hasil ekstrak, MASUK ke dalamnya, pilih SEMUA isi (Ctrl+A),
-   seret ke halaman upload. Jangan seret foldernya — seret isinya.
-5. Klik "Commit changes".
-6. Tunggu 1–3 menit (GitHub Pages kadang masih menampilkan versi lama
-   sesaat setelah commit — itu normal).
-
-CEK SETELAH UNGGAH
--------------------
-- https://pakmail.web.id/paket-soal/ → badge SD "24 paket tersedia"
-- https://pakmail.web.id/paket-soal/sd/ → pilih "SD Negeri Ungaran 01":
-  hanya Kelas 4 dan Kelas 5 yang aktif; pilih "SD Negeri Ungaran 05":
-  hanya Kelas 2 yang aktif.
-- https://pakmail.web.id/paket-soal/sd/kelas-5/ → 9 kartu paket
-- Buka salah satu paket → gerbang nama muncul.
-
-CATATAN
--------
-- 9 mapel Kelas 5 HARUS ditambahkan dulu ke MAPEL_LIST di Apps Script
-  Daftar Pembeli (berkas lokal sudah diperbarui) lalu Deploy New version,
-  kalau tidak gerbang paket Kelas 5 akan menolak semua nama.
-- Enforce HTTPS di Settings → Pages dicentang begitu kotaknya bisa dicentang.
+Catatan: jangan unggah ZIP-nya apa adanya ke repo — yang diunggah
+adalah berkas index.html di dalamnya, ke folder masing-masing.
