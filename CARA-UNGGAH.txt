@@ -1,21 +1,20 @@
-CARA UNGGAH — Perbaikan Skor B. Indonesia Kelas 2
-===================================================
-Isi ZIP ini (1 berkas paket):
-- paket-soal/sd/kelas-2/bahasa-indonesia/index.html
+CARA UNGGAH — Perbaikan Kartu B. Indonesia Kelas 2 di Katalog
+===============================================================
+Isi ZIP ini (1 berkas katalog):
+- paket-soal/sd/kelas-2/index.html
   (menimpa berkas lama di lokasi yang sama)
 
 Perbaikan:
-- Soal No. 26 pindah dari Pilihan Ganda ke Uraian (tentang macam-macam
-  perasaan: senang dan marah, lengkap dengan jawaban model + rubrik 0-4).
-- Struktur akhir: 20 PG (No. 1-20, bobot 1) + 5 Isian (No. 21-25, bobot 2)
-  + 5 Uraian (No. 26-30, bobot 4) = 30 soal, total skor 50.
-  Nilai = skor / 50 x 100.
-- Kunci jawaban soal lain TIDAK berubah.
+- Kartu "Bahasa Indonesia Kelas 2" di halaman Pilih Mapel Kelas 2
+  tadinya tertulis "30 soal — 21 Pilihan Ganda + 5 Isian + 4 Uraian",
+  sekarang "30 soal — 20 Pilihan Ganda + 5 Isian + 5 Uraian"
+  (menyesuaikan perbaikan isi paket: No. 26 pindah ke Uraian, total 50).
+- Kartu mapel lain di halaman yang sama TIDAK berubah.
 
 Langkah unggah (GitHub web):
 1. Buka repo sang-guru-matematika/pakmail.
-2. Masuk ke folder paket-soal/sd/kelas-2/bahasa-indonesia/.
+2. Masuk ke folder paket-soal/sd/kelas-2/.
 3. Klik "Add file" > "Upload files", pilih index.html dari ZIP ini.
 4. Klik "Commit changes".
-5. Tunggu 2-3 menit, lalu cek live: buka paket B. Indonesia Kelas 2,
-   lihat total skor 50 di layar hasil simulasi.
+5. Tunggu 2-3 menit, lalu cek live: buka halaman Pilih Mapel Kelas 2,
+   kartu B. Indonesia harus tertulis 20 Pilihan Ganda + 5 Uraian.
