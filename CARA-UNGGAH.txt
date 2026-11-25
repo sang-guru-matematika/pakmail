@@ -1,20 +1,59 @@
-CARA UNGGAH — Perbaikan Kartu B. Indonesia Kelas 2 di Katalog
-===============================================================
-Isi ZIP ini (1 berkas katalog):
-- paket-soal/sd/kelas-2/index.html
-  (menimpa berkas lama di lokasi yang sama)
+CARA UNGGAH — ZIP v13 (Paket ASAS Kelas 4 lengkap, 2 paket baru + perbaikan 3 paket)
+=================================================================================
+Isi ZIP: 2 paket Kelas 4 baru (B. Inggris + PJOK) + katalog Kelas 4
+(10 kartu, 0 Menyusul) + paket-soal/sd/index.html (Kelas 4 kini
+"10 paket tersedia") + paket-soal/index.html (badge "46 paket
+tersedia") + index.html beranda (badge "46 paket tersedia") +
+PERBAIKAN 3 paket lama: PJOK Kelas 2, PJOK Kelas 3, Pendidikan
+Pancasila Kelas 6 (huruf opsi D yang tadinya tampil "undefined"
+sudah diperbaiki jadi "D").
 
-Perbaikan:
-- Kartu "Bahasa Indonesia Kelas 2" di halaman Pilih Mapel Kelas 2
-  tadinya tertulis "30 soal — 21 Pilihan Ganda + 5 Isian + 4 Uraian",
-  sekarang "30 soal — 20 Pilihan Ganda + 5 Isian + 5 Uraian"
-  (menyesuaikan perbaikan isi paket: No. 26 pindah ke Uraian, total 50).
-- Kartu mapel lain di halaman yang sama TIDAK berubah.
+LANGKAH UNGGAH (di GitHub repo sang-guru-matematika/pakmail):
+1. Buka repo di github.com → folder paket-soal.
+2. Klik "Add file" → "Upload files" → seret SEMUA isi ZIP ini
+   (bukan ZIP-nya; ekstrak dulu). PENTING: pastikan folder
+   paket-soal/sd/kelas-4/ ikut terunggah lengkap dengan subfolder
+   bahasa-inggris/ dan pjok/ (masing-masing berisi index.html).
+   File index.html di ROOT repo (beranda) juga ikut terunggah —
+   seret dari folder atas ZIP ini.
+3. Klik "Commit changes" (TANPA klik ini, unggahan tidak ada!).
+   Tunggu sampai muncul commit baru di riwayat repo.
+4. Tunggu 2–3 menit (GitHub Pages kadang masih menampilkan versi
+   lama di pengecekan pertama), lalu buka pakmail.web.id dan cek:
+   - Badge "46 paket tersedia" di beranda dan di halaman Paket Soal.
+   - Pilih sekolah Ungaran 01 → Kelas 4 aktif (10 paket tersedia).
+   - Buka katalog Kelas 4 → 10 kartu paket, tanpa kartu "Menyusul".
+   - Buka paket B. Inggris Kelas 4 dan PJOK Kelas 4 (gerbang nama
+     tetap menolak nama yang belum terdaftar sampai MAPEL_LIST
+     di-deploy — lihat bawah).
+   - Buka PJOK Kelas 3 → opsi ke-4 suatu soal PG kini berhuruf "D"
+     (bukan "undefined").
 
-Langkah unggah (GitHub web):
-1. Buka repo sang-guru-matematika/pakmail.
-2. Masuk ke folder paket-soal/sd/kelas-2/.
-3. Klik "Add file" > "Upload files", pilih index.html dari ZIP ini.
-4. Klik "Commit changes".
-5. Tunggu 2-3 menit, lalu cek live: buka halaman Pilih Mapel Kelas 2,
-   kartu B. Indonesia harus tertulis 20 Pilihan Ganda + 5 Uraian.
+SETELAH UNGGAH — MAPEL_LIST (WAJIB, kalau tidak gerbang paket baru
+menolak semua nama):
+- Buka script.google.com → proyek Daftar Pembeli.
+- Tempel 2 baris baru di atas baris "semua" (PIN JANGAN disentuh):
+    { id: "sd-kelas-4-bahasa-inggris", label: "B. Inggris Kelas IV (SD)" },
+    { id: "sd-kelas-4-pjok", label: "PJOK Kelas IV (SD)" },
+  Simpan, lalu Deploy → Manage deployments → pensil → New version
+  → Deploy. (Dipandu satu langkah demi satu langkah oleh Mail.)
+
+CATATAN PENTING:
+- B. Inggris Kelas 4: 40 soal, total 65 (20 PG + 5 PG Kompleks +
+  5 Benar/Salah + 5 Isian + 5 Uraian). Lima pernyataan Benar/Salah
+  No. 26–30 berasal dari satu baris indikator sumber (nomor 1–5
+  dalam kolom Nomor soal bagian Isian) — masing-masing berbobot 2
+  poin, memakai satu teks singkat yang sama. Penjelasan ini juga
+  tertulis di "Catatan penyusunan" pada tampilan Kisi-kisi paket.
+- PJOK Kelas 4: 40 soal, total 60 (25 PG + 10 Isian + 5 Uraian).
+  Bobot tidak tertulis di sumber; memakai pola toko (PG 1 / Isian 2
+  / Uraian 3), seperti PJOK Kelas 2 dan 3.
+- Perbaikan "undefined": hanya PJOK Kelas 2, PJOK Kelas 3, dan
+  Pendidikan Pancasila Kelas 6 yang terkena (kode "ABC" padahal
+  opsi ada 4). Paket lain sudah dicek — yang opsi PG-nya 3 huruf
+  memang benar memakai "ABC", jadi tidak disentuh.
+- Kelas 4 kini LENGKAP 10/10 mapel — bundel Paket Komplit Kelas 4–6
+  (Rp120.000) kini berlaku penuh untuk Kelas 4. Kelas 1 masih belum
+  punya paket — bundel Paket Komplit Kelas 1–3 baru berlaku penuh
+  bila Kelas 1 dibuat.
+- Enforce HTTPS: centang begitu kotaknya bisa dicentang.

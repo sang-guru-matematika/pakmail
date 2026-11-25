@@ -841,7 +841,7 @@
         sh += '<span class="pq-no">'+q.no+'. </span><span style="font-weight:600">'+fmt(q.q)+'</span>';
         if(q.type==="pg"){
           sh += '<ul class="pq-opts">';
-          q.options.forEach(function(op,i){ sh += '<li><b>'+"ABC"[i]+'.</b> '+fmt(op)+'</li>'; });
+          q.options.forEach(function(op,i){ sh += '<li><b>'+"ABCD"[i]+'.</b> '+fmt(op)+'</li>'; });
           sh += '</ul>';
         } else if(q.type==="isian"){
           sh += '<div class="pq-blank"></div>';
@@ -865,7 +865,7 @@
         if(q.stimulus){ kh += (q.stimulus.indexOf("<div")===0) ? q.stimulus : '<div class="pq-stim">'+fmtBr(q.stimulus)+'</div>'; }
         kh += '<div style="font-weight:600">'+fmt(q.q)+'</div>';
         if(q.type==="pg"){
-          kh += '<div class="pk-ans">Kunci Jawaban: '+"ABC"[q.answer]+'. '+fmt(q.options[q.answer])+'</div>';
+          kh += '<div class="pk-ans">Kunci Jawaban: '+"ABCD"[q.answer]+'. '+fmt(q.options[q.answer])+'</div>';
         } else if(q.type==="isian"){
           kh += '<div class="pk-ans">Kunci Jawaban: '+fmt(q.model)+'</div>';
         } else {
@@ -1156,7 +1156,7 @@
         if(q.type==="pg"){
           html += '<div class="opts">';
           q.options.forEach(function(op,i){
-            html += '<button class="opt" data-lat-pg="'+q.no+'" data-idx="'+i+'"><span class="huruf">'+"ABC"[i]+'</span>'+fmt(op)+'</button>';
+            html += '<button class="opt" data-lat-pg="'+q.no+'" data-idx="'+i+'"><span class="huruf">'+"ABCD"[i]+'</span>'+fmt(op)+'</button>';
           });
           html += '</div><div class="explain" id="lat-ex-'+q.no+'"></div>';
         } else if(q.type==="isian"){
@@ -1184,7 +1184,7 @@
           if(idx!==q.answer){ btn.classList.add("salah"); }
           var ex = document.getElementById("lat-ex-"+no);
           ex.className = "explain show " + (idx===q.answer ? "ok" : "no");
-          ex.innerHTML = '<span class="verdict">'+(idx===q.answer ? "🎉 Benar! Kerja bagus." : "Belum tepat. Jawaban yang benar: "+"ABC"[q.answer]+".")+'</span><br>'+fmt(q.explain);
+          ex.innerHTML = '<span class="verdict">'+(idx===q.answer ? "🎉 Benar! Kerja bagus." : "Belum tepat. Jawaban yang benar: "+"ABCD"[q.answer]+".")+'</span><br>'+fmt(q.explain);
         });
       });
       var chkBtns = host.querySelectorAll("[data-lat-check]");
@@ -1314,7 +1314,7 @@
         html += '<div class="opts">';
         q.options.forEach(function(op,i){
           var sel = sim.answers[q.no]===i ? " sel" : "";
-          html += '<button class="opt'+sel+'" data-sim-pg="'+i+'"><span class="huruf">'+"ABC"[i]+'</span>'+fmt(op)+'</button>';
+          html += '<button class="opt'+sel+'" data-sim-pg="'+i+'"><span class="huruf">'+"ABCD"[i]+'</span>'+fmt(op)+'</button>';
         });
         html += '</div>';
       } else if(q.type==="isian"){
@@ -1483,11 +1483,11 @@
             var cls = "opt";
             if(i===q.answer) cls += " benar";
             else if(pilih===i) cls += " salah";
-            rh += '<button class="'+cls+'" disabled><span class="huruf">'+"ABC"[i]+'</span>'+fmt(op)+(pilih===i ? ' <b>(jawabanmu)</b>' : '')+'</button>';
+            rh += '<button class="'+cls+'" disabled><span class="huruf">'+"ABCD"[i]+'</span>'+fmt(op)+(pilih===i ? ' <b>(jawabanmu)</b>' : '')+'</button>';
           });
           rh += '</div>';
           var ok = pilih===q.answer;
-          rh += '<div class="explain show '+(ok?"ok":"no")+'"><span class="verdict">'+(ok?"🎉 Benar!":"Jawabanmu belum tepat. Kunci jawaban: "+"ABC"[q.answer]+".")+'</span><br>'+fmt(q.explain)+'</div>';
+          rh += '<div class="explain show '+(ok?"ok":"no")+'"><span class="verdict">'+(ok?"🎉 Benar!":"Jawabanmu belum tepat. Kunci jawaban: "+"ABCD"[q.answer]+".")+'</span><br>'+fmt(q.explain)+'</div>';
         } else if(q.type==="isian"){
           var val = sim.answers[q.no];
           var ok2 = isianBenar(q, val);
